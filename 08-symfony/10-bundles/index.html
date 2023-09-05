@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Els bundles de Symfony - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#els-bundles-de-symfony">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Els bundles de Symfony
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="els-bundles-de-symfony">Els bundles de Symfony</h1>
+<h2 id="introduccio">Introducció</h2>
+<p>Els bundles en Symfony són elements coneguts com a mòduls o plugins en
+altres frameworks. Es defineixen en l'arxiu config/bundles.php per a
+cada entorn (desenvolupament, producció, etc), de manera que poden
+activar-se només per a certs entorns.</p>
+<p>L'exemple més habitual de bundle específic per a un entorn és el bundle
+profiler, que s'encarrega de mostrar la finestra d'error i depuració
+cada vegada que es produeix un error en l'aplicació, mostrant el
+missatge i traça de l'error, usuari autenticat i altres dades que no
+són recomanables en un entorn de producció. Aquest bundle només està
+habilitat per a l'entorn de desenvolupament i proves, però no per a
+producció.</p>
+<h3 id="bundles-preinstallats">Bundles preinstal·lats</h3>
+<p>Si tirem la vista arrere, a la primera sessió del curs, vam veure que
+existien dues formes de crear un projecte Symfony:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">composer</span> <span class="nx">create</span><span class="o">-</span><span class="nx">project</span> <span class="nx">symfony</span><span class="o">/</span><span class="nx">website</span><span class="o">-</span><span class="nx">skeleton</span> <span class="nx">project</span><span class="o">-</span><span class="nx">name</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nx">composer</span> <span class="nx">create</span><span class="o">-</span><span class="nx">project</span> <span class="nx">symfony</span><span class="o">/</span><span class="nx">skeleton</span> <span class="nx">project</span><span class="o">-</span><span class="nx">name</span>
+</code></pre></div>
+<p>La primera d'elles és la que hem usat fins ara, i deixa preinstalado un
+conjunt de bundles útils per a desenvolupar una aplicació web amb
+Symfony. Entre ells està el motor de plantilles Twig, l'ORM Doctrine i
+uns altres.</p>
+<p>Si optem per crear un projecte mitjançant la segona opció, obtindrem un
+projecte sense (quasi) cap funcionalitat afegida. Aquesta forma de
+definir projectes s'ha habilitat des de Symfony 4 per a donar cabuda a
+projectes més lleugers, on només s'instal·le el necessari. No obstant
+açò, com ja comentem abans, s'ha deixat disponible l'altra alternativa
+per a desenvolupar projectes de forma còmoda, amb moltes funcionalitats
+preinstaladas, encara que realment algunes no les anem a utilitzar.</p>
+<p>En qualsevol cas, convé tenir present que totes aqueixes funcionalitats
+preinstaladas en el nostre projecte, i moltes altres que podem requerir,
+són bundles o plugins externs al nucli de Symfony.</p>
+<p>En aquesta sessió veurem com afegir aquests bundles als projectes, i
+parlarem d'alguns bundles interessants a més dels quals ja hem vist.</p>
+<h2 id="installacio-de-bundles">Instal·lació de bundles</h2>
+<p>Anem a provar a crear un projecte bàsic sense esquelet web. Per exemple,
+veu a la teua carpeta de treball (/home/alumne/symfony) i crea aquest
+projecte:</p>
+<p>composer create-project symfony/skeleton prova_bundles</p>
+<p>Si fas una ullada a l'estructura del projecte, veuràs que en la carpeta
+vendor amb prou faenes té un parell d'elements, mentre que aqueixa
+mateixa carpeta en l'aplicació de contactes o llibres que hem vingut
+fent té molts més.</p>
+<p>Anem a fer ara el mateix que vam fer quan vam crear els projectes de
+contactes i llibres: configurar Apatxe per a poder accedir al projecte
+mitjançant un virtual host. Recordem els passos:</p>
+<ol>
+<li>Edita l'arxiu /etc/hosts (amb permisos de root) per a afegir un nou
+    domini local per a la nostra aplicació. Cridarem a aquest domini
+    symfony.bundles: 127.0.0.1 symfony.bundles</li>
+<li>Ja tindrem un parell de passos fets de projectes previs: configurar
+    la carpeta /home/alumne/symfony amb els permisos d'accés necessaris
+    per als projectes que tindrem dins, i habilitar la creació d'hosts
+    virtuals en Apatxe. Així que aquests passos podem saltar-los ara</li>
+<li>Edita l'arxiu /opt/lampp/etc/extra/httpd­vhosts.conf i afig un nou
+    host virtual per a la nostra aplicació. Haurà de quedar-te així:
+    \&lt;VirtualHost *:80&gt; DocumentRoot
+    "/home/alumne/symfony/prova_bundles/public" ServerName
+    symfony.bundles</li>
+<li>Reinicia el servidor Apatxe, i intenta accedir a
+    http://symfony.bundles, per a veure la pàgina d'inici.</li>
+</ol>
+<h3 id="exemple-doctrine">. Exemple: Doctrine</h3>
+<p>Anem a fer una prova per a treballar amb Doctrine en el nostre nou
+projecte. Per a començar, anem a crear una base de dades anomenada
+peliculas per a emmagatzemar certa informació bàsica de pel·lícules. Per
+a crear la base de dades, editem l'arxiu .env del projecte i definim la
+URL de connexió a la base de dades, com hem fet per als projectes
+anteriors:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>DATABASE_URL=mysql://root\@127.0.0.1:3306/peliculas
+</code></pre></div>
+i després, vam crear la base de dades amb el comando:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console doctrine:database:create
+</code></pre></div>
+<p>El que obtindrem en executar aquest comando és un missatge d'error en
+la consola que indica que no troba el comando. Necessitem instal·lar el
+bundle Doctrine per a solucionar el problema. En realitat, instal·larem
+un bundle anomenat orm­pack, que conté a Doctrine, juntament amb el
+bundle maker que és el que permet generar cert codi automàticament, com
+per exemple les entitats. Per a açò, escrivim aquests comandos des de la
+carpeta principal del projecte:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require symfony/orm-pack
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span>composer require symfony/maker-bundle --dev
+</code></pre></div>
+<p>Després d'aquests passos, editem l'arxiu <code>.env</code> novament, i definim la
+URL de connexió a la base de dades (és possible que s'haja duplicat amb
+aquesta instal·lació). Després, tornem a intentar crear la base de
+dades, i tot funcionarà correctament.</p>
+<p>Intentem ara crear una entitat. En aquest cas, anem a crear una entitat
+anomenada Pelicula, amb un aneu autogenerado, un títol (string) i un
+any.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>php bin/console make:entity
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span>Class name of the entity to create or update <span class="o">(</span>i.g. OrangePizza<span class="o">)</span>:
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>Pelicula
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>New property name <span class="o">(</span>press to stop adding fields<span class="o">)</span>:
+<span class="linenos" data-linenos=" 8 "></span>&gt;titule
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>Field <span class="nb">type</span> <span class="o">(</span>enter? to see all types<span class="o">)</span> <span class="o">[</span>string<span class="o">]</span>:
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>string
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>Field length <span class="o">[</span><span class="m">255</span><span class="o">]</span>:
+<span class="linenos" data-linenos="15 "></span>&gt;255
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>Can this field be null <span class="k">in</span> the database <span class="o">(</span>nullable<span class="o">)</span> <span class="o">(</span>yes/no<span class="o">)</span> <span class="se">\[</span>no<span class="se">\]</span>:
+<span class="linenos" data-linenos="18 "></span>&gt;no
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>Add another property? Enter the property name <span class="o">(</span>or press to stop adding
+<span class="linenos" data-linenos="21 "></span>fields<span class="o">)</span>:
+<span class="linenos" data-linenos="22 "></span>&gt;anyo
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span>Field <span class="nb">type</span> <span class="o">(</span>enter? to see all types<span class="o">)</span> <span class="o">[</span>string<span class="o">]</span>:
+<span class="linenos" data-linenos="25 "></span>&gt;integer
+<span class="linenos" data-linenos="26 "></span>
+<span class="linenos" data-linenos="27 "></span>Can this field be null <span class="k">in</span> the database <span class="o">(</span>nullable<span class="o">)</span> <span class="o">(</span>yes/no<span class="o">)</span> <span class="se">\[</span>no<span class="se">\]</span>:
+<span class="linenos" data-linenos="28 "></span>&gt;no
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span>Add another property? Enter the property name <span class="o">(</span>or press to stop adding
+<span class="linenos" data-linenos="31 "></span>fields<span class="o">)</span>:
+<span class="linenos" data-linenos="32 "></span>
+<span class="linenos" data-linenos="33 "></span>Success!
+<span class="linenos" data-linenos="34 "></span>
+<span class="linenos" data-linenos="35 "></span>A continuació, migramos els canvis a la base de dades:
+<span class="linenos" data-linenos="36 "></span>
+<span class="linenos" data-linenos="37 "></span><span class="sb">```</span>shell
+<span class="linenos" data-linenos="38 "></span>php bin/console make:migration
+<span class="linenos" data-linenos="39 "></span>
+<span class="linenos" data-linenos="40 "></span>php bin/console doctrine:migration:migrate
+</code></pre></div>
+Ja tenim la base de dades creada, amb la seua taula pelicula. Podem
+inserir ara un parell de pel·lícules de prova, a mà des de phpMyAdmin:</p>
+<p>Definim ara un controlador que cerque totes les pel·lícules i les mostre
+en la pàgina. Creem una classe PeliculaController en la carpeta
+src/Controller, amb un codi com a est:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">getDoctrine</span><span class="p">()</span><span class="o">-</span><span class="nx">\</span><span class="o">&gt;</span><span class="nx">getRepository</span><span class="p">(</span><span class="nx">Pelicula</span><span class="o">::</span><span class="na">class</span><span class="p">);</span> <span class="nx">\</span><span class="nv">$peliculas</span> <span class="o">=</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">\</span><span class="nv">$repositori</span><span class="o">-</span><span class="nx">\</span><span class="o">&gt;</span><span class="nx">findAll</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nx">\</span><span class="nv">$peliculas</span><span class="p">)</span> <span class="nx">\</span><span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span> <span class="nx">\</span><span class="nv">$resultat</span> <span class="o">=</span> <span class="nx">\</span><span class="s2">"</span><span class="se">\"</span><span class="s2">; foreach(</span><span class="se">\$</span><span class="s2">peliculas</span>
+<span class="linenos" data-linenos="5 "></span><span class="s2">as </span><span class="se">\$</span><span class="s2">pelicula) </span><span class="se">\$</span><span class="s2">resultat .= </span><span class="se">\$</span><span class="s2">pelicula-\&gt;getTitulo(). </span><span class="se">\"</span><span class="s2"> ("</span><span class="o">.</span>
+<span class="linenos" data-linenos="6 "></span><span class="nx">\</span><span class="nv">$pelicula</span><span class="o">-</span><span class="nx">\</span><span class="o">&gt;</span><span class="nx">getAnyo</span><span class="p">()</span><span class="o">.</span> <span class="nx">\</span><span class="s2">")\&lt;br /\&gt;</span><span class="se">\"</span><span class="s2">; return new Response(</span><span class="se">\$</span><span class="s2">resultat);</span>
+<span class="linenos" data-linenos="7 "></span><span class="s2">} else { return new Response("</span><span class="nx">No</span> <span class="nx">s</span><span class="err">'</span><span class="nx">han</span> <span class="nx">trobat</span> <span class="nx">pel·lícules\</span><span class="s2">"); } } }</span>
+<span class="linenos" data-linenos="8 "></span>
+<span class="linenos" data-linenos="9 "></span><span class="s2">?\&gt;</span>
+</code></pre></div>
+<p>Abans de comprovar el funcionament, recorda configurar la reescriptura
+de rutes en l'aplicació, escrivint aquests comandos des de la carpeta
+principal del projecte:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer config extra.symfony.allow-contrib <span class="nb">true</span>
+<span class="linenos" data-linenos="2 "></span>composer req symfony/apache-pack
+</code></pre></div>
+<p>Després ja podrem accedir a movies-symfony/peliculas i veure el llistat
+en pantalla:</p>
+<p>En aquest punt, pots realitzar l'Exercici 1 dels proposats al final de
+la sessió.</p>
+<h3 id="installacio-daltres-bundles-coneguts">Instal·lació d'altres bundles coneguts</h3>
+<p>Al llarg d'aquestes sessions de curs hem estat utilitzant certs bundles
+de Symfony que també necessiten ser instal·lats (es van instal·lar
+automàticament a través del website­skeleton, i per açò no ens hem
+percatado). Fem un repàs:</p>
+<ul>
+<li>Per a poder utilitzar <strong>anotacions</strong> (com l'anotació \@Route que
+    emprem per a definir les rutes de l'aplicació), necessitem
+    instal·lar el bundle annotations. Aquest bundle és dels pocs que
+    s'instal·len en el skeleton b ásico de Symfony. Encara així, per a
+    instal·lar-ho manualment si fóra el cas, hauríem d'executar el
+    comando: composer require annotations</li>
+<li>Per a poder emprar el gestor de <strong>formularis</strong> de Symfony, i
+    crear-los i validar-los mitjançant codi, hem d'instal·lar els
+    bundles forms i validator, respectivament, d'aquesta manera:
+    composer require symfony/form composer require symfony/validator</li>
+<li>Per a aplicar la infraestructura de <strong>seguretat</strong> de Symfony en la
+    nostra aplicació, i poder definir rols, rutes protegides, etc,
+    necessitarem instal·lar el bundle security, as í: composer require
+    symfony/security-bundle</li>
+<li>Per a poder disposar del motor de plantilles <strong>Twig</strong> , necessitarem
+    instal·lar-ho també: composer require twig-bundle</li>
+</ul>
+<p>Com diem, tots aquests bundles es preinstalan en crear el projecte a
+partir del website­skeleton, però no estan disponibles (excepte les
+anotacions), si ho vam crear a partir del skeleton b ásico. En una
+secció posterior veurem altres bundles addicionals que puguen
+resultar-nos útils, a més d'aquests que ja hem vingut usant.</p>
+<h3 id="mes-bundles-interessants">Més bundles interessants</h3>
+<p>Ara que ja sabem com crear un projecte quasi buit en Symfony i
+instal·lar manualment els bundles que necessitem, vegem alguns bundles
+addicionals que poden resultar útils, a més dels quals hem comentat ja,
+i vingut usant en sessions prèvies (Twig, Doctrine, seguretat...).</p>
+<p>Existeixen diferents webs on poder obtenir informació d'aquests
+bundles:</p>
+<ul>
+<li>packagist.org, un repositori de paquets PHP en general, entre els
+    quals podem trobar nombrosos bundles de Symfony, molts d'ells
+    desenvolupats pel propi equip de Symfony, entre els quals
+    s'inclouen els ja vistos (orm­pack, validator, twig­bundle, etc).</li>
+<li>knpbundles.com, una web mantinguda per la companyia KNP, que és una
+    de les quals més suport donen a Symfony quant a bundles es refereix.
+    En ella trobarem tant bundles desenvolupats per aquesta companyia,
+    com per unes altres, com per exemple FOS (FriendsOfSymfony), un grup
+    de desenvolupament que va començar formant part de l'equip de KNP,
+    però que després va decidir desenvolupar bundles sota un espai de
+    noms propi.</li>
+</ul>
+<h4 id="exemple-easyadmin">Exemple: EasyAdmin</h4>
+<p>Vegem com instal·lar i treballar amb el bundle EasyAdmin. Aquest bundle
+permet definir de forma automàtica un administrador per a gestionar les
+entitats de la nostra aplicació. La seua instal·lació és molt senzilla,
+a través d'aquest comando:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require admin
+</code></pre></div>
+<p>Després, hem d'editar l'arxiu config/packages/easy_admin.yaml que
+s'haurà creat, i afegir les entitats que vulguem gestionar:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">easy_admin</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nt">entities</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\# List the entity class name you want to manage</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">App</span>
+</code></pre></div>
+I açò és tot. Accedint a la URI /admin en la nostra aplicació, podrem
+gestionar les entitats indicades. Si seguim aquests passos en la nostra
+aplicació symfony.bundles, i afegim l'entitat Pelicula com en
+l'exemple anterior, podem accedir a symfony.bundles/admin i gestionar
+aquesta taula i els seus elements:</p>
+<p>Existeixen altres opcions de configuració del bundle, com per exemple
+protegir l'accés amb contrasenya i altres opcions. Per a més
+informació, podeu consultar la documentació oficial.</p>
+<p>En aquest punt, pots realitzar l'Exercici 2 dels proposats al final de
+la sessió.</p>
+<h3 id="exemple-jens-segers-date">Exemple: Jens Segers Date</h3>
+<p>Aquest altre bundle permet treballar amb dates de forma senzilla,
+convertint cadenes a dates amb un format determinat, establint locals
+per a diferents localitzacions, fent càlculs entre dates, etc.</p>
+<p>S'instal·la amb el següent comando:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require jenssegers/date
+</code></pre></div>
+<p>Després, n'hi ha prou amb utilitzar la classe Date per a accedir a
+les seues propietats i mètodes. Per a provar el seu ús, crearem un nou
+mètode en la nostra classe PeliculaController, associat a la ruta
+/dates. Dins, crearem la data actual, que mostrarem amb un format
+determinat per pantalla. També crearem una data a partir d'una cadena
+de text, i calcularem la diferència entre aqueixa data i avui.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">use</span> <span class="nx">Jenssegers</span><span class="p">;</span> <span class="o">...</span> <span class="o">/</span><span class="nx">\</span><span class="o">*</span><span class="nx">\</span><span class="o">*</span> <span class="nx">\</span><span class="o">*</span> <span class="nx">\</span><span class="o">@</span><span class="nx">Route</span><span class="p">(</span><span class="s2">"/dates"</span><span class="p">,</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"dates"</span><span class="p">)</span> <span class="nx">\</span><span class="o">*/</span> <span class="k">public</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">function</span> <span class="nf">dates</span><span class="p">()</span> <span class="p">{</span> <span class="nx">Dóna</span><span class="s1">'t::setLocale('</span><span class="nx">és</span><span class="s1">'); \$avui = Dóna'</span><span class="nx">t</span><span class="o">::</span><span class="na">now</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span><span class="nx">\</span><span class="nv">$naixement</span> <span class="o">=</span> <span class="nx">Dóna</span><span class="s1">'t::createFromFormat('</span><span class="nx">d</span><span class="o">/</span><span class="nx">m</span><span class="o">/</span><span class="nx">I</span><span class="s1">', '</span><span class="mi">7</span><span class="o">/</span><span class="mi">4</span><span class="o">/</span><span class="mi">1978</span><span class="s1">');</span>
+<span class="linenos" data-linenos="4 "></span><span class="s1">\$diferencia = \$naixement-\&gt;timespan();</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="s1">return new Response('</span><span class="nx">Avui</span> <span class="nx">és</span><span class="s1">'. \$avui-\&gt;format('</span><span class="nx">d</span><span class="o">/</span><span class="nx">m</span><span class="o">/</span><span class="nx">I</span><span class="s1">'). ''. '</span><span class="nx">Naixement</span>
+<span class="linenos" data-linenos="7 "></span><span class="nx">el</span><span class="s1">'. \$naixement-\&gt;format('</span><span class="nx">d</span><span class="o">/</span><span class="nx">m</span><span class="o">/</span><span class="nx">i</span><span class="s1">'). ''. '</span><span class="nx">Han</span> <span class="nx">passat</span><span class="o">:</span><span class="err">'</span><span class="o">.</span> <span class="nx">\</span><span class="nv">$diferència</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+L'eixida serà alguna cosa semblat a açò (variarà depenent de la data
+actual):</p>
+<p>Intenta realitzar l'Exercici 3 proposat al final de la sessió, de
+caràcter opcional.</p>
+<h3 id="symfony-flex">Symfony Flex</h3>
+<p>Symfony Flex és una nova forma d'instal·lar i gestionar components en
+projectes Symfony, disponible des de la seua versió 3.3. Ve a reemplaçar
+a l'anterior instal·lador de Symfony, i al Symfony Standard Edition,
+que, com comentem en la primera sessió del curs, suposava una
+instal·lació molt més extensa i monolítica del framework.</p>
+<p>Amb Symfony Flex s'automatitzen algunes tasques habituals, com
+instal·lar o desinstal·lar bundles. De fet, des de Symfony 4 és el
+mètode que s'empra per defecte per a aquestes instal·lacions (encara
+que el seu ús segueix sent opcional), i ens evita haver d'editar a mà
+l'arxiu config/bundles.php per a donar d'alta els nous bundles
+instal·lats, o llevar els que ja no estiguem emprant. Per aquest motiu
+hem pogut emprar Doctrine en un exemple anterior sense haver hagut de
+tocar la configuració del projecte.</p>
+<p>No entrarem en els detalls sobre els arxius de configuració i les dades
+que empra Flex per a gestionar aquestes tasques, ja que no forma part
+del nucli del curs, però sí considerem necessari que es conega la seua
+existència per a saber per què s'autoconfiguran certes coses en els
+projectes sense que hàgem d'intervenir.</p>
+<p>2.5. Creació de bundles propis</p>
+<p>A més d'instal·lar i utilitzar bundles de tercers, també podem elaborar
+els nostres propis. De fet, fins a l'aparició de Symfony 4 es
+recomanava que tota l'aplicació estiguera estructurada en bundles (és a
+dir, que els propis components que desenvolupàrem per a l'aplicació
+també anaren bundles), però a partir d'aquesta versió 4 ja no es
+recomana aquesta estructura, i s'indica que els bundles s'empren per a
+compartir codi entre múltiples aplicacions. En qualsevol cas, per a
+crear el nostre bundle hem de seguir una estructura recomanada des de la
+documentació oficial de Symfony.</p>
+<p>La creació de bundles propis queda fora dels objectius principals del
+curs, per la qual cosa no la veurem amb detall. A més, existeixen
+multitud de bundles ja predefinits que permetran cobrir la immensa
+majoria de les nostres necessitats. En qualsevol cas, ací teniu un punt
+de partida que seguir per a saber més sobre aquest tema.</p>
+<ol start="3">
+<li>Exercicis</li>
+</ol>
+<p>3.1. Exercici 1</p>
+<p>Anem a crear un projecte similar al de proves que hem fet en el primer
+exemple d'aquesta sessió. En aquest cas, anem a crear un projecte per a
+gestionar tasques pendents. El comando de creació del projecte (des de
+la nostra carpeta /home/alumne/ symfony) serà aquest:</p>
+<p>composer create symfony/skeleton tasques</p>
+<p>Després, segueix aquests passos:</p>
+<ol>
+<li>Fes que aquest nou projecte siga accessible des del domini
+    symfony.tasques.</li>
+<li>Instal·la Doctrine (bundles orm­pack i maker, com s'ha fet en
+    l'exemple anterior), i crea i connecta amb una base de dades
+    anomenada tasques, editant l'arxiu .env per a açò.</li>
+<li>Crea una entitat anomenada Tasca amb aquests camps: ◦ Un aneu
+    autogenerado ◦ La descripció de la tasca (string de 255 caràcters de
+    longitud, sense nuls) ◦ La data de la tasca (tipus dóna't, sense
+    nuls) ◦ La prioritat de la tasca (sencer, sense nuls) Actualitza la
+    base de dades amb aquesta entitat, i crea a mà un parell de tasques
+    en ella a través de phpMyAdmin. Procura que les prioritats tinguen
+    valors entre 1 (ALTA) i 3 (BAIXA), ja que definirem aquest rang en
+    la pròxima sessió.</li>
+<li>Crea un controlador en src/Controller anomenat TareaController.
+    Defineix un mètode que, en carregar-se la URI /tasques mostre un
+    llistat de les tasques en pantalla, sense un format específic.
+    Recorda configurar la reescriptura de rutes perquè aquesta URI
+    funcione.</li>
+</ol>
+<p>NOTA : per a mostrar la data com a part d'una cadena, pots</p>
+<p>utilitzar el mètode format del propi objecte DateTime:</p>
+<p>\$tasca-&gt;getFecha()-&gt;format("d/m/I").</p>
+<p>3.2. Exercici 2</p>
+<p>Instal·la el bundle EasyAdmin, configura-ho per a treballar amb
+l'entitat Tasca i crea amb ell unes quantes tasques més en la base de
+dades.</p>
+<p>3.3. Exercici 3 (opcional)</p>
+<p>Utilitza el bundle jenssegers/dóna't en l'aplicació de tasques, i
+defineix un nou mètode en TareaController amb URI /temps, que indique
+per a cada tasca de la base de dades quant temps falta perquè finalitze
+el termini. Per exemple:</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

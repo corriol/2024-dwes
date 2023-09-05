@@ -1,0 +1,573 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Introducció - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#introduccio-a-la-programacio-web">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Introducció
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="introduccio-a-la-programacio-web">Introducció a la programació web</h1>
+<div class="admonition important">
+<p class="admonition-title">Objectius</p>
+<ul>
+<li>Seleccionar les arquitectures i tecnologies de programació web en
+entorn servidor, analitzant-ne les capacitats i característiques
+pròpies.</li>
+<li>Introduir els principals llenguatges i frameworks per al
+desenvolupament en l'entorn servidor.</li>
+<li>Caracteritzar i diferenciar els models d'execució de codi en el
+servidor i en el client web.</li>
+<li>Identificar les principals tecnologies associades.</li>
+<li>Instal·lar i configurar l'entorn de treball que emprarem per al
+desenvolupament web.</li>
+<li>Visualitzar mitjançant el navegador una pàgina web html amb codi PHP
+encastat.</li>
+</ul>
+</div>
+<h2 id="arquitectura-duna-aplicacio-web">Arquitectura d'una aplicació web</h2>
+<p>A diferència de les aplicacions d'escriptori, que utilitzen els recursos d'un únic ordinador
+les aplicacions web són distribuïdes, intervenen com a mínin dos equipos diferents: el client i el servidor.</p>
+<p>La comunicació és du a terme mitjançant el protocol HTTP, base
+de la <em>World Wide Web</em>.</p>
+<h3 id="el-model-clientservidor">El model client/servidor</h3>
+<p>El model client-servidor és aquell on tots els clients estan connectats
+a un servidor on es centralitzen els diferents recursos. Aquests
+recursos estan a disposició dels clients cada cop que els sol·liciten.
+Això fa que totes les gestions que es realitzen es concentren en el
+servidor, que disposa dels requeriments dels clients amb prioritat, els
+arxius que són d'ús públic i els restringits, els arxius de només
+lectura, els que poden ser modificats, etc.</p>
+<figure>
+<p><img alt="" src="../assets/clienteservidor.png"/></p>
+<figcaption>
+Arquitectura Client Servidor.
+</figcaption>
+</figure>
+<p>En el model client/servidor, el dispositiu que sol·licita informació es
+denomina client i el dispositiu que respon la sol·licitud es denomina
+servidor. Els processos de client i servidor es consideren una part de
+la capa d'aplicació. El client comença l'intercanvi sol·licitant les
+dades al servidor, que respon enviant un o més blocs de dades al client.
+Els protocols de capa d'aplicació descriuen el format de les
+sol·licituds i respostes entre clients i servidor. A més de la
+transferència real de dades, aquest intercanvi pot requerir informació
+addicional, com l'autentificació de l'usuari o la identificació d'un
+arxiu de dades per transferir.</p>
+<p>Encara que les dades generalment es descriuen com un flux del servidor
+al client, algunes dades sempre flueixen del client al servidor. El flux
+de dades pot ser el mateix en les dues direccions o fins i tot ser major
+en la direcció que va del client al servidor. Per exemple, un client pot
+transferir un arxiu al servidor amb finalitats d'emmagatzemament. La
+transferència de dades d'un client a un servidor es coneix com a pujada
+i la de les dades d'un servidor a un client, baixada.</p>
+<h3 id="el-protocol-http">El protocol HTTP</h3>
+<p>El protocol de transferència d'hipertext (HTTP) és un protocol
+client-servidor molt senzill que articula els intercanvis d'informació
+entre els clients HTTP (navegadors) i els servidors HTTP.</p>
+<p><strong>HTTP es basa en operacions senzilles de sol·licitud/resposta.</strong> Quan
+un client estableix una connexió amb un servidor i envia un missatge amb
+les dades de la sol·licitud, el servidor respon amb un missatge similar
+que conté l'estat de l'operació i el seu resultat de la sol·licitud.
+Totes les operacions poden adjuntar un objecte o recurs sobre el qual
+actuen; cada objecte web (document HTML, arxiu multimèdia o aplicació
+CGI) és conegut pel seu localitzador uniforme de recursos (URL, <em>Uniform
+Resource Locator</em>). Els recursos poden ser arxius, el resultat de
+l'execució d'un programa, una consulta a una base de dades, la
+traducció automàtica d'un document, etc.</p>
+<p><strong>HTTP és un protocol sense estat</strong>, és a dir, no guarda cap informació
+sobre connexions anteriors. El desenvolupament d'aplicacions web
+freqüentment necessita mantenir estat. Per això s'utilitzen les galetes
+(<em>cookies</em>), és a dir, la informació que un servidor pot emmagatzemar en
+el sistema client. Això permet que les aplicacions web institueixin la
+noció de "sessió", i, alhora, permet rastrejar usuaris, ja que les
+galetes es poden emmagatzemar en el client durant un temps indeterminat.</p>
+<p>Per a conèixer amb més profunditat el protocol HTTP  avaluarem en què consisteix una transacció HTTP. Cada vegada que un client fa una petició a un servidor, s'executen un
+seguit d'accions:</p>
+<ol>
+<li>Un usuari accedeix a una adreça d'Internet (URL) seleccionant un
+    enllaç d'un document HTML o introduint-la directament a la barra de
+    navegació d'un navegador web des de la perspectiva del client web.
+    El client web descodifica l'adreça d'Internet (URL) separant-ne les
+    diferents parts. És així com s'identifiquen el protocol d'accés,
+    el node, expressat amb el nom de domini o la seua adreça IP, el
+    possible port opcional (el valor per defecte és el 80) i l'objecte
+    del servidor requerit.</li>
+<li>S'obre una connexió TCP/IP amb el servidor cridant el port TCP
+    corresponent. Es fa la petició. En conseqüència, s'envien l'ordre
+    necessària (GET, POST, HEAD, etc.), l'adreça de l'objecte requerit
+    (el contingut de l'adreça d'Internet del servidor), la versió del
+    protocol HTTP utilitzada (en la major part de les ocasions és
+    HTTP/1.1) i un conjunt variable d'informació que inclou dades sobre
+    les capacitats del navegador web, dades opcionals per al servidor,
+    etc.</li>
+<li>El servidor localitza el recurs sol·licitat i torna la resposta al
+    client.</li>
+<li>Aquesta resposta consisteix en <strong>un codi d'estat</strong> i <strong>el tipus de dada</strong>
+    amb extensions multipropòsit de correu d'Internet (MIME,
+    Multipurpose Internet Mail Extension) de la informació de tornada,
+    seguit de la mateixa informació.</li>
+<li>El client formata i mostra el recurs rebut.</li>
+<li>Es tanca la connexió TCP.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Aquest procés es repeteix en cada accés que es faça al servidor HTTP.
+Per exemple, si es recull un document HTML que conté quatre imatges, el
+procés de transició mostrat amb anterioritat es repeteix cinc vegades,
+és a dir, una pel document HTML i quatre per les imatges.</p>
+</div>
+<figure>
+<p><img alt="Etapes d'una transacció
+HTTP" src="../assets/HTTP_Steps.png" title="Etapes d'una transacció HTTP"/></p>
+<figcaption>Etapes d'una transacció HTTP</figcaption>
+</figure>
+<p>Si el recurs sol·licitat és un programa (CGI, ASP.NET, PHP, etc.) el
+servidor HTTP redirigirà la petició a la llibreria o intèrpret adequat
+que executarà el programa i tornarà el control al servidor web.</p>
+<figure>
+<p><img alt="" src="../assets/web_application_with_html_and_steps.png"/></p>
+<figcaption>Etapes d'una sol·licitud HTTP amb processament per part del servidor
+</figcaption>
+</figure>
+<h3 id="format-de-les-url">Format de les URL</h3>
+<p>La sintaxi general de les URL consisteix en una seqüència jeràrquica de
+5 components:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>URI = scheme:[//authority]path[?query][#fragment]
+</code></pre></div>
+<p>on el component <code>authoriry</code> es deivideix en tres subcomponents:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>authority = [userinfo@]host[:port]
+</code></pre></div>
+<figure>
+<p><img alt="URL
+Syntax" src="../assets/1068px-URI_syntax_diagram.svg.png" title="Sintaxi de les URL"/></p>
+<figcaption>Sintaxi de les URL</figcaption>
+</figure>
+<h2 id="servidors-web-i-servidors-daplicacions">Servidors web i servidors d'aplicacions</h2>
+<p>Així com les aplicacions d'escriptori s'executen directament sobre el
+sistema operatiu, les aplicacions web necessiten d'una
+eina addicional que permeti desplegar-les per a la seva posada en marxa.
+Parlem de <a href="https://en.wikipedia.org/wiki/Comparison_of_web_server_software">servidors
+web</a> i
+<a href="https://en.wikipedia.org/wiki/Application_server">servidors
+d'aplicacions</a>,
+respectivament.</p>
+<p><strong>Un servidor web</strong> és una aplicació que rep una petició HTTP (normalment a
+través d'un navegador web) i retorna la pàgina web sol·licitada
+(escrita en llenguatge HTML i podent contenir codi Javascript
+encastat) perquè aquesta sigua interpretada i visualitzada pel
+navegador de qui va realitzar la sol·licitud (l'usuari).</p>
+<p><strong>Un servidor d'aplicacions</strong> és un servidor que permet l'execució d'aplicacions web.</p>
+<h3 id="exemples">Exemples</h3>
+<h4 id="apache">Apache</h4>
+<p>Apache és un dels servidors web més coneguts. És programari lliure i
+multiplataforma, encara que aproximadament el 90% dels servidors Apache
+s'executen actualment en entorns Linux ja que és el servidor preferit
+per a aquesta plataforma.</p>
+<p>És molt modular el que permet incorporar característiques un cop
+instal·lat i posat en marxa. Això li fa també molt flexible i pot donar
+servei a webs escrites en els llenguatges de programació web més estesos
+(com PHP, Python, ASP,...) A través del mòdul corresponent.</p>
+<h4 id="nginx">nginx</h4>
+<p>nginx (pronunciat en anglès "engine X") és un servidor web/proxy invers lleuger d'alt rendiment i un proxy per protocols de correu electrònic ( IMAP / POP3).</p>
+<h4 id="php-fpm">PHP-FPM</h4>
+<p><em>FastCGI Process Manager</em> és un servei que permet executar codi PHP separat del servidor HTTP de forma que millora la seua flexibilitat i el seu rendiment.</p>
+<h2 id="pagines-web-estatiques-i-dinamiques">Pàgines web estàtiques i dinàmiques</h2>
+<h3 id="pagines-web-estatiques">Pàgines web estàtiques</h3>
+<p>Les pàgines web estàtiques són aquelles en que el seu contingut no varia, per
+la qual cosa mostraran sempre la mateixa informació cada vegada que es
+carreguen. Són les pàgines creades en el llenguatge HTML, CSS i javascript.</p>
+<p>Les pàgines estàtiques només canvien si el programador web les modifica.</p>
+<h3 id="pagines-web-dinamiques">Pàgines web dinàmiques</h3>
+<p>Les pàgines web dinàmiques són pàgines el contingut de les quals varia a
+partir de certa informació: base de dades, identificació de l'usuari, hora del dia, etc.</p>
+<p>Aquest tipus de pàgines s'han de realitzar mitjançat un llenguatge de
+programació.</p>
+<h3 id="execucio-de-codi-en-el-client-i-en-el-servidor">Execució de codi en el client i en el servidor</h3>
+<p>Pel que hem pogut veure fins ara en el desenvolupament d'una aplicació web podem distingir entre una sèrie de tecnologies que s'executen en el navegador (<em>client-side o front-end programming</em>) i un sèrie de tecnologies que s'executen en el servidor (<em>server-side</em> o <em>back-end programming</em>)</p>
+<p>En el següent gràfic es mostra un escenari on podem trobar codi que
+s'executa en el servidor (PHP) i en el client (javascript).</p>
+<figure>
+<p><img alt="" src="../assets/figure_2_client_side_scripting.png"/></p>
+<figcaption>
+    Execució de codi en el client i en el servidor
+</figcaption>
+</figure>
+<h2 id="model-de-desenvolupament-en-3-capes">Model de desenvolupament en 3 capes</h2>
+<p>Des d'un punt de vista de desenvolupament una aproximació més detallada
+al model client-servidor és el que es coneix com a <strong>model en 3 capes</strong>.
+És un model on es mostra més en detall com es distribueix el programari
+que participa en qualsevol desenvolupament web. Segueix estant present
+l'arquitectura client-servidor (tot es basa en ella) però apareixen més
+detalls com el programari utilitzat en cada un dels dos actors i com
+interactuen les diferents tecnologies o aplicacions.</p>
+<p>Per comprendre millor que és el model de desenvolupament de 3 capes
+podem observar el següent esquema on es mostra cadascuna d'aquestes
+capes físíques :</p>
+<figure>
+<p><img alt="**Model de desenvolupament de 3
+capes**" src="../assets/3_capas.png" title="Model de desenvolupament de 3 capes"/></p>
+<figcaption>Model de desenvolupament de 3 capes</figcaption>
+</figure>
+<p>Des d'un punt de vista lògic les capes (<em>layers</em>) es divideixen les següents funcionalitats:</p>
+<ul>
+<li><strong>Capa de presentació:</strong> És la capa on l'aplicació es mostra a
+    l'usuari. Bàsicament és la GUI (<em>Graphical User Interface,
+    interfície gràfica d'usuari</em>). En el cas d'una aplicació web seria
+    el codi HTML que es carrega directament al navegador web. En
+    qualsevol cas, s'executa directament en l'equip del client.</li>
+<li>
+<p><strong>Capa d'aplicació:</strong> És la capa intermèdia on es porta a terme tota
+    la lògica de l'aplicació. Sempre s'executarà en el costat
+    servidor. Aquesta capa, després de realitzar tots els càlculs i/o
+    operacions sobre les dades, genera el codi HTML que serà presentat a
+    l'usuari en la capa següent.</p>
+<p>Sols estar desenvolupada usant PHP, Pyhton, Java, etc i es comunica amb la capa de dades mitjançant una API.</p>
+</li>
+<li>
+<p><strong>Capa de dades:</strong> És la capa que emmagatzema les dades. Bàsicament,
+    en condicions normals, fa referència al propi SGBD que és
+    l'encarregat d'emmagatzemar les dades. Depenent de l'arquitectura
+    de l'aplicació, aquesta capa i la de negoci es poden trobar
+    físicament en el mateix equip, encara que també és possible que
+    s'hagin de separar per qüestions de rendiment. La capa de dades
+    serveix totes la informació necessària a la capa de negoci per dur a
+    terme les seves operacions.</p>
+</li>
+</ul>
+<p>Si ens imaginem una botiga online, la capa de dades emmagatzemaria tota la
+informació en una base de dades (usuaris, comandes, articles,
+ofertes,...). La capa d'aplicació hauria d'accedir a aquesta informació i,
+després processar una comanda, per exemple i finalment presentar el resultat
+a l'usuari en el navegador, que és la capa de presentació.</p>
+<p>I si ens centrem en un cas concret amb programari i tecnologies ja
+definits, un model de 3 capes podria ser el següent:</p>
+<figure>
+<p><img alt="**Modelo de desarrollo de 3 capas (desarrollo web con
+PHP)**" src="../assets/3_capas2.jpg" title=": Modelo de desarrollo de 3 capas (desarrollo web con PHP)"/></p>
+<figcaption>
+    Modelo de desarrollo de 3 capas (desarrollo web con PHP)
+</figcaption>
+</figure>
+<ul>
+<li>Navegador web: En aquest cas, Mozilla Firefox, Internet Explorer o
+    Google Chrome podrien ser qualsevol de les aplicacions que ocuparien
+    aquesta capa</li>
+<li>Apache + PHP / IIS + ASP: Un servidor web acompanyat del seu
+    corresponent llenguatge de programació web permeten desenvolupar la
+    part que ocupa la capa de negoci. També podríem col·locar la
+    combinació Apache Tomcat + Servlets</li>
+<li>MySQL / PostgreSQL / Node: Finalment a la capa de dades podem posar
+    qualsevol SGBD, com poden ser MySQL o PostgreSQL.</li>
+</ul>
+<p>L'avantatge principal d'aquest model és que el desenvolupament es pot
+dur a terme en diversos nivells i, en cas que sobrevinga algun canvi,
+només afectarà el nivell requerit sense haver de revisar entre el codi
+font d'altres mòduls, atès que s'haurà reduït el acoblament informàtic
+fins a una interfície de pas de missatges.</p>
+<h3 id="front-end-back-end-full-stack">Front-end, back-end, Full stack</h3>
+<p>També tenint en compte en quin costat se situen les tecnologies i per a
+què s'utilitzen aquestes, actualment es parla molt de 3 perfils 
+diferenciats en l'àmbit del desenvolupament web:</p>
+<ul>
+<li><strong>Front-end:</strong> És la part del desenvolupament que s'encarrega del
+    disseny i maquetació de l'aplicació web utilitzant tecnologies com
+    HTML, CSS i Javascript (i els seus frameworks). En aquest cas s'ha
+    de preocupar també de la correcta presentació en qualsevol tipus de
+    dispositiu i fins i tot del posicionament en cercadors</li>
+<li><strong>Back-end:</strong> És la part del desenvolupament que s'encarrega del
+    costat servidor utilitzant tecnologies com PHP, JSP i Python. També
+    s'encarrega de l'administració del servidor d'aplicacions i la
+    base de dades.</li>
+<li><strong>Full stack:</strong> En un perfil que engloba els dos anteriors. En
+    aquest cas el desenvolupador potser no és un expert de cap
+    tecnologia concreta però té amplis coneixements de tot el conjunt i
+    és capaç de col·laborar en qualsevol de les parts.</li>
+</ul>
+<figure>
+<p><img alt="" src="../assets/fullstack.jpg"/></p>
+<figcaption>
+    Fullstack
+</figcaption>
+</figure>
+<h3 id="tipogia-de-les-aplicacions-web">Tipogia de les aplicacions web</h3>
+<p>Depenent de la forma en què s'utilitzen les tecnologies podem classificar les aplicacions en:</p>
+<ul>
+<li>Tradicionals o clàssiques, on pràctimanent tota la lògica i la presentenció es genera en el costat de servidor.</li>
+<li>Híbidres on una aplicació tradicional incorpora tecnologies en el costat del client per a millorar l'experiència de l'usuari.</li>
+<li><em>Single Page Applications</em> (SPA). En el costat servidor es generen una sèrie de funcionalitats accessibles mitjançant una API i tota la càrrega de la presentació és realitza en el costat del client que s'encarrega a més realizar les sol·licitus a la API.</li>
+</ul>
+<figure>
+<p><img alt="" src="../assets/01spa.png"/></p>
+<figcaption>
+Arquitectura tradicional vs SPA</figcaption>
+</figure>
+<h2 id="llenguatges">Llenguatges</h2>
+<h3 id="php">PHP</h3>
+<p>PHP (<em>PHP Hypertext Preprocessor</em>) és un llenguatge de programació de
+costat servidor dissenyat principalment per al desenvolupament web.</p>
+<p>PHP s'utilitza com a llenguatge de script embegut en pàgines HTML i
+funciona, normalment, com un mòdul del servidor web (per exemple, a
+Apache). El servidor web combina els resultats d'executar els scripts
+PHP amb l'HTML al qual va encastat i genera la pàgina web resultant per
+al navegador.</p>
+<p>Actualment PHP funciona pràcticament amb qualsevol servidor web i en
+qualsevol Sistema Operatiu existents, i gairebé amb qualsevol SGBD en
+cas que necessitem utilitzar una base de dades. Tot i això, el més
+habitual és veure-ho formant el que es coneix com una arquitectura LAMP
+(Linux, Apache, MySQL i PHP), és a dir, funcionant sobre un sistema
+operatiu Linux, executant-com un mòdul del servidor web Apache i
+utilitzant a MySQL com SGBD per emmagatzemar la informació en cas que es
+requereixi una base de dades.</p>
+<figure>
+<p><img alt="**Arquitectura LAMP Arquitectura LAMP**" src="../assets/lamp.jpg"/></p>
+<figcaption>Arquitectura LAMP</figcaption>
+</figure>
+<p>El llenguatge PHP va ser dissenyat per Rasmus Lerdorf i ara es manté per
+una comunitat de desenvolupadors, a més és de codi obert.</p>
+<p>A continuació, un fragment d'una pàgina web dinàmica escrita amb PHP on
+es pot apreciar com s'incrusta el codi juntament amb l'HTML de la
+pàgina:</p>
+<h3 id="jsp-servlets">JSP / Servlets</h3>
+<p>JavaServer Pages (també conegut com JSP) és una tecnologia creada per a
+la creació de pàgines web dinàmiques del costat servidor. Igual que PHP,
+el seu codi s'escriu encastat juntament amb l'HTML de la pàgina web i
+és el servidor d'aplicacions, en aquest cas, qui ha de processar-per
+generar la pàgina web resultant, en HTML.</p>
+<p>D'altra banda, Java Servlets és una tecnologia que també es pot
+utilitzar per crear contingut web dinàmic però que a més estén la seva
+funcionalitat a la possibilitat de connectar aquestes webs dinàmiques
+amb un altre contingut accessible a través d'Internet. De vegades
+s'utilitza juntament amb JSP per crear aplicacions web més complexes.</p>
+<p>Totes dues són tecnologies desenvolupades per Sun Microsystems i
+propietat ara d'Oracle, després d'adquirir aquesta última a la primera
+fa ja alguns anys.</p>
+<p><img alt="**Arquitectura habitual JSP /
+Servlets**" src="../assets/jsp.gif" title="Arquitectura habitual JSP / Servlets"/></p>
+<h3 id="python">Python</h3>
+<p>El llenguatge Python va ser dissenyat per Guido van Rossum i ara es
+manté gràcies a una comunitat de desenvolupadors, i és codi obert.</p>
+<p><img alt="Python" src="../assets/django_apache.png"/></p>
+<p>Exemple de codi escrit amb Python. En aquest cas utilitzant el framework
+Django per al desenvolupament d'aplicacions web:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Mis películas<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>+<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>{% if lista_peliculas %}
+<span class="linenos" data-linenos=" 3 "></span>  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    {% for pelicula in lista_peliculas %}
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"{% url 'pelicula' pelicula.id %}"</span><span class="p">&gt;</span>{{ pelicula.titulo }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    {% endfor   %}
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    {% else %}
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>No hay películas disponibles<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>    {% endif %}
+</code></pre></div>
+<p>Separada del controlador:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="n">lista_peliculas</span> <span class="o">=</span> <span class="n">Pelicula</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'lista_peliculas'</span><span class="p">:</span> <span class="n">lista_peliculas</span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'mispeliculas/index.html'</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="aspnet">ASP.NET</h3>
+<p>ASP.NET és una tecnologia, creada per Microsoft, per al desenvolupament
+de lloc web dinàmics, aplicacions i serveis web. És la tecnologia
+successora del que abans es coneixia com ASP, l'antiga tecnologia de
+Microsoft per a la creació de pàgines web dinàmiques.</p>
+<p>Com que funciona sobre la plataforma .NET de Microsoft, permet que es
+pugui desenvolupar en qualsevol dels llenguatges de programació
+d'aquesta plataforma, Visual Basic .NET o C#.</p>
+<p>El més habitual és veure-ho funcionar juntament amb el lloc web de
+Microsoft, IIS (Internet Information Server).</p>
+<p><img alt="ASP.NET" src="../assets/asp_iis.png"/></p>
+<p>A continuació, un exemple de pàgina web dinàmica amb ASP.NET
+(desenvolupada en llenguatge C #) programant l'acció que passa en
+prémer un botó (apareix el text d'un formulari a la part final del
+web):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>protected void Button1_Click(object sender, EventArgs e)
+<span class="linenos" data-linenos="2 "></span>{
+<span class="linenos" data-linenos="3 "></span>    string buf = TextBox1.Text;
+<span class="linenos" data-linenos="4 "></span>    changed_text.InnerHtml = buf.ToUpper();
+<span class="linenos" data-linenos="5 "></span>}
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="err">&lt;</span>%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs"
+<span class="linenos" data-linenos=" 2 "></span>    Inherits="firstexample._Default" %&gt;
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cp">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" </span>
+<span class="linenos" data-linenos=" 5 "></span><span class="cp">    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">"http://www.w3.org/1999/xhtml"</span> <span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;</span><span class="nt">head</span> <span class="na">runat</span><span class="o">=</span><span class="s">"server"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>            Untitled Page
+<span class="linenos" data-linenos="12 "></span>        <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">"form1"</span> <span class="na">runat</span><span class="o">=</span><span class="s">"server"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="18 "></span>            <span class="p">&lt;</span><span class="nt">asp:TextBox</span> <span class="na">ID</span><span class="o">=</span><span class="s">"TextBox1"</span> <span class="na">runat</span><span class="o">=</span><span class="s">"server"</span> <span class="na">style</span><span class="o">=</span><span class="s">"width:224px"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="19 "></span>            <span class="p">&lt;/</span><span class="nt">asp:TextBox</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>            <span class="p">&lt;</span><span class="nt">asp:Button</span> <span class="na">ID</span><span class="o">=</span><span class="s">"Button1"</span> <span class="na">runat</span><span class="o">=</span><span class="s">"server"</span> <span class="na">Text</span><span class="o">=</span><span class="s">"Enter..."</span> 
+<span class="linenos" data-linenos="22 "></span>                <span class="na">style</span><span class="o">=</span><span class="s">"width:85px"</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"Button1_Click"</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="23 "></span>            <span class="p">&lt;</span><span class="nt">hr</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span>            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span> Results: <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="26 "></span>            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">runat</span><span class="o">=</span><span class="s">"server"</span> <span class="na">id</span><span class="o">=</span><span class="s">"changed_text"</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="27 "></span>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="28 "></span>
+<span class="linenos" data-linenos="29 "></span>    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="30 "></span>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="31 "></span>    <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="bibliografia">Bibliografia</h2>
+<ul>
+<li>Education, I., 2020. <em>What is Three-Tier Architecture</em>. [online] Ibm.com. Available at: <a href="https://www.ibm.com/cloud/learn/three-tier-architecture">https://www.ibm.com/cloud/learn/three-tier-architecture</a> [Accessed 9 September 2022].</li>
+<li>MDN contributors, 2022. <em>Introduction to the server side - Learn web development</em> | MDN. [online] Developer.mozilla.org. Available at: <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction">https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction</a> [Accessed 9 September 2022].</li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

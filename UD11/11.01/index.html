@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>11.1. Introducció - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#introduccio-a-symfony">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              11.1. Introducció
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="introduccio-a-symfony">Introducció a Symfony</h1>
+<p>{: .no_toc }</p>
+<h2 id="taula-de-continguts">Taula de continguts</h2>
+<p>{: .no_toc .text-delta  .nocount }</p>
+<ol>
+<li toc="toc">TOC</li>
+</ol>
+<h1 id="introduccio">Introducció</h1>
+<p>Symfony és un <em>framework</em> dissenyat per desenvolupar aplicacions web basat en el patró Model Vista Controlador. Per començar, separa la lògica de negoci, la lògica de servidor i la presentació de l'aplicació web. Proporciona diverses eines i classes encaminades a reduir el temps de desenvolupament d'una aplicació web complexa. A més, automatitza les tasques més comunes, permetent el desenvolupador dedicar-se completament als aspectes específics de cada aplicació.</p>
+<p>{: .alert .alert-info}</p>
+<div>
+<h3 id="que-es-un-framework">Què és un <em>framework</em>?</h3>
+<p>{: .no_toc .nocount }
+Un framework, entorn de treball o marc de treball és un conjunt estandarditzat de conceptes, pràctiques i criteris per enfocar un tipus de problemàtica particular que serveix com a referència, per enfrontar i resoldre nous problemes d'índole similar.</p>
+<p>En el desenvolupament de programari, un entorn de treball és una estructura conceptual i tecnològica d'assistència definida, normalment, amb artefactes o mòduls concrets de programari, que pot servir de base per a l'organització i desenvolupament de programari. Típicament, pot incloure suport de programes, biblioteques, i un llenguatge interpretat, entre d'altres eines, per així ajudar a desenvolupar i unir els diferents components d'un projecte.</p>
+<p>Representa una arquitectura de programari que modela les relacions generals de les entitats del domini, i proveeix una estructura i una especial metodologia de treball, la qual estén o utilitza les aplicacions del domini.</p>
+</div>
+<p>Symfony està desenvolupat completament en PHP 5.3. És compatible amb la majoria de gestors de bases de dades, com MySQL, PostgreSQL, Oracle i Microsoft SQL Server. Es pot executar tant en plataformes * nix (Unix, Linux, etc.) com en plataformes Windows.</p>
+<p>Altres frameworks que podem trobar basats en l'arquitectura MVC són:</p>
+<ul>
+<li>PHP: Laravel, Phalcon, CakePHP</li>
+<li>Ruby: Ruby on Rails</li>
+<li>.NET: Spring.NET, ASP.NET MVC</li>
+<li>Java: Spring</li>
+<li>Python: Django, Zope3</li>
+</ul>
+<h1 id="caracteristiques">Característiques</h1>
+<p>Symfony va ser dissenyat per ajustar-se als següents requisits: </p>
+<ul>
+<li>Fàcil d'instal·lar i configurar en la majoria de plataformes (i amb la garantia que funciona correctament en els sistemes Windows i Unix-like estàndards).</li>
+<li>Independent de el sistema gestor de bases de dades. La seva capa d'abstracció i l'ús de <strong>ORM (Doctrine 2, Propel)</strong>, permeten canviar amb facilitat de SGBD en qualsevol fase de projecte.</li>
+<li>Utilitza programació orientada a objectes i característiques com els espais de noms, d'aquí que sigui imprescindible PHP &gt; 5.3.</li>
+<li>Senzill d'utilitzar en la majoria de casos, encara que és preferible per al desenvolupament de grans aplicacions web que per a petits projectes.</li>
+<li>Encara que utilitza Model Vista Controlador (MVC), té la seva pròpia forma de treball en aquest punt, amb variants del MVC clàssic com la capa d'abstracció de base de dades, el controlador frontal i les accions.</li>
+<li>Basat en la premissa de "convenir en comptes de configurar", en la qual el desenvolupador només ha de configurar allò que no és convencional.</li>
+<li>Segueix la majoria de millors pràctiques i patrons de disseny per a la web.</li>
+<li>Preparat per a aplicacions empresarials i adaptable a les polítiques i arquitectures pròpies de cada empresa, a més de ser prou estable com per a desenvolupar aplicacions a llarg termini.</li>
+<li>Codi fàcil de llegir que inclou comentaris de phpDocumentor i que permet un manteniment molt senzill.</li>
+<li>Fàcil d'estendre, el que permet la seva integració amb les biblioteques d'altres fabricants.</li>
+<li>Una línia d'ordres que facilita la generació de codi.</li>
+</ul>
+<p>Symfony reutilitza conceptes i desenvolupaments de tercers que han tingut èxit:</p>
+<ul>
+<li><a href="http://www.doctrine-project.org/">Doctrine</a>: framework ORM per a PHP</li>
+<li><a href="https://twig.symfony.com/">Twig</a>: poderós motor de plantilles</li>
+<li><a href="http://yaml.org/">Llenguatge YAML</a>, competidor de l'XML, configuració totalment separada del codi.</li>
+<li>Instruccions de consola denominades tasks (tasques), que ens permeten executar ordres a la terminal</li>
+<li>Subframework per treballar amb formularis</li>
+<li>Ampli suport per a la seguretat del lloc: SQL Injection, XSS o CSRF</li>
+<li>Ús de Composer per generar les dependències</li>
+<li>A partir de la versió 4 s'utilitza una nova eina pròpia de Symfony (Flex) que ens facilita aquesta tasca</li>
+</ul>
+<h1 id="introduccio-a-yaml">Introducció a YAML</h1>
+<p>Els fitxers de configuració de Symfony es poden escriure en PHP, en XML o en YAML. Són equivalents a nivell de rendiment (tots es transformen a PHP abans d'executar l'aplicació). PHP és més flexible, però més complicat XML és el més llarg d'escriure, però es pot validar.
+YAML és més concís que XML, però no podem validar.</p>
+<p>En Symfony, per defecte s'utilitza YAML</p>
+<h2 id="sintaxis-de-yaml">Sintaxis de YAML</h2>
+<p>Cinc conceptes bàsics:
+ * No admet tabulacions, només espais
+ * La informació s'indica mitjançant parells clau: valor (si la clau o el valor tenen espais en blanc, es tanquen amb cometes simples o dobles)
+ * La jerarquia de la informació s'estableix escrivint 4 espais en blanc per davant del parell clau: valor
+ * Els arrays normals s'indiquen amb els claudàtors [i] i els arrays associatius amb les claus {i}
+ * També podem indicar una matriu escrivint cada element en una nova línia que comenci per -
+ * Els comentaris s'indiquen prefixant el caràcter # per davant de cadascuna de les seves línies</p>
+<h2 id="alguns-exemples">Alguns exemples</h2>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">homepage</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/{_locale}</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">controller</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nt">requirements</span><span class="p">:</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="nt">_locale</span><span class="p">:</span> <span class="s">'%app_locales%'</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nt">defaults</span><span class="p">:</span>
+<span class="linenos" data-linenos="7 "></span>        <span class="nt">template</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default/homepage.html.twig</span>
+<span class="linenos" data-linenos="8 "></span>        <span class="nt">_locale</span><span class="p">:</span> <span class="s">'%locale%'</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nt">security</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nt">encoders</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="c1"># Our user class and the algorithm we'll use to encode passwords</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="c1"># 'auto' means to let Symfony choose the best possible password hasher (Argon2 or Bcrypt)</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="c1"># https://symfony.com/doc/current/security.html#c-encoding-the-user-s-password</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nt">App\Entity\User</span><span class="p">:</span> <span class="s">'auto'</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nt">providers</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="c1"># https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="c1"># In this example, users are stored via Doctrine in the database</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="c1"># To see the users at src/App/DataFixtures/ORM/LoadFixtures.php</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="c1"># To load users from somewhere else: https://symfony.com/doc/current/security/custom_provider.html</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="nt">database_users</span><span class="p">:</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="nt">entity</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> class</span><span class="p">:</span> <span class="nv">App\Entity\User</span><span class="p p-Indicator">,</span><span class="nt"> property</span><span class="p">:</span> <span class="nv">username</span> <span class="p p-Indicator">}</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>    <span class="c1"># https://symfony.com/doc/current/security.html#initial-security-yml-setup-authentication</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="nt">firewalls</span><span class="p">:</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="nt">dev</span><span class="p">:</span>
+<span class="linenos" data-linenos="19 "></span>            <span class="nt">pattern</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^/(_(profiler|wdt)|css|images|js)/</span>
+<span class="linenos" data-linenos="20 "></span>            <span class="nt">security</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>        <span class="nt">main</span><span class="p">:</span>
+<span class="linenos" data-linenos="23 "></span>            <span class="c1"># this firewall applies to all URLs</span>
+<span class="linenos" data-linenos="24 "></span>            <span class="nt">pattern</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^/</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span>            <span class="c1"># but the firewall does not require login on every page</span>
+<span class="linenos" data-linenos="27 "></span>            <span class="c1"># denying access is done in access_control or in your controllers</span>
+<span class="linenos" data-linenos="28 "></span>            <span class="nt">anonymous</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span>            <span class="c1"># This allows the user to login by submitting a username and password</span>
+<span class="linenos" data-linenos="31 "></span>            <span class="c1"># Reference: https://symfony.com/doc/current/security/form_login_setup.html</span>
+<span class="linenos" data-linenos="32 "></span>            <span class="nt">form_login</span><span class="p">:</span>
+<span class="linenos" data-linenos="33 "></span>                <span class="c1"># The route name that the login form submits to</span>
+<span class="linenos" data-linenos="34 "></span>                <span class="nt">check_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">security_login</span>
+<span class="linenos" data-linenos="35 "></span>                <span class="c1"># The name of the route where the login form lives</span>
+<span class="linenos" data-linenos="36 "></span>                <span class="c1"># When the user tries to access a protected page, they are redirected here</span>
+<span class="linenos" data-linenos="37 "></span>                <span class="nt">login_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">security_login</span>
+<span class="linenos" data-linenos="38 "></span>                <span class="c1"># Secure the login form against CSRF</span>
+<span class="linenos" data-linenos="39 "></span>                <span class="c1"># Reference: https://symfony.com/doc/current/security/csrf_in_login_form.html</span>
+<span class="linenos" data-linenos="40 "></span>                <span class="nt">csrf_token_generator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">security.csrf.token_manager</span>
+<span class="linenos" data-linenos="41 "></span>                <span class="c1"># The page users are redirect to when there is no previous page stored in the</span>
+<span class="linenos" data-linenos="42 "></span>                <span class="c1"># session (for example when the users access directly to the login page).</span>
+<span class="linenos" data-linenos="43 "></span>                <span class="nt">default_target_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">blog_index</span>
+<span class="linenos" data-linenos="44 "></span>
+<span class="linenos" data-linenos="45 "></span>            <span class="nt">logout</span><span class="p">:</span>
+<span class="linenos" data-linenos="46 "></span>                <span class="c1"># The route name the user can go to in order to logout</span>
+<span class="linenos" data-linenos="47 "></span>                <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">security_logout</span>
+<span class="linenos" data-linenos="48 "></span>                <span class="c1"># The name of the route to redirect to after logging out</span>
+<span class="linenos" data-linenos="49 "></span>                <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">homepage</span>
+<span class="linenos" data-linenos="50 "></span>
+<span class="linenos" data-linenos="51 "></span>    <span class="nt">access_control</span><span class="p">:</span>
+<span class="linenos" data-linenos="52 "></span>        <span class="c1"># this is a catch-all for the admin area</span>
+<span class="linenos" data-linenos="53 "></span>        <span class="c1"># additional security lives in the controllers</span>
+<span class="linenos" data-linenos="54 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="s">'^/(%app_locales%)/admin'</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">ROLE_ADMIN</span> <span class="p p-Indicator">}</span>
+<span class="linenos" data-linenos="55 "></span>
+<span class="linenos" data-linenos="56 "></span>    <span class="nt">role_hierarchy</span><span class="p">:</span>
+<span class="linenos" data-linenos="57 "></span>        <span class="nt">ROLE_ADMIN</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ROLE_USER</span>
+</code></pre></div>
+<h1 id="recursos">Recursos</h1>
+<ul>
+<li><a href="https://es.wikipedia.org/wiki/Framework">https://es.wikipedia.org/wiki/Framework</a></li>
+<li><a href="https://es.wikipedia.org/wiki/Symfony">https://es.wikipedia.org/wiki/Symfony</a></li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

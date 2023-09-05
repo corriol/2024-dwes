@@ -1,0 +1,1033 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Autenticació d'usuaris i control d'accés - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#autenticacio-dusuaris-i-control-dacces">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Autenticació d'usuaris i control d'accés
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="autenticacio-dusuaris-i-control-dacces">Autenticació d'usuaris i control d'accés</h1>
+<p>Moltes vegades és important verificar la identitat dels dos extrems d'una comunicació, hi ha mètodes per identificar tant al servidor en el qual s'allotja el lloc web, com a l'usuari del navegador que es troba en l'altre extrem.</p>
+<p>Els llocs web que necessiten emprar identificació de servidor, com les botigues o els bancs, utilitzen el <strong>protocol HTTPS</strong>. Aquest protocol requereix d'un certificat digital vàlid, signat per una autoritat fiable, que és verificat pel navegador quan s'accedeix a la pàgina web. A més, HTTPS utilitza mètodes de xifrat per crear un canal segur entre el navegador i el servidor, de tal manera que no es puga interceptar la informació que es transmet pel mateix.</p>
+<p>Per identificar els usuaris que visiten un lloc web, es poden utilitzar diferents mètodes com el DNI digital o certificats digitals d'usuari (document digital que conté informació sobre l'usuari com el nom o l'adreça. Aquesta informació està signada per una altra entitat, anomenada entitat certificadora, que ha de ser de confiança i garanteix que la informació que conté és certa), però el més estès és sol·licitar a l'usuari certa informació que només ell coneix: la combinació d'un nom d'usuari i una contrasenya.</p>
+<p>En les unitats anteriors vas aprendre a utilitzar aplicacions web per gestionar informació emmagatzemada en bases de dades. En la majoria dels casos és important implantar en aquest tipus de aplicacions web, les que accedeixen a bases de dades, algun mecanisme de control d'accés que obligui a l'usuari a identificar-se. Un cop identificat, es pot limitar l'ús que pot fer de la informació.</p>
+<p>Així, pot haver llocs web en els quals els usuaris autenticats poden utilitzar només una part de la informació (com els bancs, que permeten als seus clients accedir únicament a la informació relativa als seus comptes). Altres llocs web necessiten separar en grups als usuaris autentificats, de tal manera que la informació a la qual accedeix un usuari depèn del grup en què aquest es trobe. Per exemple, una aplicació de gestió d'una empresa pot tenir un grup d'usuaris als qui permet visualitzar la informació, i un altre grup d'usuaris que, a més de visualitzar la informació, també la poden modificar.</p>
+<div class="admonition note">
+<p class="admonition-title">Autenticació, control d'accés i seguretat en les comunicacions</p>
+<p>Has distingir l'autenticació dels usuaris i el control d'accés, de la utilització de mecanismes per assegurar les comunicacions entre l'usuari de el navegador i el servidor web. Encara que tots dos aspectes solen anar units, són independents.</p>
+</div>
+<p>En els exemples d'aquesta unitat, la informació d'autenticació (nom i contrasenya dels usuaris) s'envia en text pla des del navegador fins al servidor web. Aquesta pràctica és altament insegura i mai s'ha d'usar sense un protocol com HTTPS que permeta xifrar les comunicacions amb el lloc web. No obstant això, la configuració de servidors web que permeten fer servir el protocol HTTPS per xifrar la informació que reben i transmeten no forma part dels continguts d'aquest mòdul. Per aquest motiu, durant aquesta unitat utilitzarem únicament el protocol no segur HTTP.</p>
+<h2 id="mecanismes-dautenticacio-via-http">Mecanismes d'autenticació via HTTP</h2>
+<p>El protocol HTTP ofereix un mètode senzill per autenticar els usuaris. El procés és el següent:</p>
+<ul>
+<li>El servidor web ha de proveir algun mètode per definir els usuaris que s'utilitzaran i com es poden autentificar. A més, s'hauran de definir els recursos als quals es restringeix l'accés i quina llista de control d'accés (ACL - llista de permisos sobre un objecte (fitxer, directori, etc.), que indica quins usuaris poden utilitzar l'objecte i les accions concretes que poden realitzar amb el mateix (lectura, escriptura, esborrat, etc.)) s'aplica a cada un.</li>
+<li>Quan un usuari no autenticat intenta accedir a un recurs restringit, el servidor web respon amb un error de "Accés no autoritzat" (codi 401).</li>
+<li>El navegador rep l'error i obre una finestra per sol·licitar a l'usuari que es autentifiqui mitjançant el seu nom i contrasenya.</li>
+<li>La informació d'autenticació de l'usuari s'envia a servidor, que la verifica i decideix si permet o no l'accés a el recurs sol·licitat. Aquesta informació es manté en el navegador per utilitzar-se en posteriors peticions a aquest servidor.</li>
+</ul>
+<p>Al servidor web Apache, el que has estat utilitzant en anteriors unitats, hi ha una utilitat en línia d'ordres, <code>htpasswd</code>, que permet emmagatzemar en un fitxer una llista d'usuaris i els seus respectives contrasenyes. La informació relativa a les contrasenyes s'emmagatzema xifrada; tot i així, és convenient crear aquest fitxer en un lloc no accessible pels usuaris de servidor web.</p>
+<p>http://httpd.apache.org/docs/2.0/es/howto/auth.html</p>
+<p>Per exemple, per crear el fitxer d'usuari i afegir-li el usuari "dwes", pots fer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo htpasswd -c users dwes
+</code></pre></div>
+<p>i introduir la contrasenya corresponent a aquest usuari.</p>
+<p>L'opció <code>-c</code> indica que s'ha de crear el fitxer, per la qual cosa només hauràs de fer-la servir quan introdueixis el primer usuari i contrasenya. Fixa't que en l'exemple anterior, el
+fitxer es crea a la ruta /etc/apache2/users, que en principi no és accessible via web.</p>
+<p>Per indicar-li a l'servidor Apache quins recursos tenen accés restringit, una opció és crear un fitxer <code>.htaccess</code> en el directori en què es trobin, amb les següents directives:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>AuthName <span class="s2">"Contingut restringit"</span>
+<span class="linenos" data-linenos="2 "></span>AuthType Basic
+<span class="linenos" data-linenos="3 "></span>AuthUserFile /etc/apache2/users
+<span class="linenos" data-linenos="4 "></span>requereix valid-user
+</code></pre></div>
+<p>El significat de cadascuna de les directives anteriors és el següent:</p>
+<table>
+<thead>
+<tr>
+<th>Directiva</th>
+<th>significat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AuthName</td>
+<td>Nom de domini que es farà servir en l'autenticació. Si el client s'autentica correctament, aquesta mateixa informació d'autenticació s'utilitzarà automàticament en la resta de les pàgines de el mateix domini.</td>
+</tr>
+<tr>
+<td>AuthType</td>
+<td>Mètode d'autenticació que es farà servir. A més de l'mètode Basic, Apache també permet utilitzar el mètode Digest.</td>
+</tr>
+<tr>
+<td>AuthUserFile</td>
+<td>Camí de l'arxiu de credencials que has creat amb htpasswd.</td>
+</tr>
+<tr>
+<td>Require</td>
+<td>Permet indicar que només puguin accedir alguns usuaris o grups d'usuaris concrets. Si indiquem "valid-user", podran accedir tots els usuaris que es s'autentifiquin correctament.</td>
+</tr>
+</tbody>
+</table>
+<p>A més, hauràs de assegurar-te que en la configuració d'Apache s'utilitza la directiva <code>AllowOverride</code> perquè s'aplique correctament la configuració que figura en els fitxers <code>.htaccess</code>. Més detalls en <a href="http://httpd.apache.org/docs/2.0/es/mod/core.html#allowoverride">http://httpd.apache.org/docs/2.0/es/mod/core.html#allowoverride</a></p>
+<p>A l'incloure l'opció <code>-c</code> el que fem és crear un nou fitxer, amb la qual cosa eliminem el contingut anterior del mateix.</p>
+<h2 id="mecanismes-dautenticacio">Mecanismes d'autenticació</h2>
+<p>Des PHP pots accedir a la informació d'autenticació HTTP que ha introduït l'usuari utilitzant l'array superglobal <code>$_SERVER</code>.</p>
+<table>
+<thead>
+<tr>
+<th>valor</th>
+<th>contingut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_SERVER['PHP_AUTH_USER']</code></td>
+<td>Nom d'usuari que s'ha introduït.</td>
+</tr>
+<tr>
+<td><code>$_SERVER['PHP_AUTH_PW']</code></td>
+<td>Clau introduïda.</td>
+</tr>
+<tr>
+<td><code>$_SERVER['AUTH_TYPE']</code></td>
+<td>Mètode HTTP usat per autentificar. Pot ser Basic o Digest.</td>
+</tr>
+</tbody>
+</table>
+<p>És a dir, que si crees una pàgina web que mostre els valors d'aquestes variables, i prepares el servidor web per utilitzar autenticació HTTP, quan accedisques a aquesta pàgina amb l'usuari "dwes" obtindràs alguna cosa com el següent:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html PUBLIC "- // W3C // DTD HTML 4.01 Transitional // EN" "http://www.w3.org/TR/html4/loose.dtd "&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c">&lt;!-- Desenvolupament Web a Entorn Servidor --&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c">&lt;!-- Tema 4: Desenvolupament d'aplicacions web amb PHP --&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c">&lt;!-- Exemple: Autenticació HTTP --&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">"content-type"</span> <span class="na">content</span><span class="o">=</span><span class="s">"text / html; charset = UTF-8"</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Exemple Tema 4: Autenticació HTTP<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"dwes.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text / css"</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="13 "></span><span class="cp">    echo "Nom d'usuari:". $_ SERVER['PHP_AUTH_USER']. "&lt;br /&gt;"; echo</span>
+<span class="linenos" data-linenos="14 "></span><span class="cp">    "Contrasenya:". $_ SERVER['PHP_AUTH_PW']. "&lt;br /&gt;"; echo "Mètode</span>
+<span class="linenos" data-linenos="15 "></span><span class="cp">    d'autenticació:". $_SERVER['AUTH_TYPE']. "&lt;br /&gt;"; ?&gt;</span>
+<span class="linenos" data-linenos="16 "></span>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Si no introdueixes un usuari/contrasenya vàlids, el navegador et mostrarà l'error 401.</p>
+<p>A més, en PHP pots utilitzar la funció <code>header</code> per forçar que el servidor envie un error de "Accés no autoritzat" (codi 401). D'aquesta manera no cal utilitzar fitxers <code>.htaccess</code> per indicar-li a Apache quins recursos estan restringits. En el seu lloc, pots afegir les següents línies en les teves pàgines PHP:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_</span> <span class="nx">SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_USER'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nb">header</span> <span class="p">(</span><span class="s1">'WWW-Authenticate: Basic Realm = "Contingut restringit"'</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nb">header</span> <span class="p">(</span><span class="s1">'HTTP/1.0 401 Unauthorized'</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">echo</span> <span class="s2">"Usuari no reconegut!"</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">exit</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>La funció <code>header</code> envia capçaleres HTTP (bloc de dades que forma part de l'protocol HTTP i s'envia abans de la informació pròpia que es transmet. Permet especificar codis d'estat, accions requerides a servidor, o el tipus d'informació que es transmet), però s'ha d'utilitzar abans que es mostre res per pantalla. En cas contrari, obtindràs un error. Més informació: <a href="http://es.php.net/manual/es/function.header.php">http://es.php.net/manual/es/function.header.php</a></p>
+<p>Amb el codi anterior, la pàgina envia un error 401, el que força al navegador a sol·licitar les credencials d'accés (nom d'usuari i contrasenya). Si s'introdueixen, s'executa la resta de la pàgina i es mostra el seu contingut. En aquest cas, caldria afegir algun codi per comprovar que el nom d'usuari i contrasenya són vàlids, tal com veurem a continuació. Si es prem el botó "Cancel", es mostra el missatge d'error que s'indica. Modifica la pàgina anterior utilitzant la funció header perquè sol·liciti les credencials a l'usuari.</p>
+<p>Hauràs de crear una pàgina similar a l'anterior, i afegir el codi per forçar l'error 401 abans de qualsevol altre.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span> <span class="k">PUBLIC</span> <span class="s2">"- // W3C // DTD HTML 4.01 Transitional // EN"</span> <span class="s2">" http://www.w3.org/TR/html4/loose.dtd "</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="o">&lt;!--</span> <span class="nx">Desenvolupament</span> <span class="nx">Web</span> <span class="nx">a</span> <span class="nx">Entorn</span> <span class="nx">Servidor</span> <span class="o">--&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="o">&lt;!--</span> <span class="nx">Tema</span> <span class="mi">4</span><span class="o">:</span> <span class="nx">Desenvolupament</span> <span class="nx">d</span><span class="s1">'aplicacions web amb PHP --&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="s1">&lt;!-- Exemple: Funció header per autenticació HTTP --&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="s1">&lt;?php</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="s1">    if (!isset($_SERVER['</span><span class="nx">PHP_AUTH_USER</span><span class="s1">'])) {</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="s1">        header('</span><span class="nx">WWW</span><span class="o">-</span><span class="nx">Authenticate</span><span class="o">:</span> <span class="nx">Basic</span> <span class="nx">Realm</span> <span class="o">=</span> <span class="s2">"Contingut restringit"</span><span class="s1">');</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="s1">        header('</span><span class="nx">HTTP</span> <span class="o">/</span> <span class="mf">1.0</span> <span class="mi">401</span> <span class="nx">Unauthorized</span><span class="s1">');</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="s1">        echo "Usuari no reconegut!";</span>
+<span class="linenos" data-linenos="10 "></span><span class="s1">        exit;</span>
+<span class="linenos" data-linenos="11 "></span><span class="s1">    }</span>
+<span class="linenos" data-linenos="12 "></span><span class="s1">?&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="s1">&lt;html&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="s1">&lt;head&gt;</span>
+<span class="linenos" data-linenos="15 "></span><span class="s1">&lt;meta http-equiv = "content-type" content = "text / html; charset = UTF-8"&gt;</span>
+<span class="linenos" data-linenos="16 "></span><span class="s1">&lt;title&gt; Exercici: Funció header per autenticació HTTP &lt;/ title&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="s1">&lt;link href = "dwes.css" rel = "stylesheet" type = "text / css"&gt;</span>
+<span class="linenos" data-linenos="18 "></span><span class="s1">&lt;/head&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="s1">&lt;body&gt;</span>
+<span class="linenos" data-linenos="20 "></span><span class="s1">&lt;?php</span>
+<span class="linenos" data-linenos="21 "></span><span class="s1">    echo "Nom d'</span><span class="nx">usuari</span><span class="o">:</span><span class="s2">". </span><span class="si">$_</span><span class="s2"> SERVER['PHP_AUTH_USER']. "</span><span class="o">&lt;</span><span class="nx">br</span> <span class="o">/&gt;</span><span class="s2">";</span>
+<span class="linenos" data-linenos="22 "></span><span class="s2">    echo "</span><span class="nx">Contrasenya</span><span class="o">:</span><span class="s2">". </span><span class="si">$_</span><span class="s2"> SERVER['PHP_AUTH_PW']. "</span><span class="o">&lt;</span><span class="nx">br</span> <span class="o">/&gt;</span><span class="s2">";</span>
+<span class="linenos" data-linenos="23 "></span><span class="s2">?&gt;</span>
+<span class="linenos" data-linenos="24 "></span><span class="s2">&lt;/body&gt;</span>
+<span class="linenos" data-linenos="25 "></span><span class="s2">&lt;/html&gt;</span>
+</code></pre></div>
+<h2 id="incorporacio-de-metodes-dautenticacio-a-una-aplicacio-web">Incorporació de mètodes d'autenticació a una aplicació web</h2>
+<p>Si utilitzes la funció <code>header</code> per forçar el navegador a sol·licitar credencials HTTP, l'usuari introduirà un nom i una contrasenya. Però el servidor no ha de verificar aquesta informació; hauràs de ser tu qui proveïsca un mètode per comprovar que les credencials que ha introduït l'usuari són correctes.</p>
+<p>El mètode més simple és incloure en el codi PHP de la teva pàgina les sentències necessàries per comparar les dades introduïdes amb altres dades fixos. Per exemple, per a permetre l'accés a un usuari "dwes" amb contrasenya "abc123.", pots fer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_USER'</span><span class="p">]</span><span class="o">!=</span><span class="s1">'dwes'</span> <span class="o">||</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_PW'</span><span class="p">]</span><span class="o">!=</span><span class="s1">'abc123.'</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nb">header</span><span class="p">(</span><span class="s1">'WWW-Authenticate: Basic Realm = "Contingut restringit"'</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nb">header</span><span class="p">(</span><span class="s1">'HTTP / 1.0 401 Unauthorized'</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="s2">"Usuari no reconegut!"</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">exit</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="7 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Recorda que el codi PHP no s'envia al navegador, de manera que la informació d'autenticació que introdueixis en el codi no serà visible per l'usuari. No obstant això, això farà el teu codi menys portable. Si necessites modificar el nom d'usuari o la contrasenya, hauràs de fer modificacions en el codi. A més, no podràs permetre a l'usuari introduir la seva pròpia contrasenya.</p>
+<p>Una solució millor és utilitzar un emmagatzematge extern per als noms d'usuari i les seves
+contrasenyes. Per això podries emprar un fitxer de text, o millor encara, una base de dades. La informació d'autenticació podrà estar aïllada en la seva pròpia base de dades, o compartir espai d'emmagatzematge amb les dades que utilitze la teva aplicació web.</p>
+<p>Si vols emmagatzemar la informació dels usuaris a la base de dades "<code>dwes</code>", has de crear una nova taula en la seva estructura. Per a això, revisa i executa aquestes sentències SQL.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">-- Seleccionem la base de dades</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">USE</span> <span class="n">dwes</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">-- Creem la taula</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">usuaris</span> <span class="p">(</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">usuari</span> <span class="nb">VARCHAR</span> <span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">contrasenya</span> <span class="nb">VARCHAR</span> <span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="c1">-- Creem l'usuari dwes</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">usuaris</span> <span class="p">(</span><span class="n">usuari</span><span class="p">,</span> <span class="n">contrasenya</span><span class="p">)</span> <span class="k">VALUES</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">(</span><span class="s1">'dwes'</span><span class="p">,</span> <span class="s1">'e8dc8ccd5e5f9e3a54f07350ce8a2d3d'</span><span class="p">);</span>
+</code></pre></div>
+<p>Tot i que es podrien emmagatzemar les contrasenyes en text pla, és millor fer-ho en format encriptat. En l'exemple anterior, per a l'usuari "dwes" s'emmagatzema el hash MD5 (mètode per generar un resum d'un text o un document, de tal manera que a partir de l'resum obtingut no és possible recuperar el text original ni estar un altre text a partir de el qual s'obtingui el mateix resum. Es diu hash a el resum obtingut a l'aplicar una funció hash. Una de les funcions hash més esteses és MD5, que genera 128 bits com a resum (normalment es representa mitjançant una cadena de text de 28 caràcters o mitjançant 32 dígits hexadecimals)) corresponent a la contrasenya "abc123.". En PHP pots utilitzar la funció md5 per calcular el hash MD5 d'una cadena de text.</p>
+<p>http://es.php.net/manual/es/function.md5.php</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>// Si l'usuari encara no s'ha entrat, demanem les credencials
+<span class="linenos" data-linenos=" 2 "></span>if (!isset ($_SERVER [ 'PHP_AUTH_USER'])) {
+<span class="linenos" data-linenos=" 3 "></span>    header ('WWW-Authenticate: Basic realm = "Contingut restringit"');
+<span class="linenos" data-linenos=" 4 "></span>    header ("HTTP/1.0 401 Unauthorized");
+<span class="linenos" data-linenos=" 5 "></span>    exit;
+<span class="linenos" data-linenos=" 6 "></span>}
+<span class="linenos" data-linenos=" 7 "></span>// Si ja ha enviat les credencials, les vam comprovar amb la base de dades
+<span class="linenos" data-linenos=" 8 "></span>else {
+<span class="linenos" data-linenos=" 9 "></span>    // Connectem a la base de dades
+<span class="linenos" data-linenos="10 "></span>    @$dwes = new mysqli("localhost", "dwes", "abc123.", "Dwes");
+<span class="linenos" data-linenos="11 "></span>    $error = $dwes-&gt; connect_errno;
+<span class="linenos" data-linenos="12 "></span>    // Si es va establir la connexió
+<span class="linenos" data-linenos="13 "></span>    if ($error == null) {
+<span class="linenos" data-linenos="14 "></span>        // Executem la consulta per comprovar si existeix
+<span class="linenos" data-linenos="15 "></span>        // aquesta combinació d'usuari i contrasenya
+<span class="linenos" data-linenos="16 "></span>        $sql ​​= "SELECT usuari FROM usuaris
+<span class="linenos" data-linenos="17 "></span>            WHERE usuari = '$_ SERVER[PHP_AUTH_USER]' AND
+<span class="linenos" data-linenos="18 "></span>            contrasenya = md5 ( '$_ SERVER[PHP_AUTH_PW]') ";
+<span class="linenos" data-linenos="19 "></span>        $resultat = $dwes-&gt; query ($sql);
+<span class="linenos" data-linenos="20 "></span>        // Si no existeix, es tornen a demanar les credencials
+<span class="linenos" data-linenos="21 "></span>        if ($resultat-&gt; num_rows == 0) {
+<span class="linenos" data-linenos="22 "></span>            header ( 'WWW-Authenticate: Basic realm = "Contingut restringit"');
+<span class="linenos" data-linenos="23 "></span>            header ( "HTTP / 1.0 401 Unauthorized");
+<span class="linenos" data-linenos="24 "></span>            exit;
+<span class="linenos" data-linenos="25 "></span>        }
+<span class="linenos" data-linenos="26 "></span>        $resultat-&gt;close();
+<span class="linenos" data-linenos="27 "></span>        $dwes-&gt;close();
+<span class="linenos" data-linenos="28 "></span>    }
+<span class="linenos" data-linenos="29 "></span>}
+<span class="linenos" data-linenos="30 "></span>
+<span class="linenos" data-linenos="31 "></span><span class="cp">&lt;!DOCTYPE html PUBLIC "- // W3C // DTD HTML 4.01 Transitional // EN" "http://www.w3.org/TR/html4/loose.dtd " &gt;</span>
+<span class="linenos" data-linenos="32 "></span><span class="c">&lt;!-- Desenvolupament Web a Entorn Servidor --&gt;</span>
+<span class="linenos" data-linenos="33 "></span><span class="c">&lt;!-- Tema 4: Desenvolupament d'aplicacions web amb PHP --&gt;</span>
+<span class="linenos" data-linenos="34 "></span><span class="c">&lt;!-- Exemple: Utilització de MySQL per autenticació HTTP --&gt;</span>
+<span class="linenos" data-linenos="35 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="36 "></span>    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="37 "></span>        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv </span><span class="o">=</span> <span class="s">"content-type"</span> <span class="na">content </span><span class="o">=</span> <span class="s">"text / html; charset = UTF-8"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="38 "></span>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span> Exemple Tema 4: Utilització de MySQL per autenticació HTTP <span class="p">&lt;/</span> <span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="39 "></span>        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href </span><span class="o">=</span> <span class="s">"dwes.css"</span> <span class="na">rel </span><span class="o">=</span> <span class="s">"stylesheet"</span> <span class="na">type </span><span class="o">=</span> <span class="s">"text / css"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="40 "></span>    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="41 "></span>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="42 "></span>    <span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="43 "></span>        <span class="k">echo</span> <span class="s2">"Nom d'usuari:"</span><span class="o">.</span> <span class="nv">$_</span> <span class="nx">SERVER</span> <span class="p">[</span> <span class="s1">'PHP_AUTH_USER'</span><span class="p">]</span><span class="o">.</span> <span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="44 "></span>        <span class="k">echo</span> <span class="s2">"Hash de la contrasenya:"</span> <span class="o">.</span><span class="nb">md5</span> <span class="p">(</span><span class="nv">$_</span> <span class="nx">SERVER</span> <span class="p">[</span> <span class="s1">'PHP_AUTH_PW'</span><span class="p">])</span><span class="o">.</span> <span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="45 "></span>    <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="46 "></span>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="47 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="galetes-cookies">Galetes (<em>cookies</em>)</h2>
+<p>Una galleta és un fitxer de text que un lloc web guarda a l'entorn de l'usuari de navegador. El seu ús més típic és l'emmagatzematge de les preferències de l'usuari (per exemple, l'idioma en que s'han de mostrar les pàgines), perquè no hagi de tornar a indicar-les la propera vegada que visiteu el lloc.</p>
+<p>Si utilitzes Firefox com a navegador, pots accedir a <code>Desenvolupador web</code> – <code>Inspector d'emmagatzematge</code> des del menú principal. Entre les seves característiques et permet consultar i editar les galetes emmagatzemades en el mateix.</p>
+<p><img alt="Inspeccionar galetes en Firefox" src="../assets/galetes-firefox.png"/></p>
+<p>En PHP, per emmagatzemar una galleta al navegador de l'usuari, pots utilitzar la funció <code>setcookie</code>. L'únic paràmetre obligatori que has de fer servir és el nom de la galleta, però admet diversos paràmetres més opcionals.</p>
+<div class="admonition information">
+<p class="admonition-title">setcookie</p>
+<p>Per a més informació consulta: <a href="https://www.php.net/manual/es/function.setcookie.php">https://www.php.net/manual/es/function.setcookie.php</a>.</p>
+</div>
+<p>Per exemple, si vols emmagatzemar en una galleta el nom d'usuari que es va transmetre a les credencials HTTP (és només un exemple, no és en absolut aconsellable emmagatzemar informació relativa a la seguretat en les galetes), pots fer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">setcookie</span> <span class="p">(</span><span class="s2">"nom_usuari"</span><span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_USER'</span><span class="p">],</span> <span class="nb">time</span> <span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">);</span>
+</code></pre></div>
+<p>Els dos primers paràmetres són el nom de la galleta i el seu valor. El tercer és la data de caducitat de la mateixa (una hora des del moment en què s'execute). En cas de no figurar aquest paràmetre, la galleta s'eliminarà quan es tanqui el navegador. Tingues en compte que també es poden aplicar restriccions a les pàgines de el lloc que poden accedir a una galleta en funció de la ruta.</p>
+<p>Les galetes es transmeten entre el navegador i el servidor web de la mateixa manera que les credencials que acabes de veure; utilitzant les capçaleres de el protocol HTTP. <strong>Per això, les
+sentències <code>setcookie</code> s'han d'enviar abans que el navegador mostri cap informació a pantalla.</strong></p>
+<p>El procés de recuperació de la informació que emmagatzema una galleta és molt simple. quan accedeixes a un lloc web, el navegador li envia de forma automàtica tot el contingut de les galetes que emmagatzemi relatives a aquest lloc en concret. Des PHP pots accedir a aquesta informació per mitjà de l'array <code>$_COOKIE</code>.</p>
+<div class="admonition important">
+<p class="admonition-title">important</p>
+<p>Sempre que utilitzes galetes en una aplicació web, heu de tenir en compte que en última instància la seva disponibilitat està controlada pel client. Per exemple, alguns usuaris deshabiliten les galetes al navegador perquè pensen que la informació que emmagatzemen pot suposar un potencial problema de seguretat. O la informació que emmagatzemen pot arribar a perdre perquè el usuari decideix formatar l'equip o simplement eliminar-les de sistema.</p>
+</div>
+<p>Si un cop emmagatzemada una galleta al navegador vols eliminar abans que expire, pots utilitzar la mateixa funció <code>setcookie</code> però indicant una data de caducitat anterior a l'actual.</p>
+<p>Sobre el mateix exercici anterior, emmagatzema en una galleta l'últim instant en què el usuari va visitar la pàgina. Si és la seva primera visita, mostra un missatge de benvinguda. En cas contrari, mostra la data i hora de la seva anterior visita.</p>
+<p>Revisa la solució proposada. Hauràs utilitzar la funció <code>setcookie</code> per guardar l'instant de la seva anterior visita i mostrar el seu contingut utilitzant l'array <code>$_COOKIE</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Si l'usuari encara no s'ha entrat, demanem les credencials</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span> <span class="p">(</span><span class="nv">$_</span> <span class="nx">SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_USER'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nb">header</span> <span class="p">(</span><span class="s1">'WWW-Authenticate: Basic realm = "Contingut restringit"'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nb">header</span> <span class="p">(</span><span class="s2">"HTTP / 1.0 401 Unauthorized"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">exit</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">// Si ja ha enviat les credencials, les vam comprovar amb la base de dades</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="c1">// Connectem a la base de dades</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="o">@</span><span class="nv">$dwes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span> <span class="p">(</span> <span class="s2">"localhost"</span><span class="p">,</span> <span class="s2">"dwes"</span><span class="p">,</span> <span class="s2">"abc123."</span><span class="p">,</span> <span class="s2">"Dwes"</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$error</span> <span class="o">=</span> <span class="nv">$dwes</span><span class="o">-&gt;</span><span class="na">connect_errno</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="c1">// Si es va establir la connexió</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$error</span> <span class="o">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="nb">date_default_timezone_set</span><span class="p">(</span><span class="s1">'Europe/Madrid'</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="c1">// Executem la consulta per comprovar si existeix</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="c1">// aquesta combinació d'usuari i contrasenya</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="nv">$sql</span> <span class="nx">​​</span><span class="o">=</span> <span class="s2">"SELECT usuari FROM usuaris</span>
+<span class="linenos" data-linenos="18 "></span><span class="s2">            WHERE usuari = '${_ SERVER [' PHP_AUTH_USER ']}' AND</span>
+<span class="linenos" data-linenos="19 "></span><span class="s2">            contrasenya = md5 ( '${_ SERVER [' PHP_AUTH_PW ']}') "</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="nv">$resultat</span> <span class="o">=</span> <span class="nv">$dwes</span><span class="o">-&gt;</span> <span class="na">query</span> <span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="c1">// Si no existeix, es tornen a demanar les credencials</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$resultat</span><span class="o">-&gt;</span> <span class="na">num_rows</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="23 "></span>            <span class="nb">header</span> <span class="p">(</span> <span class="s1">'WWW-Authenticate: Basic realm = "Contingut restringit"'</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span>            <span class="nb">header</span> <span class="p">(</span> <span class="s2">"HTTP / 1.0 401 Unauthorized"</span><span class="p">);</span>
+<span class="linenos" data-linenos="25 "></span>            <span class="k">exit</span><span class="p">;</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="27 "></span>            <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_</span> <span class="nx">COOKIE</span> <span class="p">[</span> <span class="s1">'ultimo_login'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="28 "></span>                <span class="nv">$ultimo_login</span> <span class="o">=</span> <span class="nv">$_COOKIE</span> <span class="p">[</span> <span class="s1">'ultimo_login'</span><span class="p">];</span>
+<span class="linenos" data-linenos="29 "></span>            <span class="p">}</span>
+<span class="linenos" data-linenos="30 "></span>            <span class="nb">setcookie</span> <span class="p">(</span> <span class="s2">"ultimo_login"</span><span class="p">,</span> <span class="nb">time</span> <span class="p">(),</span> <span class="nb">time</span> <span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">);</span>
+<span class="linenos" data-linenos="31 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="32 "></span>        <span class="nv">$resultat</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+<span class="linenos" data-linenos="33 "></span>        <span class="nv">$dwes</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+<span class="linenos" data-linenos="34 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="35 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="36 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="37 "></span><span class="x">&lt;!DOCTYPE html PUBLIC "- // W3C // DTD HTML 4.01 Transitional // EN" " http://www.w3.org/TR/html4/loose.dtd "&gt;</span>
+<span class="linenos" data-linenos="38 "></span><span class="x">&lt;!-- Desenvolupament Web a Entorn Servidor --&gt;</span>
+<span class="linenos" data-linenos="39 "></span><span class="x">&lt;!-- Tema 4: Desenvolupament d'aplicacions web amb PHP --&gt;</span>
+<span class="linenos" data-linenos="40 "></span><span class="x">&lt;!-- Exemple: Galetes al autenticació HTTP --&gt;</span>
+<span class="linenos" data-linenos="41 "></span><span class="x">&lt;html&gt;</span>
+<span class="linenos" data-linenos="42 "></span><span class="x">&lt;head&gt;</span>
+<span class="linenos" data-linenos="43 "></span><span class="x">&lt;meta http-equiv = "content-type" content = "text / html; charset = UTF-8"&gt;</span>
+<span class="linenos" data-linenos="44 "></span><span class="x">&lt;title&gt; Exemple Tema 4: Galetes al autenticació HTTP &lt;/ title&gt;</span>
+<span class="linenos" data-linenos="45 "></span><span class="x">&lt;link href = "dwes.css" rel = "stylesheet" type = "text / css"&gt;</span>
+<span class="linenos" data-linenos="46 "></span><span class="x">&lt;/head&gt;</span>
+<span class="linenos" data-linenos="47 "></span><span class="x">&lt;body&gt;</span>
+<span class="linenos" data-linenos="48 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="49 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$error</span> <span class="o">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="50 "></span>        <span class="k">echo</span> <span class="s2">"Nom d'usuari:"</span><span class="o">.</span> <span class="nv">$_</span> <span class="nx">SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_USER'</span><span class="p">]</span><span class="o">.</span> <span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="51 "></span>        <span class="k">echo</span> <span class="s2">"Hash de la contrasenya:"</span> <span class="o">.</span><span class="nb">md5</span> <span class="p">(</span><span class="nv">$_</span> <span class="nx">SERVER</span> <span class="p">[</span> <span class="s1">'PHP_AUTH_PW'</span><span class="p">])</span><span class="o">.</span> <span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="52 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span> <span class="p">(</span><span class="nv">$ultimo_login</span><span class="p">))</span>
+<span class="linenos" data-linenos="53 "></span>            <span class="k">echo</span> <span class="s2">"Darrer login:"</span><span class="o">.</span> <span class="nb">date</span> <span class="p">(</span> <span class="s2">"d/m/ i \ a \ l \ a \ s H: i"</span><span class="p">,</span> <span class="nv">$ultimo_login</span><span class="p">);</span>
+<span class="linenos" data-linenos="54 "></span>        <span class="k">else</span>
+<span class="linenos" data-linenos="55 "></span>            <span class="k">echo</span> <span class="s2">"Benvingut. Aquesta és la seva primera visita."</span><span class="p">;</span>
+<span class="linenos" data-linenos="56 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="57 "></span>    <span class="k">else</span>
+<span class="linenos" data-linenos="58 "></span>        <span class="k">echo</span> <span class="s2">"S'ha produït l'error </span><span class="si">$error</span><span class="s2">. &lt;br /&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="59 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="60 "></span><span class="x">&lt;/body&gt;</span>
+<span class="linenos" data-linenos="61 "></span><span class="x">&lt;/html&gt;</span>
+</code></pre></div>
+<div class="admonition think">
+<p class="admonition-title">Reflexiona</p>
+<p>Quina és la durada per defecte d'una galleta si no s'indica la data de caducitat,
+com en la següent crida a la funció setcookie?</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">setcookie</span> <span class="p">(</span><span class="s2">"idioma"</span><span class="p">,</span> <span class="s2">"espanyol"</span><span class="p">);</span>
+</code></pre></div>
+<ol>
+<li>Fins que es tanque el navegador de l'usuari.</li>
+<li>1 hora.</li>
+</ol>
+</div>
+<hr/>
+<h2 id="maneig-de-sessions">Maneig de sessions</h2>
+<p>Com acabes de veure, una forma per guardar informació particular de cada usuari és utilitzar galetes (<em>cookies</em>). No obstant això, hi ha diversos problemes associats a les galetes, com el nombre d'elles que admet el navegador, o la seva grandària màxima. Per solucionar aquests inconvenients, existeixen les sessions. El terme sessió fa referència al conjunt d'informació relativa a un usuari concret.</p>
+<p>Aquesta informació pot ser tan simple com el nom de l'usuari mateix, o més complexa, com els articles que ha dipositat a la cistella de compra d'una botiga en línia.</p>
+<p>Cada usuari diferent d'un lloc web té la seva pròpia informació de sessió. Per distingir una sessió d'una altra s'usen els <strong>identificadors de sessió</strong> (SID). Un SID és un atribut que s'assigna a cada un dels visitants d'un lloc web i l'identifica. D'aquesta manera, si el servidor web coneix el SID d'un usuari, pot relacionar-lo amb tota la informació que posseeix sobre ell, que es manté en la sessió de l'usuari. Aquesta informació s'emmagatzema en el servidor web, generalment en fitxers tot i que també es poden utilitzar altres mecanismes d'emmagatzematge com bases de dades. Com ja hauràs suposat, la qüestió ara és: ¿i on s'emmagatzema aquest SID, identificador de la sessió, que és únic per a cada usuari? Doncs hi ha dues maneres de mantenir el SID entre les pàgines d'un lloc web que visita l'usuari:</p>
+<ul>
+<li>Utilitzant galetes.</li>
+<li>Propagant el SID en un paràmetre de la URL. El SID s'afegeix com una part més de la URL, de la forma:</li>
+</ul>
+<p>http://www.misitioweb.com/tienda/listado.php&amp;<strong>PHPSESSID=34534fg4ffg34ty</strong></p>
+<p>En l'exemple anterior, el SID és el valor del paràmetre PHPSESSID.</p>
+<p>Cap de les dues maneres és perfecta. Ja saps els problemes que té la utilització de cookies. Malgrat això, és el millor mètode i el més utilitzat. Propagar el SID com a part de la URL comporta majors desavantatges, com la impossibilitat de mantenir el SID entre diferents sessions, o el fet que compartir la URL amb una altra persona implica compartir també l'identificador de sessió.</p>
+<p>La bona notícia, és que el procés de maneig de sessions en PHP està automatitzat en gran mida. Quan un usuari visita un lloc web, no cal programar un procediment per veure si hi ha un SID previ i carregar les dades associades amb el mateix. Tampoc has d'utilitzar la funció <code>setcookie</code> si vols emmagatzemar els SID en galetes, o anar passant el SID entre les pàgines web del teu lloc si et decideixes per propagar. Tot això PHP ho fa automàticament.</p>
+<div class="admonition info">
+<p class="admonition-title">Server side cookies</p>
+<p>A la informació que s'emmagatzema en la sessió d'un usuari també se li coneix com a galetes en la part de servidor (<em>server side cookies</em>). Has de tenir en compte que encara aquesta informació no viatja entre el client i el servidor, sí que ho fa el SID, bé com a part de l'URL o en una capçalera HTTP si es guarda en una galleta. En tots dos casos, això planteja un possible problema de seguretat. El SID pot ser aconseguit per una altra persona, i a partir de la mateixa obtenir la informació de la sessió de l'usuari. La manera més segura d'utilitzar sessions és emmagatzemant els SID en galetes i utilitzar HTTPS per a xifrar la informació que es transmet entre el servidor web i el client.</p>
+</div>
+<h3 id="configuracio">Configuració</h3>
+<p>Per defecte, PHP inclou suport de sessions incorporat. Abans, però, d'utilitzar sessions en el teu lloc web, has de configurar correctament PHP utilitzant els següents directives en el fitxer
+php.ini segons correspongui:</p>
+<table>
+<thead>
+<tr>
+<th>Directiva</th>
+<th>significat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>session.use_cookies</td>
+<td>Indica si s'han d'usar cookies (1) o propagació a la URL (0) per emmagatzemar el SID.</td>
+</tr>
+<tr>
+<td>session.use_only_cookies</td>
+<td>S'ha d'activar (1) quan fas servir cookies per emmagatzemar els SID, i a més no vols que es reconeguin els SID que es puguin passar com part de la URL (aquest mètode es pot usar per usurpar l'identificador d'un altre usuari)</td>
+</tr>
+<tr>
+<td>session.save_handler</td>
+<td>S'utilitza per indicar a PHP com ha de emmagatzemar les dades de la sessió de l'usuari. Hi ha quatre opcions: en fitxers (files), en memòria (Mm), en una base de dades SQLite (sqlite) o utilitzant per a això funcions que ha de definir el programador (user). El valor per defecte (Files) funcionarà sense problemes en la majoria dels casos.</td>
+</tr>
+<tr>
+<td>session.name</td>
+<td>Determina el nom de la galleta que s'utilitzarà per guardar el SID. La seva valor per defecte és PHPSESSID.</td>
+</tr>
+<tr>
+<td>session.auto_start</td>
+<td>El seu valor per defecte és 0, i en aquest cas hauràs de fer servir la funció session_start per gestionar l'inici de les sessions. Si fas servir sessions al lloc web, pot ser bona idea canviar el seu valor a 1 per que PHP activi de forma automàtica el maneig de sessions.</td>
+</tr>
+<tr>
+<td>session.cookie_lifetime</td>
+<td>Si utilitzes l'URL per propagar el SID, aquest es perdrà quan tanqui el navegador. No obstant això, si utilitzes galetes, el SID es mantindrà mentre no es destrueixi la galleta. En el seu valor per defecte (0), les galetes es destrueixen quan es tanca el navegador. Si vols que es mantingui el SID durant més temps, has d'indicar en aquesta directiva aquest temps en segons.</td>
+</tr>
+<tr>
+<td>session.gc_maxlifetime</td>
+<td>Indica el temps en segons que s'ha de mantenir activa la sessió, encara que no hi hagi cap activitat per part de l'usuari. El seu valor per defecte és 1440. És a dir, passats 24 minuts des de l'última activitat per part de l'usuari, es tanca la sessió automàticament.</td>
+</tr>
+<tr>
+<td>session.cookie_path</td>
+<td>URL path prefix that must match for the cookie to be sent.</td>
+</tr>
+<tr>
+<td>session.cookie_domain</td>
+<td>Domain suffix that must match for the cookie to be sent. No value means the cookie is sent back only to the full hostname that sent it.</td>
+</tr>
+<tr>
+<td>session.cookie_secure</td>
+<td>Set to On to have the cookie only sent back with HTTPS URLs.</td>
+</tr>
+<tr>
+<td>session.cookie_httponly</td>
+<td>Set to On to tell browsers to prevent JavaScript from reading the cookie.</td>
+</tr>
+</tbody>
+</table>
+<p>La funció <code>phpinfo</code>, de la qual ja vam parlar amb anterioritat, t'ofereix informació sobre la configuració actual de les directives de sessió.</p>
+<p>En la documentació de PHP tens informació sobre aquestes i altres directives que permeten configurar el maneig de sessions.</p>
+<p><a href="https://www.php.net/manual/es/session.configuration.php">https://www.php.net/manual/es/session.configuration.php</a></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Si la informació de l'usuari que vols emmagatzemar inclou contingut privat com una contrasenya, ¿què utilitzaries, galetes o la sessió de l'usuari?</p>
+</div>
+<h3 id="inici-i-fi-duna-sessio">Inici i fi d'una sessió</h3>
+<p>L'inici d'una sessió pot tenir lloc de dues maneres. Si has activat la directiva <code>session.auto_start</code> en la configuració de PHP, la sessió començarà automàticament quan un usuari es connecte al teu lloc web. En el cas que aquest usuari ja haja obert una sessió amb anterioritat, i aquesta no s'haja eliminat, en lloc d'obrir una nova sessió es reprendrà la anterior. Per a això s'utilitzarà el SID anterior, que estarà emmagatzemat en una galleta (recorda que si fas servir propagació de l'SID, no podràs restaurar sessions anteriors; el SID figura a la URL i es perd quan tanques el navegador).</p>
+<p>Si per contra, decideixes no utilitzar l'inici automàtic de sessions, hauràs executar la funció <code>session_start()</code> per indicar a PHP que inicie una nova sessió o reprenga l'anterior. Anteriorment aquesta funció tornava sempre <code>true</code>, a partir de la versió 5.3.0 de PHP el seu comportament és més coherent: retorna <code>false</code> en cas de no poder iniciar o restaurar la sessió.</p>
+<p>Com l'inici de sessió requereix utilitzar <code>cookies</code>, i aquestes es transmeten en els encapçalats HTTP, heu de tenir en compte que per poder iniciar una sessió utilitzant <code>session_start</code>, hauràs de fer les cridades a aquesta funció abans que la pàgina web mostre informació al navegador.</p>
+<p>A més, totes les pàgines que necessiten utilitzar la informació emmagatzemada en la sessió, hauran d'executar la funció <code>session_start</code>.</p>
+<p>Mentre la sessió estiga oberta, pots utilitzar la variable superglobal <code>$_SESSION</code> per afegir informació a la sessió de l'usuari, o per accedir a la informació emmagatzemada en la sessió. Per
+exemple, per comptar el nombre de vegades que l'usuari visita la pàgina, pots fer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="c1">// Iniciamos la sesión o recuperamos la anterior sesión existente</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="c1">// Comprobamos si la variable ya existe</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]))</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="k">else</span>
+<span class="linenos" data-linenos="8 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Si en lloc de el nombre de visites, voldries emmagatzemar l'instant en què es produeix cadascuna, la variable de sessió "visites" ha de ser una matriu i per tant hauràs de canviar el codi anterior per:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span> <span class="c1">// Iniciamos la sesión o recuperamos la anterior sesión existente</span>
+<span class="linenos" data-linenos="3 "></span> <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span> <span class="c1">// En cada visita añadimos un valor al array "visitas"</span>
+<span class="linenos" data-linenos="5 "></span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">][]</span> <span class="o">=</span> <span class="nb">mktime</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Encara que com ja has vist, pots configurar PHP perquè elimine de forma automàtica les dades de una sessió passat cert temps, en ocasions pot ser necessari tancar-la de forma manual en un moment determinat. Per exemple, si utilitzes sessions per recordar la informació d'autenticació hauràs donar-li a l'usuari de la pàgina web la possibilitat de tancar la sessió quan ho crega convenient.</p>
+<p>En PHP tens dues funcions per eliminar la informació emmagatzemada en la sessió:</p>
+<ul>
+<li><code>session_unset</code>. Elimina les variables emmagatzemades a la sessió actual, però no elimina la informació de la sessió del dispositiu d'emmagatzematge usat.</li>
+<li><code>session_destroy</code>. Elimina completament la informació de la sessió del dispositiu de emmagatzematge.</li>
+</ul>
+<h3 id="activitat">Activitat</h3>
+<p>Crea una pàgina similar a l'anterior, emmagatzemant en la sessió d'usuari els instants de totes les seves últimes visites. Si és la seva primera visita, mostra un missatge de benvinguda. En cas contrari, mostra la data i hora de totes les seves visites anteriors. Afegeix un botó a la pàgina que permeti esborrar el registre de visites.</p>
+<p>Utilitza també una variable de sessió per a comprovar si l'usuari ja ha iniciat correctament. D'aquesta manera no caldrà comprovar les credencials amb la base de dades constantment.</p>
+<h2 id="gestio-de-la-informacio-de-la-sessio">Gestió de la informació de la sessió</h2>
+<p>Ara veurem pas a pas un exemple d'utilització de sessions per a emmagatzemar informació de l'usuari. Utilitzaràs la base de dades "blog", usada anteriorment, per a crear un prototip d'elements favorits.</p>
+<p>Les pàgines de què constarà l'aplicació web seran:</p>
+<ul>
+<li>Login (<code>SecurityController::login</code>). La seva funció és autentificar a l'usuari de l'aplicació web. Tots els usuaris de l'aplicació s'hauran autentificar utilitzant aquesta pàgina abans de poder marcar algun post com a favorit.</li>
+<li>Afegir a preferits (<code>PostController::addToFavourite</code>). Cada entrada disposarà d'un botó per a afegir a favorits sempre que el usuari s'haja validat.</li>
+<li>Llistat de posts favorits (<code>PostController::favourite</code>). Presenta un llistat de les entrades favorites.</li>
+<li>Logoff (<code>SecurityController::logout</code>). Aquesta pàgina desconnecta a l'usuari de l'aplicació i redirigeix ​​a l'usuari de forma automàtica a la pàgina d'inici. No mostra cap informació en pantalla, pel que no és visible per a l'usuari.</li>
+</ul>
+<p>Abans de començar tingues en compte que l'aplicació que vas a desenvolupar no és completament funcional. Per exemple:</p>
+<ul>
+<li>No tindràs en compte la possibilitat que l'usuari afegisca diverses vegades la mateixa entrada.</li>
+<li>Un cop afegida una entrada no es podrà eliminar, sols buidar.</li>
+<li>No es mostraran imatges dels productes.</li>
+<li>Es mostraran tots els posts en una única pàgina, sense paginació.</li>
+</ul>
+<p>Encara que reduïm en aquest exemple la funcionalitat, t'animem a que un cop finalitzat el mateix, afegisques pel teu compte totes aquelles opcions que vulguis. Recorda que la millor manera d'aprendre programació és ... programant!</p>
+<h3 id="autenticar-lusuari">Autenticar l'usuari</h3>
+<p>La primera pàgina que vas a programar és la d'autenticació de l'usuari (<code>SecurityController::login</code>). Per variar, faràs servir les capacitats de maneig de sessions de PHP per emmagatzemar la identificació dels usuaris.</p>
+<p>A més, utilitzarem la informació de la taula "User" a la base de dades "bloc", accedint mitjançant PDO.</p>
+<p>Vas a crear a la pàgina un formulari amb dos camps, un de tipus text per a l'usuari, i un altre de tipus password per a la contrasenya. En prémer el botó Enviar, el formulari s'enviarà a aquesta mateixa pàgina, on es compararan les credencials proporcionades per l'usuari amb les emmagatzemades en la base de dades. Si les dades són correctes, s'iniciarà una nova sessió i s'emmagatzemarà en ella el nom de l'usuari que s'acaba de connectar.</p>
+<p><img alt="UserController::login" src="images/usercontroller-login.png"/></p>
+<p>Anem per passos. El codi HTML per crear el formulari, que anirà dins el cos de la pàgina (entre les etiquetes <body>) serà el següent:</body></p>
+<p>{% raw %}</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">action</span><span class="o">=</span><span class="s2">"{{ router.generateURL('User', 'login') }}"</span> <span class="nx">method</span><span class="o">=</span><span class="s2">"post"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>        <span class="p">{{</span> <span class="nx">message</span> <span class="p">}}</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-group"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>            <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"username"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">"Nom d'usuari"</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-control"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-group"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>            <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"password"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"password"</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">"Contrasenya"</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-control"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="o">&lt;</span><span class="nx">p</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"text-center"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"btn btn-primary"</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"login"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="o">&gt;&lt;</span><span class="nx">i</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"fa fa-sign-in"</span><span class="o">&gt;&lt;/</span><span class="nx">i</span><span class="o">&gt;</span> <span class="nx">Iniciar</span> <span class="nx">sessió</span><span class="o">&lt;/</span><span class="nx">button</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="o">&lt;/</span><span class="nx">form</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>{% endraw %}
+Fixa't que hi ha un espai per posar els possibles missatges d'error que es produeixin, com la falta d'alguna dada necessari, o un error de credencials errònies.</p>
+<p>El codi PHP que ha de figurar a l'començament d'aquesta mateixa pàgina (abans que es mostri qualsevol text), s'encarregarà de:</p>
+<p>Comprovar que s'han introduït tant el nom d'usuari com la contrasenya.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># UserController.php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">((</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">'username'</span><span class="p">)</span> <span class="o">&amp;&amp;</span>  <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">'password'</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isPost</span><span class="p">()</span> <span class="p">)</span>  <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="c1">//Cogemos datos del formulario y validamos</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$username</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getString</span><span class="p">(</span><span class="s1">'username'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$password</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getString</span><span class="p">(</span><span class="s1">'password'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setUsername</span><span class="p">(</span><span class="nv">$username</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="nv">$password</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="c1">// Comprovem que els valors són correctes.</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$errors</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">validateLogin</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</code></pre></div>
+<p>Comprovem les credencials.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// UserController.php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// Si no hi ha errors comprovem les credancials</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$errors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="c1">//Cogemos los datos del formulario para comprobar que existe el usuario</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$loginOk</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">checkUser</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">(),</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getPassword</span><span class="p">());</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// UserModel.php</span>
+<span class="linenos" data-linenos=" 2 "></span>      <span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>            <span class="nv">$loginUsuario</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"SELECT * FROM user WHERE username=:username AND password=:password"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>            <span class="nv">$loginUsuario</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':username'</span><span class="p">,</span> <span class="nv">$email</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">PARAM_STR</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>            <span class="nv">$loginUsuario</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':password'</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">PARAM_STR</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>            <span class="nv">$loginUsuario</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>            <span class="k">return</span> <span class="nv">$loginUsuario</span><span class="o">-&gt;</span><span class="na">rowCount</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="k">echo</span> <span class="s2">"Error: "</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">}</span>
+</code></pre></div>
+<p>Si les credencials són correctes carreguem en les dades d'usuari en \$_SESSION</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$loginOk</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>        <span class="nv">$dataUser</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">getByUsername</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'loggedin'</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'iduser'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$dataUser</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$dataUser</span><span class="o">-&gt;</span><span class="na">getEmail</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$dataUser</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'id_rol'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$dataUser</span><span class="o">-&gt;</span><span class="na">getRoles</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: "</span><span class="o">.</span><span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'router'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="s1">'favourite'</span><span class="p">));</span>
+<span class="linenos" data-linenos="10 "></span>       <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$errors</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">"Les credencials són invàlides"</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+</code></pre></div>
+<p>I redirigir a la pàgina de les entrades favorites.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: "</span><span class="o">.</span><span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'router'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="s1">'favourite'</span><span class="p">));</span>
+</code></pre></div>
+<p>Enten bé el codi abans de seguir endavant.</p>
+<p>{: .alert .alert-question }
+En el codi anterior, la sessió de l'usuari s'inicia sòl si es proporciona un nom d'usuari i contrasenya correctes. ¿Podria haver-se iniciat la sessió en començar el codi encara que l'usuari no haja proporcionat les credencials?</p>
+<h3 id="pagina-de-favorits">Pàgina de favorits</h3>
+<p>Quan un usuari proporciona unes credencials d'inici de sessió correctes (recorda que tu ja havies afegit l'usuari "jane_admin" amb contrasenya "admin"), se li redirigeix ​​automàticament a la pàgina de la llista d'entrades favorites. Aquesta és la pàgina que vas a programar a continuació.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// PostController.php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">favourite</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">global</span> <span class="nv">$router</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="c1">// Recuperem la informació de la sessió</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// Comprovem si l'usuari s'ha autenticat</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'loggedin'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">die</span><span class="p">(</span><span class="s2">"Error - cal autenticar-se &lt;a href=</span><span class="se">\"</span><span class="s2">"</span> <span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,</span> <span class="s1">'login'</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$postModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PostModel</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">$posts</span><span class="o">=</span><span class="p">[];</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$postId</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="nv">$posts</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$postModel</span><span class="o">-&gt;</span><span class="na">getById</span><span class="p">(</span><span class="nv">$postId</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="nv">$image_dir</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'image_path'</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="nv">$header</span> <span class="o">=</span> <span class="s1">'Últimes entrades'</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>    <span class="nv">$properties</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="s1">'image_dir'</span> <span class="o">=&gt;</span> <span class="nv">$image_dir</span><span class="p">,</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="s1">'header'</span> <span class="o">=&gt;</span> <span class="s1">'Entrades favorites'</span><span class="p">,</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="s1">'posts'</span> <span class="o">=&gt;</span> <span class="nv">$posts</span><span class="p">,</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="s1">'tags'</span> <span class="o">=&gt;</span> <span class="nv">$tags</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="p">];</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'posts/favourite.twig'</span><span class="p">,</span> <span class="nv">$properties</span><span class="p">);</span>
+<span class="linenos" data-linenos="28 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">addToFavourite</span><span class="p">()</span>
+<span class="linenos" data-linenos="31 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="32 "></span>    <span class="k">global</span> <span class="nv">$router</span><span class="p">;</span>
+<span class="linenos" data-linenos="33 "></span>    <span class="c1">// Recuperem la informació de la sessió</span>
+<span class="linenos" data-linenos="34 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="35 "></span>    <span class="c1">// Comprovem si l'usuari s'ha autenticat</span>
+<span class="linenos" data-linenos="36 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'loggedin'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="37 "></span>        <span class="k">die</span><span class="p">(</span><span class="s2">"Error - cal autenticar-se &lt;a href=</span><span class="se">\"</span><span class="s2">"</span> <span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,</span> <span class="s1">'login'</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="38 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="39 "></span>
+<span class="linenos" data-linenos="40 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isPost</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos" data-linenos="41 "></span>        <span class="nv">$postId</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getInt</span><span class="p">(</span><span class="s1">'post'</span><span class="p">);</span>
+<span class="linenos" data-linenos="42 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$postId</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="43 "></span>            <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">][]</span> <span class="o">=</span> <span class="nv">$postId</span><span class="p">;</span>
+<span class="linenos" data-linenos="44 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="45 "></span>    <span class="nb">header</span><span class="p">(</span><span class="s1">'Location: '</span><span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'Posts'</span><span class="p">,</span> <span class="s1">'index'</span><span class="p">));</span>
+<span class="linenos" data-linenos="46 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="47 "></span>
+<span class="linenos" data-linenos="48 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">emptyFavourite</span><span class="p">()</span>
+<span class="linenos" data-linenos="49 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="50 "></span>    <span class="k">global</span> <span class="nv">$router</span><span class="p">;</span>
+<span class="linenos" data-linenos="51 "></span>    <span class="c1">// Recuperem la informació de la sessió</span>
+<span class="linenos" data-linenos="52 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="53 "></span>
+<span class="linenos" data-linenos="54 "></span>    <span class="c1">// Buidem l'array amb les entrades favorites</span>
+<span class="linenos" data-linenos="55 "></span>    <span class="nb">unset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]);</span>
+<span class="linenos" data-linenos="56 "></span>
+<span class="linenos" data-linenos="57 "></span>    <span class="nb">header</span><span class="p">(</span><span class="s1">'Location: '</span><span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'Posts'</span><span class="p">,</span> <span class="s1">'index'</span><span class="p">));</span>
+<span class="linenos" data-linenos="58 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Les plantilles de Twig</p>
+<p>{%raw%}</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">#posts/favourite.twig</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">body</span> <span class="sx">%}</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sx">    &lt;!-- MOSTREM LES ENTRADES --&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="sx">    {% for post in posts %}</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>            <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/h2&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="sr">            &lt;p&gt;Escrit per:&lt;strong&gt;{{ post.user.fullname }} &lt;/s</span><span class="n">trong</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>                <span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">published_at</span><span class="o">|</span><span class="n">date</span><span class="p">(</span><span class="s2">"d/m/Y"</span><span class="p">)</span> <span class="p">}}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>                <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">admin</span> <span class="sx">%}</span>
+<span class="linenos" data-linenos="11 "></span><span class="sx">                    &lt;a class="btn px-2 secondary-link"</span>
+<span class="linenos" data-linenos="12 "></span><span class="sx">                       href="{{ router.generateURL('Post', 'search') }</span><span class="p">}</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="s2">                        &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">pencil</span><span class="o">-</span><span class="n">square</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="s2">                    &lt;a class="</span><span class="n">btn</span> <span class="n">px</span><span class="o">-</span><span class="mi">2</span> <span class="n">secondary</span><span class="o">-</span><span class="n">link</span><span class="s2">"</span>
+<span class="linenos" data-linenos="16 "></span><span class="s2">                       href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'search'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="s2">                        &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">trash</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="18 "></span><span class="s2">                {% endif %}</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="s2">            &lt;/p&gt;</span>
+<span class="linenos" data-linenos="21 "></span><span class="s2">            &lt;div class="</span><span class="n">fakeimg</span><span class="s2">"&gt;&lt;img class="</span><span class="n">w</span><span class="o">-</span><span class="mi">25</span> <span class="n">img</span><span class="o">-</span><span class="n">thumbnail</span> <span class="n">float</span><span class="o">-</span><span class="n">left</span> <span class="n">mr</span><span class="o">-</span><span class="mi">2</span><span class="s2">"</span>
+<span class="linenos" data-linenos="22 "></span><span class="s2">                                      src="</span><span class="p">{{</span> <span class="n">image_dir</span> <span class="o">~</span> <span class="n">post</span><span class="o">.</span><span class="n">image</span> <span class="p">}}</span><span class="s2">"/&gt;&lt;/div&gt;</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="s2">            &lt;p&gt;{{ post.summary }}&lt;/p&gt;</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span><span class="s2">            &lt;p&gt;&lt;a href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'showById'</span><span class="p">,</span> <span class="p">{</span><span class="nb">id</span><span class="p">:</span> <span class="n">post</span><span class="o">.</span><span class="n">id</span><span class="p">})</span> <span class="p">}}</span><span class="s2">"&gt;Llegir més&lt;/a&gt;</span>
+<span class="linenos" data-linenos="27 "></span><span class="s2">            &lt;/p&gt;</span>
+<span class="linenos" data-linenos="28 "></span><span class="s2">            &lt;div class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="29 "></span><span class="s2">                &lt;!-- MOSTREM ELS TAGS --&gt;</span>
+<span class="linenos" data-linenos="30 "></span><span class="s2">                {% for tag in post.tags %}</span>
+<span class="linenos" data-linenos="31 "></span>
+<span class="linenos" data-linenos="32 "></span><span class="s2">                    &lt;a class="</span><span class="n">btn</span> <span class="n">btn</span><span class="o">-</span><span class="n">light</span><span class="s2">"</span>
+<span class="linenos" data-linenos="33 "></span><span class="s2">                       href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'showByTag'</span><span class="p">,</span> <span class="p">{</span> <span class="nb">id</span><span class="p">:</span> <span class="n">tag</span><span class="o">.</span><span class="n">id</span> <span class="p">})</span> <span class="p">}}</span><span class="s2">"&gt; &lt;span</span>
+<span class="linenos" data-linenos="34 "></span><span class="s2">                                class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">tags</span><span class="s2">" aria-hidden="</span><span class="kp">true</span><span class="s2">"&gt;{{ tag.name }} &lt;/a&gt;</span>
+<span class="linenos" data-linenos="35 "></span>
+<span class="linenos" data-linenos="36 "></span><span class="s2">                {% endfor %}</span>
+<span class="linenos" data-linenos="37 "></span>
+<span class="linenos" data-linenos="38 "></span><span class="s2">            &lt;/div&gt;</span>
+<span class="linenos" data-linenos="39 "></span><span class="s2">        &lt;/div&gt;</span>
+<span class="linenos" data-linenos="40 "></span><span class="s2">        &lt;div class="</span><span class="n">clearfix</span><span class="s2">"&gt;&lt;/div&gt;</span>
+<span class="linenos" data-linenos="41 "></span>
+<span class="linenos" data-linenos="42 "></span><span class="s2">    {% endfor %}</span>
+<span class="linenos" data-linenos="43 "></span><span class="s2">    &lt;form class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">" action="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'emptyFavourite'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">" method="</span><span class="n">post</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="44 "></span><span class="s2">        &lt;input type="</span><span class="n">submit</span><span class="s2">" class="</span><span class="n">btn</span> <span class="n">btn</span><span class="o">-</span><span class="n">info</span><span class="s2">" value="</span><span class="no">Buidar</span> <span class="n">favorits</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="45 "></span><span class="s2">    &lt;/form&gt;</span>
+<span class="linenos" data-linenos="46 "></span><span class="s2">{% endblock %}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># posts/show.twig</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.twig"</span> <span class="sx">%}</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="sx">{% block body %}</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">&lt;!--</span> <span class="no">MOSTREM</span> <span class="no">LES</span> <span class="no">ENTRADES</span> <span class="o">--&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/h2&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="sr">        &lt;p&gt;Escrit per:&lt;strong&gt;{{ post.user.fullname }} &lt;/s</span><span class="n">trong</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">published_at</span><span class="o">|</span><span class="n">date</span><span class="p">(</span><span class="s2">"d/m/Y"</span><span class="p">)</span> <span class="p">}}</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>            <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">admin</span> <span class="sx">%}</span>
+<span class="linenos" data-linenos="12 "></span><span class="sx">                &lt;a class="btn px-2 secondary-link"</span>
+<span class="linenos" data-linenos="13 "></span><span class="sx">                   href="{{ router.generateURL('Post', 'search') }</span><span class="p">}</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="s2">                    &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">pencil</span><span class="o">-</span><span class="n">square</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="s2">                &lt;a class="</span><span class="n">btn</span> <span class="n">px</span><span class="o">-</span><span class="mi">2</span> <span class="n">secondary</span><span class="o">-</span><span class="n">link</span><span class="s2">"</span>
+<span class="linenos" data-linenos="17 "></span><span class="s2">                   href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'search'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="18 "></span><span class="s2">                    &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">trash</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="s2">            {% endif %}</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="s2">        &lt;/p&gt;</span>
+<span class="linenos" data-linenos="22 "></span><span class="s2">        &lt;div class="</span><span class="n">fakeimg</span><span class="s2">"&gt;&lt;img class="</span><span class="n">w</span><span class="o">-</span><span class="mi">25</span> <span class="n">img</span><span class="o">-</span><span class="n">thumbnail</span> <span class="n">float</span><span class="o">-</span><span class="n">left</span> <span class="n">mr</span><span class="o">-</span><span class="mi">2</span><span class="s2">"</span>
+<span class="linenos" data-linenos="23 "></span><span class="s2">                                  src="</span><span class="p">{{</span> <span class="n">image_dir</span> <span class="o">~</span> <span class="n">post</span><span class="o">.</span><span class="n">image</span> <span class="p">}}</span><span class="s2">"/&gt;&lt;/div&gt;</span>
+<span class="linenos" data-linenos="24 "></span><span class="s2">        &lt;p&gt;{{ post.content|markdown_to_html }}&lt;/p&gt;</span>
+<span class="linenos" data-linenos="25 "></span><span class="s2">        &lt;form class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">" action="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'addToFavourite'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">" method="</span><span class="n">post</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="26 "></span><span class="s2">            &lt;input type="</span><span class="n">hidden</span><span class="s2">" name="</span><span class="n">post</span><span class="s2">" value="</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">id</span> <span class="p">}}</span><span class="s2">" /&gt;</span>
+<span class="linenos" data-linenos="27 "></span><span class="s2">            &lt;input type="</span><span class="n">submit</span><span class="s2">" class="</span><span class="n">btn</span> <span class="n">btn</span><span class="o">-</span><span class="n">info</span><span class="s2">" value="</span><span class="no">Afegir</span> <span class="n">a</span> <span class="n">favorits</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="28 "></span><span class="s2">        &lt;/form&gt;</span>
+<span class="linenos" data-linenos="29 "></span><span class="s2">        &lt;p class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">"&gt;&lt;a href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'index'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">"&gt;Pàgina principal&lt;/a&gt;</span>
+<span class="linenos" data-linenos="30 "></span><span class="s2">        &lt;/p&gt;</span>
+<span class="linenos" data-linenos="31 "></span><span class="s2">    &lt;/div&gt;</span>
+<span class="linenos" data-linenos="32 "></span><span class="s2">{% endblock %}</span>
+</code></pre></div>
+<p>{% endraw %}</p>
+<p>En cada entrada es crea un formulario amb un botó "Afegir a favorits" que envia a la pàgina <em>/favourite/add</em> l'identificador de cada entrada que activa el mètode <code>addToFavourite()</code>. Quan s'executa es comprova si s'ha enviat la pàgina i s'afegeix a \$_SESSION['Posts] l'idenficador rebut.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isPost</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$postId</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getInt</span><span class="p">(</span><span class="s1">'post'</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$postId</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">][]</span> <span class="o">=</span> <span class="nv">$postId</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<p>L'array <code>$_SESSION['Posts']</code> és la variable de sessió en la que emmagatzemarem els identificadors de totes les entrades que l'usuari afegeix a favorits.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Si hi ha elements a favorits els mostrarem</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$postId</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nv">$posts</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$postModel</span><span class="o">-&gt;</span><span class="na">getById</span><span class="p">(</span><span class="nv">$postId</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">// Si no, mostrarem un missatge</span>
+<span class="linenos" data-linenos="7 "></span><span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="nv">$message</span> <span class="o">=</span> <span class="s2">"No hi ha elements favorits"</span><span class="p">;</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<p>La pàgina conté un formulari per a buidar els elements favorits:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nb">unset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]);</span>
+</code></pre></div>
+<p>A més a més, tant en aquesta pàgina como en la resta, caldrà comprovar si la variable \$_SESSION['loggedin'] existeix per a verificar que l'usuari s'ha autenticat correctament.</p>
+<p>Para ello, debes incluir el siguiente código al inicio de la página.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Recuperem la informació de la sessió</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// Comprovem si l'usuari s'ha autenticat</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'loggedin'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">die</span><span class="p">(</span><span class="s2">"Error - cal autenticar-se &lt;a href=</span><span class="se">\"</span><span class="s2">"</span> <span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,</span> <span class="s1">'login'</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Si l'usuari no s'ha autenticat, es mostra un missatge d'error junt amb l'enllaç a la pàgina d'inici de sessió.</p>
+<p>Si des de qualsevol pàgina l'usuari prem l'opció del menú "Favorits", activarà el mètode <code>favourite()</code> de <code>PostController</code> en la que se vorà totes les entrades que ha marcat com a favorites.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// PostController.php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">favourite</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">global</span> <span class="nv">$router</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="c1">// Recuperem la informació de la sessió</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// Comprovem si l'usuari s'ha autenticat</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'loggedin'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">die</span><span class="p">(</span><span class="s2">"Error - cal autenticar-se &lt;a href=</span><span class="se">\"</span><span class="s2">"</span> <span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,</span> <span class="s1">'login'</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$postModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PostModel</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">$posts</span><span class="o">=</span><span class="p">[];</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$postId</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="nv">$posts</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$postModel</span><span class="o">-&gt;</span><span class="na">getById</span><span class="p">(</span><span class="nv">$postId</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="nv">$image_dir</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'image_path'</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="nv">$header</span> <span class="o">=</span> <span class="s1">'Últimes entrades'</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>    <span class="nv">$properties</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="s1">'image_dir'</span> <span class="o">=&gt;</span> <span class="nv">$image_dir</span><span class="p">,</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="s1">'header'</span> <span class="o">=&gt;</span> <span class="s1">'Entrades favorites'</span><span class="p">,</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="s1">'posts'</span> <span class="o">=&gt;</span> <span class="nv">$posts</span><span class="p">,</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="s1">'tags'</span> <span class="o">=&gt;</span> <span class="nv">$tags</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="p">];</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'posts/favourite.twig'</span><span class="p">,</span> <span class="nv">$properties</span><span class="p">);</span>
+<span class="linenos" data-linenos="28 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Les entrades que es mostren en la pàgina s'obtenen de la informació emmagatzemada en la sessió. Usarem <code>PostModel</code> per a carregar les dades de cada entrada.</p>
+<p>En acabar, l'usuari podrà tancar sessió activant el mètode <code>logout</code> de <code>SecurityController</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Recuperamos la información de la sesión</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// Y la eliminamos</span>
+<span class="linenos" data-linenos="4 "></span><span class="nb">session_unset</span><span class="p">();</span>
+<span class="linenos" data-linenos="5 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">"Location: login.php"</span><span class="p">);</span>
+</code></pre></div>
+<p>Més informació sobre les sessions en PHP: <a href="https://www.php.net/manual/es/book.session.php">Maneig de sessions (PHP)</a></p>
+<h2 id="bones-practiques">Bones pràctiques</h2>
+<h2 id="usa-sempre-https">Usa sempre HTTPS</h2>
+<p>Usa sempre HTTPS si no s'enviarà tota la informació en text pla. Contrasenyes incloses.</p>
+<h2 id="usa-sessions">Usa sessions</h2>
+<p>A diferència de les galetes les dades emmagatzemades en les sessions no s'envien mitjançant els encapçalats HTTP, romanen al servidor.</p>
+<p>El que sí s'envia és l'identificador de sessió. Caldrà prendre mesures perquè l'identificador no puga ser accessible per tercers i així poder accedir a les dades emmagatzemades.</p>
+<p>Segons l'<a href="https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project">OWASP</a>:</p>
+<blockquote>
+<p>Session settings are some of the MOST important values to concentrate on in configuring. It is a good practice to change session.name to something new.</p>
+</blockquote>
+<p>I proposen la següent configuració bàsica:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span> session.save_path                = /path/PHP-session/
+<span class="linenos" data-linenos=" 2 "></span> session.name                     = myPHPSESSID
+<span class="linenos" data-linenos=" 3 "></span> session.auto_start               = Off
+<span class="linenos" data-linenos=" 4 "></span> session.use_trans_sid            = 0
+<span class="linenos" data-linenos=" 5 "></span> session.cookie_domain            = full.qualified.domain.name
+<span class="linenos" data-linenos=" 6 "></span> #session.cookie_path             = /application/path/
+<span class="linenos" data-linenos=" 7 "></span> session.use_strict_mode          = 1
+<span class="linenos" data-linenos=" 8 "></span> session.use_cookies              = 1
+<span class="linenos" data-linenos=" 9 "></span> session.use_only_cookies         = 1
+<span class="linenos" data-linenos="10 "></span> session.cookie_lifetime          = 14400 # 4 hours
+<span class="linenos" data-linenos="11 "></span> session.cookie_secure            = 1
+<span class="linenos" data-linenos="12 "></span> session.cookie_httponly          = 1
+<span class="linenos" data-linenos="13 "></span> session.cookie_samesite          = Strict
+<span class="linenos" data-linenos="14 "></span> session.cache_expire             = 30
+<span class="linenos" data-linenos="15 "></span> session.sid_length               = 256
+<span class="linenos" data-linenos="16 "></span> session.sid_bits_per_character   = 6 # PHP 7.2+
+<span class="linenos" data-linenos="17 "></span> session.hash_function            = 1 # PHP 7.0-7.1
+<span class="linenos" data-linenos="18 "></span> session.hash_bits_per_character  = 6 # PHP 7.0-7.1
+</code></pre></div>
+<p>Les recomanacions en major detall:</p>
+<h3 id="control-de-la-vida-de-sessio">Control de la vida de sessió</h3>
+<ol>
+<li>
+<p><strong>Fes que expire la sessió després d’un curt període d’inactivitat</strong>: ajusteu el temps d’inactivitat a 5 minuts per a aplicacions altament protegides fins a no més de 30 minuts per a aplicacions de baix risc.</p>
+</li>
+<li>
+<p><strong>Habilita l’opció de tancament de sessió</strong>: caduca i destrueix explícitament la sessió en tancar la sessió.</p>
+</li>
+<li>
+<p><strong>Eviteu els inicis de sessió persistents (opció "recordeu-me")</strong>: opcionalment podeu restringir la informació conservada i revelada per l'aplicació, és a dir, obligar a l'usuari a tornar a iniciar sessió abans de realitzar cap operació crítica.</p>
+</li>
+<li>
+<p><strong>Fes que expire la sessió quan hi haja error de seguretat</strong>: qualsevol error de seguretat de l'aplicació hauria de donar lloc a la finalització de la sessió.</p>
+</li>
+<li>
+<p><strong>Fes caducar la sessió quan siga de llarga durada</strong>: obligació a reautentificar la sessió, que tot i estar actiu ha arribat al temps màxim permès, p.e. unes poques hores.</p>
+</li>
+<li>
+<p><strong>Elimineu la galleta de sessió en destruir una sessió</strong>.</p>
+</li>
+</ol>
+<h3 id="identificador-de-sessio">Identificador de sessió</h3>
+<ol>
+<li>
+<p><strong>Utilitzeu només galetes per propagar l’ID de sessió</strong>, ja que quan es transmeten mitjançant un paràmetre URL, les sol·licituds GET poden ser emmagatzemades a l’historial del navegador, a la memòria cau i als marcadors. Aleshores també es pot visualitzar fàcilment.</p>
+</li>
+<li>
+<p><strong>Regenereu l'identificador de sessió</strong>: regenereu (substituïu-ne per un de nou) l'identificador de sessió, almenys cada cop que canvie el nivell de privilegi de l'usuari. Generalment es pot regenerar abans de qualsevol transacció important, després d’un determinat nombre de sol·licituds o després d’un període de temps.</p>
+</li>
+<li>
+<p><strong>Comproveu si l'identificador de sessió és vàlid</strong> (de mida i tipus previst) i que ha estat generat per l'aplicació i no proporcionat per l'usuari.</p>
+</li>
+<li>
+<p><strong>L'identificador de sessió hauria de ser adequadament llarg, imprevisible, difícil de reproduir i creat a partir de fonts aleatòries d'alta qualitat</strong>.</p>
+</li>
+</ol>
+<h3 id="cookie-de-sessio">Cookie de sessió</h3>
+<ol>
+<li>
+<p>Definiu el domini de la galleta a quelcom més específic que el domini de primer nivell.</p>
+</li>
+<li>
+<p>No emmagatzeneu res a la galleta (almenys qualsevol informació sensible com el nom d’usuari o la contrasenya) sols’ID de sessió.</p>
+</li>
+<li>
+<p>Definiu el senyalador només http per desactivar la captura de l'identificador de sessió mitjançant XSS.</p>
+</li>
+<li>
+<p>Quan siga possible, utilitzeu un xifrat fort (SSL) i l'atribut <code>cookie_secure</code> per permetre la transmissió de cookies només a través de https.</p>
+</li>
+</ol>
+<h3 id="emmagatzematge-de-dades-de-sessio">Emmagatzematge de dades de sessió</h3>
+<ol>
+<li>
+<p>Determineu on s'emmagatzemen les dades de sessió i si es tracta d’un sistema de fitxers o d’una base de dades, determineu qui més podria tenir accés a aquestes dades.</p>
+</li>
+<li>
+<p>Quan s'emmagatzemen les dades de sessió en fitxers, assegureu-vos que l'aplicació està configurada per utilitzar un directori privat independent (per exemple, la directiva <code>session.save_path</code>). Utilitzeu els permisos del sistema de fitxers per protegir aquests fitxers d’observació o modificació d’usuaris diferents dels comptes necessaris per operar el servidor web i les aplicacions. Si això no és possible, cal xifrar les dades de la sessió o contenir només dades no sensibles. Tingueu en compte que PHP utilitza de manera predeterminada el directori temporal del sistema públic.</p>
+</li>
+<li>
+<p>Totes les variables de sessió s’han de validar i sanejar per assegurar-se que siguem correctes i que no conté caràcters inesperats.</p>
+</li>
+</ol>
+<h2 id="no-coneixer-les-contrasenyes">No conèixer les contrasenyes</h2>
+<p>Al final, tothom crea una aplicació PHP que es basa en la sessió d’usuari. Els noms d’usuari i les contrasenyes s’emmagatzemen en una base de dades i s’utilitzen posteriorment per autentificar els usuaris després de l’inici de sessió.</p>
+<p>És important que fer <em>hash</em> de les contrasenyes correctament abans d’emmagatzemar-les. El <em>hashing</em> i el xifrat són dues coses molt diferents que sovint es confonen.</p>
+<p>El <em>hashing</em> és una funció irreversible i unidireccional. És produeix una cadena de longitud fixa que no es pot invertir. Això vol dir que podeu comparar un <em>hash</em> amb un altre per determinar si tots dos provenien de la mateixa cadena font, però no podeu determinar la cadena original. Si les contrasenyes no s'emmagatzemen amb <em>hashing</em> i un tercer no autoritzat accedeix a la vostra base de dades, tots els comptes d'usuari estaran compromesos.</p>
+<p>A diferència del <em>hashing</em>, el xifrat és reversible (sempre que tingueu la clau). El xifratge és útil en altres àrees, però és una estratègia deficient per emmagatzemar contrasenyes de forma segura.</p>
+<p>Les contrasenyes també han de <em>salar-se</em> individualment afegint una cadena aleatòria a cada contrasenya abans d'aplicar <em>hashing</em>. Això evita els atacs de diccionari i l'ús de "taules de l'arc de Sant Martí" (una llista inversa de <em>hash</em> criptogràfics per a contrasenyes comunes.)</p>
+<p>El <em>hashing</em> i el salat són vitals, ja que sovint els usuaris utilitzen la mateixa contrasenya per a diversos serveis i la qualitat de la contrasenya és deficient.</p>
+<p>Addicionalment, haureu d'utilitzar un algorisme especialitzat en <em>hashing</em> en lloc d'una funció de hash criptogràfic de propòsit general i ràpid (per exemple, SHA256). La llista breu d'algorismes de hashing de contrasenya acceptables (a juny de 2018) a utilitzar són:</p>
+<ul>
+<li>Argon2 (disponible a PHP 7.2 i versions posteriors)</li>
+<li>Scrypt</li>
+<li>Bcrypt (PHP us proporciona aquesta; vegeu més avall)</li>
+<li>PBKDF2 amb HMAC-SHA256 o HMAC-SHA512</li>
+</ul>
+<p>Afortunadament, avui en dia PHP ens ho facilita.</p>
+<h2 id="hashing-de-contrasenyes-amb-password_hash"><em>Hashing</em> de contrasenyes amb <code>password_hash</code></h2>
+<p>A PHP 5.5 s'ha introduït <code>password_hash()</code>. En aquest moment està utilitzant BCrypt, l'algorisme més fort actualment suportat per PHP. Tot i això, s'actualitzarà en el futur per donar suport a més algoritmes. La biblioteca de <code>password_compat</code> es va crear per proporcionar una compatibilitat de PHP&gt; = 5.3.7.</p>
+<p>A continuació hem aplicat <em>hashing</em> a una cadena i, a continuació, apliquem el <em>hashing</em> contra una nova cadena. Com que les dues cadenes d'origen són diferents ("contrasenya-secreta" i "contrasenya-errònia"), aquesta sessió fallarà.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$passwordHash</span> <span class="o">=</span> <span class="nb">password_hash</span><span class="p">(</span><span class="s2">"contrasenya-secreta"</span><span class="p">,</span> <span class="nx">PASSWORD_DEFAULT</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">password_verify</span><span class="p">(</span><span class="s2">"contrenya-errònia"</span><span class="p">,</span> <span class="nv">$passwordHash</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="c1">// Contrasenya correcta</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="c1">// Contrasenya incorrecta</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<p><code>password_hash()</code> s'ocupa de la salificació de contrasenyes. La <em>sal</em> s'emmagatzema, juntament amb l'algorisme i el "cost", com a part del hash. <code>password_verify()</code> extreu això per determinar com comprovar la contrasenya, de manera que no necessiteu un camp de base de dades independent per emmagatzemar les vostres sals.</p>
+<div class="admonition info">
+<p class="admonition-title">PASSWORD_DEFAULT</p>
+<p><strong>PASSWORD_DEFAULT</strong>. Actualment utilitza l’algoritme bcrypt (predeterminat a partir de PHP 5.5.0). Observeu que aquesta constant està pensada per a adaptar-se sempre que hi haja un algoritme nou i més fort a PHP. Per aquesta raó, la longitud del resultat d’utilitzar aquest identificador pot canviar amb el temps. Per tant, es recomana emmagatzemar el resultat en una columna d’una base de dades de més de 60 caracters (255 caracters seria una bona elecció).</p>
+</div>
+<h3 id="activitat_1">Activitat</h3>
+<p>Adapta el projecte de forma que:</p>
+<ol>
+<li>Cada 15 minuts es regenere la sessió.</li>
+<li>Sols use http per accedir a la <em>cookie</em> de sessió.</li>
+<li>Les constrasenyes s'encripten amb <em>bcrypt</em>.</li>
+<li>Es tanque la sessió tal com s'indica.</li>
+</ol>
+<h3 id="recursos">Recursos</h3>
+<ul>
+<li><a href="https://paragonie.com/blog/2017/12/2018-guide-building-secure-php-software">The 2018 Guide to Building Secure PHP Software</a></li>
+<li><a href="https://phptherightway.com/#security">PHP: The Right Way. Security</a></li>
+<li><a href="https://www.php.net/manual/en/features.session.security.management.php">Session Management Basics</a></li>
+<li><a href="https://www.cloudways.com/blog/php-security/">Ultimate PHP Security Best Practices</a></li>
+<li><a href="https://github.com/sobstel/sesshin/wiki/PHP-Session-Security---Best-Practices">PHP Session Security Best Practices</a></li>
+<li><a href="https://www.phparch.com/2018/01/php-sessions-in-depth/">PHP Sessions in depth</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html">Session Management Cheat Sheet</a></li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

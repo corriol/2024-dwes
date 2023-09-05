@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>El patró MVC en Symfony - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#el-patro-mvc-en-symfony">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              El patró MVC en Symfony
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="el-patro-mvc-en-symfony">El patró MVC en Symfony</h1>
+<h2 id="el-patro-mvc">El patró MVC</h2>
+<p>MVC són les sigles de Model-Vista-Controlador (o en anglès,
+<em>Model-View-Controller</em>), i és el patró d'arquitectura de programari per
+excel·lència ara mateix en el món de les aplicacions web, i fins i tot
+de moltes aplicacions d'escriptori.</p>
+<p>Com el seu nom indica, aquest patró es basa a dividir el disseny o
+l'estructura d'una aplicació web en tres components fonamentals:</p>
+<ul>
+<li>El <strong>model</strong>, que podríem resumir com el conjunt de totes les dades
+    o informació que maneja l'aplicació. Típicament seran variables o
+    objectes extrets d'una base de dades o qualsevol altre sistema
+    d'emmagatzematge, per la qual cosa el codi del model normalment
+    estarà format per instruccions per a connectar amb la base de dades,
+    recuperar informació d'ella i emmagatzemar-la en algunes variables
+    determinades. Per tant, no tindrà coneixement de la resta de
+    components del sistema.</li>
+<li>La <strong>vista</strong>, que és l'intermediari entre l'aplicació i l'usuari, és
+    a dir, la qual cosa l'usuari veu en pantalla de l'aplicació. Per
+    tant, la vista la compondran les diferents pàgines, formularis, etc,
+    que l'aplicació mostrarà a l'usuari per a interactuar amb ell.</li>
+<li>El <strong>controlador</strong> (o controladors), que són els fragments de codi
+    encarregats de coordinar el funcionament general de l'aplicació.
+    Davant peticions dels usuaris, les arrepleguen, les identifiquen, i
+    accedeixen al model per a actualitzar o recuperar dades, i al seu
+    torn, decideixen què vestisca mostrar-li a l'usuari a continuació
+    de l'acció que acaba de realitzar.</li>
+</ul>
+<p>És un patró arquitectònic disseny molt concís i ben estructurat, la qual cosa li ha
+valgut la fama que té avui dia. Entre els seus molts avantatges, permet
+aïllar el codi dels tres elements involucrats (vista, model i
+controlador), de manera que el treball és molt més modular i divisible,
+podent encarregar-se de les vistes, per exemple, un dissenyador web que
+no tinga molta idea de programació en el servidor, i del controlador un
+programador PHP que no tinga moltes nocions d'HTML.</p>
+<p>En forma d'esquema, podríem representar-ho així:</p>
+<figure>
+<p><img alt="Components del framework MVC" src="../assets/mvc.png" width="400"/></p>
+<figcaption>
+Components del framework MVC
+</figcaption>
+</figure>
+<p>Les peticions de l'usuari arriben al controlador, que les identifica, i
+es comunica amb el model per a obtenir les dades necessàries, i amb les
+vistes per a decidir què mostrar a continuació i omplir-la amb
+les dades del model, per a després servir-li-la a l'usuari com a
+resposta. En aquesta sessió veurem com definir controladors en Symfony,
+i associar-los a rutes, de manera que mostren algun contingut o vista
+com a resposta.</p>
+<h2 id="controladors-i-rutes-en-symfony">Controladors i rutes en Symfony</h2>
+<p>Per a crear pàgines en una aplicació Symfony es necessiten dos elements:
+una ruta (és a dir, un URI que indique a quin contingut accedir de la
+web) i un controlador associat a ella, que serà l'encarregat de mostrar
+el resultat (la pàgina) per a aqueixa petició de ruta.</p>
+<h3 id="el-concepte-de-ruta-en-symfony">El concepte de ruta en Symfony</h3>
+<p>Les rutes en Symfony poden ser tradicionals o amigables. Una ruta
+tradicional és aquella la part dinàmica de la qual s'especifica en la
+<em>query string</em>. Per exemple, si volem saber la fitxa d'una pel·lícula a
+través del seu codi, tindríem un URL com aquest:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>http://movies-symfony/movie.php?id=34
+</code></pre></div>
+Les rutes amigables són aquelles que separen els seus elements únicament
+per barres <code>/</code>, de manera que la part dinàmica de la ruta s'intercala
+entre aqueixes barres. La URL anterior, en forma amigable, quedaria
+així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>http://movies-symfony/movie/34
+</code></pre></div>
+<p>De pas, amb les rutes amigables se sol emmascarar el tipus d'arxiu que
+s'està sol·licitant, amb el que s'omet la informació de si és una
+pàgina PHP, o HTML, o de qualsevol altre tipus. Ens centrarem en
+aquestes altres rutes en aquest curs.</p>
+<h2 id="el-nostre-primer-controlador">El nostre primer controlador</h2>
+<p>Un controlador en Symfony és bàsicament una classe que conté mètodes PHP l'únic
+propòsit dels quals és obtenir la petició de l'usuari per a una ruta
+concreta, processar-la i enviar-li una resposta. </p>
+<p>Els controladors se situen dins de la carpeta <code>src</code> del nostre projecte
+Symfony, concretament en l'espai de noms <code>Controller</code> que ja està creat.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">class</span> <span class="nc">HomeController</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="sd">     * @Route("/", name="home")</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">home</span><span class="p">()</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"Welcome to movies web site"</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Observa el codi de la classe, i el del mètode <code>home()</code> en concret.
+Simplement mostra un missatge de benvinguda a través d'un objecte
+<code>Response</code>, que s'empra per a definir la resposta a enviar. Si guardem
+els canvis i accedim a http://movies-symfony, veurem aquest missatge
+de benvinguda.</p>
+<h3 id="definir-els-espais-de-noms-namespaces">Definir els espais de noms (<em>namespaces</em>)</h3>
+<p>Si dones una ullada al codi del controlador anterior, veuràs que comença
+amb la línia:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></div>
+El que estem fent és situar la classe (<code>HomeController</code>, en aquest cas)
+dins d'un espai de noms. Cada subcarpeta que hi ha dins de la carpeta
+<code>src</code> constitueix un espai de noms, de manera que quan situem un arxiu
+font dins d'un d'aqueixos subdirectoris, hem d'indicar que pertany a
+aquest espai de noms. Tots aquests espais de noms pengen d'una arrel
+<code>App</code>, per la qual cosa l'espai de noms per al nostre controlador és
+<code>App</code> (els subespais se separen amb barres invertides).</p>
+<p>Els espais de noms són útils en aplicacions amb molts arxius font, com
+solen ser les aplicacions web més o menys importants, ja que es corre el
+risc de cridar exactament igual a dues classes que estiguen en carpetes
+diferents. Si les agrupem per espais de noms, no hi haurà problema a
+cridar igual a les classes i als arxius. El concepte és similar al de
+paquet (<em>package</em>) en llenguatges com Java. De fet, en Java tenim molts
+exemples de classes que es diuen igual i pertanyen a paquets diferents,
+amb el que són fàcilment diferenciables.</p>
+<h4 id="incloure-altres-espais-de-noms-en-el-fitxer-actual">Incloure altres espais de noms en el fitxer actual</h4>
+<p>Tornem de nou al codi del controlador. Després de definir a quin espai
+de noms pertany aquest controlador (<code>App</code>), podem necessitar utilitzar
+objectes d'altres espais de noms. En aquest cas, per exemple, utilitzem
+un objecte <code>Response</code> que pertany a l'espai <code>Symfony</code>. Per a poder
+utilitzar aquest objecte de forma còmoda i no haver de col·locar tot
+aquest prefix cada vegada que vulguem fer referència al tipus <code>Response</code>,
+hem d'afegir una instrucció use indicant la ruta completa fins a la
+classe que utilitzarem:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">use</span> <span class="nx">Symfony</span><span class="p">;</span>
+</code></pre></div>
+Després d'açò, ja podrem referenciar a la classe <code>Response</code> directament
+pel seu nom en qualsevol lloc d'aquest fitxer font. De la mateixa
+manera, podem afegir totes les sentències <code>use</code> que considerem, per a fer 
+referència a tots els elements externs que necessitarem.</p>
+<p>També podem definir un àlies per a nomenar a la classe incorporada dins
+del nostre arxiu font. Si, en lloc d'utilitzar <code>Response</code>, volem
+referenciar a aquest tipus amb una forma més abreujada (Res,
+per exemple), faríem açò:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">use</span> <span class="nx">Symfony</span> <span class="k">as</span> <span class="nx">Res</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span> <span class="o">...</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="k">return</span> <span class="k">new</span> <span class="nx">Res</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="crear-controladors-per-linia-de-comandos">Crear controladors per línia de comandos</h4>
+<p>Mitjançant el comando <code>bin/console</code> podem crear un controlador, amb la
+instrucció:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console make:controller ControllerName
+</code></pre></div>
+<p>Es crearà automàticament un arxiu <code>ControllerName.php</code> en la carpeta
+<code>src/Controller</code>, i una plantilla associada al mateix, en la carpeta
+<code>templates</code> o alguna subcarpeta. Com a avantatge destacable d'aquesta
+forma de crear controladors, ens crea automàticament el <em>namespace</em> i afig
+els recursos externs (<em>use</em>) que necessitem. Però, com a desavantatge, ens
+crea una plantilla i unes connexions amb ella que normalment no
+necessitarem, i haurem de retocar.</p>
+<h3 id="definint-rutes">Definint rutes</h3>
+<p>Donem una ullada més al codi del controlador que hem fet. Abans del mètode
+<code>home</code> hi ha un comentari, en el qual es veu una anotació anomenada
+<code>Route</code> que està mapejant aqueix mètode amb una ruta.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="sd">/*** </span>
+<span class="linenos" data-linenos="2 "></span><span class="sd">    @Route("/", name="home") </span>
+<span class="linenos" data-linenos="3 "></span><span class="sd">*/</span> 
+<span class="linenos" data-linenos="4 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">home</span><span class="p">()</span> <span class="o">...</span>
+</code></pre></div>
+El que ve a dir aqueixa anotació és que, quan accedim a l'arrel de
+l'aplicació, s'activarà aquest mètode i s'enviarà la resposta
+corresponent (el missatge de benvinguda). A més, associa la ruta amb un
+nom (<em>name</em>) <code>home</code>, la qual cosa ens servirà per a fer que el
+controlador siga independent de la ruta, com veurem després.</p>
+<h4 id="una-altra-forma-de-definir-rutes-larxiu-configroutesyaml">Una altra forma de definir rutes: l'arxiu <code>config/routes.yaml</code></h4>
+<p>Existeix una forma alternativa de definir rutes sense utilitzar
+anotacions, que consisteix a editar l'arxiu <code>config/routes.yaml</code> i afegir
+la nova ruta amb el controlador i nom associats. Per exemple, per al cas
+anterior, si volem que en accedir a l'arrel de l'aplicació s'active
+el mètode <code>home</code> del controlador <code>HomeController</code>, assignant-li a la
+ruta el nom <code>home</code> (tal com hem fet en l'exemple anterior), afegiríem
+aquestes línies al fitxer:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">home</span><span class="p">:</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">controller</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">App\Controller\HomeController::home</span>
+</code></pre></div>
+No obstant això, si atenem a la documentació oficial de Symfony, <strong>es
+recomana definir les rutes mitjançant anotacions</strong>, per la qual cosa
+d'ara endavant utilitzarem aquest mecanisme en les anotacions.</p>
+<h3 id="comprovar-les-rutes-de-la-nostra-aplicacio">Comprovar les rutes de la nostra aplicació</h3>
+<p>Utilitzant la consola de Symfony (fitxer <code>bin/console</code> del nostre projecte)
+podem comprovar quines rutes hi ha actualment definides en la nostra
+aplicació, mitjançant aquest comando:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console debug:router
+</code></pre></div>
+<p>Mostrarà el llistat de rutes, indicant el seu nom, i la ruta associada.
+A més de la nostra ruta arrel, apareixeran altres rutes creades per
+defecte per a opcions de depuració i proves, com per exemple les rutes
+profiler per a rastrejar i obtenir detalls de les peticions realitzades.
+No entrarem en aqueixos detalls en aquest curs.</p>
+<h4 id="configurar-la-reescriptura-de-rutes">Configurar la reescriptura de rutes</h4>
+<p>Abans de continuar, hi ha un cosa que hem de tenir en compte: el
+controlador que hem provat (<code>HomeController::home</code>) funciona
+perquè fa referència a l'arrel de l'aplicació. Si canviem la ruta per
+qualsevol altra, com per exemple <code>/home</code>, no funcionarà:</p>
+<p><img alt="Not found" src="../assets/not-found.png"/></p>
+<p>El motiu és que encara no tenim configurat el nostre projecte perquè
+reescriga les rutes de forma amigable. Per a açò, hauríem de tenir un
+arxiu <code>.htaccess</code> en la carpeta <code>public</code> amb els paràmetres de configuració
+d'Apache per a aqueixa reescriptura. Com aqueixa tasca és una miqueta
+manual, l'eina <code>composer</code> posa a la nostra disposició un parell de 
+comandos per a fer-ho per nosaltres. </p>
+<p>Des de la carpeta del nostre projecte escriurem:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require symfony/apache-pack
+</code></pre></div>
+<p>En executar-lo ens mostrarà el següent missatge:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>Symfony operations: <span class="m">1</span> recipe <span class="o">(</span>5a8f9ff66bdb49d40606adc556254e91<span class="o">)</span>
+<span class="linenos" data-linenos=" 2 "></span>  -  WARNING  symfony/apache-pack <span class="o">(</span>&gt;<span class="o">=</span><span class="m">1</span>.0<span class="o">)</span>: From github.com/symfony/recipes-contrib:master
+<span class="linenos" data-linenos=" 3 "></span>    The recipe <span class="k">for</span> this package comes from the <span class="s2">"contrib"</span> repository, which is open to community contributions.
+<span class="linenos" data-linenos=" 4 "></span>    Review the recipe at https://github.com/symfony/recipes-contrib/tree/master/symfony/apache-pack/1.0
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    Do you want to execute this recipe?
+<span class="linenos" data-linenos=" 7 "></span>    <span class="o">[</span>y<span class="o">]</span> Yes
+<span class="linenos" data-linenos=" 8 "></span>    <span class="o">[</span>n<span class="o">]</span> No
+<span class="linenos" data-linenos=" 9 "></span>    <span class="o">[</span>a<span class="o">]</span> Yes <span class="k">for</span> all packages, only <span class="k">for</span> the current installation session
+<span class="linenos" data-linenos="10 "></span>    <span class="o">[</span>p<span class="o">]</span> Yes permanently, never ask again <span class="k">for</span> this project
+<span class="linenos" data-linenos="11 "></span>    <span class="o">(</span>defaults to n<span class="o">)</span>: 
+</code></pre></div>
+Al que respondrem <code>y</code> o <code>p</code> si volem que no ens torne a preguntar.</p>
+<div class="admonition info">
+<p class="admonition-title">Les receptes de Symfony</p>
+<p>Les receptes de Symfony permeten automatitzar la configuració de paquets Composer mitjançant el connector Symfony Flex Composer.</p>
+<p>Hi ha receptes oficials i contribucions de tercers (<code>contrib</code>) és a dir, no són receptes dels desenvolupadors oficials de Symfony. Aquest és el cas de la recepta <code>symfony/apache-pack</code>, per la qual cosa ens pregunta si volem instal·lar-la igualment.</p>
+<p>Podem executar <code>composer recipes</code> per veure les receptes que hi ha instal·lades i si cal actualitzar-les.</p>
+</div>
+<p>A partir d'aquest punt, ja podrem crear les rutes amigables que vulguem
+en el nostre projecte. <strong>Recorda repetir aquests comandos en tots els
+projectes Symfony que utilitzen rutes amigables</strong>.</p>
+<h4 id="rutes-amb-parametres">Rutes amb paràmetres</h4>
+<p>Existeixen algunes rutes que tenen parts variables. Per exemple, si
+volguérem mostrar la fitxa d'una pel·lícula (el seu títol, el pòster 
+i la sinopsi), a partir del seu codi, podríem plantejar una ruta com a
+http://movies-symfony/movies/54, i que el controlador ens mostrara
+la informació de la pel·lícula número 54. Però, si cridem a aqueixa ruta amb
+un altre codi, haurà de mostrar la informació de la pel·lícula amb l'altre codi.</p>
+<p>Anem a crear un nou controlador en el nostre espai de noms
+<code>Controller</code> dins de la carpeta <code>src</code>. En aquest cas, cridarem a la classe
+<code>MovieController</code>. Definirem un mètode anomenat <code>show</code>, que mostrarà la
+fitxa de la pel·lícula  en el codi del qual li arribe en la ruta, encara que de
+moment només mostrarà un missatge amb el codi de la pel·lícula indicat
+en la ruta:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">class</span> <span class="nc">MovieController</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="sd">     * @Route("/movies/{id}", name="movies_show")</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"Movie data with id: </span><span class="si">$id</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+Observa com en l'anotació afegim el <code>id</code> de la pel·lícula com un element
+variable, gràcies a les claus (a aquesta notació se li crida <em>wildcard</em>).
+El mètode associat a la ruta ha de tenir un paràmetre amb aqueixa
+mateixa dada (l'identificador), de manera que puguem utilitzar-lo dins del
+mètode. Si ara accedim a la URI <code>movies-symfony/movies/54</code> ens mostrarà
+el missatge "Movie data with id: 54".</p>
+<p>Millorarem un poc aquest controlador, per a simular que accedeix 
+a una font de dades per a obtenir la informació. Fins a veure en sessions 
+posteriors com connectar amb MySQL, anem a crear-nos el nostre propi array de 
+pel·lícules en la classe <em>MovieController</em>, i farem
+que el mètode <code>show</code> mostre les dades del contacte el codi del qual
+s'haja indicat. El controlador quedarà així:
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">class</span> <span class="nc">MovieController</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">private</span> <span class="k">array</span> <span class="nv">$movies</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">[</span><span class="s2">"id"</span><span class="o">=&gt;</span><span class="s2">"2"</span><span class="p">,</span> <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"Ava"</span><span class="p">,</span> <span class="s2">"tagline"</span> <span class="o">=&gt;</span> <span class="s2">"Kill. Or be killed"</span><span class="p">,</span> 
+<span class="linenos" data-linenos=" 8 "></span>            <span class="s2">"release_date"</span> <span class="o">=&gt;</span> <span class="s2">"2020-09-25"</span><span class="p">],</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">[</span><span class="s2">"id"</span> <span class="o">=&gt;</span> <span class="s2">"3"</span><span class="p">,</span> <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"Bill &amp;Ted Face the Music"</span><span class="p">,</span> 
+<span class="linenos" data-linenos="10 "></span>            <span class="s2">"tagline"</span> <span class="o">=&gt;</span> <span class="s2">"The future awaits"</span><span class="p">,</span> <span class="s2">"release_date"</span> <span class="o">=&gt;</span> <span class="s2">"2020-09-24"</span><span class="p">],</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">[</span><span class="s2">"id"</span> <span class="o">=&gt;</span> <span class="s2">"4"</span><span class="p">,</span> <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"Hard Kill"</span><span class="p">,</span> 
+<span class="linenos" data-linenos="12 "></span>            <span class="s2">"tagline"</span> <span class="o">=&gt;</span> <span class="s2">"Take on a madman. Save the world."</span><span class="p">,</span> <span class="s2">"release_date"</span> <span class="o">=&gt;</span> <span class="s2">"2020-09-14"</span><span class="p">],</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">[</span><span class="s2">"id"</span> <span class="o">=&gt;</span> <span class="s2">"5"</span><span class="p">,</span> <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"The Owners"</span><span class="p">,</span> <span class="s2">"tagline"</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span> 
+<span class="linenos" data-linenos="14 "></span>            <span class="s2">"release_date"</span> <span class="o">=&gt;</span> <span class="s2">"2020-05-10"</span><span class="p">],</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="p">[</span><span class="s2">"id"</span> <span class="o">=&gt;</span> <span class="s2">"6"</span><span class="p">,</span> <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"The New Mutants"</span><span class="p">,</span> 
+<span class="linenos" data-linenos="16 "></span>            <span class="s2">"tagline"</span> <span class="o">=&gt;</span> <span class="s2">"It's time to face your demons."</span><span class="p">,</span> <span class="s2">"release_date"</span> <span class="o">=&gt;</span> <span class="s2">"2020-04-20"</span><span class="p">],</span>        
+<span class="linenos" data-linenos="17 "></span>    <span class="p">];</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="21 "></span><span class="sd">     * @Route("/movies/{id}", name="movies_show")</span>
+<span class="linenos" data-linenos="22 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movies</span><span class="p">,</span>
+<span class="linenos" data-linenos="26 "></span>            <span class="k">function</span><span class="p">(</span><span class="nv">$movie</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos="27 "></span>            <span class="p">{</span>
+<span class="linenos" data-linenos="28 "></span>                <span class="k">return</span> <span class="nv">$movie</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">==</span> <span class="nv">$id</span><span class="p">;</span>
+<span class="linenos" data-linenos="29 "></span>            <span class="p">});</span>
+<span class="linenos" data-linenos="30 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="31 "></span>        <span class="p">{</span>
+<span class="linenos" data-linenos="32 "></span>            <span class="nv">$response</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<span class="linenos" data-linenos="33 "></span>            <span class="nv">$result</span> <span class="o">=</span> <span class="nb">array_shift</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span>
+<span class="linenos" data-linenos="34 "></span>            <span class="nv">$response</span> <span class="o">.=</span> <span class="s2">"&lt;ul&gt;&lt;li&gt;"</span> <span class="o">.</span> <span class="nv">$result</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/li&gt;"</span> <span class="o">.</span>
+<span class="linenos" data-linenos="35 "></span>            <span class="s2">"&lt;li&gt;"</span> <span class="o">.</span> <span class="nv">$result</span><span class="p">[</span><span class="s2">"tagline"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/li&gt;"</span> <span class="o">.</span>
+<span class="linenos" data-linenos="36 "></span>            <span class="s2">"&lt;li&gt;"</span> <span class="o">.</span> <span class="nv">$result</span><span class="p">[</span><span class="s2">"release_date"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/li&gt;&lt;/ul&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="37 "></span>            <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"&lt;html&gt;&lt;body&gt;</span><span class="si">$response</span><span class="s2">&lt;/body&gt;&lt;/html&gt;"</span><span class="p">);</span>
+<span class="linenos" data-linenos="38 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="39 "></span>        <span class="k">else</span>
+<span class="linenos" data-linenos="40 "></span>            <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"Movie not found"</span><span class="p">);</span>
+<span class="linenos" data-linenos="41 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="42 "></span><span class="p">}</span>
+</code></pre></div></p>
+<p>Com veiem, hem definit un array de pel·lícules, i dins del mètode filtrem
+amb <code>array_filter</code> aquell el codi del qual coincidisca amb l'indicat,
+mostrant les seues dades en la resposta. Observa també com podem
+incloure codi HTML en la mateixa resposta, encara que de seguida veurem
+que hi ha formes més còmodes de fer açò.</p>
+<h4 id="afegir-requisits-a-les-wildcards">Afegir requisits a les wildcards</h4>
+<p>Imaginem que volem definir un cercador de pel·lícules, de manera que li
+passem com a part variable de la ruta una part del nom, i ens retorna
+totes les pel·lícules que coincidisquen. Així, per a la "base de dades"
+anterior, si accedírem a la ruta <code>/movies/The</code> ens mostraria les
+pel·lícules "The new mutants" i "The owners". Definim un segon mètode en
+la nostra classe <code>MovieController</code> per a processar aquesta ruta.
+Quedaria així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="sd">     * @Route("/movies/{text}", name="movies_filter")</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">filter</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$text</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movies</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 7 "></span>            <span class="k">function</span><span class="p">(</span><span class="nv">$movie</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$text</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>            <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>                <span class="k">return</span> <span class="nb">strpos</span><span class="p">(</span><span class="nv">$movie</span><span class="p">[</span><span class="s2">"title"</span><span class="p">],</span> <span class="nv">$text</span><span class="p">)</span> <span class="o">!==</span> <span class="k">false</span><span class="p">;</span>                
+<span class="linenos" data-linenos="10 "></span>            <span class="p">});</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$response</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="k">foreach</span> <span class="p">(</span><span class="nv">$result</span> <span class="k">as</span> <span class="nv">$movie</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>                <span class="nv">$response</span> <span class="o">.=</span> <span class="s2">"&lt;ul&gt;&lt;li&gt;"</span> <span class="o">.</span> <span class="nv">$movie</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/li&gt;"</span> <span class="o">.</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="s2">"&lt;li&gt;"</span> <span class="o">.</span> <span class="nv">$movie</span><span class="p">[</span><span class="s2">"tagline"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/li&gt;"</span> <span class="o">.</span>
+<span class="linenos" data-linenos="17 "></span>            <span class="s2">"&lt;li&gt;"</span> <span class="o">.</span> <span class="nv">$movie</span><span class="p">[</span><span class="s2">"release_date"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/li&gt;&lt;/ul&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="18 "></span>            <span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span>            <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"&lt;html&gt;&lt;body&gt;</span><span class="si">$response</span><span class="s2">&lt;/body&gt;&lt;/html&gt;"</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="k">else</span>
+<span class="linenos" data-linenos="22 "></span>            <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"No movies found"</span><span class="p">);</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Si intentem llançar el URL anterior
+(http://movies-symfony/movies/The), obtindrem com a resultat
+"Movie not found", que és el missatge corresponent al controlador
+anterior (la fitxa de pel·lícula) quan no es trobava la pel·lícula amb el
+codi indicat. És a dir, s'ha llançat el controlador equivocat, i el
+motiu és simple, hem definit dues rutes a priori diferents:</p>
+<ul>
+<li><code>/movies/{id}</code> per a la fitxa de la pel·lícula</li>
+<li><code>/movies/{text}</code> per a cercar pel·lícules pel títol</li>
+</ul>
+<p>No obstant això, a efectes pràctics, ambdues rutes són el mateix: el
+prefix <code>/movies</code> seguit del que siga. En aquesta situació, Symfony
+llança el primer dels controladors la ruta dels quals coincidisca amb la
+indicada (el de la fitxa de pel·lícules, en aquest cas).</p>
+<p>Per a diferenciar ambdues rutes, necessitem un criteri, i en aquest cas,
+el criteri serà que la fitxa de la pel·lícula necessita que el paràmetre
+id siga numèric. Açò s'especifica mitjançant la propietat
+requirements i una expressió regular, en definir la ruta de la fitxa:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">@</span><span class="nx">Route</span><span class="p">(</span><span class="s2">"/movies/{id}"</span><span class="p">,</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"movies_show"</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">=</span><span class="p">{</span><span class="s2">"id"</span><span class="o">=</span><span class="s2">"\d+"</span><span class="p">})</span>
+</code></pre></div>
+Des de Symfony 4.1, també es pot emprar aquesta altra notació més
+abreujada per a incloure el requeriment en el wildcard:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">@</span><span class="nx">Route</span><span class="p">(</span><span class="s2">"/movies/{id}&lt;\d+&gt;"</span><span class="p">,</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"movies_show"</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="afegir-valors-per-defecte-a-les-wildcards">Afegir valors per defecte a les <em>wildcards</em></h4>
+<p>En algunes ocasions, també ens pot interessar donar un valor per defecte
+a una <em>wildcard</em> perquè, si en la ruta no s'especifica res, tinga aquest
+valor per defecte. Açò s'aconsegueix assignant un valor per defecte al
+paràmetre associat en el controlador. En el cas de la fitxa de la pel·lícula
+anterior, si volguérem que quan s'introduïsca la ruta <code>/movies</code> (sense
+id), es mostrara per defecte la pel·lícula amb codi 2, faríem açò:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="sd">/**</span>
+<span class="linenos" data-linenos="2 "></span><span class="sd"> * @Route("/movies/{id}", name="movies_show", requirements={"id"="\d+"})</span>
+<span class="linenos" data-linenos="3 "></span><span class="sd"> */</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>encara que des de Symfony 4.1 també es pot especificar en la pròpia
+anotació, d'aquesta altra forma:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">@</span><span class="nx">Route</span><span class="p">(</span><span class="s2">"/movies/{id}&lt;\d+&gt;?2"</span><span class="p">,</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"movies_show"</span><span class="p">)</span>
+</code></pre></div>
+<p>Per a més informació podeu consultar la documentació oficial de Symfony:
+<a href="https://symfony.com/doc/current/routing.html">Routing</a></p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

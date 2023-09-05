@@ -1,0 +1,1224 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>El llenguatge PHP - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#el-llenguatge-php">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              El llenguatge PHP
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="el-llenguatge-php">El llenguatge PHP</h1>
+<div class="admonition important">
+<p class="admonition-title">Objectius</p>
+<ul>
+<li>Conèixer la sintaxi bàsica de PHP i les noves característiques de PHP 8.</li>
+<li>Entendre com s'integren PHP i HTML.</li>
+<li>Descriure els tipus de dades existents en PHP.</li>
+<li>Fer servir les estructures de control bàsiques.</li>
+<li>Aprendre a utilitzar els <em>arrays</em> associatius.</li>
+<li>Conèixer els mecanismes de pas de paràmetres a un script.</li>
+<li>Processar i validar formularis</li>
+<li>Incloure fitxers</li>
+</ul>
+</div>
+<h2 id="introduccio">Introducció</h2>
+<ul>
+<li>Acrònim de <em>Personal Home Page</em></li>
+<li>Llenguatge de propòsit general, encara que el seu fort és el desenvolupament web.</li>
+<li>Sintaxi similar a C/Java</li>
+<li>El codi s'executa en el servidor (en Apache mitjançant <em>mod_php</em>)</li>
+<li>El client rep el resultat generat després d'interpretar el codi al servidor.</li>
+<li>El codi s'emmagatzema en arxiu amb extensió <code>.php.</code></li>
+</ul>
+<p>L'última versió és la 8.1, de novembre de 2021 (i en breu tindrem la versió 8.2). La versió 7.0 va sortir al desembre de 2015. A més de nombroses noves funcionalitats que anirem veient durant el curs, té més de dues vegades millor rendiment que PHP5. </p>
+<div class="admonition important">
+<p class="admonition-title">PHP 8.1</p>
+<p>Nosaltres farem ús de la versió 8.1 de PHP</p>
+</div>
+<p>La seva documentació és extensa i està traduïda: https://www.php.net/manual/es/. </p>
+<h2 id="funcionament-i-estructura-basica">Funcionament i estructura bàsica</h2>
+<h3 id="el-nostre-primer-codi-php">El nostre primer codi PHP</h3>
+<ul>
+<li>El codi PHP sempre va entre els simbolos <code>&lt;?php</code> i <code>?&gt;</code>.</li>
+<li>Les instruccions PHP acaben sempre amb <code>;</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"ca"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>PHP fàcil<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="c">&lt;!-- Mostra una frase en HTML --&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    Hola món!<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="c">&lt;!-- Mostra una frase en PHP --&gt;</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">"És molt fàcil programar en PHP."</span><span class="p">;</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<ul>
+<li>Per a generar codi HTML des de PHP podem utilitzar diversos mètodes:  <ul>
+<li><code>echo expressió</code> </li>
+<li><code>print (expressió)</code></li>
+<li><code>&lt;?= expressió ?&gt;</code></li>
+</ul>
+</li>
+<li>El codi pot anar entre les etiquetes d'HTML.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">"Hola món"</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="s2">"Hola món"</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="comentaris">Comentaris</h3>
+<ul>
+<li>De bloc entre <code>/*</code> i <code>*/</code>.</li>
+<li>De linea, començant per <code>//</code> o per <code>#</code>.</li>
+</ul>
+<h3 id="variables-i-tipus-de-dades">Variables i tipus de dades</h3>
+<p>Una de les característiques de PHP és que és un llenguatge <strong>no fortament tipat</strong> (com Javascript). 
+De fet, no cal declarar la variable ni indicar el tipus de dades si la declare. 
+Encara que si volem codi de qualitat ho hauriem de fer.</p>
+<h4 id="declaracio">Declaració</h4>
+<ul>
+<li>Els noms de les variables sempre comencen per <code>$</code> </li>
+<li>Després del <code>$</code> els noms de les variables han d'anar seguits per una lletra o el caràcter <code>_</code> i poden contenir també números. </li>
+<li>No és necessari declarar una variable ni especificar-li un tipus (enter, cadena,...) concret.</li>
+<li>Les variables són <em>case sensitive</em>: <code>$var != $vAR</code>.</li>
+</ul>
+<p>Per crear una variable que continga el text a generar i mostrar-la:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="cp">&lt;?php</span> 
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$salutacio</span> <span class="o">=</span> <span class="s2">"Hola món"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="k">echo</span> <span class="nv">$salutacio</span><span class="p">;</span> 
+<span class="linenos" data-linenos=" 8 "></span>    <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div>
+<h4 id="tipus-de-les-variables">Tipus de les variables</h4>
+<ul>
+<li>El tipus de la variable es decideix en funció del context en què s'utilitze.</li>
+<li>En assignar-li el valor 7, la variable és de tipus “sencer” </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$la_meua_variable</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>  <span class="c1">// ara és un número</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$la_meua_variable</span> <span class="o">=</span> <span class="s2">"set"</span><span class="p">;</span> <span class="c1">// ara és cadena</span>
+</code></pre></div>
+<p>Si li canviem el contingut passa a ser de tipus “cadena”</p>
+<div class="admonition warning">
+<p class="admonition-title">Variable no inicialitzades</p>
+<p>Si s'intenta utilitzar una variable abans d'assignar-li un valor, es genera un error de tipus <strong>E_NOTICE</strong> però no s'interromp l'execució de l'script. L'eixida mostrarà un avís cada volta que s'intente.</p>
+</div>
+<h4 id="tipus-de-dades-en-php">Tipus de dades en PHP</h4>
+<ul>
+<li>booleà (<strong>boolean</strong>). Els seus possibles valors són <code>true</code> i <code>false</code>. A més, qualsevol nombre enter es considera com <code>true</code>, excepte el 0 que és <code>false</code>.</li>
+<li>enters (<strong>integer</strong>). Qualsevol nombre sense decimals. Es poden representar en format decimal, octal (començant per un 0), o hexadecimal (començant per 0x).</li>
+<li>real (<strong>float</strong>). Qualsevol nombre amb decimals. Es poden representar també en notació científica.</li>
+<li>cadena (<strong>string</strong>). Conjunts de caràcters delimitats per cometes simples o dobles.</li>
+<li>vector (<strong>array</strong>). Conjunt de variables del mateix tipus ordenades.</li>
+<li>Objecte (<strong>object</strong>). Utilitzat per les instàncies de classes.</li>
+<li><strong>null</strong>. És un tipus de dades especial, que s'usa per a indicar que la variable no té valor. (<a href="http://php.net/manual/es/language.types.null.php">http://php.net/manual/es/language.types.null.php</a>)</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Valors que s'avaluen a <code>false</code></p>
+<p>Quan es realitzen operacions que s'avaluen com a booleà els següents valors s'avaluaran a <code>false</code>:    </p>
+<ul>
+<li>els enters 0 i -0 (zero).</li>
+<li>els reals <code>0.0</code> y <code>-0.0</code> (zero).</li>
+<li>la cadena buida i la cadena <code>"0"</code>.</li>
+<li>un <em>array</em> amb zero elements.</li>
+<li>el tipus especial NULL (incloses les variables no inicialitzades). </li>
+</ul>
+</div>
+<h4 id="ambit-de-les-variables">Àmbit de les variables</h4>
+<p>L'àmbit d'una variable indica quina és la part del codi en què la variable esmentada és accessible. </p>
+<p>Una variable declarada en un fitxer de PHP està disponible en aqueix fitxer i en els que incloguen. </p>
+<p>Les funcions defineixen un àmbit local, separat de la resta del codi. No obstant això, es poden 
+definir variables globals amb la paraula reservada <strong>global</strong>, encara que no són aconsellables.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="cm">/* global scope */</span> 
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">function</span> <span class="nf">test</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span> 
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">echo</span> <span class="nv">$a</span><span class="p">;</span> <span class="cm">/* reference to local scope variable */</span> 
+<span class="linenos" data-linenos=" 6 "></span><span class="p">}</span> 
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nx">test</span><span class="p">();</span> <span class="c1">// ""</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="k">function</span> <span class="nf">test2</span><span class="p">()</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">{</span> 
+<span class="linenos" data-linenos="13 "></span>    <span class="k">global</span> <span class="nv">$a</span><span class="p">;</span>  <span class="cm">/* reference to global scope variable */</span> 
+<span class="linenos" data-linenos="14 "></span>    <span class="k">echo</span> <span class="nv">$a</span><span class="p">;</span> 
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span> 
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="nx">test2</span><span class="p">();</span> <span class="c1">// 1</span>
+</code></pre></div>
+<h3 id="constants">Constants</h3>
+<p>Per a definir constants s'utilitza <code>define()</code>, que reb el nom de la constant i el valor que li volem donar. També
+podem user la paraula reservada <code>const</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">const</span> <span class="no">PI</span> <span class="o">=</span> <span class="mf">3.1415927</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">define</span><span class="p">(</span><span class="s2">"PI"</span><span class="p">,</span> <span class="mf">3.1415927</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Constants sempre en majúscules</p>
+<p>És una convenció utilitzar identificadors en majúscules per a les constants.</p>
+</div>
+<h3 id="operadors">Operadors</h3>
+<h4 id="arimetics">Arimètics</h4>
+<table>
+<thead>
+<tr>
+<th>Exemple</th>
+<th>Nom</th>
+<th>Resultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+$a</code></td>
+<td>Identidat</td>
+<td>Conversió de <code>$a</code> a <code>int</code> o <code>float</code> segons el cas.</td>
+</tr>
+<tr>
+<td><code>-$a</code></td>
+<td>Negació</td>
+<td>Oposat de <code>$a</code>.</td>
+</tr>
+<tr>
+<td><code>$a + $b</code></td>
+<td>Suma</td>
+<td>Suma de <code>$a</code> i <code>$b</code>.</td>
+</tr>
+<tr>
+<td><code>$a - $b</code></td>
+<td>Resta</td>
+<td>Diferència de <code>$a</code> i <code>$b</code>.</td>
+</tr>
+<tr>
+<td><code>$a * $b</code></td>
+<td>Multiplicació</td>
+<td>Producte de <code>$a</code> i <code>$b</code>.</td>
+</tr>
+<tr>
+<td><code>$a / $b</code></td>
+<td>Divisió</td>
+<td>Quocient de <code>$a</code> i <code>$b</code>.</td>
+</tr>
+<tr>
+<td><code>$a % $b</code></td>
+<td>Módul / Residu</td>
+<td>Residu de <code>$a</code> dividit per <code>$b</code>.</td>
+</tr>
+<tr>
+<td><code>$a ** $b</code></td>
+<td>Potència</td>
+<td>Resultat de <code>$a</code> elevat a <code>$b</code>. PHP &gt;= 5.6.</td>
+</tr>
+</tbody>
+</table>
+<p>En el caso de <strong>cadenas</strong>, si queremos concatenarlas, se utiliza el operador <code>.</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">33</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$y</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$z</span> <span class="o">=</span> <span class="nv">$x</span> <span class="o">+</span> <span class="nv">$y</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="s2">"La suma de 33 y 11 es "</span><span class="o">.</span><span class="mf">44.</span><span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">"La suma de "</span><span class="o">.</span><span class="nv">$x</span><span class="o">.</span><span class="s2">" y "</span><span class="o">.</span><span class="nv">$y</span><span class="o">.</span><span class="s2">" es "</span><span class="o">.</span><span class="p">(</span><span class="mi">33</span> <span class="o">+</span> <span class="mi">11</span><span class="p">)</span><span class="o">.</span><span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="s2">"La suma de "</span><span class="o">.</span><span class="nv">$x</span><span class="o">.</span><span class="s2">" y "</span><span class="o">.</span><span class="nv">$y</span><span class="o">.</span><span class="s2">" es "</span><span class="o">.</span><span class="nv">$z</span><span class="o">.</span><span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
+</code></pre></div>
+<p>Realment en lloc de concatenar cadenas con variables, podem imprimir-les directament 
+ja que s'expandeixen automàticament:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="s2">"La suma de </span><span class="si">$x</span><span class="s2"> y </span><span class="si">$y</span><span class="s2"> es </span><span class="si">$z</span><span class="s2"> &lt;br /&gt;"</span><span class="p">;</span>
+</code></pre></div>
+<p>A vegades, necessitem envoltar el nom de la variable entre claus per poder un més text al resultat:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$color</span> <span class="o">=</span> <span class="s2">"rojo"</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="s2">"El plural de </span><span class="si">$color</span><span class="s2"> el </span><span class="si">${</span><span class="nv">color</span><span class="si">}</span><span class="s2">s"</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Més endavant estudiarem algunes funcions per al tractament de cadenes.</p>
+<h4 id="comparacio">Comparació</h4>
+<table>
+<thead>
+<tr>
+<th>Exemple</th>
+<th>Nom</th>
+<th>Resultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$a == $b</code></td>
+<td>Igual</td>
+<td><code>true</code> si <code>$a</code> és igual a <code>$b</code> després de la conversió de tipus.</td>
+</tr>
+<tr>
+<td><code>$a === $b</code></td>
+<td>Idèntic, Comparació estricta</td>
+<td><code>true</code> si <code>$a</code> és igual a <code>$b</code>, i són del mateix tipus de dada.</td>
+</tr>
+<tr>
+<td><code>$a != $b</code>, <code>$a &lt;&gt; $b</code></td>
+<td>Diferent</td>
+<td><code>true</code> si <code>$a</code> no és igual a <code>$b</code> després de la conversió de tipus.</td>
+</tr>
+<tr>
+<td><code>$a !== $b</code></td>
+<td>No idèntic</td>
+<td><code>true</code> si <code>$a</code> no és igual a <code>$b</code>, o si no són del mateix tipus.</td>
+</tr>
+<tr>
+<td><code>$a &lt; $b</code></td>
+<td>Menor que</td>
+<td><code>true</code> si <code>$a</code> és estrictament menor que <code>$b</code>.</td>
+</tr>
+<tr>
+<td><code>$a &gt; $b</code></td>
+<td>Major que</td>
+<td><code>true</code> si <code>$a</code> és estrictament major que <code>$b</code>.</td>
+</tr>
+<tr>
+<td><code>$a &lt;= $b</code></td>
+<td>Menor o igual que</td>
+<td><code>true</code> si <code>$a</code> és menor o igual que <code>$b</code>.</td>
+</tr>
+<tr>
+<td><code>$a &gt;= $b</code></td>
+<td>Major o igual que</td>
+<td><code>true</code> si <code>$a</code> és major o igual que <code>$b</code>.</td>
+</tr>
+<tr>
+<td><code>$a &lt;=&gt; $b</code></td>
+<td>Nau espacial</td>
+<td>Torna <code>-1</code>, <code>0</code> o <code>1</code> quan <code>$a</code> és respectivamente menor, igual, o major que <code>$b</code>. PHP &gt;= 7.</td>
+</tr>
+<tr>
+<td><code>$a ?? $b ?? $c</code></td>
+<td>Fusión de <em>null</em></td>
+<td>El primer operano d'esquerra a dreta que existisca i no siga <code>null</code>. <code>null</code> si no hi ha valors definits i no són <code>null</code>. PHP &gt;= 7.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="logics">Lògics</h4>
+<table>
+<thead>
+<tr>
+<th>Exemple</th>
+<th>Nom</th>
+<th>Resultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$a and $b</code>, <code>$a &amp;&amp; $b</code></td>
+<td><em>And</em> (i)</td>
+<td><code>true</code> si tant <code>$a</code> com <code>$b</code> són <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>$a or $b</code>, <code>$a || $b</code></td>
+<td><em>Or</em> (o inclusiu)</td>
+<td><code>true</code> si qualsevol de <code>$a</code> o <code>$b</code> és <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>$a xor $b</code></td>
+<td><em>Xor</em> (o exclusiu)</td>
+<td><code>true</code> si <code>$a</code> o <code>$b</code> és <code>true</code>, pero no ambdós.</td>
+</tr>
+<tr>
+<td><code>!$a</code></td>
+<td><em>Not</em> (no)</td>
+<td><code>true</code> si <code>$a</code> no és <code>true</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="assignacio">Assignació</h4>
+<table>
+<thead>
+<tr>
+<th>Exemple</th>
+<th>Nom</th>
+<th>Resultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$a = $b</code></td>
+<td>Assignació</td>
+<td>Assigna a <code>$a</code> el valor de <code>$b</code></td>
+</tr>
+<tr>
+<td><code>$a += $b</code></td>
+<td>Assignació de la suma</td>
+<td>Le suma a <code>$a</code> el valor de <code>$b</code>. Equivalent a <code>$a = $a + $b</code></td>
+</tr>
+<tr>
+<td><code>$a -= $b</code></td>
+<td>Assignació de la resta</td>
+<td>Le resta a <code>$a</code> el valor de <code>$b</code>. Equivalent a <code>$a = $a - $b</code></td>
+</tr>
+<tr>
+<td><code>$a *= $b</code></td>
+<td>Assignació del producte</td>
+<td>Assigna a <code>$a</code> el producto de <code>$a</code> por <code>$b</code>. Equivalent a <code>$a = $a * $b</code></td>
+</tr>
+<tr>
+<td><code>$a /= $b</code></td>
+<td>Assignació de la divisió</td>
+<td>Assigna a <code>$a</code> el quocient de <code>$a</code> entre <code>$b</code>. Equivalent a <code>$a = $a / $b</code></td>
+</tr>
+<tr>
+<td><code>$a %= $b</code></td>
+<td>Assignació del residu</td>
+<td>Assigna a <code>$a</code> el residu de dividir <code>$a</code> entre <code>$b</code>. Equivalent a <code>$a = $a % $b</code></td>
+</tr>
+<tr>
+<td><code>$a .= $b</code></td>
+<td>Concatenació</td>
+<td>Concatena a <code>$a</code> la cadena <code>$b</code>. Equivalent a <code>$a = $a . $b</code></td>
+</tr>
+<tr>
+<td><code>$a++</code></td>
+<td>Increment</td>
+<td>Incrementa <code>$a</code> en una unitat. Equivalent a <code>$a = $a + 1</code></td>
+</tr>
+<tr>
+<td><code>$a--</code></td>
+<td>Decrement</td>
+<td>Decrementa <code>$a</code> en una unitat. Equivalent a <code>$a = $a - 1</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Prioritat dels operadors</p>
+<p>Recorda la prioritat. Primer els parèntesis, després la negació (<code>!</code>), productes/divisions, sumes/restes, comparacions, lògics i finalment es realitza l'assignació.
+Més informació a <a href="https://www.php.net/manual/es/language.operators.precedence.php">https://www.php.net/manual/es/language.operators.precedence.php</a></p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Autoavaluació</p>
+<p>Si <code>$a=5</code> i <code>$b=4</code>, esbrina el valor de <code>$c</code> si <code>$c = $a*2 &gt; $b+5 &amp;&amp; !($b&lt;&gt;4)</code></p>
+</div>
+<h2 id="treballant-en-formularis">Treballant en formularis</h2>
+<p>Les dades s'envien via URL en el format <code>var1=valor1&amp;var2=valor2….</code> Per exemple: <code>exemple.php?nom=Homer+cognom=Simpson</code></p>
+<p>Es divideix en dos passos:</p>
+<ol>
+<li>Genera un formulari amb l'atribut <code>action='file.php' method='GET'</code>.</li>
+<li>En el fitxer <code>.php</code> cal llegir les dades amb <code>$_GET['varName']</code>.</li>
+</ol>
+<p>Anem a separar sempre que puguem el codi HTML del de PHP. Per exemple, el formulari el coloquem en <code>saluda.html</code>:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"saluda.php"</span> <span class="na">method</span><span class="o">=</span><span class="s">"get"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"nombre"</span><span class="p">&gt;</span>Nombre: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"nombre"</span> <span class="na">id</span><span class="o">=</span><span class="s">"nombre"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"apellido1"</span><span class="p">&gt;</span>Primer apellido:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span> 
+<span class="linenos" data-linenos="5 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"apellido1"</span> <span class="na">id</span><span class="o">=</span><span class="s">"apellido1"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"enviar"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+I recollim les dades en <code>saluda.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$nombre</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">];</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$apellido1</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"apellido1"</span><span class="p">];</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">"Hola </span><span class="si">$nombre</span><span class="s2"> </span><span class="si">$apellido1</span><span class="s2">"</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Si volguéssim fer-ho tot en un únic fitxer (la qual cosa no es recomanable), podem fer-ho així:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">""</span> <span class="na">method</span><span class="o">=</span><span class="s">"get"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"nombre"</span><span class="p">&gt;</span>Nombre: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"nombre"</span> <span class="na">id</span><span class="o">=</span><span class="s">"nombre"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"apellido1"</span><span class="p">&gt;</span>Primer apellido:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"apellido1"</span> <span class="na">id</span><span class="o">=</span><span class="s">"apellido1"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"enviar"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$nombre</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">];</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$apellido1</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"apellido1"</span><span class="p">];</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">echo</span> <span class="s2">"Hola </span><span class="si">$nombre</span><span class="s2"> </span><span class="si">$apellido1</span><span class="s2">"</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+Més endavant aprofundirem en la gestió de formularis.</p>
+<h2 id="estructures-de-control-de-flux">Estructures de control de flux</h2>
+<ul>
+<li>
+<p>Les instruccions de control de flux en PHP funcionen exactament igual que en altres llenguatges de programació.</p>
+</li>
+<li>
+<p>Les més habituals són:</p>
+</li>
+<li>
+<p>Condicionals: <code>if</code>, <code>if</code> <code>else</code>, <code>switch</code></p>
+</li>
+<li>Bucles: <code>while</code>, <code>do</code> <code>while</code>, <code>for</code></li>
+</ul>
+<p>seguint les estructures:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span> <span class="p">(</span><span class="nx">condició</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="c1">// instruccions</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="c1">// instruccions</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">switch</span> <span class="p">(</span><span class="nv">$variable</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">case</span> <span class="nx">valor</span><span class="o">:</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="c1">//instruccio1</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">case</span> <span class="nx">valor</span><span class="o">:</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="c1">//instruccio1</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">default</span><span class="o">:</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="c1">//instruccio1</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>           
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">while</span> <span class="p">(</span><span class="nx">condició</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="c1">//instruccions</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">do</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="c1">//instruccions</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">condició</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="nv">$i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="c1">//instruccions</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div></p>
+<p><a href="http://php.net/manual/es/language.control-structures.php">http://php.net/manual/es/language.control-structures.php</a></p>
+<h2 id="maneig-de-cadenes-de-text">Maneig de cadenes de text</h2>
+<ul>
+<li>Podem utilitzar tant cometes simples com a cometes dobles.</li>
+<li>Per a concatenar cadenes utilitzarem l'operador punt (.)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>$fullName = $name.' '.$surname;
+</code></pre></div>
+<h3 id="expansio-de-variables">Expansió de variables</h3>
+<ul>
+<li>Podem introduir una variable dins d'un text sempre que usem les cometes dobles per a delimitar el text. Açò farà que el contingut de la variable s'expandisca i es concatene amb el text existent en la cadena.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="s2">"&lt;p&gt;Mòdul: </span><span class="si">$module</span><span class="s2">&lt;/p&gt;"</span>
+</code></pre></div>
+<ul>
+<li>A voltes, és necessari envoltar-la entre claus</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="s2">"&lt;p&gt;Mòdul: </span><span class="si">{</span><span class="nv">$module</span><span class="si">}</span><span class="s2">DAW&lt;/p&gt;"</span>
+</code></pre></div>
+<ul>
+<li>Si no posàrem les claus l'intèrpret cercaria una variable que es cride <code>$moduleDAW</code></li>
+</ul>
+<p>Més informació en <a href="https://www.php.net/manual/es/ref.strings.php">funcions de cadena</a></p>
+<h2 id="maneig-de-dates">Maneig de dates</h2>
+<h3 id="funcio-time">Funció <code>time()</code></h3>
+<p>En PHP les dates s'emmagatzemen com a números enters. La funció <code>time()</code> retorna el nombre de segons transcorreguts 
+des de l'1 de gener de 1970 (instant conegut com a època Unix). 
+A aquesta forma d'expressar data i hora se li denomina <strong>timestamp</strong>.</p>
+<h3 id="funcio-date">Funció <code>date()</code></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">date</span> <span class="p">(</span><span class="nx">string</span> <span class="nv">$format</span> <span class="p">[,</span> <span class="nx">int</span> <span class="nv">$timestamp</span><span class="o">=</span><span class="nb">time</span><span class="p">()])</span><span class="o">:</span> <span class="nx">string</span>
+</code></pre></div>
+<p>La funció <code>date</code> retorna una cadena formatada segons els codi de format. Si no li passem la variable <code>timestamp</code> 
+ens retorna la cadena formatada per a la data i l'hora actual.</p>
+<p>Els codis de format més habituals  per a la funció <code>date</code> són:</p>
+<table>
+<thead>
+<tr>
+<th>CODI</th>
+<th>DESCRIPCIÓ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>am o pm</td>
+</tr>
+<tr>
+<td>A</td>
+<td>AM o PM</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Dia del mes amb zeros</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Abreviatura del dia de la setmana (en anglès)</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Nom del mes (en anglès)</td>
+</tr>
+<tr>
+<td>h</td>
+<td>Hora en format 1-12</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Hora en format 0-23</td>
+</tr>
+<tr>
+<td>i</td>
+<td>Minuts</td>
+</tr>
+<tr>
+<td>j</td>
+<td>Dia del mes sense zeros</td>
+</tr>
+<tr>
+<td>l</td>
+<td>Dia de la setmana</td>
+</tr>
+<tr>
+<td>m</td>
+<td>Número de mes (1-12)</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Abreviatura del mes (en anglès)</td>
+</tr>
+<tr>
+<td>s</td>
+<td>Segons</td>
+</tr>
+<tr>
+<td>y</td>
+<td>Any amb 2 dígits</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Any amb 4 dígits</td>
+</tr>
+<tr>
+<td>z</td>
+<td>Dia de l'any (1-365)</td>
+</tr>
+</tbody>
+</table>
+<p>La informació completa la pots trobar en el <a href="https://www.php.net/manual/es/function.date.php">manual oficial de PHP: date</a></p>
+<p>Suposant que hui és 15 de setembre de 2019 i les 19 hores 20 minuts i 23 segons et mostrem alguns exemples:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">"d-m-Y"</span><span class="p">);</span> <span class="c1">// 15-09-2019</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">"H:i:s"</span><span class="p">);</span>  <span class="c1">//  19:20:23</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">"Y"</span><span class="p">);</span> <span class="c1">// 2019</span>
+<span class="linenos" data-linenos="4 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">"YmdHis"</span><span class="p">);</span> <span class="c1">// 20190915192023</span>
+<span class="linenos" data-linenos="5 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">"d/m/y H:i a"</span><span class="p">);</span> <span class="c1">// 15/09/19 19:20 pm</span>
+<span class="linenos" data-linenos="6 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">"d-m-Y H:i"</span><span class="p">,</span> <span class="nb">time</span><span class="p">());</span> <span class="c1">// Moment actual</span>
+</code></pre></div>
+<h3 id="funcio-mktimehora-min-seg-mes-dia-any">Funció <code>mktime(hora, min, seg, mes, dia, any)</code></h3>
+<p>La funció mktime permet obtenir la marca de temps Unix (<em>timestamp</em>) d'una data.</p>
+<p>Per exemple:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$data</span> <span class="o">=</span> <span class="nb">mktime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2020</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="s1">'d-m-Y'</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span> <span class="c1">// mostrarà 01-01-2020</span>
+</code></pre></div>
+Més informació en <a href="https://www.php.net/manual/es/function.mktime.php">https://www.php.net/manual/es/function.mktime.php</a></p>
+<p>Una altra forma de crear dates és mitjançant la funció <code>strtotime()</code> on podem indicar les dates mitjançant una cadena de text. Per exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// posarem la data en el format any-mes-dia per a evitar confusions.</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$date</span> <span class="o">=</span> <span class="nb">strtotime</span><span class="p">(</span><span class="s2">"2020-01-01"</span><span class="p">);</span> 
+</code></pre></div>
+<h3 id="operar-amb-dates">Operar amb dates</h3>
+<p>Com hem dit al principi les dates s'emmagatzemen com a enters on cada unitat representa un segon. Així podem sumar i restar dates (<em>timestamp</em>) per a afegir, llevar o calcular diferències entre ells.</p>
+<p>Per exemple, per poder determinar els dies que falten per a l'1 de gener de 2020 faríem:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$data</span><span class="o">=</span><span class="nb">mktime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2020</span><span class="p">);</span> <span class="c1">// timestamp que representa l'1 de gener de 2020</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$diferencia</span><span class="o">=</span><span class="nv">$data</span> <span class="o">-</span> <span class="nb">time</span><span class="p">();</span> <span class="c1">// restem a l'1 de gener de 2020 el temps actual, </span>
+<span class="linenos" data-linenos="3 "></span>                                <span class="c1">// el resultat estarà en segons.</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$diferenciaEnDies</span> <span class="o">=</span><span class="p">(((</span> <span class="nv">$diferencia</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">24</span> <span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="cm">/*  </span>
+<span class="linenos" data-linenos="6 "></span><span class="cm">    dividim els segons entre 60 i obtenim els minuts,</span>
+<span class="linenos" data-linenos="7 "></span><span class="cm">    els dividim entre 60 i obtenim les hores,</span>
+<span class="linenos" data-linenos="8 "></span><span class="cm">    els dividim entre 24 i obtenim els dies </span>
+<span class="linenos" data-linenos="9 "></span><span class="cm">*/</span>
+</code></pre></div>
+<h3 id="validar-dates">Validar dates</h3>
+<p>En la funció <code>checkdate</code> podem validar una data.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">checkdate</span> <span class="p">(</span><span class="nx">int</span> <span class="nv">$month</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$day</span> <span class="p">,</span><span class="nx">int</span> <span class="nv">$year</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+</code></pre></div>
+La funció torna <code>true</code> si la data es vàlida, si no, torna  <code>false</code>. </p>
+<h3 id="classe-datetime">Classe DateTime</h3>
+<p>PHP disposa també de la classe <code>DateTime</code> per a representar les dates, la veurem més avant.</p>
+<h2 id="maneig-darrays">Maneig d'arrays</h2>
+<p>Un array és un tipus de dades que ens permet emmagatzemar diversos valors. Per tal d'accedir a un valor utilitzarem una <em>clau</em>. Les claus poden ser nombres o textos (<em>arrays associatius</em>). Si no indiquem cap clau, a cada element se li associarà una clau numèrica correlativa.</p>
+<h3 id="array-indexat">Array indexat</h3>
+<h4 id="crear-array">Crear array</h4>
+<ul>
+<li>Podem crear un array buit de dues formes:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="p">[];</span>
+</code></pre></div>
+<ul>
+<li>Si volem assignar valors al array en el moment de crear-ho: </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Sandra'</span><span class="p">,</span> <span class="s1">'Pedro'</span><span class="p">,</span> <span class="s1">'Andrea'</span><span class="p">);</span> 
+<span class="linenos" data-linenos="2 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Sandra'</span><span class="p">,</span> <span class="s1">'Pedro'</span><span class="p">,</span> <span class="s1">'Andrea'</span><span class="p">];</span>
+</code></pre></div>
+<h4 id="mostrar-el-contingut-dun-array">Mostrar el contingut d'un array</h4>
+<p>Si intentem mostrar el contingut d'un array amb <strong>echo</strong> no obtindrem  les dades que hi ha dins del array. En lloc d'açò podem utilitzar la funció print_r: </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$noms</span><span class="p">);</span>
+</code></pre></div>
+<p>Però si necessitem donar-li format als continguts del array, haurem de recórrer-ho amb un bucle i anar mostrant element a element.</p>
+<h4 id="afegint-elements-al-array">Afegint elements al array</h4>
+<p>Podem afegir elements al array utilitzant claudàtors buits. La clau d'aquests elements serà el següent índex numèric disponible.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span><span class="p">[]</span><span class="o">=</span><span class="s1">'Raul'</span><span class="p">;</span> <span class="nv">$noms</span><span class="p">[]</span><span class="o">=</span><span class="s1">'Marta'</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="accedir-als-elements-del-array">Accedir als elements del array</h4>
+<p>Accedirem als elements del array indicant la clau de l'element entre claudàtors:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="nv">$noms</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</code></pre></div>
+<p>També podem modificar el seu valor:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Sara'</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="recorrer-arrays">Recórrer arrays</h4>
+<p><img alt="" src="../../assets/t204.png"/></p>
+<h3 id="arrays-associatius">Arrays associatius</h3>
+<p>Si el array conté dades diverses i/o ens interessa accedir a ells amb claus més específiques que un simple índex numèric podem utilitzar arrays associatius: </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$alumne</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'nom'</span> <span class="o">=&gt;</span> <span class="s1">'Sara'</span><span class="p">,</span> <span class="s1">'cognom'</span> <span class="o">=&gt;</span> <span class="s1">'García'</span><span class="p">,</span> <span class="s1">'edat'</span> <span class="o">=&gt;</span> <span class="mi">22</span> <span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$alumne</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'nom'</span> <span class="o">=&gt;</span> <span class="s1">'Sara'</span><span class="p">,</span> <span class="s1">'cognom'</span> <span class="o">=&gt;</span> <span class="s1">'García'</span><span class="p">,</span> <span class="s1">'edat'</span> <span class="o">=&gt;</span> <span class="mi">22</span> <span class="p">];</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$alumne</span><span class="p">[</span><span class="s1">'nom'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Verónica'</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="nv">$alumne</span><span class="p">[</span><span class="s1">'nom'</span><span class="p">];</span>
+</code></pre></div>
+<h4 id="recorrer-arrays-associatius">Recórrer arrays associatius</h4>
+<p><img alt="" src="../../assets/t205.png"/></p>
+<h4 id="recorrer-claus-i-valors">Recórrer claus i valors</h4>
+<p><img alt="" src="../../assets/t206.png"/></p>
+<h3 id="arrays-multidimensionals">Arrays multidimensionals</h3>
+<p>Imagina que volem tenir un array els elements del qual són noms d'esports. Volem dividir-los en esports d'hivern i esports d'estiu. Podem crear un array esports que continga dos elements que al seu torn també seran arrays.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$esports</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hivern'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'esquí de fons'</span><span class="p">,</span> <span class="s1">'hoquei sobre gel'</span><span class="p">],</span> <span class="s1">'estiu'</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s1">'natació'</span><span class="p">,</span> <span class="s1">'voley platja'</span><span class="p">]</span> <span class="p">];</span>
+</code></pre></div>
+<p>Per a accedir al primer esport d'hivern:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="nv">$esports</span><span class="p">[</span><span class="s1">'hivern'</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+</code></pre></div>
+<h3 id="funcions-darrays">Funcions d'arrays</h3>
+<p>Podem obtenir la mida de l'array mitjançant la funció <code>count(array)</code>. 
+Per recórrer l'array farem ús d'un bucle <code>for</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>$tam = count($fruites); // mida de l'array
+<span class="linenos" data-linenos="2 "></span>for ($i=0; $i<span class="p">&lt;</span><span class="nt">count</span><span class="err">($</span><span class="na">fruites</span><span class="err">);</span> <span class="err">$</span><span class="na">i</span><span class="err">++)</span> <span class="err">{</span>
+<span class="linenos" data-linenos="3 "></span>   <span class="na">echo</span> <span class="err">"</span><span class="na">Element</span> <span class="err">$</span> <span class="na">i:</span> <span class="err">$</span> <span class="na">fruites</span> <span class="err">[$</span> <span class="na">i</span><span class="err">]</span> <span class="err">&lt;</span><span class="na">br</span> <span class="p">/&gt;</span>";
+<span class="linenos" data-linenos="4 "></span>}
+</code></pre></div>
+<p>Les operacions més importants que podem realitzar amb <em>arrays</em> són:</p>
+<ul>
+<li><code>print_r($ array)</code>: mostra el contingut de tot el <code>$array</code></li>
+<li><code>$elem = array_pop($array)</code>: elimina l'últim <code>$element</code></li>
+<li><code>array_push ($ array, $ elem)</code>: afegeix un <code>$element</code> al final.</li>
+<li><code>$bool = in_array($elem, $array)</code>: esbrina si <code>$elem</code> està en el<code>$array</code></li>
+</ul>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><label for="__tabbed_1_1">PHP</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$fruits</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">"orange"</span><span class="p">,</span> <span class="s2">"pear"</span><span class="p">,</span> <span class="s2">"apple"</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nb">array_push</span> <span class="p">(</span><span class="nv">$fruites</span><span class="p">,</span> <span class="s2">"pinapple"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$fruits</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$lastFruit</span> <span class="o">=</span> <span class="nb">array_pop</span><span class="p">(</span><span class="nv">$fruits</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">"pineapple"</span><span class="p">,</span> <span class="nv">$fruits</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">echo</span> <span class="s2">"&lt;p&gt; Pineapple left &lt;/ p&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">echo</span> <span class="s2">"&lt;p&gt; No pineapple left &lt;/ p&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$fruites</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio"><label for="__tabbed_1_2">Consola</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="go">Array</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="go">(</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="go">  [0] =&gt; orange</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="go">  [1] =&gt; pear</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="go">  [2] =&gt; apple</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="go">  [3] =&gt; pinapple</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="go">)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="go">&lt;p&gt;No pineapple left&lt;/ p&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="go">Array</span>
+<span class="linenos" data-linenos="10 "></span><span class="go">(</span>
+<span class="linenos" data-linenos="11 "></span><span class="go">  [0] =&gt; orange</span>
+<span class="linenos" data-linenos="12 "></span><span class="go">  [1] =&gt; pear</span>
+<span class="linenos" data-linenos="13 "></span><span class="go">  [2] =&gt; apple</span>
+<span class="linenos" data-linenos="14 "></span><span class="go">)</span>
+</code></pre></div>
+</div>
+</input></input></div>
+<ul>
+<li><code>$claus = array_keys($array)</code>: torna les claus de l'<code>$ array</code> associatiu.</li>
+<li><code>$tam = count ($array)</code>: retorna la mida de <code>$ array</code>.</li>
+<li><code>sort($array)</code>: ordena els elements de l' <code>$ array</code>.</li>
+<li><code>isset($array[element])</code>: indica si existeix / té valor element dins del array.</li>
+<li><code>unset($array[element])</code>: elimina l'element de l'array (deixa un buit).</li>
+</ul>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><label for="__tabbed_2_1">PHP</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$capitals</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span><span class="s2">"Italy"</span> <span class="o">=&gt;</span> <span class="s2">"Rome"</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 2 "></span>  <span class="s2">"France"</span> <span class="o">=&gt;</span> <span class="s2">"Paris"</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="s2">"Portugal"</span> <span class="o">=&gt;</span> <span class="s2">"Lisbon"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$countries</span> <span class="o">=</span> <span class="nb">array_keys</span><span class="p">(</span><span class="nv">$capitals</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$countries</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nb">sort</span><span class="p">(</span><span class="nv">$countries</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$countries</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">unset</span><span class="p">(</span><span class="nv">$capitals</span><span class="p">[</span><span class="s2">"France"</span><span class="p">]);</span>
+<span class="linenos" data-linenos="11 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$capitals</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio"><label for="__tabbed_2_2">Consola</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="go">Array</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="go">(</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="go">  [0] =&gt; Italy</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="go">  [1] =&gt; France</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="go">  [2] =&gt; Portugal</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="go">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="go">Array</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="go">(</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="go">  [0] =&gt; France</span>
+<span class="linenos" data-linenos="10 "></span><span class="go">  [1] =&gt; Italy</span>
+<span class="linenos" data-linenos="11 "></span><span class="go">  [2] =&gt; Portugal</span>
+<span class="linenos" data-linenos="12 "></span><span class="go">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="go">Array</span>
+<span class="linenos" data-linenos="14 "></span><span class="go">(</span>
+<span class="linenos" data-linenos="15 "></span><span class="go">  [Italy] =&gt; Rome</span>
+<span class="linenos" data-linenos="16 "></span><span class="go">  [Portugal] =&gt; Lisbon</span>
+<span class="linenos" data-linenos="17 "></span><span class="go">)</span>
+</code></pre></div>
+</div>
+</input></input></div>
+<p>Existeixen moltíssimes més funcions per treballar amb arrays. Tota la informació en el <a href="https://www.php.net/manual/es/ref.array.php">documentació oficial</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Articles per aprofundir en les operacions amb arrays</p>
+<ul>
+<li>Un article molt complet (en anglès) de <a href="https://code.tutsplus.com/tutorials/working-with-php-arrays-in-the-right-way--cms-28606">Com treballar amb arrays en PHP de la manera correcta</a>.</li>
+<li>Un altre article recomanable (en anglès) és <a href="https://code.tutsplus.com/tutorials/wow-to-sort-arrays-in-php--cms-32313">Com ordenar arrays en PHP</a>.</li>
+</ul>
+</div>
+<p>Altres recursos: </p>
+<ul>
+<li><a href="https://www.studytonight.com/php/indexed-array">https://www.studytonight.com/php/indexed-array</a></li>
+<li><a href="https://aprende-web.net/php/php6_1.php">https://aprende-web.net/php/php6_1.php</a></li>
+</ul>
+<h2 id="funcions">Funcions</h2>
+<h3 id="funcions-predefinides">Funcions predefinides</h3>
+<p>Algunes de les funcions predefinides en PHP són les següents, però hi ha moltíssimes més 
+vinculades als diferents mòduls que podem instal·lar.</p>
+<ul>
+<li><code>is_null($var)</code> determina si una variable és nula o no.</li>
+<li><code>isset($var)</code> determina si una variable estan definida i no és NULL.</li>
+<li><code>unset($var)</code> destrueix les variables especificades.</li>
+<li><code>empty($var)</code> torna <strong>true</strong> si no existeix o és <strong>FALSE</strong></li>
+<li><code>is_int($var)</code>, <strong>is_float()</strong>, <strong>is_bool()</strong>, <strong>is_array()</strong></li>
+<li><code>var_dump($var)</code>, mostra informació de la variable.</li>
+</ul>
+<h3 id="funcions-definides-per-lusuari">Funcions definides per l'usuari</h3>
+<p>Per a crear les teues pròpies funcions, hauràs d'usar la paraula <strong>function</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Per tal d'invocar la funció:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$resultat</span> <span class="o">=</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+</code></pre></div>
+Si una funció no té una sentència <strong>return</strong>, retorna <strong>null</strong> en finalitzar.</p>
+<div class="admonition important">
+<p class="admonition-title">Command-query separation</p>
+<p>Sí bé és un principi de la programació orientada a objectes és útil usar-lo també quan definim funcions. El principi afirma que cada mètode ha de ser un comandament que realitza una acció o una consulta que retorna dades al que la crida, pero no ambdues coses.</p>
+</div>
+<h3 id="valors-per-defecte-en-els-parametres">Valors per defecte en els paràmetres</h3>
+<p>Podem indicar valors per defecte per als paràmetres. Si quan cridem a la funció no indiquem el valor d'un paràmetre es prendrà el valor per defecte indicat.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">preuAmbIva</span><span class="p">(</span><span class="nv">$preu</span><span class="p">,</span> <span class="nv">$iva</span><span class="o">=</span><span class="mf">0.21</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">return</span> <span class="nv">$preu</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nv">$iva</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$preu</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$pIva</span> <span class="o">=</span> <span class="nx">preuAmbIva</span><span class="p">(</span><span class="nv">$preu</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>Pot haver-hi més d'un paràmetre amb valor per defecte, però sempre han d'estar al final.</li>
+</ul>
+<h3 id="pas-de-parametres-per-referencia">Pas de paràmetres per referència</h3>
+<p>Per defecte els paràmetres es passen per valor. Per a passar un paràmetre per referència afegirem el símbol <strong>&amp;</strong> davant del seu nom.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">preuAmbIva</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$preu</span><span class="p">,</span> <span class="nv">$iva</span><span class="o">=</span><span class="mf">0.18</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$preu</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nv">$iva</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="parametres-per-nom">Paràmetres per nom</h3>
+<p>Des de PHP 8.0 podem passar els arguments amb el nom (a més de per posició, com hem fet fins ara). Els arguments amb nom es passen posant el nom com a prefix del paràmetres separat per dos punts <code>:</code> <code>$resultat=funcio(arg1: valor1, arg2: valor2);</code></p>
+<p>Aquesta característica complementa els paràmetres opcionals permetent-nos saltar-ne el valor:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">funcionArgumentsNom</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nv">$c</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>   <span class="k">echo</span> <span class="s2">"</span><span class="si">$a</span><span class="s2"> </span><span class="si">$b</span><span class="s2"> </span><span class="si">$c</span><span class="s2">"</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span><span class="nx">funcionArgumentsNom</span><span class="p">(</span><span class="nx">c</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// "1 2 3"</span>
+</code></pre></div>
+<p>Tant els paràmetres opcionals com els obligatoris poden tenir nom, però els arguments amb nom s'han de posar després dels que no en tenen.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">funcioArgumentsNom</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">c</span><span class="o">:</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// "1 2 3"</span>
+</code></pre></div>
+<h3 id="declaracions-de-tipus-type-hinting">Declaracions de tipus (<em>Type Hinting</em>)</h3>
+<p>Des de PHP 7.0 les funcions poden definir tipus tant per als paràmetres com als valors de retorn. Si el valor donat és d'un tipus incorrecte, es generarà un error. Per això s'ha d'anteposar-se el nom del tipus al nom del paràmetre. Es pot fer que una declaració accepte valors <strong>NULL</strong> si el valor predeterminat del paràmetre s'estableix a NULL.</p>
+<p>Per a aconseguir este comportament caldrà afegit la següent directiva:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<p>Si una funció no torna res s'indica mitjançant el tipus <code>void</code>.</p>
+<h4 id="tipus-valids">Tipus vàlids</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Type</th>
+<th align="center">Description</th>
+<th align="center">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Class/interface name</td>
+<td align="center">The value must be an instanceof the given class or interface.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">self</td>
+<td align="center">The value must be an instanceof the same class as the one in which the type declaration is used. Can only be used in classes.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">parent</td>
+<td align="center">The value must be an instanceof the parent of the class in which the type declaration is used. Can only be used in classes.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">array</td>
+<td align="center">The value must be an array.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">callable</td>
+<td align="center">The value must be a valid callable. Cannot be used as a class property type declaration.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">bool</td>
+<td align="center">The value must be a boolean value.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">The value must be a floating point number.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">The value must be an integer.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">string</td>
+<td align="center">The value must be a string.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">iterable</td>
+<td align="center">The value must be either an array or an instanceof Traversable.</td>
+<td align="center">PHP 7.1.0</td>
+</tr>
+<tr>
+<td align="center">object</td>
+<td align="center">The value must be an object.</td>
+<td align="center">PHP 7.2.0</td>
+</tr>
+<tr>
+<td align="center">mixed</td>
+<td align="center">The value can be any value.</td>
+<td align="center">PHP 8.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="exemple">Exemple</h4>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nx">int</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">int</span> <span class="nx">b</span><span class="p">)</span><span class="o">:</span><span class="nx">int</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$num</span><span class="o">=</span><span class="mi">25</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// 8</span>
+<span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nv">$num</span><span class="p">);</span> <span class="c1">// 28</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="s2">"3"</span><span class="p">,</span><span class="mi">5</span> <span class="p">)</span> <span class="c1">// error ja que s'aplica el tipat estricte</span>
+</code></pre></div>
+<h3 id="ambit-scope-de-les-variables">Àmbit (<em>scope</em>) de les variables</h3>
+<p>L'àmbit d'una variable és el context dins el qual la variable està definida. La major part de les variables PHP només tenen un àmbit simple.</p>
+<p>Les <strong>variables globals</strong> són accessibles des de qualsevol part del programa.</p>
+<p>Qualsevol variable usada dins d’una funció está, per defecte, limitada a l'àmbit local de la funció.</p>
+<p><code>test()</code> no imprimirà res ja que els àmbits de les variables és distint.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span> <span class="cm">/* àmbit global */</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">function</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>  <span class="k">echo</span> <span class="nv">$a</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span><span class="nx">test</span><span class="p">();</span>
+</code></pre></div>
+<p>La paraula reservada <code>global</code> permet accedir a les varibles globals dintre d’una funció.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span> <span class="cm">/* àmbit global */</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">function</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>  <span class="k">global</span> <span class="nv">$a</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="k">echo</span> <span class="nv">$a</span><span class="p">;</span> 
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span><span class="nx">test</span><span class="p">();</span> <span class="c1">// 1</span>
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Evita l'ús de variables globals</p>
+<p>Les variables globals es poden alterar per qualsevol part del codi, la qual cosa fa que siga difícil de recordar o raonar sobre cada ús possible. Una variable global no pot tenir control d'accés. No es pot limitar a algunes parts del programa. L'ús de variables globals provoca un acoblament molt estret del codi. </p>
+</div>
+<h3 id="funcions-com-a-parametres">Funcions com a paràmetres</h3>
+<p>En PHP és possible passar funcions com a paràmetres a altres funcions. Només cal passar el nom de la funció entre cometes. </p>
+<p>Exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">calculator</span><span class="p">(</span><span class="nv">$operation</span><span class="p">,</span><span class="nv">$numA</span><span class="p">,</span><span class="nv">$numB</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">return</span> <span class="nv">$operation</span><span class="p">(</span><span class="nv">$numA</span><span class="p">,</span><span class="nv">$numB</span><span class="p">);</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">function</span> <span class="nf">sumar</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nv">$a</span><span class="o">+</span><span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">function</span> <span class="nf">restar</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="nv">$a</span><span class="o">-</span><span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="nv">$a</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span><span class="nv">$b</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span>
+<span class="linenos" data-linenos="8 "></span><span class="k">echo</span> <span class="nx">calculator</span><span class="p">(</span><span class="s1">'sumar'</span><span class="p">,</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">);</span> <span class="c1">// 10</span>
+<span class="linenos" data-linenos="9 "></span><span class="k">echo</span> <span class="nx">calculator</span><span class="p">(</span><span class="s1">'restar'</span><span class="p">,</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">);</span> <span class="c1">// -1</span>
+</code></pre></div>
+<h3 id="funcions-anonimes-closures">Funcions anònimes (<strong>closures</strong>)</h3>
+<p>Los funcions anònimes estan implementades usant la classe <strong>Closure</strong>. Permeten la creació de funcions que <strong>no tenen un nom específic</strong>. Podem assignar una funció anònima a una variable o passar-la com a paràmetre a una altra funció.</p>
+<p>Exemple:</p>
+<p>Sense paràmetres:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">echo</span> <span class="s2">"Hola"</span><span class="p">;</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">};</span> 
+<span class="linenos" data-linenos="4 "></span><span class="nv">$anonima</span><span class="p">();</span> <span class="c1">// Hola</span>
+</code></pre></div>
+<p>Amb paràmetres:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">echo</span> <span class="s2">"Hola </span><span class="si">{</span><span class="nv">$nom</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">};</span> 
+<span class="linenos" data-linenos="4 "></span><span class="nv">$anonima</span><span class="p">(</span><span class="s1">'Vicent'</span><span class="p">);</span> <span class="c1">// Hola Vicent</span>
+</code></pre></div>
+<h4 id="usar-variables-de-lambit-superior">Usar variables de l'àmbit superior</h4>
+<ul>
+<li>Una funció anònima pot usar variables de l'àmbit superior mitjançant la paraula reservada <strong>use</strong>: </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">saluda</span><span class="p">(</span><span class="nx">callable</span> <span class="nv">$fnSaluda</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$fnSaluda</span><span class="p">(</span><span class="s1">'Vicent'</span><span class="p">);</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span> 
+<span class="linenos" data-linenos="4 "></span><span class="nv">$salutacio</span> <span class="o">=</span> <span class="s1">'Hola'</span><span class="p">;</span> 
+<span class="linenos" data-linenos="5 "></span><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$salutacio</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">echo</span> <span class="s2">"</span><span class="si">{</span><span class="nv">$salutacio</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nv">$nom</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span> 
+<span class="linenos" data-linenos="7 "></span><span class="p">};</span> 
+<span class="linenos" data-linenos="8 "></span><span class="nx">saluda</span><span class="p">(</span><span class="nv">$anonima</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="llibreries">Llibreries</h4>
+<p>Podem fer llibreries de funcions guardant-les en un fitxer que desprès importem des d'on les utilitzem. Ho podem fer amb include, o utilitzant composer per a fer-ho.</p>
+<h2 id="sentencies-per-a-incloure-fitxers">Sentències per a incloure Fitxers</h2>
+<p>Les sentències <code>include()</code> i <code>include_once()</code> i <code>require()</code> i <code>require_once()</code> inclouen i avaluen el fitxeru especificat. </p>
+<p><code>include_once()</code> i <code>require_once()</code> a més verifique que el fitxer no haja sigut inclòs abans i és preferible a <code>include</code>. Cal ser curòs amb el <code>path</code> del fitxer a incloure. </p>
+<p>La diferència entre <code>require</code> i <code>include</code> és el tractament de l'error quan el fitxer no existeix. Mentre <code>include</code> mostra un avís, <code>require</code> mostra una error fatal que para l'execució de l'script.</p>
+<div class="admonition info">
+<p class="admonition-title">Vistes</p>
+<p>Un ús habitual de les funcions d'inclusió és crear vistes. Una vista és la part de l'aplicació que mostra la informació a l'usuari. Amb les inclusions podem separar la part de lògica de la d'interfície d'usuari.</p>
+</div>
+<h3 id="ambit-de-les-variables_1">Àmbit de les variables</h3>
+<p>Com s'observa en l'exemple següent, les variables creades abans de cridar l'include, estaran disponibles en el fitxer inclòs. </p>
+<p>És a dir, com si tot fora un únic document.</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><label for="__tabbed_3_1">fruits.php</label><div class="tabbed-content"></div>
+</input></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$color</span> <span class="o">=</span> <span class="s1">'green'</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$fruit</span> <span class="o">=</span> <span class="s1">'apple'</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">include</span> <span class="s1">'fruit.view.php'</span>
+</code></pre></div>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><label for="__tabbed_4_1">fruits.view.php</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Fruites<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="cp">&lt;?</span><span class="o">=</span> <span class="s2">"A </span><span class="si">$color</span><span class="s2"> </span><span class="si">$fruit</span><span class="s2">"</span> <span class="cp">?&gt;</span> 
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>       
+<span class="linenos" data-linenos=" 9 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="rutes">Rutes</h3>
+<p>En l'exemple anterior <code>include "fruit.view.php"</code> la ruta s'especifica de forma relativa, és a dir, la ruta es calcularà a 
+partir de la ruta en que s'execute el fitxer principal. A mesura que les aplicacions van creixent aquest tipus de rutes acaben sent un mal de cap.
+Per això és recomanable escriure les inclusions de forma relativa però fixant prèviament el directori actual.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">require</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">'/fruits.view.php'</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="noves-caracterisques-php">Noves caracterísques PHP</h2>
+<h3 id="spaceship-operator">Spaceship operator  (&lt;==&gt;)</h3>
+<p>Compara dues expressions $a i $b i torna -1 si $a és menor que $b, 0 si són iguals i 1 si $b és major que $a.</p>
+<p>Exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Integers</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="mi">1</span> <span class="o">&lt;=&gt;</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 0</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">echo</span> <span class="mi">1</span> <span class="o">&lt;=&gt;</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// -1</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="mi">2</span> <span class="o">&lt;=&gt;</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 1</span>
+</code></pre></div>
+<h3 id="operador-de-fusio-de-null">Operador de fusió de null ??</h3>
+<p>Torna el primer operand si existeix i no és NULL o el segon operand.</p>
+<p>Exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Fetches the value of $_GET['user'] and returns 'nobody'</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// if it does not exist.</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$username</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'user'</span><span class="p">]</span><span class="o">??</span><span class="s1">'nobody'</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">// This is equivalent to:</span>
+<span class="linenos" data-linenos="6 "></span><span class="nv">$username</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'user'</span><span class="p">])</span><span class="o">?</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'user'</span><span class="p">]</span><span class="o">:</span><span class="s1">'nobody'</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Més recursos:</strong></p>
+<ul>
+<li><a href="https://www.php.net/manual/es/migration70.new-features.php">Noves característiques PHP 7.0</a></li>
+<li><a href="https://www.php.net/manual/es/migration71.new-features.php">Noves característiques PHP 7.1</a></li>
+<li><a href="https://www.php.net/manual/es/migration72.new-features.php">Noves característiques PHP 7.2</a></li>
+<li><a href="https://www.php.net/manual/es/migration73.new-features.php">Noves característiques PHP 7.3</a></li>
+<li><a href="https://www.php.net/manual/es/migration74.new-features.php">Noves característiques PHP 7.4</a></li>
+<li><a href="https://www.php.net/manual/es/migration80.new-features.php">Noves característiques PHP 8.0</a></li>
+<li><a href="https://www.php.net/manual/es/migration81.new-features.php">Noves característiques PHP 8.1</a></li>
+</ul>
+<h2 id="credits">Crèdits</h2>
+<ul>
+<li>Aitor Medrano. (setembre de 2021) <em>Desarrollo Web en Entorno Servidor</em> disponible en: <a href="https://aitor-medrano.github.io/dwes2122/index.html">https://aitor-medrano.github.io/dwes2122/index.html</a></li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

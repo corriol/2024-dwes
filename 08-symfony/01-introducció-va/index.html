@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Introducció als frameworks PHP i a Symfony - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#introduccio-als-frameworks-php-i-a-symfony">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Introducció als frameworks PHP i a Symfony
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="introduccio-als-frameworks-php-i-a-symfony">Introducció als frameworks PHP i a Symfony</h1>
+<details class="info"><summary>Objectius</summary><ul>
+<li>Comprendre la importància de l'ús de frameworks per al desenvolupament d'aplicacions</li>
+<li>Entendre la arquitectura de les aplicacions Symfony.</li>
+<li>Desenvolupar una aplicació amb Symfony.</li>
+</ul>
+</details>
+<details class="info"><summary>Continguts</summary><ol>
+<li>Instalación y configuración de Symfony</li>
+<li>Arquitectura MVC</li>
+<li>Introducció a YAML</li>
+<li>Vistes</li>
+<li>Motor de plantilles Twig</li>
+<li>Injecció de dependències: Contenidors</li>
+<li>El model</li>
+<li>Doctrine</li>
+<li>Creació i validació de formularis</li>
+<li>Seguretat i Control d’accés</li>
+<li><em>Bundles</em></li>
+</ol>
+</details>
+<details class="info"><summary>Continguts procedimentals</summary><ul>
+<li>Instal·lació i configuració de Symfony 5.</li>
+<li>Ús del motor de plantilles Twing per creació de vistes.</li>
+<li>Implementació de contenidors de serveis per a la injecció de dependències.</li>
+<li>Ús de l'ORM Doctrine per treballar amb la base de dades</li>
+<li>Creació i validació de formularis utilitzant <em>form builder</em>.</li>
+<li>Implementació de control d'accés</li>
+<li>Inserció de <em>bundles</em> en el nostre projecte</li>
+</ul>
+</details>
+<h2 id="frameworks-php">Frameworks PHP</h2>
+<p>Un <strong>framework</strong> és una eina que proporciona una sèrie de mòduls que
+ajuden a organitzar i desenvolupar un producte de programari. En el cas
+concret dels frameworks PHP, la majoria d'ells proporcionen una sèrie
+de comandos o eines per a crear projectes amb una estructura determinada
+(normalment, seguint el patró MVC), de manera que ja
+donen una base de treball feta, i facilitats per a poder crear el model
+de dades, la connexió a la base de dades, les rutes de les diferents
+seccions de l'aplicació, etc.</p>
+<h3 id="exemples-de-frameworks-php">Exemples de frameworks PHP</h3>
+<p>Actualment existeix una gran varietat de frameworks PHP que triar per a
+desenvolupar les nostres aplicacions. Alguns dels més populars són:</p>
+<ul>
+<li><strong>Laravel</strong>, un framework relativament recent (va ser creat en
+    2011), i que ha guanyat bastant popularitat en els últims anys. La
+    seua filosofia és el poder desenvolupar projectes de forma elegant i
+    simple. Compta amb una àmplia comunitat de suport darrere, i se li
+    augura un futur bastant consolidat.</li>
+<li><strong>Symfony</strong>, el <em>framework</em> que emprarem en aquest curs. Creat en
+    2005, compta amb més camí fet que Laravel, i una estructura més
+    consolidada. En les seues primeres versions es presentava com un
+    framework més monolític (s'instal·laven massa mòduls que després no
+    necessitàvem), però recentment ha adaptat la seua estructura per a
+    fer-la més modular. Està molt orientat al patró MVC, i a una
+    estructura rígida i correcta de fer aplicacions.</li>
+<li><strong>CodeIgniter</strong>, un framework més lleuger que els anteriors, però
+    també amb un ampli grup de seguidors i desenvolupadors. Va ser creat
+    en 2006 i, encara que ha patit una etapa d'abandó, ha tornat a
+    agafar força en els últims anys, potser a causa de la seua
+    simplicitat d'ús.</li>
+<li><strong>Phalcon</strong>, un altre framework de recent creació (2012), amb una
+    potent capacitat de processament de pàgines PHP, i la possibilitat
+    de treballar com microframework (més lleuger, per a oferir
+    funcionalitats molt específiques) o com framework complet. De fet,
+    molts frameworks més antics també han incorporat recentment la
+    possibilitat d'executar-los com microframeworks.</li>
+<li><strong>CakePHP</strong>, creat en 2005, és un altre framework similar a
+    CodeIgniter quant a simplicitat i facilitat d'ús. Té una àmplia
+    comunitat també darrere que li dóna suport.</li>
+<li><strong>Zend</strong>, creat en 2006, és un altre framework bastant popular,
+    encara que potser amb menor visibilitat que els anteriors avui dia.</li>
+<li>... etc.</li>
+</ul>
+<p>Quasi tots els frameworks PHP tenen una sèrie de característiques
+comunes, com són l'ús del patró MVC per a desenvolupar els seus
+projectes, la injecció de dependències per a gestionar recursos tals com
+a connexions a bases de dades o elements compartits per tota l'aplicació, 
+la possibilitat de desenvolupar tant webs completes
+com a serveis REST accessibles des de diversos clients, etc.</p>
+<p>En el següent article teniu una comparatova entre Laravel i Symfony: 
+<a href="https://hackernoon.com/php-laravel-vs-symfony-a-detailed-comparison-of-web-development-frameworks-sq493y3l">PHP Laravel VS Symfony: A Detailed Comparison of Web Development Frameworks</a></p>
+<h3 id="quin-triar">Quin triar?</h3>
+<p>A l'hora de decantar-nos per un o un altre framework, no ens hauríem de
+deixar enganyar per la seua popularitat, en termes de quota de
+mercat. En aqueix terreny, Symfony i Laravel probablement siguen els més
+beneficiats, però la corba d'aprenentatge en ells pot ser que siga més
+pronunciada que en uns altres a priori més senzills, com CodeIgniter o
+CakePHP.</p>
+<p>Cada <em>framework</em> pot estar millor orientat que un altre para determinats
+tipus de projectes o necessitats. Si volem aprendre alguna cosa ràpida
+per a llançar l'aplicació com més prompte millor, potser Symfony no
+siga la millor opció. Si, per contra, preferim fer ús d'un framework
+amb una comunitat important darrere que ens puga donar suport i ens
+garantisca un temps de vida llarg, llavors Symfony o Laravel poden ser
+millors candidats.</p>
+<h4 id="per-que-symfony">Per què Symfony?</h4>
+<p>Arribats a aquest punt... quines característiques té Symfony que ens hagen
+fet triar-ho per a aquest curs enfront d'altres <em>frameworks</em>? El
+principal inconvenient que pot tenir aquest <em>framework</em> és, potser, la
+seua corba d'aprenentatge, que és bastant elevada comparada amb uns
+altres. No obstant això, els avantatges que ofereix compensen aquest
+inconvenient:</p>
+<ul>
+<li>És un <em>framework</em> amb molt recorregut (creat en 2005).</li>
+<li>Desenvolupa versions LTS (<em>Long Term Support</em>) que garanteixen un
+    suport a llarg termini.</li>
+<li>Té una gran comunitat darrere, la qual cosa permet trobar fàcilment
+    ajuda per a problemes que tinguem.</li>
+<li>Té una bona documentació. De fet, en la mateixa pàgina de Symfony es
+    tenen disponibles alguns llibres editats pel mateix equip de
+    desenvolupament, i una web amb la documentació oficial de l'actual
+    versió.</li>
+<li>Utilitza (i anima a utilitzar) bones pràctiques de programació en
+    els projectes.</li>
+<li>S'enllaça bé amb altres frameworks i llibreries de tercers molt
+    útils, denominades <em>bundles</em>. Alguns exemples que utilitzarem en el
+    curs són Twig (un potent motor de plantilles per a desenvolupar les
+    nostres vistes) o Doctrine (un ORM per a poder mapejar les dades en
+    objectes).</li>
+</ul>
+<p>En realitat, una vegada es coneix un d'aquests frameworks, és més
+senzill assimilar la resta, arribat el moment. Així que Symfony pot ser
+un bon punt de partida. En concret, durant el curs utilitzarem la versió
+5 del framework, que es recolza en PHP 7 per a funcionar, com veurem a
+continuació.</p>
+<h2 id="recursos-previs">Recursos previs</h2>
+<p>A l'hora de treballar amb Symfony 5.4, necessitem tenir
+prèviament instal·lats en el nostre sistema una sèrie de recursos
+programari, com són:</p>
+<ul>
+<li>Un servidor web que suporte PHP 7.4 o posterior. En el nostre cas,
+    utilitzarem Apache.</li>
+<li>Un servidor de bases de dades en el qual emmagatzemar la informació
+    de les nostres aplicacions. Emprarem un servidor MariaDB/MySQL.</li>
+<li>PHP (versió 7.4 o posterior)</li>
+<li>El propi framework Symfony.</li>
+<li>Un IDE (entorn de desenvolupament) amb el qual editar el codi dels
+    nostres projectes.</li>
+</ul>
+<h3 id="installar-apache-mysql-i-php">Instal·lar Apache, MySQL i PHP</h3>
+<p>Per a complir amb els tres primers requisits (Apache, MariaDB/MySQL i
+PHP) instal·larem un sistema XAMPP, des del seu <a href="https://www.apachefriends.org/es/download.html">web oficial</a>.
+En el cas de la màquina virtual que tenim disponible per al curs, podem
+instal·lar-ho descarregant la versió per a Linux.</p>
+<p>Es tracta d'un arxiu <code>.run</code>. Primer hem de fer-ho executable, escrivint
+aquest comando des de la carpeta on l'hàgem descarregat (per exemple,
+per a la versió 7.4.14 de XAMPP, que és la que està disponible en el
+moment d'escriure aquestes anotacions):</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>chmod +x xampp-linux-x64-7.4.14-0-installer.run
+</code></pre></div>
+Després, ho executem amb permisos de <em>root</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo ./xampp-linux-x64-7.4.14-0-installer.run
+</code></pre></div>
+<p>S'iniciarà un assistent que ens guiarà en la instal·lació. Podem deixar
+totes les opcions marcades per defecte, excepte l'opció sobre Bitnami,
+que podem desmarcar ja que no ho utilitzarem (és una espècie
+d'assistent que permet instal·lar altres paquets com Wordpress, Joomla,
+Moodle... en els nostres projectes web).</p>
+<h4 id="el-panell-de-control-manager-de-xampp">El panell de control (<em>manager</em>) de XAMPP</h4>
+<p>Farem ús del manager que s'haurà instal·lat per a engegar els
+servidors. Haurem de cercar el manager en qüestió en la carpeta on
+s'haja instal·lat XAMPP. En el cas de Linux, el manager es troba en
+<code>/opt/lampp/manager­-linux-­x64.run</code>, que podem executar directament des
+d'un terminal, amb permisos d'administrador. Si accedim a la carpeta
+on està, el comando quedaria així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo ./manager-linux-x64.run
+</code></pre></div>
+<h4 id="creant-un-acces-directe-per-al-manager-en-lescriptori">Creant un accés directe per al manager en l'escriptori</h4>
+<p>Com pot ser incòmode anar a la carpeta de XAMPP per a
+engegar el <em>manager</em> cada vegada, podem crear un accés directe en
+l'escriptori. Per a Linux, existeixen diverses formes de fer-ho, vegem
+una: crearem un arxiu en l'escriptori (el podem cridar, per exemple
+"xampp.desktop"), i l'editem amb un editor de text, deixant-ho així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>[Desktop Entry]
+<span class="linenos" data-linenos=" 2 "></span>Encoding=UTF-8
+<span class="linenos" data-linenos=" 3 "></span>Name=XAMPP Manager
+<span class="linenos" data-linenos=" 4 "></span>Comment=Manager XAMPP
+<span class="linenos" data-linenos=" 5 "></span>Exec=sudo /opt/lampp/manager-linux-x64.run
+<span class="linenos" data-linenos=" 6 "></span>Icon=/opt/lampp/htdocs/favicon.ico
+<span class="linenos" data-linenos=" 7 "></span>Categories=Aplicacions;Programació;Web
+<span class="linenos" data-linenos=" 8 "></span>Version=7.4
+<span class="linenos" data-linenos=" 9 "></span>Type=Application
+<span class="linenos" data-linenos="10 "></span>Terminal=true
+</code></pre></div>
+<p>El que hem fet és definir diversos paràmetres de configuració de
+l'accés directe. Entre ells, els més destacats són la ruta cap a
+l'executable (paràmetre <code>exec</code>) i la icona per a l'accés directe
+(paràmetre Icon, on hem triat directament una icona que ja ve amb
+XAMPP).</p>
+<p>Després d'açò, fem que l'arxiu <code>xampp.desktop</code> siga executable (amb
+clic dret, en les seues propietats, podem fer-ho), i ho executem. Pot
+ser que ens demane la contrasenya per a llançar-ho, i
+després ja podrem veure el <em>manager</em>.</p>
+<h3 id="installant-symfony-a-traves-de-composer">Instal·lant Symfony a través de Composer</h3>
+<p>L'últim requisit per a començar a treballar amb Symfony és, òbviament,
+disposar del framework Symfony. Per a açò, la mateixa web ofereix algunes
+alternatives, però recomana instal·lar Symfony a través de l'eina
+<strong>Composer</strong>, que és un gestor de dependències que permet instal·lar
+diferents mòduls o llibreries en un projecte. Conté una base de dades
+en línia amb moltes llibreries disponibles centralitzades, amb el que
+podem indicar quin(es) volem per a cada projecte concret, i Composer les
+descarrega i instal·la per nosaltres. És molt similar a
+altres gestors com NPM (<em>Node Package Manager</em>), que s'aplica a
+llibreries per a Node o Javascript en general.</p>
+<p>Composer pot instal·lar-se localment per a cada projecte web, o de forma
+global per a tot el sistema. Aquesta última opció és la recomanable en
+el cas de voler gestionar diversos projectes en el nostre equip, per a
+no haver d'instal·lar-ho en tots ells. Per a fer açò, escrivim aquests
+comandos des de terminal:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>curl -sS https://getcomposer.org/installer <span class="p">|</span> /opt/lampp/bin/php
+<span class="linenos" data-linenos="2 "></span>sudo mv composer.phar /usr/local/bin/composer
+</code></pre></div>
+<p>El que hem fet és descarregar Composer amb el comando <code>curl</code> (pot ser que
+necessites instal·lar el comando <code>curl</code> si no t'ho el sistema, mitjançant 
+<code>sudo apt-get install curl</code>). Després, movem l'arxiu
+descarregat (<code>composer.phar</code>) a la carpeta <code>/usr/local/bin</code>, amb el nom
+"composer", perquè en executar-ho ho trobe en el PATH del sistema.</p>
+<div class="admonition important">
+<p class="admonition-title">PHP CLI</p>
+<p>Les ferramentes de Symfony fan ús de l'intèrpret de PHP, així 
+que hem de tenir configurat el sistema perquè siga capaç d'executar la mateixa versió
+que tenim al servidor Apache, on executarà l'aplicació web.</p>
+</div>
+<p>Com a últim pas, i ja que Composer utilitza l'executable de PHP,
+necessitem que l'executable estiga també en el PATH del sistema, per
+al que farem el següent:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">echo</span> <span class="s2">"export PATH=</span><span class="nv">$PATH</span><span class="s2">:/opt/lampp/bin"</span> &gt;&gt; ~/.bashrc
+<span class="linenos" data-linenos="2 "></span><span class="nb">source</span> ~/.bashrc
+</code></pre></div>
+<p>La primera línia afig la carpeta <code>/opt/lampp/bin</code> al PATH, amb el que ja
+es pot localitzar el comando <code>php</code> a nivell global. La segona recarrega el
+fitxer <code>.bashrc</code> per a fer efectius els canvis.</p>
+<h4 id="symfony-cli">Symfony CLI</h4>
+<p>Opcionalment pots instal·lar <a href="https://symfony.com/download">Symfony CLI</a>. 
+Des de la versió 5 Symfony inclou un binari anomenat <code>symfony</code> que proporciona
+totes les eines per a desevolupar aplicacions basades en Symfony de forma local.</p>
+<h3 id="el-ide-per-a-desenvolupar-els-projectes">El IDE per a desenvolupar els projectes</h3>
+<p>Finalment, per a poder desenvolupar els projectes, necessitem un entorn
+de desenvolupament que ens permeta editar el codi dels fitxers que
+necessitem. Podem treballar en <code>Visual Studio Code</code> instal·lant els <em>plugins</em> adients, 
+però com tenim la llicència educativa de PHPStorm l'emprarem per la
+seua facilitat d'ús i versatilitat. </p>
+<h2 id="primers-passos-amb-symfony">Primers passos amb Symfony</h2>
+<p>Ara que ja tenim tot el necessari per a començar a treballar amb
+Symfony, és hora de crear el nostre primer projecte de prova. Veurem quins
+passos seguir per a crear els projectes, quina estructura tenen i com
+provar-los.</p>
+<h3 id="el-nostre-primer-projecte-symfony">El nostre primer projecte Symfony</h3>
+<p>Per a crear un projecte Symfony, podem descarregar directament el
+<em>framework</em> i instal·lar-lo en la nostra carpeta d'aplicació web, o bé
+utilitzar Composer (opció recomanada). En aquest últim cas, existeixen
+dues alternatives per a crear projectes Symfony:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer create-project symfony/skeleton project-name
+</code></pre></div>
+Que crearà un projecte amb el nom indicat en el directori,
+contenint l'estructura mínima, sense llibreries de tercers. Serà la
+nostra responsabilitat afegir-les més tard. Aquesta funcionalitat ha
+sigut afegida en la versió 4 de Symfony, per a permetre que s'instal·le
+com a <em>microframework</em> i no deixar un projecte massa pesat per a les nostres
+necessitats.</p>
+<p>Si tenim clar que volem fer una aplicació tradicional (amb vistes i <em>datamapper</em>, per exemple) 
+podem afegir els components amb el paquet: <code>symfony/webapp-pack</code></p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer create-project symfony/skeleton project-name
+<span class="linenos" data-linenos="2 "></span><span class="nb">cd</span> project-name
+<span class="linenos" data-linenos="3 "></span>composer require webapp
+</code></pre></div>
+Sol ser bastant habitual emprar aquesta segona opció per a crear
+projectes, ja que, encara que ens instal·la dependències que pot ser que
+no arribem a utilitzar, sí ens instal·la automàticament unes altres molt
+requerides, com el motor de plantilles Twig, l'ORM Doctrine, o el
+gestor de logs Monolog.</p>
+<p>Per a començar, crearem un projecte anomenat "testing" amb la segona
+opció. Accedim a la carpeta de treball (podem crear una en
+/home/alumne/projectes-symfony, per exemple), i escrivim aquest comando des de
+dins d'aqueixa carpeta:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer create-project symfony/skeleton:<span class="s2">"^5.4"</span> testing
+<span class="linenos" data-linenos="2 "></span><span class="nb">cd</span> testing
+<span class="linenos" data-linenos="3 "></span>composer require webapp
+</code></pre></div>
+<h3 id="symfony-profiler">Symfony Profiler</h3>
+<p>El Symfony Profiler és una eina de depuració i desenvolupament inclosa en Symfony. 
+Proporciona informació detallada sobre el funcionament intern d'una aplicació Symfony,
+ incloent les dades de sol·licitud i resposta, les mètriques de rendiment i els missatges 
+ de registre. Només està disponible en l'entorn de desenvolupament i es pot accedir a través del
+  navegador web. Inclou una barra d'eines i una interfície web per a una visió més 
+  detallada de les dades recopilades.</p>
+<h4 id="estructura-general-dun-projecte-symfony">Estructura general d'un projecte Symfony</h4>
+<p>Després de completar les ordes anteriors, s'haurà creat una estructura
+amb diversos directoris i fitxers dins de <code>/home/alumne/symfony-projects/testing</code>. Si
+obrim aquest directori des del nostre IDE, podrem veure en el
+panell esquerre (Explorador) l'estructura del projecte. Aquesta
+estructura ha variat lleugerament al llarg de les versions
+per a assemblar-se més a una estructura Unix.</p>
+<p>En el cas concret d'un projecte Symfony 5, l'estructura queda com
+segueix:</p>
+<ul>
+<li>La carpeta <strong>bin</strong> conté alguns executables del nostre projecte, com
+    console per a escriure comandos de consola, o phpunit per a llançar
+    les proves unitàries. Analitzarem el primer d'ells més endavant en
+    aquesta mateixa sessió.</li>
+<li>La carpeta <strong>config</strong> conté els arxius de configuració per als
+    diferents àmbits en què es desenvolupe el projecte. Per defecte es
+    defineixen 3 àmbits: dev (per a desenvolupament), prod (per a posada
+    en producció) i test (per a proves), encara que podem afegir els que
+    vulguem. Cada àmbit conté uns arxius de configuració YAML (veurem
+    més endavant en què consisteix aquest format), per a poder
+    especificar opcions concretes. Per exemple, en l'àmbit dev ens pot
+    interessar que es mostre tota la informació necessària per pantalla,
+    o a un arxiu, mentre que en l'ámbido prod prevaldrà més
+    l'eficiència. En qualsevol cas, fonamentalment emprarem aquesta
+    carpeta per a configurar rutes i serveis, com veurem en sessions
+    posteriors.</li>
+<li>La carpeta <strong>migrations</strong> contindrà els canvis en la base de dades i que veurem més avant.   </li>
+<li>La carpeta <strong>public</strong> contindrà
+    la part pública o estàtica de la web. Ací col·locarem fulles
+    d'estils CSS, arxius Javascript per a la part del client, pàgines
+    estàtiques HTML o PHP...</li>
+<li>La carpeta <strong>src</strong> conté el codi font PHP pròpiament dit, és a dir,
+    les classes que conformaran el nostre model de dades, i els
+    controladors de l'aplicació, fonamentalment. També hi ha elements
+    importants, com l'arxiu <strong>Kernel.php</strong> , que d'alguna forma
+    controla la resta de la configuració: estableix quins <em>bundles</em> han
+    d'activar-se, i per a quins àmbits, entre altres coses.</li>
+<li>La carpeta <strong>templates</strong> contindrà les plantilles per a les vistes,
+    és a dir pàgines que es preprocesarán pel motor de plantilles (Twig,
+    en el nostre cas) per a generar les vistes de l'aplicació, com
+    veurem més endavant.</li>
+<li>La carpeta <strong>tests</strong> es destina al desenvolupament de proves. </li>
+<li>La carpeta <strong>translations</strong> s'utilitza per a opcions
+    d'internacionalització</li>
+<li>La carpeta <strong>var</strong> s'empra per a arxius temporals, com per exemple
+    arxius de caché o de log.</li>
+<li>La carpeta <strong>vendor</strong> s'empra per a instal·lar els <em>bundles</em> de
+    tercers que ens descarreguem, com també veurem en sessions
+    posteriors.</li>
+</ul>
+<h4 id="provant-el-nostre-projecte">Provant el nostre projecte</h4>
+<p>Per a poder provar el projecte, i tenint en compte que ho hem creat fora
+de la carpeta de treball per defecte de XAMPP (/opt/lampp/htdocs), hem
+de crear un virtual host que apunte a la nostra carpeta. Per a açò,
+seguim aquests passos:</p>
+<ol>
+<li>
+<p>Edita l'arxiu <code>/etc/hosts</code> (amb permisos d'administrador) per a afegir un nou
+    domini local per a la nostra aplicació. Cridarem al domini
+    <code>symfony-testing</code>: </p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>127.0.0.1 symfony-testing
+</code></pre></div>
+2.  Hem d'editar un arxiu de configuració secundari de XAMPP per a
+donar permisos d'accés a la nostra carpeta de treball. L'arxiu en
+qüestió és <code>/opt/lampp/apache2/conf/httpd.conf</code>, i hem d'afegir al
+final la següent entrada: 
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&lt;Directory</span> <span class="s">"/home/alumne/symfony-projects/testing"</span><span class="nt">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nb">Options</span> Indexes FollowSymLinks
+<span class="linenos" data-linenos="3 "></span>    <span class="nb">AllowOverride</span> <span class="k">All</span> 
+<span class="linenos" data-linenos="4 "></span>    <span class="nb">Require</span> <span class="k">all</span> granted
+<span class="linenos" data-linenos="5 "></span><span class="nt">&lt;/Directory&gt;</span>
+</code></pre></div>
+3.  Habilita la creació d'hosts virtuals en Apache, editant l'arxiu
+principal de configuració <code>/opt/lampp/etc/httpd.conf</code> i descomentant
+la línia que apareix en negreta, que està quasi al final de
+l'arxiu: 
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c"># Virtual hosts </span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">Include</span> etc/extra/httpd-vhosts.conf
+</code></pre></div>
+4.  Edita l'arxiu <code>/opt/lampp/etc/extra/httpd-­vhosts.conf</code> i afig un nou
+host virtual per a la nostra aplicació. En el nostre cas, haurà de
+quedar-te així, si has seguit els passos anteriors per a crear el
+projecte en la carpeta corresponent: 
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nb">DocumentRoot</span> <span class="s2">"/home/alumne/symfony-projects/testing/public"</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="nb">ServerName</span>  symfony-testing
+<span class="linenos" data-linenos="4 "></span><span class="nt">&lt;/VirtualHost&gt;</span>    
+</code></pre></div>
+5.  Reinicia el servidor Apache, i intenta accedir a
+<code>http://symfony-testing</code>, per a veure la pàgina d'inici:</p>
+</li>
+</ol>
+<p><img alt="testing home" src="../assets/testing-home.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Per a les següents aplicacions que faces, no serà necessari realitzar els 
+passos 2 i 3, ja que amb açò ja hauràs donat permisos d'accés a la teua 
+carpeta de treball, i deixat habilitats els hosts virtuals per al futur.</p>
+</div>
+<h3 id="distribuir-els-nostres-projectes-symfony">Distribuir els nostres projectes Symfony</h3>
+<p>Si fas una ullada a la grandària de la carpeta
+<code>/home/alumne/symfony-projects/testing</code> del projecte que hem creat, comprovaràs que ocupa 
+bastants megues. Gran part d'aqueixa grandària es deu a les dependències que per defecte s'instal·len en crear 
+ el projecte amb l'opció <code>website-­skeleton</code>, i la grandària creixerà més encara si necessitem instal·lar alguna altra dependència addicional a les quals ja venen.</p>
+<div class="admonition alert">
+<p class="admonition-title">omissió de directoris</p>
+<p>Òbviament, distribuir una carpeta d'aqueixa grandària no és
+còmode, ni recomanable. En lloc d'açò, el que pots fer és
+ometre la subcarpeta <code>vendor</code>, que és on s'instal·len totes les
+dependències externes. Aquest fet no suposa cap problema, ja que, una
+vegada obtingut el projecte Symfony, es pot regenerar la carpeta amb
+aquest comando (des de la carpeta principal del projecte Symfony en
+qüestió):</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer install
+</code></pre></div>
+<p>que simplement torna a crear la carpeta <code>vendor</code> i reinstal·la dins les
+dependències que figuren en l'arxiu <code>composer.json</code> , que per defecte
+conté totes les dependències necessàries per al <code>website-­skeleton</code>. Més
+endavant veurem com afegir més dependències als projectes Symfony.</p>
+<h4 id="la-consola-de-symfony">La consola de Symfony</h4>
+<p>En analitzar l'estructura d'un projecte Symfony, hem vist que existeix
+una carpeta <code>bin</code> amb un parell d'arxius executables a través de PHP. Un
+d'ells s'empra per a proves unitàries (phpunit), i no ho veurem en el
+curs per motius de temps, i l'altre ( <strong>console</strong> ) sí és més
+àmpliament utilitzat per a ajudar-nos a certes tasques, com per exemple
+crear entitats, engegar un servidor de proves, examinar serveis, etc.</p>
+<p>Per a començar, prova a obrir un terminal i situar-te en la carpeta del
+projecte "testing" de Symfony que hem creat aquesta sessió. Pots fer açò
+directament si obris el terminal integrat en l'IDE.</p>
+<p>Prova d'executar aquesta ordre:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console debug:autowiring
+</code></pre></div>
+<p>Obtindràs un llistat dels serveis que hi ha actualment predefinits en
+Symfony (més endavant veurem què és açò dels serveis).</p>
+<p>Existeixen altres comandos útils, com un petit servidor PHP per a poder
+provar ràpidament el projecte sense necessitat d'Apache, o altres
+comandos per a crear certs elements de l'aplicació o examinar-los. Els
+anirem veient més endavant.</p>
+<div class="admonition warning">
+<p class="admonition-title">Problemes amb permisos</p>
+<p>Els requeriments de permisos de Symfony són senzills d'aplicar, en cas que hi haja algun problema aquest article aporta informació d'interès <a href="https://symfony.com/doc/current/setup/file_permissions.html">Setting up or Fixing file Permissions</a></p>
+</div>
+<h2 id="introduccio-a-yaml">Introducció a YAML</h2>
+<p>La configuració dels projectes Symfony, per defecte, es defineix
+mitjançant fitxers YAML. Aquests fitxers són una alternativa al format
+XML, més llargs i enutjosos normalment, i al format PHP, més
+complicat d'escriure. Podríem dir que suposa un terme mitjà quant a
+facilitat d'ús i concreció, i són fitxers que es poden executar sobre la
+marxa. Açò té l'incovenient que els possibles errors (de sintaxis, per
+exemple) no es mostraran fins que l'aplicació no s'execute.</p>
+<p>L'estàndard YAML és molt ampli (es pot consultar en el seu web
+oficial), però per a Symfony només és necessari emprar un subconjunt
+reduït. Com podem veure si editem qualsevol arxiu YAML d'un projecte
+Symfony, la informació s'estructura en parelles clau, valor. Si la clau
+o el valor estan compostos per més d'una paraula separades per espais,
+es tanquen entre cometes dobles (encara que no és habitual).</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">driver</span><span class="p">:</span> <span class="s">'pdo_mysql'</span>
+</code></pre></div>
+La jerarquia de la informació s'estableix mitjançant indentacions,
+però aquestes no han de fer-se amb el tabulador, sinó amb la barra
+espaiadora (quatre espais per nivell).</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">default_table_options</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">charset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">utf8mb</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">collate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">utf8mb4_unicode_ci</span>
+</code></pre></div>
+Pot haver-hi grups d'elements clau: valor, formant <em>arrays</em>. Aquests
+<em>arrays</em> van entre claudàtors, en el cas d'arrays normals, o entre claus,
+en el cas d'arrays associatius:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">rols</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ROLE_USER</span><span class="p p-Indicator">,</span> <span class="nv">ROLE_ADMIN</span><span class="p p-Indicator">]</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nt">users</span><span class="p">:</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nt">admin</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> password</span><span class="p">:</span> <span class="nv">adminpass</span><span class="p p-Indicator">,</span><span class="nt"> rols</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ROLE_ADMIN</span><span class="p p-Indicator">]</span> <span class="p p-Indicator">}</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nt">user</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> password</span><span class="p">:</span> <span class="nv">userpass</span><span class="p p-Indicator">,</span><span class="nt"> rols</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ROLE_USER</span><span class="p p-Indicator">]</span> <span class="p p-Indicator">}</span>
+</code></pre></div>
+<p>També es pot indicar una matriu (<em>array</em>) escrivint cada element en una nova línia 
+que comence per <code>-</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">App\</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">resource</span><span class="p">:</span> <span class="s">'../src/'</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">exclude</span><span class="p">:</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="p p-Indicator">-</span> <span class="s">'../src/DependencyInjection/'</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="p p-Indicator">-</span> <span class="s">'../src/Entity/'</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="p p-Indicator">-</span> <span class="s">'../src/Kernel.php'</span>
+</code></pre></div>
+<p>Els comentaris s'indiquen amb un coixinet al principi de cada línia del
+comentari.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># in-memory users</span>
+<span class="linenos" data-linenos="2 "></span><span class="nt">users</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">admin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+</code></pre></div>
+La primera clau de cada arxiu YAML és la seua clau principal, que conté
+a la resta de claus i valors (la resta van indentadas un o diversos
+nivells respecte a aquesta). Quan s'executa l'aplicació, Symfony
+converteix aquests arxius YAML en arxius PHP amb un codi equivalent.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Gestió de fitxers CSS i Javascript amb Webpack Encore - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#gestio-de-fitxers-css-i-javascript-amb-webpack-encore">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Gestió de fitxers CSS i Javascript amb Webpack Encore
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="gestio-de-fitxers-css-i-javascript-amb-webpack-encore">Gestió de fitxers CSS i Javascript amb Webpack Encore</h1>
+<p><strong>Webpack</strong> és una eina d'empaquetador de mòduls per a aplicacions web. Ajuda a agrupar i optimitzar els fitxers JavaScript, CSS, 
+imatges i altres recursos per a la seva distribució als navegadors web. A més, proporciona característiques com la 
+<em>gestió de dependències</em> i el muntatge de mòduls, així com la capacitat de crear diversos paquets per a diferents entorns.</p>
+<p><strong>Encore</strong> és una eina de configuració de Webpack i un empaquetador d'aplicacions JavaScript per a Symfony. Proporciona 
+una forma fàcil i convenient d'utilitzar <strong>Webpack</strong> i gestionar recursos com fulls d'estil, JavaScript i imatges 
+en els projectes Symfony. Encore també permet la integració d'eines com Babel, Sass i TypeScript, i inclou funcions 
+com la divisió de codi i importacions dinàmiques.</p>
+<p>En aquest capítol integrarem i optimitzarem un full d'estils personalitzat, <em>Bootstrap 5</em> i <em>Bootstrap Icons</em>.</p>
+<h2 id="pas-1-installacio-de-nodejs">Pas 1: Instal·lació de Node.js</h2>
+<p>Per començar, hauràs d'instal·lar Node.js i un gestor de dependències com <code>yarn</code> o <code>npm</code>. Nosaltres usarem el darrer.</p>
+<p>En <a href="https://nodejs.org/en/download/">Download | Node.js</a> trobaràs les diferents opcions d'instal·lació de Node.js. En cas d'usar una versió basada en 
+Linux els repositoris els pots trobar en <a href="https://github.com/nodesource/distributions/blob/master/README.md#debinstall">Nodesource</a></p>
+<p>En el projecte treballarem en la versió de Node.js 18 ja que és la darrera versió de suport a llarg termini (LTS).</p>
+<h2 id="pas-2-installacio-webpack-encore-bundle">Pas 2: Instal·lació Webpack Encore Bundle</h2>
+<p>Per a instal·lar Encore cal executar:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require symfony/webpack-encore-bundle
+</code></pre></div>
+<p>Després executarem el següent comandament perquè s'instal·len els mòduls necessaris: </p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>npm install
+</code></pre></div>
+I finalment <code>npm run dev</code> per poder realitzar la compilació.</p>
+<h2 id="pas-3-revisio-dels-fitxers-de-configuracio-de-webpack">Pas 3: Revisió dels fitxers de configuració de Webpack</h2>
+<p>Després d'instal·lar Webpack Encore s'hauran creat la carpeta <code>assets</code> i el fitxer de configuració de Webpack <code>webpack.config.js</code> a l'arrel del teu projecte Symfony. Aquest fitxer contindrà totes les opcions de configuració de Webpack Encore.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">const</span> <span class="nx">Encore</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@symfony/webpack-encore'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nx">Encore</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="c1">// el directori del projecte on s'emmagatzemaran tots els actius compilats</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">.</span><span class="nx">setOutputPath</span><span class="p">(</span><span class="s1">'public/build/'</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// la ruta pública utilitzada pel servidor web per accedir al directori anterior</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">.</span><span class="nx">setPublicPath</span><span class="p">(</span><span class="s1">'/build'</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="cm">/* Entrades</span>
+<span class="linenos" data-linenos="11 "></span><span class="cm">     * Cada entrada generarà un fitxer Javascript i un fitxer CSS si</span>
+<span class="linenos" data-linenos="12 "></span><span class="cm">     * el Javascript importa CSS.</span>
+<span class="linenos" data-linenos="13 "></span><span class="cm">     */</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">.</span><span class="nx">addEntry</span><span class="p">(</span><span class="s1">'app'</span><span class="p">,</span> <span class="s1">'./assets/js/app.js'</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>    <span class="c1">// enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="p">.</span><span class="nx">enableStimulusBridge</span><span class="p">(</span><span class="s1">'./assets/controllers.json'</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>    <span class="c1">// When enabled, Webpack "splits" your files into smaller pieces for greater optimization.</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="p">.</span><span class="nx">splitEntryChunks</span><span class="p">()</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>    <span class="c1">// will require an extra script tag for runtime.js</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="c1">// but, you probably want this, unless you're building a single-page app</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="p">.</span><span class="nx">enableSingleRuntimeChunk</span><span class="p">()</span>
+<span class="linenos" data-linenos="26 "></span>
+<span class="linenos" data-linenos="27 "></span>    <span class="cm">/*</span>
+<span class="linenos" data-linenos="28 "></span><span class="cm">     * FEATURE CONFIG</span>
+<span class="linenos" data-linenos="29 "></span><span class="cm">     *</span>
+<span class="linenos" data-linenos="30 "></span><span class="cm">     * Enable &amp; configure other features below. For a full</span>
+<span class="linenos" data-linenos="31 "></span><span class="cm">     * list of features, see:</span>
+<span class="linenos" data-linenos="32 "></span><span class="cm">     * https://symfony.com/doc/current/frontend.html#adding-more-features</span>
+<span class="linenos" data-linenos="33 "></span><span class="cm">     */</span>
+<span class="linenos" data-linenos="34 "></span>
+<span class="linenos" data-linenos="35 "></span>    <span class="p">.</span><span class="nx">cleanupOutputBeforeBuild</span><span class="p">()</span>
+<span class="linenos" data-linenos="36 "></span>    <span class="p">.</span><span class="nx">enableBuildNotifications</span><span class="p">()</span>
+<span class="linenos" data-linenos="37 "></span>    <span class="p">.</span><span class="nx">enableSourceMaps</span><span class="p">(</span><span class="o">!</span><span class="nx">Encore</span><span class="p">.</span><span class="nx">isProduction</span><span class="p">())</span>
+<span class="linenos" data-linenos="38 "></span>    <span class="c1">// enables hashed filenames (e.g. app.abc123.css)</span>
+<span class="linenos" data-linenos="39 "></span>    <span class="p">.</span><span class="nx">enableVersioning</span><span class="p">(</span><span class="nx">Encore</span><span class="p">.</span><span class="nx">isProduction</span><span class="p">())</span>
+<span class="linenos" data-linenos="40 "></span>
+<span class="linenos" data-linenos="41 "></span>    <span class="c1">// configure Babel</span>
+<span class="linenos" data-linenos="42 "></span>    <span class="c1">// .configureBabel((config) =&gt; {</span>
+<span class="linenos" data-linenos="43 "></span>    <span class="c1">//     config.plugins.push('@babel/a-babel-plugin');</span>
+<span class="linenos" data-linenos="44 "></span>    <span class="c1">// })</span>
+<span class="linenos" data-linenos="45 "></span>
+<span class="linenos" data-linenos="46 "></span>    <span class="c1">// enables and configure @babel/preset-env polyfills</span>
+<span class="linenos" data-linenos="47 "></span>    <span class="p">.</span><span class="nx">configureBabelPresetEnv</span><span class="p">((</span><span class="nx">config</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="linenos" data-linenos="48 "></span>        <span class="nx">config</span><span class="p">.</span><span class="nx">useBuiltIns</span> <span class="o">=</span> <span class="s1">'usage'</span><span class="p">;</span>
+<span class="linenos" data-linenos="49 "></span>        <span class="nx">config</span><span class="p">.</span><span class="nx">corejs</span> <span class="o">=</span> <span class="s1">'3.23'</span><span class="p">;</span>
+<span class="linenos" data-linenos="50 "></span>    <span class="p">})</span>
+<span class="linenos" data-linenos="51 "></span>
+<span class="linenos" data-linenos="52 "></span>    <span class="c1">// enables Sass/SCSS support</span>
+<span class="linenos" data-linenos="53 "></span>    <span class="c1">//.enableSassLoader()</span>
+<span class="linenos" data-linenos="54 "></span>
+<span class="linenos" data-linenos="55 "></span>    <span class="c1">// uncomment if you use TypeScript</span>
+<span class="linenos" data-linenos="56 "></span>    <span class="c1">//.enableTypeScriptLoader()</span>
+<span class="linenos" data-linenos="57 "></span>
+<span class="linenos" data-linenos="58 "></span>    <span class="c1">// uncomment if you use React</span>
+<span class="linenos" data-linenos="59 "></span>    <span class="c1">//.enableReactPreset()</span>
+<span class="linenos" data-linenos="60 "></span>
+<span class="linenos" data-linenos="61 "></span>    <span class="c1">// uncomment to get integrity="..." attributes on your script &amp; link tags</span>
+<span class="linenos" data-linenos="62 "></span>    <span class="c1">// requires WebpackEncoreBundle 1.4 or higher</span>
+<span class="linenos" data-linenos="63 "></span>    <span class="c1">//.enableIntegrityHashes(Encore.isProduction())</span>
+<span class="linenos" data-linenos="64 "></span>
+<span class="linenos" data-linenos="65 "></span>    <span class="c1">// permet a les aplicacions antigues utilitzar $/jQuery com a variable global</span>
+<span class="linenos" data-linenos="66 "></span>    <span class="c1">//.autoProvidejQuery()</span>
+<span class="linenos" data-linenos="67 "></span><span class="p">;</span>
+<span class="linenos" data-linenos="68 "></span>
+<span class="linenos" data-linenos="69 "></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">Encore</span><span class="p">.</span><span class="nx">getWebpackConfig</span><span class="p">();</span>
+</code></pre></div>
+<p>El fitxer <code>/assets/app.js</code> és un recurs que inicialment integra un full
+d'estils i <em>Stimulus</em> un framework Javascript lleuger dels creadors de Symfony.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">import</span> <span class="s1">'./styles/app.css'</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// start the Stimulus application</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">import</span> <span class="s1">'./bootstrap'</span><span class="p">;</span>
+</code></pre></div>
+Cal destacar que per integrar el fitxer de recursos cal que disposar
+d'una entrada associada a <code>webpack.config.js</code>. En aquest cas:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">.</span><span class="nx">addEntry</span><span class="p">(</span><span class="s1">'app'</span><span class="p">,</span> <span class="s1">'./assets/js/app.js'</span><span class="p">)</span>
+</code></pre></div>
+<p>El primer paràmetre, <code>app</code> en l'exemple, identifica el fitxer de recursos.</p>
+<h2 id="pas-4-compilacio-dels-recursos">Pas 4: Compilació dels recursos</h2>
+<p>Ara pots compilar els teus recursos utilitzant el següent comandament:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>npm run dev-server
+</code></pre></div>
+<p>Aquest comandament compilarà els teus actius i els guardarà al
+directori especificat en el fitxer de configuració. A més a més, executarà un servidor de desenvolupament que vigilarà els teus arxius i actualitzarà automàticament els actius compilats cada vegada que facis canvis.</p>
+<p>Hi ha d'altres que pots consultar en <a href="https://symfony.com/doc/current/frontend/encore/simple-example.html#configuring-encore-webpack">Configuring Encore/Webpack</a>.</p>
+<h2 id="pas-5-inclusio-dels-recursos-compilats-en-les-teues-plantilles">Pas 5: Inclusió dels recursos compilats en les teues plantilles</h2>
+<p>Per utilitzar els recursos compilats en les teves plantilles, hauràs de fer referència a ells utilitzant les següents funcions de Twig que s'inclouen en la plantilla per defecte:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="c">&lt;!-- ... --&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>        {% block stylesheets %}
+<span class="linenos" data-linenos=" 7 "></span>            {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+<span class="hll"><span class="linenos" data-linenos=" 8 "></span>            {{ encore_entry_link_tags('app') }}
+</span><span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>            <span class="c">&lt;!-- Renders a link tag (if your module requires any CSS)</span>
+<span class="linenos" data-linenos="11 "></span><span class="c">                 &lt;link rel="stylesheet" href="/build/app.css"&gt; --&gt;</span>
+<span class="linenos" data-linenos="12 "></span>        {% endblock %}
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>        {% block javascripts %}
+<span class="hll"><span class="linenos" data-linenos="15 "></span>            {{ encore_entry_script_tags('app') }}
+</span><span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>            <span class="c">&lt;!-- Renders app.js &amp; a webpack runtime.js file</span>
+<span class="linenos" data-linenos="18 "></span><span class="c">                &lt;script src="/build/runtime.js" defer&gt;&lt;/script&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="c">                &lt;script src="/build/app.js" defer&gt;&lt;/script&gt;</span>
+<span class="linenos" data-linenos="20 "></span><span class="c">                See note below about the "defer" attribute --&gt;</span>
+<span class="linenos" data-linenos="21 "></span>        {% endblock %}
+<span class="linenos" data-linenos="22 "></span>    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span>    <span class="c">&lt;!-- ... --&gt;</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Fixa't que el paràmetre que passem a les funcions <code>encore_entry...</code> és <code>app</code>, l'identificador que hem assignat prèviament al fitxer de recursos.</p>
+</div>
+<h2 id="pas-6-integracio-de-bootstrap-i-bootstrap-icons">Pas 6: Integració de Bootstrap i Bootstrap Icons</h2>
+<p>Primerament instal·larem els dos mòduls: </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>npm install bootstrap --save-dev
+<span class="linenos" data-linenos="2 "></span>npm install bootstrap-icons --save-dev
+</code></pre></div>
+<p>Després caldrà afegir-los en el fitxer de recursos <code>app.js</code>. Tin en compte 
+que el directori de referència serà <code>node_modules</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// /assets/app.js</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">import</span> <span class="s1">'./styles/app.css'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// CSS de Bootstrap</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">import</span> <span class="s1">'bootstrap/dist/css/bootstrap.css'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">// CSS de Bootstrap Icons</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">import</span> <span class="s1">'bootstrap-icons/font/bootstrap-icons.css'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="c1">// Javascript de Bootstrap</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">import</span> <span class="s1">'bootstrap/dist/js/bootstrap'</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="c1">// start the Stimulus application</span>
+<span class="linenos" data-linenos="14 "></span><span class="k">import</span> <span class="s1">'./bootstrap'</span><span class="p">;</span>
+</code></pre></div>
+En compilar tindrem automàticament els dos mòduls disponibles en l'aplicació web.</p>
+<h2 id="recursos-addicionals">Recursos addicionals</h2>
+<ul>
+<li>https://webpack.js.org/</li>
+<li>https://symfony.com/doc/5.4/frontend/encore/installation.html</li>
+<li>https://symfony.com/doc/current/frontend/encore/simple-example.html</li>
+<li>https://www.npmjs.com/</li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

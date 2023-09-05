@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Composer - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#composer">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Composer
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="composer">Composer</h1>
+<h2 id="introduccio">Introducció</h2>
+<p>Abans de tot cal definir què és un compoment o paquet en PHP. Un component PHP és un conjunt de codi <strong>reutilitzable</strong> que t’ajuda a solucionar un problema específic de la teua aplicació. Aquests components solen estar formats per diverses classes. <strong>Composer</strong> és una eina que permet gestionar components en PHP. </p>
+<p>Composer permet declarar els components dels que depèn el nostre projecte i gestionar-los (instal·lar/actualitzar). A diferència dels gestors de paquets com Apt o Yum, Composer gestiona els paquets per projecte, instal·lant-los en el directori (<code>vendor</code>) del projecte. </p>
+<p>Per defecte, no instal·la res de forma global. Per tant, és un gestor de dependències. Aquesta idea no és nova i Composer s’inspira fortament en npm de node i el bundler de ruby.</p>
+<p>Composer ens soluciona dos problemes:</p>
+<ul>
+<li><strong>Gestionar les dependències amb llibreries de tercers.</strong> Només cal que declarem les dependències i Composer s'encarregarà de descarregar i instal·lar tot el que siga necessari</li>
+<li><strong><em>Autoloading</em> del nostre codi.</strong> Ja no haurem de fer més <code>require</code>, Composer ho farà per nosaltres</li>
+</ul>
+<h2 id="us-basic">Ús bàsic</h2>
+<p>Composer manté la seua configuració en dos fitxers: <code>composer.json</code> i <code>composer.lock</code>.</p>
+<p>Per usar Composer el primer que necessitem és disposar de l’arxiu <code>composer.json</code>. En aquest fitxer existeixen un seguit
+d'estructures d'informació:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="nt">"monolog/monolog"</span><span class="p">:</span> <span class="s2">"2.0.*"</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<p><code>require</code> indica els paquets que requerix la aplicació i els mapeja (en l’exemple, <code>monolog/monolog</code>) a la versió requerida (en aquest cas: <code>2.0.*</code>).</p>
+<p>Si necessitàrem usar en un projecte el component <code>monolog</code> executariem en la carpeta del projecte:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog
+</code></pre></div>
+<p>Com hauràs observat el nom del paquet està format per dues parts:</p>
+<ul>
+<li>La primera indica qui és el seu "vendor" o creador.</li>
+<li>La segona indica el nom del projecte.</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require vendor/package
+</code></pre></div>
+Sovint les dues parts són idèntiques.</p>
+<p>El fitxer <code>composer.lock</code> guarda la versió exacta que s'ha instal·lat de cada paquet. El projecte es fixa a unes determinades versions. Tant el <code>composer.lock</code> com el <code>composer.json</code> han d'estar al repositori.</p>
+<h3 id="limitar-la-versio-dels-paquets">Limitar la versió dels paquets</h3>
+<p>En alguns casos és necessari limitar les versions dels paquetes per mantindre compatibilitat. Hi ha diverses formes d'expressar dites limitacions:</p>
+<ul>
+<li>Restricció de la versió exacta<ul>
+<li>Exemple: 1.0.2  #MAJOR.MINOR.PATCH.</li>
+</ul>
+</li>
+<li>Rang de versions<ul>
+<li>Exemples:</li>
+<li><code>&gt;=1.0</code></li>
+<li><code>&gt;=1.0 &lt;2.0</code></li>
+<li><code>&gt;=1.0 &lt;1.1</code> || <code>&gt;=1.2</code></li>
+</ul>
+</li>
+<li>Rang de versions comodins (.*)<ul>
+<li>Es pot especificar una patró en un  * comodí. <code>1.0.*</code> és l'equivalent de <code>&gt;=1.0 &lt;1.1</code>.</li>
+<li>Exemple: <code>1.0.*</code></li>
+</ul>
+</li>
+<li>Rang amb tilde  (~)<ul>
+<li>L'operador <code>~</code>  s'explica millor en un exemple: 
+    <code>~1.2</code> és equivalent a <code>&gt;=1.2 &lt;2.0.0</code>, mentre que <code>~1.2.3</code> és equivalent a <code>&gt;=1.2.3 &lt;1.3.0</code>. </li>
+<li>Exemple: <code>~1.2</code></li>
+</ul>
+</li>
+<li>Rang de versió amb cimcurflex (<code>^</code>)<ul>
+<li>Per exemple <code>^1.2.3</code> és equivalent a <code>&gt;=1.2.3 &lt;2.0.0</code> ja que ninguna de les <em>releases</em> fins a la <code>2.0</code> deuria trencar compatibilitat en versions anteriors. </li>
+<li>Exemple: <code>^1.2.3</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="versionat-semantic-semver">Versionat semàntic (semver)</h2>
+<p>Els números de versió i la forma en que canvien informen sobre el que va ser modificat d'una versió a una altra.</p>
+<p>Veure l'especificació en el següent document:
+<a href="http://semver.org/lang/es/">http://semver.org/lang/es/</a></p>
+<h2 id="installant-dependencies">Instal·lant dependències</h2>
+<p>L’ordre <code>install</code> comprova primer si existeix el fitxer <code>composer.lock</code>, i si existeix, descàrrega exactament les versions que s'indiquen en aquest l'arxiu <code>composer.lock</code>.</p>
+<p>Si treballem en equip, tot l'equip tindrà les mateixes versions.</p>
+<p>Executem la següent ordre:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer install
+</code></pre></div>
+Es generarà el directori <code>vendor/</code> amb les llibreries de les quals depèn el projecte.</p>
+<div class="admonition warning">
+<p class="admonition-title">directori <code>vendor</code></p>
+<p>Hem d'afegir el directori <code>vendor/</code> a l'arxiu <code>.gitignore</code>, perquè crea gran quantitat de fitxers que després s'han de descarregar amb <code>composer install</code>.</p>
+</div>
+<p>L’ordre també crea un fitxer <code>composer.lock</code></p>
+<h2 id="actualitzar-versions">Actualitzar versions</h2>
+<p>Si tenim l'arxiu <code>composer.lock</code> sempre s'instal·laran les mateixes versions dels paquets.</p>
+<p>Per actualitzar a noves versions, fem servir l’ordre <code>composer update</code>. Aquesta ordre fa que Composer busque les versions més recents de les llibreries sempre que segueixin complint les restriccions de les versions indicades a l'arxiu <code>composer.json</code>. També actualitza l'arxiu <code>composer.lock</code>.</p>
+<p>Si només volem instal·lar o actualitzar una dependència, podem indicar el seu nom després de l’ordre:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer update monolog/monolog
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">No actualitzar en producció</p>
+<p>Quan desplegues una aplicació basada en Composer a producció, usa sempre <code>composer install</code>. No haurieu d'usar mai <code>composer update</code> ja que podria ser que s'actualitzara algun paquet a una versió no provada. </p>
+</div>
+<h2 id="afegint-dependencies">Afegint dependències</h2>
+<p>L’ordre que afegeix noves dependències en el arxiu <code>composer.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require
+</code></pre></div>
+<p>Ens preguntarà quines llibreries volem afegir.</p>
+<p>Després d'afegir aquestes noves dependències, s’instal·len o actualitzen les dependències que siguen necessàries.
+Podem passar les noves dependències com argument de l'ordre.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog:
+</code></pre></div>
+<h2 id="packagist">Packagist</h2>
+<p>Packagist és el repositori central de paquets que pot gestionar Composer.</p>
+<p>Lloc Web: http://packagist.org</p>
+<h2 id="carrega-automatica-de-classes">Carrega automàtica de classes</h2>
+<p>Normalment les llibreries proporcionen informació sobre la càrrega automàtica de les seves classes. Composer genera un arxiu <code>vendor/autoload.php</code>.</p>
+<p>Incloent aquest fitxer en el projecte, podem utilitzar qualsevol classe instal·lada a través de Composer sense haver de incloure-la  explícitament:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+</code></pre></div>
+<p>En el nostre cas, afegirem el <code>require</code> anterior en el fitxer <code>bootsrap.php</code>.</p>
+<div class="admonition important">
+<p class="admonition-title"><code>vendor/autoload.php</code></p>
+<p><code>autoload.php</code> és el punt d'entrada de l'aplicació a totes les funcionalitats que ens oferix <strong>Composer</strong>.</p>
+</div>
+<h3 id="classes-personalitzades">Classes personalitzades</h3>
+<p>Podem emprar l’<em>autoloader</em> de Composer per a carregar les nostres classes. Si el nostre <em>namespace</em> és <code>App</code> i els arxius estan en <code>src</code> afegirem:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nt">"autoload"</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>        <span class="nt">"psr-4"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"App\\"</span><span class="p">:</span> <span class="s2">"src/"</span> <span class="p">}</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">}</span>
+</code></pre></div>
+<p>Després executarem <code>composer dump-autoload</code> perquè és regenere <code>vendor/autoload.php</code>.</p>
+<div class="admonition important">
+<p class="admonition-title">PSR-4</p>
+<p>PSR-4 (<em>PHP Standard Recommendation</em>) és una de les recomanacions del PHP-FIG per a implementar el sistema de càrrega automàtica de classes. PHP-FIG (<em>Framework Interoperability Group</em>). La idea del grup és que els representants del projecte parlen sobre els punts en comú entre els seus projectes i troben maneres de treballar junts.</p>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Processament de formularis - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#processament-de-formularis">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Processament de formularis
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="processament-de-formularis">Processament de formularis</h1>
+<p>Fins ara ens hem centrat a conèixer les característiques del llenguatge PHP. En aquesta unitat
+posarem el focus en les característiques pròpies de les aplicacions web i com podem gestionar-les
+amb PHP. Així, veurem com enviar informació mitjançant formularis, com processar-la i com podem mantenir informació entre
+sol·licituds, és a dir, mantenir l'estat. </p>
+<h2 id="variables-predefinides">Variables predefinides</h2>
+<p>Les variables predefinides són variables internes de PHP que poden usar-se des de qualsevol àmbit, per això s'anomenen variables <strong>superglobals</strong>. Es tracta d'<strong>arrays associatius</strong> que contenen un conjunt de valors.</p>
+<ul>
+<li><strong>$_SERVER</strong>. Conté informació sobre l'entorn del servidor web i d'execució.</li>
+<li><strong>$_GET, $_POST i $_COOKIE</strong> contenen les variables que s'han passat al
+script actual utilitzant, respectivament, els mètodes GET (paràmetres en la URL), HTTP POST i Cookies HTTP </li>
+<li><strong>$_REQUEST</strong> junta en un solament el contingut dels tres *arrays anteriors,
+<code>$_GET</code>, <code>$_POST</code> i <code>$_COOKIE</code>. </li>
+<li><strong>$_ENV</strong> conté les variables que es puguen haver passat a PHP des de l'entorn en què s'executa. </li>
+<li><strong>$_FILES</strong> conté els fitxers que es puguen haver pujat al servidor
+utilitzant el mètode POST. </li>
+<li><strong>$_SESSION</strong> conté les variables de sessió disponibles per al guió
+actual.</li>
+</ul>
+<p><a href="http://es.php.net/manual/es/language.variables.superglobals.php">http://es.php.net/manual/es/language.variables.superglobals.php</a></p>
+<h2 id="que-es-una-peticio-http">Què és una petició HTTP?</h2>
+<p>Una petició HTTP és una sol·licitud d'un recurs a un servidor. La petició es realitza a través d'unes URL. Amb la petició s'envien també paràmetres.</p>
+<p>Hi ha diferents mètodes (<code>METHOD</code>) per a realitzar una petició (<code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, <code>PATCH</code>, etc.). Els més habituals són <code>GET</code>, que ja coneixes, i <code>POST</code>. La resta són més utilitzats en les RESTful API.</p>
+<p><img alt="Sol·licitud HTTP" src="../assets/http-request.png"/></p>
+<h2 id="metode-get">Mètode GET</h2>
+<p>El mètodo de sol·licitud GET té les següents característiques:</p>
+<ul>
+<li>S'utilitza per a sol·licitar dades d'un recurs. Mostren els paràmetres que </li>
+<li>s'envien en la url. Es poden utilitzar directament en enllaços. </li>
+<li>El resultat es pot emmagatzemar en cache. Romanen en l'historial del navegador. </li>
+<li>La grandària dels paràmetres està limitat a 2048 caràcters.</li>
+</ul>
+<p><em>Exemple de petició GET</em>
+<img alt="Petició GET" src="../assets/get-example.png"/></p>
+<p><em>Inspecció de la petició</em>
+<img alt="Inspecció del petició GET: Capçaleres" src="../assets/get-inspect-headers.png"/></p>
+<p><em>Inspecció de la petició</em>
+<img alt="Inspecció del petició GET: Paràmeters" src="../assets/get-inspect-parameters.png"/></p>
+<h3 id="accedir-a-les-dades-de-la-peticio-get">Accedir a les dades de la petició GET</h3>
+<p>Per a accedir a les dades usem la variable superglobal <code>$_GET</code>.</p>
+<p><code>$_GET</code> és un array associatiu les claus del qual coincidiran amb els noms que li hem donat als paràmetres.</p>
+<p>Per a accedir als paràmetres de la petició anterior:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'nom'</span><span class="p">]</span><span class="o">.</span><span class="s1">' '</span><span class="o">.</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'cognom'</span><span class="p">];</span> <span class="c1">// Homer Simpson</span>
+</code></pre></div>
+<h2 id="metode-post">Mètode POST</h2>
+<p>El mètode POST té les següents característiques:</p>
+<ul>
+<li>S'utilitza per a enviar dades a un recurs.</li>
+<li>Els paràmetres van en el cos de la petició, no són visibles per a l'usuari.</li>
+<li>La petició no es guarda en cau.</li>
+<li>No es pot utilitzar en un enllaç.</li>
+<li>No roman en l'historial.</li>
+<li>No tenim la limitació de grandària dels paràmetres.</li>
+<li>Es solen utilitzar en els formularis.</li>
+</ul>
+<h3 id="evitar-el-csrf">Evitar el CSRF</h3>
+<p>En tota pàgina que reba paràmetres POST has de comprovar el <strong>HTTP referer</strong> del navegador, i que aquest siga de dins de la teua web. En PHP el <em>referer</em> que envia el navegador s'emmagatzema en <code>$_SERVER['HTTP_REFERER']</code>. És a dir, sols processarem peticions 
+que vinguen del teu lloc web.</p>
+<div class="admonition note">
+<p class="admonition-title">Més informació</p>
+<p>En el següent enllaç trobareu més informació relativa als atacs CSRF <a href="https://www.ionos.es/digitalguide/servidores/seguridad/cross-site-request-forgery/">CSRF: explicación del ataque Cross Site Request Forgery</a></p>
+</div>
+<p>Seria tal com:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span><span class="p">(</span><span class="nb">parse_url</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_REFERER'</span><span class="p">],</span> <span class="nx">PHP_URL_HOST</span><span class="p">)</span><span class="o">!=</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_HOST'</span><span class="p">])</span> 
+<span class="linenos" data-linenos="2 "></span>   <span class="k">die</span><span class="p">(</span><span class="s1">'Anti-CSRF'</span><span class="p">);</span> 
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Amb aquest codi estem obligant que el navegador envie un <em>referer</em> si o sí. Per tant només ha d'utilitzar-se en pàgines a les quals el navegador accedisca des d'una altra pàgina de la nostra web.</p>
+<p>Òbviament no podem col·locar-ho en la primera pàgina a la qual s'accedeix a la nostra web (<code>index.php</code> o similar), ja que si l'usuari a escrit l'adreça a mà en la barra del navegador no s'enviarà referer cap i saltarà el sistema.</p>
+</div>
+<h2 id="definicio-de-formularis">Definició de formularis</h2>
+<p>Com hem dit abans el mètode POST s'empra en els formularis. El formulari següent enviarà les dades a la pàgina <code>index.php</code> (atribut <code>action</code> de l'element <code>form</code>).</p>
+<p>Utilitza el mètode <code>post</code> indicat en l'atribut <code>method</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"index.php"</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"nom"</span><span class="p">&gt;</span>Nom<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"nom"</span> <span class="na">value</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"cognom"</span><span class="p">&gt;</span>Cognom<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"cognom"</span> <span class="na">value</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"Enviar"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><em>Inspecció de la petició: Headers</em>
+<img alt="Inspecció del petició POST" src="../assets/post-inspect-headers.png"/></p>
+<p><em>Inspecció de la petició: Paramètres</em>
+<img alt="Inspecció del petició POST" src="../assets/post-inspect-parameters.png"/></p>
+<h3 id="accedir-a-les-dades-de-la-peticio-post">Accedir a les dades de la petició POST</h3>
+<p>Usem la variable superglobal <code>$_POST</code>. Funciona igual que <code>$_GET</code>, però amb els noms (atribut <code>name</code>) que li hem donat als camps del formulari.</p>
+<p>En depuració podem mostar totes les dades rebudes:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">var_dump</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">)</span>
+</code></pre></div>
+<p>Per a mostrar les dades individualment:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'nom'</span><span class="p">];</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'cognom'</span><span class="p">];</span>
+</code></pre></div>
+<h3 id="accedir-a-parametres-no-existents">Accedir a paràmetres no existents</h3>
+<p>Errors del tipus  </p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Notice: Undefined index: nom in /home/ubuntu/index.php on line 6
+</code></pre></div>
+ens indiquen que la clau <code>nom</code>  no existeix en l'array <code>$_POST</code>. La variable supergloblal <code>$_POST</code> està buida si no s'ha
+enviat el formulari.</p>
+<p>Per a evitar aquest tipus d'errors és important verificar que s'haja enviat el formulari prèviament:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_METHOD'</span><span class="p">]</span> <span class="o">===</span> <span class="s1">'POST'</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="parametres-multivalents">Paràmetres multivalents</h3>
+<p>Hi ha elements HTML que envien diversos valors:  <br/>
+  - <code>select multiple</code>
+  - <code>checkbox</code></p>
+<p>Per recollir les dades, el nom de l’element ha de ser una matriu (<em>array</em>).</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">"lenguajes[]"</span> <span class="na">multiple</span><span class="o">=</span><span class="s">"true"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">"c"</span><span class="p">&gt;</span>C<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">"java"</span><span class="p">&gt;</span>Java<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">"php"</span><span class="p">&gt;</span>PHP<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">"python"</span><span class="p">&gt;</span>Python<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span> <span class="na">name</span><span class="o">=</span><span class="s">"lenguajes[]"</span> <span class="na">value</span><span class="o">=</span><span class="s">"c"</span> <span class="p">/&gt;</span> C<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span> <span class="na">name</span><span class="o">=</span><span class="s">"lenguajes[]"</span> <span class="na">value</span><span class="o">=</span><span class="s">"java"</span> <span class="p">/&gt;</span> Java<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span> <span class="na">name</span><span class="o">=</span><span class="s">"lenguajes[]"</span> <span class="na">value</span><span class="o">=</span><span class="s">"php"</span> <span class="p">/&gt;</span> Php<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span> <span class="na">name</span><span class="o">=</span><span class="s">"lenguajes[]"</span> <span class="na">value</span><span class="o">=</span><span class="s">"python"</span> <span class="p">/&gt;</span> Python<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<p>Així doncs, recopilant les dades:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$lenguajes</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"lenguajes"</span><span class="p">];</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$lenguajes</span> <span class="k">as</span> <span class="nv">$lenguaje</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">echo</span> <span class="s2">"</span><span class="si">$lenguaje</span><span class="s2"> &lt;br /&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="validacio-de-formularis">Validació de formularis</h3>
+<p>Sempre hem de comprovar que les dades que envia el formulari són correctes.</p>
+<p>Les validacions a realitzar són les següents:</p>
+<ol>
+<li>Els camps requerits no han de quedar buits. Ni contenir espais en blanc a l'inici i al final.</li>
+<li>Els camps correu electrònic, data o URL han de tenir el format esperat.</li>
+<li>Tots els camps s'han de filtrar amb <code>htmlspecialchars</code> per a evitar atacs de <em>Cross-site Scripting</em> (XSS).</li>
+</ol>
+<p>Aquest article sobre <em>Cross-site Scripting</em> és molt il·lustratiu: <a href="https://www.w3schools.com/php/php_form_validation.asp">PHP Form Validation</a></p>
+<div class="admonition important">
+<p class="admonition-title">Validem en el client o el servidor?</p>
+<p>La resposta és senzilla: en els dos llocs. La validació en el client millora la usabilitat mentre que la validació en el servidor ens permet una validació més robusta i segura.</p>
+</div>
+<h4 id="valors-buits">Valors buits</h4>
+<ol>
+<li>Els camps requerits no haurien de quedar-se buits.</li>
+<li>Per a verificar que un valor no queda buit podem utilitzar diverses funcions:<ul>
+<li>La funció <code>empty()</code></li>
+<li>La funció <code>isset()</code>.</li>
+<li>L'operador <em>coalesce</em> <code>??</code>.</li>
+</ul>
+</li>
+</ol>
+<h4 id="espais-en-blanc">Espais en blanc</h4>
+<ol>
+<li>Hem d'eliminar els espais en blanc del principi i final dels camps.</li>
+<li>S'utilitza la funció <code>trim</code></li>
+</ol>
+<h4 id="escapar-lentrada">Escapar l'entrada</h4>
+<p>Sempre hem de filtrar l'entrada amb <code>htmlspecialchars</code> abans de mostrar el camp amb <code>echo</code> o similar. Acò convertirà
+qualsevol caràcter especial d'HTMLl en l'entitat corresponent, així no interferirà en el programa.</p>
+<h4 id="comprovar-lemail">Comprovar l'email</h4>
+<p>Per a verificar si un email és correcte podem utilitzar la funció <code>filter_var</code> </p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">filter_var</span><span class="p">(</span><span class="nv">$email</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)</span>
+</code></pre></div>
+o la funció <code>filter_input</code> quan obtenin les dades directament d'una variable externa.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// suposem que rebem les dades d'un formulari que té un quadre de text de nom 'email'</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$email</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_POST</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="filter_input">filter_input</h4>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">filter_input</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$type</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$variable_name</span><span class="p">[,</span> <span class="nx">int</span> <span class="nv">$filter</span><span class="o">=</span><span class="nx">FILTER_DEFAULT</span><span class="p">[,</span> <span class="nx">mixed</span> <span class="nv">$options</span><span class="p">]])</span><span class="o">:</span><span class="nx">mixed</span>
+</code></pre></div>
+La funció <code>filter_input</code> agafa una variable externa (<code>$_GET</code>, <code>$_POST</code>, etc) concreta pel seu nom i aplica el filtre indicat.</p>
+<p>Els filtres poden <a href="https://www.php.net/manual/es/filter.filters.validate.php">sanejar</a> o <a href="https://www.php.net/manual/es/filter.filters.sanitize.php">validar</a> les variables externes.</p>
+<p>Per exemple, si volem agafar el valor del paràmetre <em>nom</em>  del querystring (<code>http://localhost/index.php?nom=&lt;h1&gt;Homer&lt;/h1&gt;</code>) usarem el tipus <code>INPUT_GET</code>.</p>
+<p>El filtre <code>FILTER_SANITIZE_STRING</code> elimina etiquetes, i opcionalment elimina o codifica caracters especials.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$nom</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_GET</span><span class="p">,</span> <span class="s1">'nom'</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_STRING</span><span class="p">)</span><span class="o">.</span>  <span class="c1">// $nom = Homer</span>
+</code></pre></div>
+<p>Més informació en:</p>
+<ul>
+<li><a href="http://php.net/manual/es/function.filter-var.php">filter_var</a></li>
+<li><a href="http://php.net/manual/es/function.filter-input.php">filter_input</a></li>
+</ul>
+<h4 id="comprovar-la-data">Comprovar la data</h4>
+<ul>
+<li>Per a comprovar la data hem de crear una funció a aquest efecte.</li>
+<li>Podem utilitzar el mètode estàtic <code>createFromFormat</code> de la classe <code>DateTime</code></li>
+</ul>
+<p>Més informació: <a href="http://php.net/manual/es/datetime.createfromformat.php">http://php.net/manual/es/datetime.createfromformat.php</a></p>
+<h4 id="exemple">Exemple</h4>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$data1</span> <span class="o">=</span> <span class="s2">"2001-05-02"</span><span class="p">;</span> <span class="c1">// Data és de tipus string</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// DateTime::createFromFormat converteix una cadena de text a on objecte DateTime</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// ens tornarà una instància de DateTime o FALSE en cas d'error.</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$dt1</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">'Y-m-d'</span><span class="p">,</span> <span class="nv">$data1</span><span class="p">);</span>  
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$dt1</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">"La data d'inici és incorrecta"</span><span class="p">;</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<p>https://www.php.net/manual/es/function.strtotime.php</p>
+<p>També és habitual trobar els controls de data separats en 3 elements <code>input</code>. Un per a l’any, l’altre per a mes i l’altre per al dia.</p>
+<h3 id="bones-practiques-en-lobtencio-de-dades-des-de-lexterior">Bones pràctiques en l’obtenció de dades des de l’exterior</h3>
+<p>Cal seguir les següents bones pràctiques:</p>
+<ol>
+<li>No confieu mai (mai) en l’entrada des de l’exterior del vostre PHP.</li>
+<li>Sanegeu i valideu l’entrada de dades sempre.</li>
+<li>Les funcions <code>filter_var()</code> i <code>filter_input()</code> poden sanejar el text i validar els formats de text (per exemple, adreces de correu electrònic, enters).</li>
+<li>Recordeu que l’entrada de dades no es limita a formularis enviats per l’usuari. Els fitxers carregats i descarregats, els valors de sessió, les dades de galetes i les dades de serveis web de tercers també són dades que venen de l'exterior.</li>
+</ol>
+<p>A manera de resum podíem resumir la gestió de formularis en el següent diagrama de flux.</p>
+<p><img alt="Form handle" src="../assets/form-handle.png"/></p>
+<p>En els següents recursos trobaràs informació addicional sobre els controls de formularis en HTML5:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/es/docs/Learn/HTML/Forms">Formularios en HTML</a> en MDN web docs.</li>
+<li><a href="https://developer.mozilla.org/es/docs/HTML/HTML5/Forms_in_HTML5">Formularios en HTML5</a> en MDN web docs.</li>
+<li><a href="https://www.w3schools.com/html/html_forms.asp">HTML Forms</a> en W3CSchools.</li>
+</ul>
+<h3 id="reomplint-un-formulari">Reomplint un formulari</h3>
+<p>Un <em>sticky form</em> és un formulari que recorda els seus valors. Per fer -ho, hem d’omplir els atributs de valor dels elements HTML amb la informació que contenia:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'modulos'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="c1">// Aquí se incluye el código a ejecutar cuando los datos son correctos</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="c1">// Generamos el formulario</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="nv">$nombre</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]</span> <span class="o">??</span> <span class="s2">""</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="nv">$modulos</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'modulos'</span><span class="p">]</span> <span class="o">??</span> <span class="p">[];</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'PHP_SELF'</span><span class="p">];</span><span class="cp">?&gt;</span><span class="s">"</span> <span class="na">method</span><span class="o">=</span><span class="s">"POST"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"nombre"</span><span class="p">&gt;</span>Nombre del alumno:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"nombre"</span> <span class="na">id</span><span class="o">=</span><span class="s">"nombre"</span> <span class="na">value</span><span class="o">=</span><span class="s">"</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$nombre</span> <span class="cp">?&gt;</span><span class="s">"</span> <span class="p">/&gt;</span> 
+<span class="linenos" data-linenos="12 "></span>   <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span> <span class="na">name</span><span class="o">=</span><span class="s">"modulos[]"</span> <span class="na">id</span><span class="o">=</span><span class="s">"modulosDWES"</span> <span class="na">value</span><span class="o">=</span><span class="s">"DWES"</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">"DWES"</span><span class="p">,</span><span class="nv">$modulos</span><span class="p">))</span> <span class="k">echo</span> <span class="s1">'checked="checked"'</span><span class="p">;</span> <span class="cp">?&gt;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"modulosDWES"</span><span class="p">&gt;</span>Desarrollo web en entorno servidor<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>   <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span> <span class="na">name</span><span class="o">=</span><span class="s">"modulos[]"</span> <span class="na">id</span><span class="o">=</span><span class="s">"modulosDWEC"</span> <span class="na">value</span><span class="o">=</span><span class="s">"DWEC"</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">"DWEC"</span><span class="p">,</span><span class="nv">$modulos</span><span class="p">))</span> <span class="k">echo</span> <span class="s1">'checked="checked"'</span><span class="p">;</span> <span class="cp">?&gt;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"modulosDWEC"</span><span class="p">&gt;</span>Desarrollo web en entorno cliente<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span>   <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="21 "></span>   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"Enviar"</span> <span class="na">name</span><span class="o">=</span><span class="s">"enviar"</span><span class="p">/&gt;</span>
+<span class="linenos" data-linenos="22 "></span>  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="23 "></span><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="cp">?&gt;</span>
+</code></pre></div>
+<h2 id="pujada-de-fitxers">Pujada de fitxers</h2>
+<p>Per a pujar fitxers PHP implementa un mecanisme senzill a través de la variable superglobal <code>$_FILES</code>.</p>
+<p>En <a href="https://www.php.net/manual/es/features.file-upload.php">Pujada d'arxius</a> disposeu de tota la informació necessària per a gestionar la pujada d'arxius.</p>
+<h3 id="formulari">Formulari</h3>
+<p>Per poder utilitzar el tipus <code>file</code> en l'element <code>input</code> cal que el formulari incloga l'atribut <code>enctype</code> amb el valor <code>multipart/form-data</code>. </p>
+<p>El valor de l'atribut <code>name</code> de l'element <code>input</code> serà l'índex de l'array associatiu <code>$_FILES</code> que ens permetrà obtenir tota la informació del procés de pujada del fitxer.</p>
+<p>En el següent exemple:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"upload.php"</span> <span class="na">enctype</span><span class="o">=</span><span class="s">"multipart/form-data"</span> <span class="na">method</span><span class="o">=</span><span class="s">"POST"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"MAX_FILE_SIZE"</span> <span class="na">value</span><span class="o">=</span><span class="s">"10240"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"file"</span> <span class="na">name</span><span class="o">=</span><span class="s">"image"</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"Upload"</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+Emprarem <code>$_FILES['image']</code> per obtenir les dades de l'arxiu penjat.</p>
+<h3 id="variable-superglobal-_files">Variable superglobal <code>$_FILES</code></h3>
+<p>Cada element en <code>$_FILES</code> és un array que aporta informació sobre el fitxer pujat. Les claus més importants són:</p>
+<ul>
+<li><code>name</code>. El nom original del fitxer pujat. No és massa útil perquè el sistema original pot tindre convencions diferents i pot generar col·lisions si l'utilitzem per a emmagatzemar-lo en la seua ubicació definitiva.</li>
+<li><code>type</code>. El tipus MIME del fitxer deduït pel navegador.</li>
+<li><code>size</code>. La grandària en bytes del fitxer. Si el fitxer és massa gran el valor enviat serà 0.</li>
+<li><code>tmp_name</code>. El nom temporal del fitxer en el servidor on s'ha emmagatzemat el fitxer pujat. </li>
+</ul>
+<h3 id="moure-el-fitxer">Moure el fitxer</h3>
+<p>Com que el fitxer pujat es guarda en una carpeta temporal hem d'emprar la funció <a href="https://www.php.net/manual/es/function.move-uploaded-file.php"><code>move_uploaded_file</code></a> per a guardar-lo en la ubicació definitiva. </p>
+<p>La funció <a href="https://www.php.net/manual/es/function.is-uploaded-file.php"><code>is_uploaded_file</code></a> ens permet a assegurar-nos que el fitxer ha estat pujat usant HTTP POST i no es tracta d'un fitxer maliciós.</p>
+<p><code>move_uploaded_file</code> ja fa eixa comprovació en executar-se.</p>
+<h3 id="gestio-derrors">Gestió d'errors</h3>
+<p>PHP torna un codi d'error en <code>$_FILES</code>. El codi es pot trabar en la clau <code>error</code>. Per exemple: <code>$_FILES['image']['error']</code>. </p>
+<p>Els missates d'error més importants són:</p>
+<ul>
+<li><code>UPLOAD_ERR_OK</code>: La pujada ha sigut correcta.</li>
+<li><code>UPLOAD_ERR_INI_SIZE</code>: La grandària del fitxer que s'intenta pujar és major que el valor indicat en la directiva <code>upload_max_filesize</code>.</li>
+<li><code>UPLOAD_ERR_FORM_SIZE</code>: La grandària del fitxer que s'intenta pujar és major que el valor indicat en el formulari en <code>max_file_size</code>. </li>
+<li><code>UPLOAD_ERR_NO_FILE</code>: No s'ha enviat cap fitxer.</li>
+</ul>
+<p>En <a href="https://www.php.net/manual/es/features.file-upload.errors.php">Explicació dels missatges d'error</a> teniu més informació.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

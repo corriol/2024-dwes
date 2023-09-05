@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Request i Response - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#request-i-response">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Request i Response
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="request-i-response">Request i Response</h1>
+<p>Altres classes que solen trobar-se en les <em>frameworks</em> MVC són les classes <code>Request</code> i <code>Response</code>.
+El seu objectiu és encapsular les funcionalitats relacionades amb la sol·licitud de l'usuari i
+la resposta.</p>
+<p>Nosaltres farem ús de les classes que ens proporciona el component <code>symfony/http-foundation</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">composer require symfony/http-foundation</span>
+</code></pre></div>
+<p>Ja tenim disponibles les classes:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$name</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'World'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s1">'Hello %s'</span><span class="p">,</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nx">ENT_QUOTES</span><span class="p">,</span> <span class="s1">'UTF-8'</span><span class="p">)));</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</code></pre></div>
+<p>El mètode <code>createFromGlobals()</code> crea un objecte <code>Request</code> basat en les variables supergoblals de PHP.</p>
+<p>El mètode <code>send()</code> envia l'objecte <code>Response</code> al client.</p>
+<p>Amb la classe <code>Request</code>, teniu tota la informació de l’aplicació al vostre abast gràcies a una API agradable i senzilla:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// the URI being requested (e.g. /about) minus any query parameters</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPathInfo</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// retrieves GET and POST variables respectively</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'default value if bar does not exist'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1">// retrieves SERVER variables</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">server</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'HTTP_HOST'</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="c1">// retrieves an instance of UploadedFile identified by foo</span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">files</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="c1">// retrieves a COOKIE value</span>
+<span class="linenos" data-linenos="15 "></span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'PHPSESSID'</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="c1">// retrieves a HTTP request header, with normalized, lowercase keys</span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'host'</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'content-type'</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">();</span>    <span class="c1">// GET, POST, PUT, DELETE, HEAD</span>
+<span class="linenos" data-linenos="22 "></span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getLanguages</span><span class="p">();</span> <span class="c1">// an array of languages the client accepts</span>
+</code></pre></div>
+<p>Amb la classe <code>Response</code> podeu ajustar la resposta:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">'Hello world!'</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">'Content-Type'</span><span class="p">,</span> <span class="s1">'text/html'</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="c1">// configure the HTTP cache headers</span>
+<span class="linenos" data-linenos="8 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setMaxAge</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="aplicacio-practica">Aplicació pràctica</h2>
+<p>Així quedaria la nova versió de les pàgines relacionades amb la creació de 
+nous tuits.</p>
+<p>En <code>tweet-new.php</code> faríem els següents canvis:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">## tweet-new.php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="c1">// creem la resposta</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1">// activem el buffering, l'eixida s'emmagatzema en memòria (buffer).</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">ob_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span><span class="k">require</span> <span class="s1">'views/tweet-new.view.php'</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$content</span> <span class="o">=</span> <span class="nb">ob_get_clean</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span><span class="c1">// la variable $content contindrà tot l'HTML generat per la vista.</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="nv">$content</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">'Content-Type'</span><span class="p">,</span> <span class="s1">'text/html'</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span><span class="c1">// el mètode prepare assegura que la resposta compleix l'especificació HTTP.</span>
+<span class="linenos" data-linenos="20 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</code></pre></div>
+<p>Cal destacar:</p>
+<ul>
+<li>Les funcions <code>ob_start()</code> i <code>ob_get_clean()</code>. El primer activa el <em>buffering</em>, és a dir, canvia l'eixida 
+    estàndard a memòria (<em>buffer</em>) i el segon retorna les dades del <em>buffer</em>, l'esborra i desactiva 
+    el <em>buffering</em>. </li>
+<li>El mètode <code>Response::prepare</code> s'assegura que la resposta acompleix l'especificació HTTP.</li>
+</ul>
+<p>Els canvis en <code>tweet-new-process.php</code> serien aquests:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">...</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\RedirectResponse</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">// comprovant si l'usuari ha iniciat sessió</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$user</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">"user"</span><span class="p">]</span> <span class="o">??</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$user</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span><span class="s1">'login.php'</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$newFilename</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<span class="linenos" data-linenos="19 "></span><span class="nv">$text</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'text'</span><span class="p">,</span> <span class="s1">''</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span><span class="nv">$text</span> <span class="o">=</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$text</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_FULL_SPECIAL_CHARS</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$errors</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="nx">FlashMessage</span><span class="o">::</span><span class="na">set</span><span class="p">(</span><span class="s1">'errors'</span><span class="p">,</span> <span class="nv">$errors</span><span class="p">);</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="nx">FlashMessage</span><span class="o">::</span><span class="na">set</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span><span class="s2">"tweet-new.php"</span><span class="p">);</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+<span class="linenos" data-linenos="29 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="30 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos="31 "></span>
+<span class="linenos" data-linenos="32 "></span>    <span class="nv">$tweet</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tweet</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s2">"text"</span><span class="p">],</span> <span class="nv">$user</span><span class="p">);</span>
+<span class="linenos" data-linenos="33 "></span>    <span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">setCreatedAt</span><span class="p">(</span><span class="k">new</span> <span class="nx">DateTime</span><span class="p">());</span>
+<span class="linenos" data-linenos="34 "></span>    <span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">setLikeCount</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos" data-linenos="35 "></span>
+<span class="linenos" data-linenos="36 "></span>    <span class="nv">$tweetRepository</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$tweet</span><span class="p">);</span>
+<span class="linenos" data-linenos="37 "></span>
+<span class="linenos" data-linenos="38 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$newFilename</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="39 "></span>        <span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos="40 "></span>            <span class="k">list</span><span class="p">(</span><span class="nv">$width</span><span class="p">,</span> <span class="nv">$height</span><span class="p">)</span> <span class="o">=</span> <span class="nb">getimagesize</span><span class="p">(</span><span class="nx">UPLOAD_PATH</span> <span class="o">.</span> <span class="s2">"/"</span> <span class="o">.</span> <span class="nv">$newFilename</span><span class="p">);</span>
+<span class="linenos" data-linenos="41 "></span>            <span class="nv">$photo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Photo</span><span class="p">(</span><span class="nv">$newFilename</span><span class="p">,</span> <span class="nv">$width</span><span class="p">,</span> <span class="nv">$height</span><span class="p">,</span> <span class="nv">$newFilename</span><span class="p">);</span>
+<span class="linenos" data-linenos="42 "></span>            <span class="nv">$photo</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="nv">$newFilename</span><span class="p">);</span>
+<span class="linenos" data-linenos="43 "></span>            <span class="nv">$photo</span><span class="o">-&gt;</span><span class="na">setTweet</span><span class="p">(</span><span class="nv">$tweet</span><span class="p">);</span>
+<span class="linenos" data-linenos="44 "></span>            <span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">addAttachment</span><span class="p">(</span><span class="nv">$photo</span><span class="p">);</span>
+<span class="linenos" data-linenos="45 "></span>            <span class="nv">$photoRepository</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$photo</span><span class="p">);</span>
+<span class="linenos" data-linenos="46 "></span>        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="47 "></span>            <span class="nv">$errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="48 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="49 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="50 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="51 "></span>    <span class="nv">$errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="52 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="53 "></span>
+<span class="linenos" data-linenos="54 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$errors</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="55 "></span>    <span class="nx">FlashMessage</span><span class="o">::</span><span class="na">set</span><span class="p">(</span><span class="s2">"errors"</span><span class="p">,</span> <span class="nv">$errors</span><span class="p">);</span>
+<span class="linenos" data-linenos="56 "></span>    <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span><span class="s2">"tweet-new.php"</span><span class="p">);</span>
+<span class="linenos" data-linenos="57 "></span>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+<span class="linenos" data-linenos="58 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="59 "></span>
+<span class="linenos" data-linenos="60 "></span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">;</span>
+<span class="linenos" data-linenos="61 "></span><span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span><span class="s2">"index.php"</span><span class="p">);</span>
+<span class="linenos" data-linenos="62 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</code></pre></div>
+<p>Resumint:</p>
+<ul>
+<li>Usarem la classe <code>RedirectResponse</code> per fer les redireccions.</li>
+<li>Emprarem <code>request-&gt;request-&gt;get('text', '')</code>, per a obtenir el que s'envia pel mètode POST. El segon paràmetre indica
+    el valor que es tornarà en cas que no existisca dita variable.</li>
+</ul>
+<h2 id="encapsulant-les-vistes">Encapsulant les vistes</h2>
+<p>Un altre aspecte que ens queda per convertir en classe és la gestió de les vistes. 
+En lloc d'usar una inclusió farem ús de la següent classe que, a més d'encapsular 
+la funcionalitat també incorpora l'opció d'usar plantilles:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">namespace</span> <span class="nx">App\Core</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">class</span> <span class="nc">View</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">static</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$view</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$layout</span> <span class="o">=</span> <span class="s1">'default'</span><span class="p">,</span> 
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">array</span> <span class="nv">$data</span> <span class="o">=</span> <span class="p">[])</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nb">extract</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nb">ob_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">require</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s2">"/../../views/</span><span class="si">{</span><span class="nv">$view</span><span class="si">}</span><span class="s2">.view.php"</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$content</span> <span class="o">=</span> <span class="nb">ob_get_clean</span><span class="p">();</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>        <span class="nb">ob_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="k">require</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s2">"/../../views/layouts/</span><span class="si">{</span><span class="nv">$layout</span><span class="si">}</span><span class="s2">.layout.php"</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="c1">// Retorna el contingut del buffer i desactiva el buffering</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="nv">$content</span> <span class="o">=</span> <span class="nb">ob_get_clean</span><span class="p">();</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>        <span class="k">return</span> <span class="nv">$content</span><span class="p">;</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="22 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">La constant màgica <code>__DIR__</code></p>
+<p>En PHP, generalment es considera una bona pràctica utilitzar la constant màgica <code>__DIR__</code>
+en lloc d'una ruta relativa quan s'inclouen o requereixen fitxers. Això es deu 
+al fet que <code>__DIR__</code> sempre retorna la ruta absoluta al directori on es troba el 
+fitxer on s'utilitza, mentre que un camí relatiu es pot veure afectat per la 
+ubicació de l'<em>script</em> que l'està executant. </p>
+</div>
+<p>Es pot observar l'ús de dues inclusions, la primera obté la informació de la 
+vista que és passada a la plantilla mitjançant la variable <code>$content</code>.</p>
+<p>La vista representa la part de la pàgina que canvia en cada pàgina, mentre
+que la plantilla defineix aquells elements fixos de la pàgina.</p>
+<p>Respecte a la funció <code>extract</code>, el que fa és convertir una <em>array</em> associatiu en variables, 
+on cada clau es converteix en una variable.</p>
+<p>La seua contrapart és el mètode <code>compact</code> que converteix variables en un <em>array</em> associatiu on
+el nom de la variable és la clau i el seu valor, el valor.</p>
+<p>Per exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$tweets</span> <span class="o">=</span> <span class="nv">$tweetRepository</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nx">View</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'index'</span><span class="p">,</span> <span class="s1">'default'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'tweets'</span><span class="p">));</span>
+</code></pre></div>
+<h2 id="integrant-la-vista-en-la-resposta">Integrant la vista en la resposta</h2>
+<p>Per a integrar la vista en la resposta sols caldrà fer el següent:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$content</span> <span class="o">=</span> <span class="nx">View</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'index'</span><span class="p">,</span> <span class="s1">'default'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'tweets'</span><span class="p">));</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nv">$content</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</code></pre></div>
+<p>El contingut que retorna la vista el passem directament a la resposta pel constructor.</p>
+<h2 id="bibliografia-i-recursos">Bibliografia i recursos</h2>
+<ul>
+<li><cite>The HttpFoundation Component (Symfony Docs)</cite>. <a href="https://symfony.com/doc/current/create_framework/http_foundation.html">https://symfony.com/doc/current/create_framework/http_foundation.html</a>. Consulta 6 desembre 2022.</li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

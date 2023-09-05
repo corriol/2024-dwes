@@ -1,0 +1,1403 @@
+
+Si obrim un navegador i accedim a symfony.bundles/peliculaREST obtindrem
+açò:
+
+El que veiem és la informació de resposta en format JSON.
+
+2.2.2. Llistat d'un element concret (GET /id)
+
+Anem ara a definir un segon mètode que cercarà una pel·lícula per la
+seua aneu, que rebrà com a part de la URI, tal com hem fet en sessions
+prèvies amb els contactes. El mètode seria el següent:
+
+/\*\* \* \@Rest("/{aneu}", name="cerca_pelicula") \*/ public function
+cerca_pelicula(\$aneu) { \$serializer = \$this-\>get('jms_serializer');
+\$repositori = \$this-\>getDoctrine()-\>getRepository(Pelicula::class);
+
+\$pelicula = $$repositori{o -}find($$aneu);
+
+if (\$pelicula) { \$resposta = \[ 'ok' =\> true, 'pelicula' =\>
+\$pelicula\]; } else { \$resposta = \[ 'ok' =\> false, 'error' =\>
+'Pelicula no oposada' \]; } return new
+Response(\$serializer-\>serialize(\$resposta, "json")); }
+
+La diferència principal amb el mètode anterior és que emprem el mètode
+find per a cercar per l'aneu de la pel·lícula, i en el resultat JSON ja
+no retornem un array de pel·lícules, sinó una sola pel·lícula, en
+l'atribut pelicula, si tot ha anat bé.
+
+Podem provar el funcionament d'aquest servei també des del navegador,
+accedint a la URL symfony.bundles/peliculas/api/1, o amb qualsevol codi
+de pel·lícula que tinguem disponible en la base de dades. Si el codi no
+és correcte, veurem el missatge d'error en lloc de les dades de la
+pel·lícula.
+
+2.2.3. Inserció de pel·lícula (POST)
+
+Anem a definir ara una nova funció per a gestionar la inserció de
+pel·lícules. En aquest cas, el comando a tractar és POST, i les dades
+arribaran fora de la URI, en el cos de la petició. El mètode podria ser
+alguna cosa així:
+
+/***
+*    @Rest("/", name="nova_pelicula") \
+*/ 
+public function nova_pelicula(Request $request) {
+    $serializer = $this->get('jms_serializer'); 
+    $pelicula = new Pelicula();
+    $pelicula ->setTitulo($$request-\>get('titule'));
+$$pelicul{a -}setAnyo($$request-\>get('anyo')); \$entityManager =
+\$this-\>getDoctrine()-\>getManager();
+$$entityManage{r -}persist($$pelicula); \$entityManager-\>flush();
+
+\$resposta = \[ 'ok' =\> true,
+
+'pelicula' =\> \$pelicula \];
+
+return new Response($$serialize{r -}serialize($$resposta, "json")); }
+
+Necessitarem incloure una instrucció use al principi per a poder
+treballar amb l'objecte Request, que és el que emprarem per a extraure
+les dades de la petició (el títol i any de la pel·lícula). Amb ells, vam
+crear l'objecte Pelicula, ho inserim en la base de dades i ho retornem
+en la resposta.
+
+Per a poder provar aquest servei correctament, i els de esborrat i
+modificació que veurem ara, necessitarem alguna eina que simule una
+petició POST. En breu explicarem una d'elles, cridada Postman.
+
+2.2.4. Esborrat d'elements (DELETE /aneu)
+
+El mètode d'esborrat rebrà també com a paràmetre l'aneu de l'element
+a esborrar. El codi seria així:
+
+/\*\* \* \@Rest("/{aneu}", name="esborra_pelicula") \*/ public function
+esborra_pelicula(\$aneu) { \$serializer =
+\$this-\>get('jms_serializer'); \$entityManager =
+\$this-\>getDoctrine()-\>getManager(); \$repositori =
+\$this-\>getDoctrine()-\>getRepository(Pelicula::class); \$pelicula =
+$$repositori{o -}find($$aneu); if (\$pelicula) {
+$$entityManage{r -}remove($$pelicula); \$entityManager-\>flush();
+\$resposta = \[ 'ok' =\> true, 'pelicula' =\> \$pelicula\]; } else {
+\$resposta = \[ 'ok' =\> false, 'error' =\> 'Pelicula no oposada'
+\]; } return new Response(\$serializer-\>serialize(\$resposta, "json"));
+}
+
+Bàsicament, utilitzant Doctrine, cerquem l'element a esborrar i ho
+eliminem. En el cas de no trobar-ho, retornem un missatge d'error en la
+resposta.
+
+2.2.5. Modificació d'elements (UPDATE /aneu)
+
+La modificació d'elements és similar a la inserció, però rebrem com a
+paràmetre en la URI l'aneu de l'element a modificar.
+
+/\*\* \* \@Rest("/{aneu}", name="modifica_pelicula") \*/ public function
+modifica_pelicula(\$aneu, Request \$request) { \$serializer =
+\$this-\>get('jms_serializer'); \$entityManager =
+\$this-\>getDoctrine()-\>getManager(); \$repositori =
+\$this-\>getDoctrine()-\>getRepository(Pelicula::class); \$pelicula =
+$$repositori{o -}find($$aneu);
+
+if (\$pelicula) { $$pelicul{a -}setTitulo($$request-\>get('titule'));
+$$pelicul{a -}setAnyo($$request-\>get('anyo'));
+\$entityManager-\>flush(); \$resposta = \[ 'ok' =\> true, 'pelicula' =\>
+\$pelicula\]; } else { \$resposta = \[ 'ok' =\> false, 'error' =\>
+'Pelicula no oposada' \]; } return new
+Response(\$serializer-\>serialize(\$resposta, "json")); }
+
+Novament, si trobem la pel·lícula, actualitzem les seues dades amb els
+quals rebem en la petició (com en inserir-la nova), i després
+actualitzem els canvis.
+
+En aquest punt, pots realitzar l'Exercici 1 dels proposats al final de
+la sessió.
+
+3\. Introducció a Postman
+
+Ja hem vist que provar uns serveis de llistat (GET) és senzill a través
+d'un navegador. Fins i tot provar un servei d'inserció (POST) podria
+fer-se a través d'un formulari HTML, però els serveis de modificació
+(PUT) o esborrat (DELETE) exigeixen d'altres eines per a poder ser
+provats. Una de les més útils en aquest sentit és Postman.
+
+Postman és una aplicació gratuïta i multiplataforma que permet enviar
+tot
+
+tipus de peticions a un servidor determinat, i examinar la resposta que
+
+aquest produeix. D'aquesta forma, podem comprovar que els serveis
+ofereixen la
+
+informació adequada abans de ser usats per una aplicació client real.
+
+3.1. Descàrrega, instal·lació i primers passos
+
+Per a descarregar i instal·lar Postman, hem d'anar al seu web oficial,
+i fer clic en el botó de descarregar (Download the app), i després triar
+la versió concreta per al nostre sistema operatiu.
+
+### []{#anchor-11}
+
+Obtindrem un arxiu comprimit portable, que podem descomprimir i executar
+directament. Gens més iniciar, ens preguntarà si volem registrar-nos, i
+fins i tot associar Postman a un compte Google. Açò té els avantatges de
+poder emmagatzemar en el compte les diferents proves que fem, per a
+després poder-les utilitzar en altres equips, però no és un pas
+obligatori, i podem ometre-ho, si volem, anant a l'enllaç de la part
+inferior de la finestra.
+
+Després d'aquesta pantalla, veurem un diàleg per a crear peticions
+simples o col·leccions de peticions (conjunts de proves per a una
+aplicació). El que farem habitualment serà açò últim.
+
+Si triem crear una col·lecció, li haurem d'associar un nom (per
+exemple, "Contactes", "Llibres", o qualsevol nom associat a l'aplicació
+que estiguem fent) i guardar-la. Llavors podrem veure la col·lecció en
+el panell esquerre de Postman. Per a començar, anem a crear una
+col·lecció per a gestionar les nostres Pel·lícules:
+
+Des del botó "New" de color taronja en la cantonada superior esquerra
+podem crear noves peticions (també noves col·leccions) i associar-les a
+una col·lecció. Existeix una forma alternativa (potser més còmoda) de
+crear aqueixes peticions, a través del panell de pestanyes, afegint
+noves:
+
+3.2. Afegir peticions simples: GET
+
+Per a afegir una petició, habitualment triarem el tipus de comando sota
+les pestanyes (GET, POST, PUT, DELETE) i la URL associada a aquest
+comando. Per exemple, aquesta seria la petició per a obtenir el llistat
+de totes les pel·lícules:
+
+Llavors, podem fer clic en el botó "Save" en la part dreta, i guardar la
+petició per a poder-la reutilitzar. En guardar-la, ens demanarà que li
+assignem un nom (per exemple, "GET peliculas" en aquest cas), i la
+col·lecció en la qual s'emmagatzemarà (nostra col·lecció de
+"Peliculas").
+
+Després, podrem veure la prova associada a la col·lecció, en el panell
+esquerre:
+
+Si seleccionem aquesta prova i premem en el botó blau de "Send" (part
+superior dreta), podem veure la resposta emesa pel servidor en el panell
+inferior de resposta:
+
+Seguint aquests mateixos passos, podem també crear una nova petició per
+a obtenir una pel·lícula a partir de la seua aneu, per GET, passant-li
+l'aneu en la URI:
+
+Bastaria amb reemplaçar l'aneu de la URI pel qual vulguem consultar
+realment. Si provem aquesta petició, obtindrem la resposta corresponent:
+
+3.3. Afegir peticions POST
+
+Les peticions POST difereixen de les peticions GET en què s'envia certa
+informació en el cos de la petició. Aquesta informació normalment són
+les dades que es volen afegir en el servidor. Com podem fer açò amb
+Postman?
+
+En primer lloc, vam crear una nova petició, triem el comando POST i
+definim la URI (seguint amb el nostre exemple, la URI serà
+symfony.bundles/peliculas/api/). Llavors, fem clic en la pestanya Bodi,
+sota la URL, i establim el tipus com raw perquè ens deixe escriure-ho
+sense restriccions. També convé canviar la propietat Text perquè siga
+application/json, i que així el servidor arreplegue el tipus de dada
+adequada: s'afegirà automàticament una capçalera de petició (Header)
+que especificarà que el tipus de contingut que es va a enviar són dades
+JSON.
+
+Després, en el quadre de text sota aquestes opcions, especifiquem
+l'objecte JSON que volem enviar per a inserir:
+
+Si enviem aquesta petició, obtindrem el resultat de la inserció:
+
+3.4. Afegir peticions PUT o DELETE
+
+En el cas de peticions PUT, procedirem de forma similar a les peticions
+POST vistes abans: hem de triar el comando (PUT en aquest cas), la URI,
+i completar el cos de la petició amb les dades que vulguem modificar del
+contacte. En aquest cas, a més, l'aneu de l'element a modificar ho
+enviarem també en la pròpia URI:
+
+Per a peticions DELETE, la mecànica és similar a la de GET per a obtenir
+la fitxa d'un element pel seu aneu, canviant el comando GET per DELETE,
+i sense necessitat d'establir gens en el cos de la petició:
+
+3.5. Exportar/Importar col·leccions
+
+Podem exportar i importar les nostres col·leccions en Postman, de manera
+que podem portar-les d'un equip a un altre. Per a **exportar** una
+col·lecció, fem clic en el botó de punts suspensius (...) que hi ha al
+costat d'ella en el panell esquerre, i triem Export.
+
+Ens preguntarà per a quina versió de Postman volem exportar (normalment
+la recomanada és la millor opció):
+
+Es crearà un nou arxiu Postman en la ubicació que triem.
+
+Si volem **importar** una col·lecció prèviament exportada, podem fer
+clic en el botó Import de la cantonada superior esquerra en la finestra
+principal:
+
+Llavors, triem l'arxiu Postman amb la col·lecció i apareixerà en el
+panell esquerre després de la importació.
+
+En aquest punt, pots realitzar l'Exercici 2 del final de la sessió.
+
+4\. Altres opcions addicionals
+
+Ara que ja hem vist com construir una API REST bàsica utilitzant alguns
+bundles auxiliars, vegem algunes altres opcions que podem incorporar a
+aquest procés per a fer-ho una mica més complet.
+
+4.1. Configuració de CORS
+
+CORS són les sigles de Cross­Origin Resource Sharing, una tecnologia que
+permet que dues aplicacions de dominis diferents puguen intercanviar-se
+informació. És una tecnologia que està molt vinculada a aplicacions
+basades en serveis REST, ja que aquests poden ser accessibles des de
+diferents plataformes client. Imaginem que tenim una aplicació web en
+www.midominio.com, i volem accedir des d'ella a la nostra API
+recentment creada, per exemple, a la ruta
+symfony.bundles/peliculas/api/1 per a obtenir les dades d'una
+pel·lícula.
+
+En pertànyer a dos dominis diferents, aquesta petició automàticament
+queda sense efecte, i el client no serà capaç de rebre les dades que el
+servidor envia, per motius de seguretat (accés d'un domini a un altre
+diferent).
+
+Per a evitar aquest problema, i permetre que diferents fonts o dominis
+puguen accedir a nostra API REST, hem d'habilitar CORS en la nostra
+aplicació Symfony. Una de les opcions que tenim és utilitzar un bundle
+anomenat NelmioCorsBundle. Els passos són senzills: en primer lloc
+instal·lem el bundle així:
+
+composer require cors
+
+Després, podem editar l'arxiu de configuració
+config/packages/nelmio_cors.yaml i ajustar-ho al nostre gust. En la
+subsección paths estan les rutes per a les quals s'habilita CORS. Si,
+per exemple, volem habilitar-ho només per a la subruta /peliculas/apis/,
+hauríem de definir únicament el path '\^/peliculas/apis/'.
+
+4.2. Validació de dades
+
+Podem incorporar el bundle validator de Symfony, que ja hem emprat per a
+validar les dades que provenen d'un formulari, i utilitzar-ho per a
+validar que les dades que rep un servei (POST o PUT) són correctes abans
+de realitzar les corresponents insercions o modificacions. Per a açò, en
+primer lloc incloem el bundle en el projecte:
+
+composer require symfony/validator
+
+A continuació, editem l'arxiu de configuració
+config/packages/framework.yaml i afegim aquesta línia, per a permetre la
+validació mitjançant anotacions:
+
+framework: ... **validation: { enable_annotations: true }**
+
+Després, definim les regles de validació en la(s) entitat(és)
+corresponent(s). Per exemple, si volem que el títol de la pel·lícula no
+estiga buit, podem fer alguna cosa així en la nostra entitat Pelicula
+(indiquem en negreta les dues noves línies a afegir):
+
+... **use Symfonyas Assert;**
+
+/** \* \@ORM(repositoryClass=**"**App**"**) *****/ class Pelicula { ...
+/ \* \@ORM(type=***"***string***"***, length=255) *****\@Assert()** \*/
+private \$titule; ...
+
+Finalment, quan anem a utilitzar el servei POST o PUT, per a insercions
+o modificacions respectivament, n'hi ha prou amb validar l'objecte
+construït abans de realitzar l'operació. Si no hi ha errors,
+s'insereix/modifica, i si n'hi ha, es retorna un missatge d'error.
+Així seria en el cas de la inserció:
+
+**use Symfony;** ... /\*\* \* \@Rest("/", name="nova_pelicula") \*/
+public function nova_pelicula(Request \$request **, ValidatorInterface
+\$validator** ) { \$serializer = \$this-\>get('jms_serializer');
+\$pelicula = new Pelicula();
+$$pelicul{a -}setTitulo($$request-\>get('titule'));
+$$pelicul{a -}setAnyo($$request-\>get('anyo'));
+
+**\$errors = **$$validato{r -}validate($$**pelicula);**
+
+**if (count(\$errors) == 0 )** { \$entityManager =
+\$this-\>getDoctrine()-\>getManager();
+$$entityManage{r -}persist($$pelicula); \$entityManager-\>flush();
+
+\$resposta = \[ 'ok' =\> true, 'pelicula' =\> \$pelicula\]; } else {
+\$resposta = \[
+
+'ok' =\> false, 'error' =\> 'Les dades no són correctes' \]; }
+
+return new Response($$serialize{r -}serialize($$resposta, "json")); }
+
+Notar que utilitzem un servei anomenat ValidatorInterface per a validar
+les dades. La validació retorna un array d'errors oposats que, si està
+buit, indica que no hi ha errors, i podem procedir amb la inserció.
+
+En aquest punt, pots intentar realitzar l'Exercici 3 del final de la
+sessió, que és de caràcter optatiu.
+
+4.3. Autenticació basada en tokens
+
+
+5\. Exercicis
+
+5.1. Exercici 1
+
+Basant-te en l'exemple de les pel·lícules vist en els apartats
+anteriors, construeix ara tu una API REST sobre l'aplicació
+symfony.tasques que iniciem en la sessió anterior. Ja tindràs
+instal·lats els bundles de Doctrine de la sessió prèvia, però ara hauràs
+d'instal·lar JMSSerializerBundle i FOSRestBundle, com s'explica en
+aquesta sessió (apartat 2.1).
+
+Després, crea una classe anomenada TareaRESTController en la carpeta
+src/Controller, i defineix en ella el codi necessari per a definir
+aquests serveis. Tots ells hauran de partir de la URI base /tasques/api:
+
+-   Servei GET a la subruta /, que retornarà un llistat de tasques si
+    tot ha anat bé, o un missatge d'error si no hi ha tasques que
+    mostrar.
+-   Servei GET a la subruta /{aneu}, que retornarà les dades de la tasca
+    amb l'aneu indicat.
+-   Servei POST a la subruta /, que inserirà la tasca que li arriba en
+    el cos de la petició, retornant la tasca inserida. El format de la
+    data ho pots triar tu mateix, i pots emprar el mètode
+    DateTime::createFromFormat per a crear la data a partir d'aqueix
+    format.
+-   Servei DELETE a la subruta /{aneu}, que eliminarà la tasca amb
+    l'aneu indicat, retornant la tasca eliminada.
+-   Servei PUT a la subruta /{aneu}, que modificarà les dades de la
+    tasca amb l'aneu indicat. Rebrà en el cos de la petició totes les
+    dades de la tasca (descripció, data i prioritat) i els actualitzarà
+    sobre la tasca oposada. Es retornarà la pròpia tasca modificada.
+
+Tots els serveis retornaran una estructura JSON composta per les
+mateixes dades que en l'exemple de les pel·lícules:
+
+-   Un atribut ok, que serà vertader si l'operació ha sigut correcta, i
+    fals si no. De moment, les operacions de GET es consideraran
+    incorrectes si no es troben resultats, la de POST serà sempre
+    correcta, i les de DELETE i PUT seran incorrectes si no es troba
+    l'element a esborrar o modificar, respectivament.
+-   En el cas que ok siga vertader (l'operació siga correcta),
+    s'adjuntarà com a segon atribut l'element afectat (el llistat
+    oposat, o l'element inserit/esborrat/modificat).
+-   En el cas que ok siga fals (operació incorrecta), s'adjuntarà un
+    segon atribut error amb el missatge d'error corresponent.
+
+5.2. Exercici 2
+
+Crea una col·lecció en Postman cridada Tasques, i defineix dins aquestes
+cinc peticions:
+
+-   **GET tasques** , que enviarà una petició GET a
+    symfony.tasques/tasca/api/ per a obtenir totes les tasques
+-   **GET tasca** , que enviarà una petició GET a
+    symfony.tasques/tasca/api/1, per a obtenir les dades de la tasca
+    indicada (en aquest cas la 1, però pots posar l'aneu que
+    preferisques per a provar).
+-   **POST tasca,** que enviarà una petició POST a
+    symfony.tasques/tasca/api/, i en el cos (bodi) de la petició,
+    enviarà les dades d'una tasca. Per exemple (el format de data pot
+    variar depenent del que hages triat tu): {"descripcion":"Preparar
+    examen desembre", "data":"10/12/ 2018", "prioritat": "BAIXA"}
+-   **DELETE tasca** , que enviarà una petició DELETE a
+    symfony.tasques/tasca/api/2, per a eliminar la tasca indicada (en
+    aquest cas la 2, però pots posar l'aneu que preferisques per a
+    provar)
+-   **PUT tasca** , que enviarà una petició PUT a
+    symfony.tasques/tasca/api/3, per a modificar les dades de la tasca
+    indicada (en aquest cas la 3, però pots posar l'aneu que
+    preferisques per a provar). Les dades de la tasca (descripció, data
+    i prioritat) s'enviaran en el cos de la petició. Per exemple (el
+    format de data, novament, pot variar depenent del que hages triat):
+    {"descripcion":"Acabar sessió 8", "data":"28/11/2018", "prioritat":
+    "ALTA"}
+
+Quan tingues totes les peticions fetes i comprovades, exporta-les a un
+arxiu anomenat tasques.postman_collection.json, que hauràs d'adjuntar
+com a lliurament d'aquest exercici.
+
+5.3. Exercici 3 (opcional)
+
+Modifica la inserció de tasques de l'Exercici 1 perquè es valide que la
+descripció, la data i la prioritat no estiguen en blanc, i que la
+prioritat tinga valors entre 1 i 3 (inclusivament). Si la tasca no és
+vàlida, es retornarà un missatge d'error indicant-ho, en lloc de la
+tasca inserida.
+
+NOTA : per a indicar que la prioritat estiga entre dos valors donats,
+
+pots utilitzar les assercions GreaterThanOrEqual i
+
+LessThanOrEqual, tal com s'explica ací.
+
+Crea una nova petició en Postman cridada POST incorrecte que intente
+enviar les dades d'una tasca amb la prioritat o la descripció buides
+(cadena buida), o amb una prioritat no vàlida (per exemple, 5), i
+comprova que retorna un resultat d'error. Actualitza l'arxiu exportat
+tasques.postman_collection.json de l'exercici anterior amb aquesta nova
+petició.
+
+### []{#anchor-11}5.4. Exercici 4 (opcional)
+
+Segueix els passos indicats en el subapartat 4.3 per a afegir seguretat
+basada en tokens en l'aplicació d'exemple symfony.bundles (la mateixa
+en la qual es basa aqueix apartat). Prova a autenticar-te amb l'usuari
+que hages creat, obtenir el token i emprar-ho per a obtenir el llistat
+de pel·lícules o qualsevol altra ruta.
+
+
+
+
+
+
+### 8. Desenvolupament de serveis REST amb Symfony
+
+1. Introducció. Serveis REST
+
+En aquesta última sessió del curs veurem com emprar Symfony com a
+proveïdor de serveis REST, però per a açò, hem de tenir clars certs
+conceptes previs. Per a començar, a hores d'ara tots tindrem clar que
+qualsevol aplicació web es basa en una arquitectura client­servidor, on
+un servidor queda a l'espera de connexions de clients, i els clients es
+connecten als servidors per a sol·licitar certs recursos.
+
+1.1. El protocol HTTP
+
+Aquestes comunicacions entre client i servidor es realitzen mitjançant
+el protocol **HTTP** (o HTTPS, en el cas de comunicacions segures). En
+tots dos casos, client i servidor s'envien certa informació estàndard,
+en cada missatge:
+
+-   Quant als clients, envien al servidor les dades del recurs que
+    sol·liciten, juntament amb certa informació addicional, com per
+    exemple les capçaleres de petició (informació relativa al tipus de
+    client o navegador, contingut que accepta, etc), i paràmetres
+    addicionals anomenats normalment dades del formulari.
+-   Pel que fa als servidors, accepten aquestes peticions, les processen
+    i envien de tornada algunes dades rellevants, com un codi d'estat
+    (indicant si la petició va poder ser atesa satisfactòriament o no),
+    capçaleres de resposta (indicant el tipus de contingut enviat,
+    grandària, idioma, etc), i el recurs sol·licitat pròpiament dit, si
+    tot ha anat correctament.
+
+1.2. Els serveis REST
+
+En aquesta sessió del tema veurem com aplicar l'après fins ara per a
+desenvolupar un servidor senzill que proporcione una API REST als
+clients que es connecten. REST són les sigles de REpresentational State
+Transfer, i designa un estil d'arquitectura d'aplicacions distribuïdes
+basada en HTTP. En un sistema REST, identifiquem cada recurs a
+sol·licitar amb una URI (identificador uniforme de recurs), i definim un
+conjunt delimitat de comandos o mètodes a realitzar, que típicament són:
+
+-   GET: per a obtenir resultats d'algun tipus (llistats complets o
+    filtrats per alguna condició)
+-   POST: per a realitzar insercions o afegir elements en un conjunt de
+    dades
+-   PUT: per a realitzar modificacions o actualitzacions del conjunt de
+    dades
+-   DELETE: per a realitzar esborrats del conjunt de dades
+-   Existeixen altres tipus de comandos o mètodes, com per exemple PATCH
+    (similar a PUT, però per a canvis parcials), HEAD (per a consultar
+    només l'encapçalat de la resposta obtinguda), etc. Ens centrarem de
+    moment en els quatre mètodes principals anteriors
+
+Per tant, identificant el recurs a sol·licitar i el comando a
+aplicar-li, el servidor que ofereix aquesta API REST proporciona una
+resposta a aqueixa petició. Aquesta resposta
+
+típicament ve donada per un missatge en format JSON o XML (encara que
+aquest cada vegada està més en desús). Açò permet que les aplicacions
+puguen estendre's a diferents plataformes, i accedir als mateixos
+serveis des d'una aplicació Angular, o una aplicació d'escriptori
+.NET, o una aplicació mòbil en Android, per posar diversos exemples.
+
+Veurem com podem identificar els diferents tipus de comandos de la
+nostra API, i les URIs dels recursos a sol·licitar, per a després donar
+una resposta en format JSON davant cada petició.
+
+1.3. El format JSON
+
+JSON són les sigles de Javascript Object Notation, una sintaxi pròpia de
+Javascript per a poder representar objectes com a cadenes de text, i
+poder així serializar i enviar informació d'objectes a través de fluxos
+de dades (arxius de text, comunicacions client­servidor, etc).
+
+Un objecte Javascript es defineix mitjançant una sèrie de propietats i
+valors. Per exemple, les dades d'una persona (com a nom i edat) podríem
+emmagatzemar-los així:
+
+```javascript
+let persona = { nom: "Nacho", edat: 39 };
+```
+
+Aquest mateix objecte, convertit a JSON, formaria una cadena de text amb
+aquest contingut:
+
+```javascript
+{"nom":"Nacho","edat":39}
+```
+
+De la mateixa manera, si tenim una col·lecció (vector) d'objectes com
+aquesta:
+
+```javascript
+let persones = \[ { nom: "Nacho", edat: 39 }, { nom: "Mario", edat: 4 },
+{ nom: "Laura", edat: 2 }, { nom: "Nora", edat: 10 }\]
+```
+Transformada a JSON segueix la mateixa sintaxi, però entre claudàtors:
+
+```javascript
+\[{"nom":"Nacho","edat":39}, {"nom":"Mario","edat":4},
+
+{"nom":"Laura","edat":2}, {"nom":"Nora","edat":10}\]
+```
+
+## Construint una API REST bàsica
+
+Vegem ara quins passos donar per a construir una API REST que done
+suport a les operacions bàsiques sobre una o diverses entitats:
+consultes (GET), insercions (POST), modificacions (PUT) i esborrats
+(DELETE).
+
+Com no anem a necessitar tota la funcionalitat d'una aplicació web
+completa, és millor que els projectes d'aquest tipus els creiem a
+partir del skeleton b ásico, en lloc del website­skeleton. En el nostre
+cas, ens basarem en el projecte symfony.bundles d'exemple de la sessió
+anterior, i treballarem amb l'entitat Pelicula que ja tenim creada.
+
+2.1. Instal·lant els bundles necessaris
+
+Com a pas previ, hauríem de tenir instal·lat el bundle de **Doctrine** ,
+juntament amb algun addicional (maker) per a poder crear entitats i
+connectar amb la base de dades corresponent. Com anem a basar-nos en
+l'exemple de la sessió anterior, ja tenim tot açò instal·lat, però si
+vam crear un projecte nou, hem de tenir present que necessitaríem
+incorporar aquests bundles (els recordem):
+
+```shell
+composer require symfony/orm-pack
+
+composer require symfony/maker-bundle --dev
+```
+A més de l'anterior, anem a fer ús d'un bundle específic per a
+desenvolupar APIs REST, anomenat **FOSRestBundle**. Està creat per
+l'equip de desenvolupament Friends Of Symfony, responsable de diversos
+bundles populars per a aquest framework. A més, aquest bundle requereix
+d'un altre addicional, que es va a encarregar de
+serializar/deserializar les dades que s'envien client i servidor,
+emprant el format JSON (encara que es pot triar un altre format, com XML
+o HTML, però ens centrarem en JSON). Aquest bundle es diu
+**JMSSerializerBundle** .
+
+Resumint, aquests són els comandos que necessitarem (i en aquest ordre):
+
+```shell
+composer config extra.symfony.allow-contrib true
+
+composer require jms/serializer-bundle
+
+composer require friendsofsymfony/rest-bundle
+```
+
+El primer comando ho necessitarem perquè JMSSerializerBundle és un
+bundle contribuït, paraula que significa si fa no fa que no ha sigut
+validat o verificat per l'equip de desenvolupament de Symfony, i
+s'accepta com a contribució. No obstant açò, hem d'especificar en el
+nostre projecte que permetem la instal·lació de paquets contribuïts.
+Possiblement aquest comando ja ho haurem escrit abans (és necessari per
+a permetre la reescriptura d'URLs, per exemple), així que no serà
+necessari. Però ho incloem en aquest tutorial per si de cas.
+
+### Definint els serveis
+
+Ara que ja tenim instal·lat el necessari per a començar a definir els
+serveis, anem a l'important. Crearem una nova classe (para no
+interferir amb el que ja tenim), on definirem els serveis bàsics sobre
+l'entitat Pelicula. Cridarem a aquesta classe PeliculaRESTController, i
+l'afegim en la carpeta src/Controller:
+
+La classe té una anotació \@Route, que implica que qualsevol ruta que
+indiquem dins va a tenir aqueix prefix (en aquest cas, totes les rutes
+dels mètodes interns tindran el prefix /peliculas/api).
+
+#### Llistat de tots els elements (GET /)
+
+Anem a afegir un mètode a la nostra classe anterior perquè retorne, en
+format JSON, totes les pel·lícules de la base de dades. El codi del
+mètode és el següent:
+
+```php
+/\*\* \* \@Rest("/", name="llista_peliculas") \*/ public function
+llesta_peliculas() { \$serializer = \$this-\>get('jms_serializer');
+
+\$repositori = \$this-\>getDoctrine()-\>getRepository(Pelicula::class);
+\$peliculas = \$repositori-\>findAll();
+
+if (count(\$peliculas) \> 0 ) { \$resposta = \[ 'ok' =\> true,
+'peliculas' =\> \$peliculas\]; } else { \$resposta = \[ 'ok' =\>
+false, 'error' =\> 'No s'han trobat pel·lícules' \]; } return new
+Response(\$serializer-\>serialize(\$resposta, "json")); }
+```
+
+Analitzem alguns aspectes importants que no hem vist abans:
+
+-   El mètode llesta_peliculas té una anotació \@Rest, que és similar a
+    \@Route però permet especificar el comando que es va a atendre (GET,
+    en aquest cas), i la ruta associada (hem indicat l'arrel /, la qual
+    cosa significa que s'atenen peticions GET a /peliculas/api/, que és
+    la ruta base de la classe).
+-   Dins del mètode, fem el següent: ◦ Obtenim el serializador ◦ Obtenim
+    el llistat de totes les pel·lícules (açò ja ho sabem fer de sessions
+    prèvies) ◦ En funció de si el llistat té dades o no, construïm una
+    resposta a enviar al client. Si hi ha dades, enviem un atribut ok a
+    true, i un atribut peliculas amb l'array de pel·lícules obtingut.
+    Si no hi ha dades, enviem l'atribut ok a false i el missatge
+    d'error corresponent (no s'han trobat pel·lícules). ◦ Finalment,
+    emetem una resposta (Response) amb l'array d'atributs que hem
+    construït, serializado a format JSON.
+
+Si obrim un navegador i accedim a symfony.bundles/peliculaREST obtindrem
+açò:
+
+El que veiem és la informació de resposta en format JSON.
+
+2.2.2. Llistat d'un element concret (GET /aneu)
+
+Anem ara a definir un segon mètode que cercarà una pel·lícula per la
+seua aneu, que rebrà com a part de la URI, tal com hem fet en sessions
+prèvies amb els contactes. El mètode seria el següent:
+
+/\*\* \* \@Rest("/{aneu}", name="cerca_pelicula") \*/ public function
+cerca_pelicula(\$aneu) { \$serializer = \$this-\>get('jms_serializer');
+\$repositori = \$this-\>getDoctrine()-\>getRepository(Pelicula::class);
+
+\$pelicula = $$repositori{o -}find($$aneu);
+
+if (\$pelicula) { \$resposta = \[ 'ok' =\> true, 'pelicula' =\>
+\$pelicula\]; } else { \$resposta = \[ 'ok' =\> false, 'error' =\>
+'Pelicula no oposada' \]; } return new
+Response(\$serializer-\>serialize(\$resposta, "json")); }
+
+La diferència principal amb el mètode anterior és que emprem el mètode
+find per a cercar per l'aneu de la pel·lícula, i en el resultat JSON ja
+no retornem un array de pel·lícules, sinó una sola pel·lícula, en
+l'atribut pelicula, si tot ha anat bé.
+
+Podem provar el funcionament d'aquest servei també des del navegador,
+accedint a la URL symfony.bundles/peliculas/api/1, o amb qualsevol codi
+de pel·lícula que tinguem disponible en la base de dades. Si el codi no
+és correcte, veurem el missatge d'error en lloc de les dades de la
+pel·lícula.
+
+2.2.3. Inserció de pel·lícula (POST)
+
+Anem a definir ara una nova funció per a gestionar la inserció de
+pel·lícules. En aquest cas, el comando a tractar és POST, i les dades
+arribaran fora de la URI, en el cos de la petició. El mètode podria ser
+alguna cosa així:
+
+/\*\* \* \@Rest("/", name="nova_pelicula") \*/ public function
+nova_pelicula(Request \$request) { \$serializer =
+\$this-\>get('jms_serializer'); \$pelicula = new Pelicula();
+$$pelicul{a -}setTitulo($$request-\>get('titule'));
+$$pelicul{a -}setAnyo($$request-\>get('anyo')); \$entityManager =
+\$this-\>getDoctrine()-\>getManager();
+$$entityManage{r -}persist($$pelicula); \$entityManager-\>flush();
+
+\$resposta = \[ 'ok' =\> true,
+
+'pelicula' =\> \$pelicula \];
+
+return new Response($$serialize{r -}serialize($$resposta, "json")); }
+
+Necessitarem incloure una instrucció use al principi per a poder
+treballar amb l'objecte Request, que és el que emprarem per a extraure
+les dades de la petició (el títol i any de la pel·lícula). Amb ells, vam
+crear l'objecte Pelicula, ho inserim en la base de dades i ho retornem
+en la resposta.
+
+Per a poder provar aquest servei correctament, i els de esborrat i
+modificació que veurem ara, necessitarem alguna eina que simule una
+petició POST. En breu explicarem una d'elles, cridada Postman.
+
+2.2.4. Esborrat d'elements (DELETE /aneu)
+
+El mètode d'esborrat rebrà també com a paràmetre l'aneu de l'element
+a esborrar. El codi seria així:
+
+/\*\* \* \@Rest("/{aneu}", name="esborra_pelicula") \*/ public function
+esborra_pelicula(\$aneu) { \$serializer =
+\$this-\>get('jms_serializer'); \$entityManager =
+\$this-\>getDoctrine()-\>getManager(); \$repositori =
+\$this-\>getDoctrine()-\>getRepository(Pelicula::class); \$pelicula =
+$$repositori{o -}find($$aneu); if (\$pelicula) {
+$$entityManage{r -}remove($$pelicula); \$entityManager-\>flush();
+\$resposta = \[ 'ok' =\> true, 'pelicula' =\> \$pelicula\]; } else {
+\$resposta = \[ 'ok' =\> false, 'error' =\> 'Pelicula no oposada'
+\]; } return new Response(\$serializer-\>serialize(\$resposta, "json"));
+}
+
+Bàsicament, utilitzant Doctrine, cerquem l'element a esborrar i ho
+eliminem. En el cas de no trobar-ho, retornem un missatge d'error en la
+resposta.
+
+2.2.5. Modificació d'elements (UPDATE /aneu)
+
+La modificació d'elements és similar a la inserció, però rebrem com a
+paràmetre en la URI l'aneu de l'element a modificar.
+
+/\*\* \* \@Rest("/{aneu}", name="modifica_pelicula") \*/ public function
+modifica_pelicula(\$aneu, Request \$request) { \$serializer =
+\$this-\>get('jms_serializer'); \$entityManager =
+\$this-\>getDoctrine()-\>getManager(); \$repositori =
+\$this-\>getDoctrine()-\>getRepository(Pelicula::class); \$pelicula =
+$$repositori{o -}find($$aneu);
+
+if (\$pelicula) { $$pelicul{a -}setTitulo($$request-\>get('titule'));
+$$pelicul{a -}setAnyo($$request-\>get('anyo'));
+\$entityManager-\>flush(); \$resposta = \[ 'ok' =\> true, 'pelicula' =\>
+\$pelicula\]; } else { \$resposta = \[ 'ok' =\> false, 'error' =\>
+'Pelicula no oposada' \]; } return new
+Response(\$serializer-\>serialize(\$resposta, "json")); }
+
+Novament, si trobem la pel·lícula, actualitzem les seues dades amb els
+quals rebem en la petició (com en inserir-la nova), i després
+actualitzem els canvis.
+
+En aquest punt, pots realitzar l'Exercici 1 dels proposats al final de
+la sessió.
+
+3\. Introducció a Postman
+
+Ja hem vist que provar uns serveis de llistat (GET) és senzill a través
+d'un navegador. Fins i tot provar un servei d'inserció (POST) podria
+fer-se a través d'un formulari HTML, però els serveis de modificació
+(PUT) o esborrat (DELETE) exigeixen d'altres eines per a poder ser
+provats. Una de les més útils en aquest sentit és Postman.
+
+Postman és una aplicació gratuïta i multiplataforma que permet enviar
+tot
+
+tipus de peticions a un servidor determinat, i examinar la resposta que
+
+aquest produeix. D'aquesta forma, podem comprovar que els serveis
+ofereixen la
+
+informació adequada abans de ser usats per una aplicació client real.
+
+3.1. Descàrrega, instal·lació i primers passos
+
+Per a descarregar i instal·lar Postman, hem d'anar al seu web oficial,
+i fer clic en el botó de descarregar (Download the app), i després triar
+la versió concreta per al nostre sistema operatiu.
+
+### []{#anchor-11}
+
+Obtindrem un arxiu comprimit portable, que podem descomprimir i executar
+directament. Gens més iniciar, ens preguntarà si volem registrar-nos, i
+fins i tot associar Postman a un compte Google. Açò té els avantatges de
+poder emmagatzemar en el compte les diferents proves que fem, per a
+després poder-les utilitzar en altres equips, però no és un pas
+obligatori, i podem ometre-ho, si volem, anant a l'enllaç de la part
+inferior de la finestra.
+
+Després d'aquesta pantalla, veurem un diàleg per a crear peticions
+simples o col·leccions de peticions (conjunts de proves per a una
+aplicació). El que farem habitualment serà açò últim.
+
+Si triem crear una col·lecció, li haurem d'associar un nom (per
+exemple, "Contactes", "Llibres", o qualsevol nom associat a l'aplicació
+que estiguem fent) i guardar-la. Llavors podrem veure la col·lecció en
+el panell esquerre de Postman. Per a començar, anem a crear una
+col·lecció per a gestionar les nostres Pel·lícules:
+
+Des del botó "New" de color taronja en la cantonada superior esquerra
+podem crear noves peticions (també noves col·leccions) i associar-les a
+una col·lecció. Existeix una forma alternativa (potser més còmoda) de
+crear aqueixes peticions, a través del panell de pestanyes, afegint
+noves:
+
+3.2. Afegir peticions simples: GET
+
+Per a afegir una petició, habitualment triarem el tipus de comando sota
+les pestanyes (GET, POST, PUT, DELETE) i la URL associada a aquest
+comando. Per exemple, aquesta seria la petició per a obtenir el llistat
+de totes les pel·lícules:
+
+Llavors, podem fer clic en el botó "Save" en la part dreta, i guardar la
+petició per a poder-la reutilitzar. En guardar-la, ens demanarà que li
+assignem un nom (per exemple, "GET peliculas" en aquest cas), i la
+col·lecció en la qual s'emmagatzemarà (nostra col·lecció de
+"Peliculas").
+
+Després, podrem veure la prova associada a la col·lecció, en el panell
+esquerre:
+
+Si seleccionem aquesta prova i premem en el botó blau de "Send" (part
+superior dreta), podem veure la resposta emesa pel servidor en el panell
+inferior de resposta:
+
+Seguint aquests mateixos passos, podem també crear una nova petició per
+a obtenir una pel·lícula a partir de la seua aneu, per GET, passant-li
+l'aneu en la URI:
+
+Bastaria amb reemplaçar l'aneu de la URI pel qual vulguem consultar
+realment. Si provem aquesta petició, obtindrem la resposta corresponent:
+
+3.3. Afegir peticions POST
+
+Les peticions POST difereixen de les peticions GET en què s'envia certa
+informació en el cos de la petició. Aquesta informació normalment són
+les dades que es volen afegir en el servidor. Com podem fer açò amb
+Postman?
+
+En primer lloc, vam crear una nova petició, triem el comando POST i
+definim la URI (seguint amb el nostre exemple, la URI serà
+symfony.bundles/peliculas/api/). Llavors, fem clic en la pestanya Bodi,
+sota la URL, i establim el tipus com raw perquè ens deixe escriure-ho
+sense restriccions. També convé canviar la propietat Text perquè siga
+application/json, i que així el servidor arreplegue el tipus de dada
+adequada: s'afegirà automàticament una capçalera de petició (Header)
+que especificarà que el tipus de contingut que es va a enviar són dades
+JSON.
+
+Després, en el quadre de text sota aquestes opcions, especifiquem
+l'objecte JSON que volem enviar per a inserir:
+
+Si enviem aquesta petició, obtindrem el resultat de la inserció:
+
+3.4. Afegir peticions PUT o DELETE
+
+En el cas de peticions PUT, procedirem de forma similar a les peticions
+POST vistes abans: hem de triar el comando (PUT en aquest cas), la URI,
+i completar el cos de la petició amb les dades que vulguem modificar del
+contacte. En aquest cas, a més, l'aneu de l'element a modificar ho
+enviarem també en la pròpia URI:
+
+Per a peticions DELETE, la mecànica és similar a la de GET per a obtenir
+la fitxa d'un element pel seu aneu, canviant el comando GET per DELETE,
+i sense necessitat d'establir gens en el cos de la petició:
+
+3.5. Exportar/Importar col·leccions
+
+Podem exportar i importar les nostres col·leccions en Postman, de manera
+que podem portar-les d'un equip a un altre. Per a **exportar** una
+col·lecció, fem clic en el botó de punts suspensius (...) que hi ha al
+costat d'ella en el panell esquerre, i triem Export.
+
+Ens preguntarà per a quina versió de Postman volem exportar (normalment
+la recomanada és la millor opció):
+
+Es crearà un nou arxiu Postman en la ubicació que triem.
+
+Si volem **importar** una col·lecció prèviament exportada, podem fer
+clic en el botó Import de la cantonada superior esquerra en la finestra
+principal:
+
+Llavors, triem l'arxiu Postman amb la col·lecció i apareixerà en el
+panell esquerre després de la importació.
+
+En aquest punt, pots realitzar l'Exercici 2 del final de la sessió.
+
+4\. Altres opcions addicionals
+
+Ara que ja hem vist com construir una API REST bàsica utilitzant alguns
+bundles auxiliars, vegem algunes altres opcions que podem incorporar a
+aquest procés per a fer-ho una mica més complet.
+
+4.1. Configuració de CORS
+
+CORS són les sigles de Cross­Origin Resource Sharing, una tecnologia que
+permet que dues aplicacions de dominis diferents puguen intercanviar-se
+informació. És una tecnologia que està molt vinculada a aplicacions
+basades en serveis REST, ja que aquests poden ser accessibles des de
+diferents plataformes client. Imaginem que tenim una aplicació web en
+www.midominio.com, i volem accedir des d'ella a la nostra API
+recentment creada, per exemple, a la ruta
+symfony.bundles/peliculas/api/1 per a obtenir les dades d'una
+pel·lícula.
+
+En pertànyer a dos dominis diferents, aquesta petició automàticament
+queda sense efecte, i el client no serà capaç de rebre les dades que el
+servidor envia, per motius de seguretat (accés d'un domini a un altre
+diferent).
+
+Per a evitar aquest problema, i permetre que diferents fonts o dominis
+puguen accedir a nostra API REST, hem d'habilitar CORS en la nostra
+aplicació Symfony. Una de les opcions que tenim és utilitzar un bundle
+anomenat NelmioCorsBundle. Els passos són senzills: en primer lloc
+instal·lem el bundle així:
+
+composer require cors
+
+Després, podem editar l'arxiu de configuració
+config/packages/nelmio_cors.yaml i ajustar-ho al nostre gust. En la
+subsección paths estan les rutes per a les quals s'habilita CORS. Si,
+per exemple, volem habilitar-ho només per a la subruta /peliculas/apis/,
+hauríem de definir únicament el path '\^/peliculas/apis/'.
+
+4.2. Validació de dades
+
+Podem incorporar el bundle validator de Symfony, que ja hem emprat per a
+validar les dades que provenen d'un formulari, i utilitzar-ho per a
+validar que les dades que rep un servei (POST o PUT) són correctes abans
+de realitzar les corresponents insercions o modificacions. Per a açò, en
+primer lloc incloem el bundle en el projecte:
+
+composer require symfony/validator
+
+A continuació, editem l'arxiu de configuració
+config/packages/framework.yaml i afegim aquesta línia, per a permetre la
+validació mitjançant anotacions:
+
+framework: ... **validation: { enable_annotations: true }**
+
+Després, definim les regles de validació en la(s) entitat(és)
+corresponent(s). Per exemple, si volem que el títol de la pel·lícula no
+estiga buit, podem fer alguna cosa així en la nostra entitat Pelicula
+(indiquem en negreta les dues noves línies a afegir):
+
+... **use Symfonyas Assert;**
+
+/** \* \@ORM(repositoryClass=**"**App**"**) *****/ class Pelicula { ...
+/ \* \@ORM(type=***"***string***"***, length=255) *****\@Assert()** \*/
+private \$titule; ...
+
+Finalment, quan anem a utilitzar el servei POST o PUT, per a insercions
+o modificacions respectivament, n'hi ha prou amb validar l'objecte
+construït abans de realitzar l'operació. Si no hi ha errors,
+s'insereix/modifica, i si n'hi ha, es retorna un missatge d'error.
+Així seria en el cas de la inserció:
+
+**use Symfony;** ... /\*\* \* \@Rest("/", name="nova_pelicula") \*/
+public function nova_pelicula(Request \$request **, ValidatorInterface
+\$validator** ) { \$serializer = \$this-\>get('jms_serializer');
+\$pelicula = new Pelicula();
+$$pelicul{a -}setTitulo($$request-\>get('titule'));
+$$pelicul{a -}setAnyo($$request-\>get('anyo'));
+
+**\$errors = **$$validato{r -}validate($$**pelicula);**
+
+**if (count(\$errors) == 0 )** { \$entityManager =
+\$this-\>getDoctrine()-\>getManager();
+$$entityManage{r -}persist($$pelicula); \$entityManager-\>flush();
+
+\$resposta = \[ 'ok' =\> true, 'pelicula' =\> \$pelicula\]; } else {
+\$resposta = \[
+
+'ok' =\> false, 'error' =\> 'Les dades no són correctes' \]; }
+
+return new Response($$serialize{r -}serialize($$resposta, "json")); }
+
+Notar que utilitzem un servei anomenat ValidatorInterface per a validar
+les dades. La validació retorna un array d'errors oposats que, si està
+buit, indica que no hi ha errors, i podem procedir amb la inserció.
+
+En aquest punt, pots intentar realitzar l'Exercici 3 del final de la
+sessió, que és de caràcter optatiu.
+
+4.3. Autenticació basada en tokens
+
+Els mecanismes d'autenticació tradicional en aplicacions web estan
+basats en sessions: l'usuari envia les seues credencials a través
+d'algun formulari, el servidor ho valida i emmagatzema en la sessió les
+dades de l'usuari logueado, perquè, mentre no caduque la sessió o la
+tanque l'usuari, puga seguir accedint sense haver de tornar a
+autenticar-se.
+
+No obstant açò, aquest tipus d'autenticació té la limitació de ser
+exclusiva per a aplicacions web, és a dir, per a clients web que es
+connecten a servidors web. Si volguérem adaptar l'aplicació a mòbil, o
+a una versió d'escriptori, no podríem seguir emprant aquest mecanisme.
+
+Per a superar aquest escull, podem utilitzar l'autenticació basada en
+tokens. Aquesta és una autenticació "sense estat" (stateless), la qual
+cosa significa que no s'emmagatzema gens entre client i servidor per a
+seguir accedint autenticats. El que es fa és el següent:
+
+1.  El client envia al servidor les seues credencials (usuari i
+    password)
+2.  El servidor les valguda, i si són correctes, genera una cadena
+    xifrada anomenada token, que conté la validació de l'usuari, a més
+    de certa informació addicional que puguem voler afegir (com el login
+    de l'usuari, per exemple). Aquest token s'envia de tornada a
+    l'usuari com a resposta a la seua autenticació.
+3.  A partir d'aquest punt, cada vegada que el client vulga
+    autenticar-se contra el servidor per a sol·licitar un recurs, n'hi
+    ha prou que envie el token que el servidor li va proporcionar. El
+    servidor s'encarregarà de verificar-ho per a comprovar que és
+    correcte, i donar-li accés o denegar-li-ho.
+
+Igual que les sessions, els tokens també poden tenir una caducitat, que
+s'indica dins del propi token. Si, passat aqueix temps, el servidor rep
+el token, ho descartarà com a invàlid (caducat), i el client tornarà a
+no estar autenticat.
+
+4.3.1. Introducció a JWT
+
+JWT (JSON Web Token) és un estàndard obert que permet l'enviament de
+tokens de forma segura. Els tokens se signen amb una clau, i contenen la
+informació necessària de l'usuari
+
+autenticat (normalment el seu login és suficient), perquè no s'haja de
+tornar a consultar qui és, mentre el token no caduque.
+
+Per a poder treballar amb JWT en Symfony, podem emprar (entre uns
+altres) el bundle lexik/ jwt­authentication­ bundle, que s'instal·la
+d'aquesta manera:
+
+composer require jwt-auth
+
+A més, necessitarem afegir el bundle de seguretat de Symfony:
+
+composer require symfony/security
+
+4.3.2. Creació de l'entitat Usuari per a validar-se
+
+Emprarem per a validar-nos una entitat Usuari com la qual emprem en la
+sessió 6 per a l'aplicació symfony.contactes. Podem copiar-la i
+pegar-la en el nostre projecte symfony.bundles, en la carpeta src/Entity
+al costat de l'entitat Pelicula. També copia i pega l'arxiu
+UsuarioRepository de la carpeta src/Repository en la carpeta
+corresponent del projecte symfony.bundles. Quan tinguem aquests dos
+arxius copiats, executem els dos comandos per a actualitzar la base de
+dades:
+
+php bin/console make:migration
+
+php bin/console doctrine:migration:migrate
+
+Inserirem també algun usuari de prova en la taula, amb el password
+encriptat en format bcrypt de 12 voltes, com vam fer en la sessió 6
+(pots copiar algun d'aqueixos usuaris també, si ho prefereixes).
+
+4.3.3. Generació de certificats
+
+Per a poder codificar els tokens, és necessari generar uns certificats.
+Generarem un de privat per a generar el token quan l'usuari es valide,
+i un públic per a poder-ho validar quan l'usuari ho envie.
+
+Per a açò, executem aquests comandos des de la carpeta arrel del
+projecte. Quan ens ho demane, triarem com passphrase la paraula symfony
+(és només una paraula o frase que utilitzar per a xifrar el contingut,
+triem aqueixa per exemple):
+
+mkdir config/jwt
+
+openssl genrsa -out config/jwt/private.pem -aes256 4096
+
+openssl rsa -pubout -in config/jwt/private.pem -out
+config/jwt/public.pem
+
+4.3.4. Configuració en l'arxiu .env
+
+Hem d'editar també l'arxiu .env i afegir aquestes línies:
+
+JWT_PRIVATE_KEY_PATH=config/jwt/private.pem
+
+JWT_PUBLIC_KEY_PATH=config/jwt/public.pem
+
+JWT_PASSPHRASE=symfony
+
+JWT_TOKENTTL=3600
+
+L'atribut JWT_PASSPHRASE haurà de coincidir amb el qual indiquem en
+generar els certificats en el pas anterior (symfony, en el nostre cas).
+L'atribut JWT_TOKENTTL
+
+és el temps de vida o caducitat del token, en segons. En aquest cas, li
+donem un temps de validesa d'una hora.
+
+4.3.5. Configuració de config/packages/lexik_authentication.yaml
+
+Aquest arxiu quedarà d'aquesta manera, en el qual indiquem on estan
+generades la clau privada i pública, la paraula de xifrat i el temps de
+vida:
+
+lexik_jwt_authentication:
+
+private_key_path: '%kernel.project_dir%/%env(JWT_PRIVATE_KEY_PATH)%'
+
+public_key_path: '%kernel.project_dir%/%env(JWT_PUBLIC_KEY_PATH)%'
+
+pass_phrase: '%env(JWT_PASSPHRASE)%'
+
+token_ttl: '%env(JWT_TOKENTTL)%'
+
+4.3.6. Configuració de config/packages/security.yaml
+
+L'arxiu principal de seguretat config/packages/security.yaml haurà de
+contenir aquests atributs per a l'autenticació per token:
+
+security:
+
+encoders: App: algorithm: bcrypt cost: 12
+
+providers: api_user_provider: entity: class: App property: login
+
+firewalls: login: pattern: \^/peliculas/api/login stateless: true
+anonymous: true provider: api_user_provider form_login:
+
+check_path: /peliculas/api/login success_handler:
+lexik_jwt_authentication.handler.authentication_success failure_handler:
+lexik_jwt_authentication.handler.authentication_failure
+require_previous_session: false username_parameter: username
+password_parameter: password
+
+api:
+
+pattern: \^/peliculas/api stateless: true anonymous: false guard:
+
+authenticators:
+
+-   lexik_jwt_authentication.jwt_token_authenticator
+
+access_control:
+
+-   { path: \^/peliculas/api/login, rols: IS_AUTHENTICATED_ANONYMOUSLY }
+-   { path: \^/peliculas/api, rols: IS_AUTHENTICATED_FULLY }
+
+El que hem definit en aquest arxiu és:
+
+-   En la secció encoders definim com estaran codificats els passwords.
+    En el nostre cas usarem bcrypt de 12 voltes, com en la sessió 6.
+-   En la secció providers especifiquem d'on obtindrem els usuaris.
+    Emprarem l'entitat Usuari, que el seu login ve emmagatzemat en la
+    propietat login
+-   En la secció firewalls especifiquem les regions protegides de
+    l'aplicació: ◦ La secció /peliculas/api/login no està protegida
+    (accés anònim obert). En accedir a ella s'activarà el controlador
+    mapeado amb la ruta /peliculas/api/login, i automàticament prendrà
+    un paràmetre anomenat username i un altre anomenat password de la
+    petició, i els validarà contra el provider indicat. Si tot és
+    correcte, s'utilitzarà el success handler indicat (que serà
+    l'encarregat de generar el token). Si alguna cosa falla, s'emprarà
+    el failure handler indicat (que enviarà una resposta de no
+    autorització). ◦ La resta de la secció /peliculas/api està protegida
+    mitjançant el jwt_authenticator, amb el que haurem d'enviar un
+    token prèviament obtingut per a entrar.
+-   Finalment, en la secció d'access_control indiquem que no és
+    necessari estar autenticat per a accedir al login, i sí per a la
+    resta d'URIs de /peliculas/api.
+
+4.3.7. El controlador de login
+
+El controlador de login bàsicament consisteix en mapear la URI
+/peliculas/api/login amb una funció buida, ja que el propi bundle
+s'encarrega de tot (validar credencials i generar el token, o validar
+el token que arriba del client, segons el cas). Per tant, podem afegir
+aquest mètode en la nostra classe PeliculaRESTController:
+
+/\*\* \* \@Rest("/login", name="login") \*/ public function login() {}
+
+4.3.8. Provant l'autenticació
+
+Per a provar que l'autenticació funciona, vam crear una nova petició
+POST en Postman a la URI /peliculas/api/login, i li passem en el cos de
+la petició l'usuari (username) i la contrasenya (password). En aquest
+exemple, suposem que l'usuari és pelicula i la contrasenya (sense
+encriptar) és 0000 . Haurem d'afegir també una capçalera (Header) amb
+l'atribut Content­Type establit a application/json.
+
+Si tot va correctament, rebrem com a resposta un token:
+
+4.3.9. Provant l'autorització
+
+Ara, anem a provar a obtenir un llistat de pel·lícules. Si llancem la
+petició en Postman sense cap tipus d'autorització, rebrem aquest
+missatge de tornada:
+
+Hem d'afegir una capçalera Authorization el valor de la qual siga el
+prefix "Bearer " (incloent l'espai final) seguit del token que ens ha
+enviat el servidor en autenticar-nos:
+
+Amb açò, sí obtindrem el llistat de pel·lícules. Haurem de procedir de
+la mateixa forma (enviant el token en la capçalera Authorization) per a
+poder emprar la resta de peticions.
+
+Si vols provar a fer-ho per tu mateix, pots realitzar l'Exercici 4 del
+final de les anotacions, de caràcter opcional.
+
+5\. Exercicis
+
+5.1. Exercici 1
+
+Basant-te en l'exemple de les pel·lícules vist en els apartats
+anteriors, construeix ara tu una API REST sobre l'aplicació
+symfony.tasques que iniciem en la sessió anterior. Ja tindràs
+instal·lats els bundles de Doctrine de la sessió prèvia, però ara hauràs
+d'instal·lar JMSSerializerBundle i FOSRestBundle, com s'explica en
+aquesta sessió (apartat 2.1).
+
+Després, crea una classe anomenada TareaRESTController en la carpeta
+src/Controller, i defineix en ella el codi necessari per a definir
+aquests serveis. Tots ells hauran de partir de la URI base /tasques/api:
+
+-   Servei GET a la subruta /, que retornarà un llistat de tasques si
+    tot ha anat bé, o un missatge d'error si no hi ha tasques que
+    mostrar.
+-   Servei GET a la subruta /{aneu}, que retornarà les dades de la tasca
+    amb l'aneu indicat.
+-   Servei POST a la subruta /, que inserirà la tasca que li arriba en
+    el cos de la petició, retornant la tasca inserida. El format de la
+    data ho pots triar tu mateix, i pots emprar el mètode
+    DateTime::createFromFormat per a crear la data a partir d'aqueix
+    format.
+-   Servei DELETE a la subruta /{aneu}, que eliminarà la tasca amb
+    l'aneu indicat, retornant la tasca eliminada.
+-   Servei PUT a la subruta /{aneu}, que modificarà les dades de la
+    tasca amb l'aneu indicat. Rebrà en el cos de la petició totes les
+    dades de la tasca (descripció, data i prioritat) i els actualitzarà
+    sobre la tasca oposada. Es retornarà la pròpia tasca modificada.
+
+Tots els serveis retornaran una estructura JSON composta per les
+mateixes dades que en l'exemple de les pel·lícules:
+
+-   Un atribut ok, que serà vertader si l'operació ha sigut correcta, i
+    fals si no. De moment, les operacions de GET es consideraran
+    incorrectes si no es troben resultats, la de POST serà sempre
+    correcta, i les de DELETE i PUT seran incorrectes si no es troba
+    l'element a esborrar o modificar, respectivament.
+-   En el cas que ok siga vertader (l'operació siga correcta),
+    s'adjuntarà com a segon atribut l'element afectat (el llistat
+    oposat, o l'element inserit/esborrat/modificat).
+-   En el cas que ok siga fals (operació incorrecta), s'adjuntarà un
+    segon atribut error amb el missatge d'error corresponent.
+
+5.2. Exercici 2
+
+Crea una col·lecció en Postman cridada Tasques, i defineix dins aquestes
+cinc peticions:
+
+-   **GET tasques** , que enviarà una petició GET a
+    symfony.tasques/tasca/api/ per a obtenir totes les tasques
+-   **GET tasca** , que enviarà una petició GET a
+    symfony.tasques/tasca/api/1, per a obtenir les dades de la tasca
+    indicada (en aquest cas la 1, però pots posar l'aneu que
+    preferisques per a provar).
+-   **POST tasca,** que enviarà una petició POST a
+    symfony.tasques/tasca/api/, i en el cos (bodi) de la petició,
+    enviarà les dades d'una tasca. Per exemple (el format de data pot
+    variar depenent del que hages triat tu): {"descripcion":"Preparar
+    examen desembre", "data":"10/12/ 2018", "prioritat": "BAIXA"}
+-   **DELETE tasca** , que enviarà una petició DELETE a
+    symfony.tasques/tasca/api/2, per a eliminar la tasca indicada (en
+    aquest cas la 2, però pots posar l'aneu que preferisques per a
+    provar)
+-   **PUT tasca** , que enviarà una petició PUT a
+    symfony.tasques/tasca/api/3, per a modificar les dades de la tasca
+    indicada (en aquest cas la 3, però pots posar l'aneu que
+    preferisques per a provar). Les dades de la tasca (descripció, data
+    i prioritat) s'enviaran en el cos de la petició. Per exemple (el
+    format de data, novament, pot variar depenent del que hages triat):
+    {"descripcion":"Acabar sessió 8", "data":"28/11/2018", "prioritat":
+    "ALTA"}
+
+Quan tingues totes les peticions fetes i comprovades, exporta-les a un
+arxiu anomenat tasques.postman_collection.json, que hauràs d'adjuntar
+com a lliurament d'aquest exercici.
+
+5.3. Exercici 3 (opcional)
+
+Modifica la inserció de tasques de l'Exercici 1 perquè es valide que la
+descripció, la data i la prioritat no estiguen en blanc, i que la
+prioritat tinga valors entre 1 i 3 (inclusivament). Si la tasca no és
+vàlida, es retornarà un missatge d'error indicant-ho, en lloc de la
+tasca inserida.
+
+NOTA : per a indicar que la prioritat estiga entre dos valors donats,
+
+pots utilitzar les assercions GreaterThanOrEqual i
+
+LessThanOrEqual, tal com s'explica ací.
+
+Crea una nova petició en Postman cridada POST incorrecte que intente
+enviar les dades d'una tasca amb la prioritat o la descripció buides
+(cadena buida), o amb una prioritat no vàlida (per exemple, 5), i
+comprova que retorna un resultat d'error. Actualitza l'arxiu exportat
+tasques.postman_collection.json de l'exercici anterior amb aquesta nova
+petició.
+
+### []{#anchor-11}5.4. Exercici 4 (opcional)
+
+Segueix els passos indicats en el subapartat 4.3 per a afegir seguretat
+basada en tokens en l'aplicació d'exemple symfony.bundles (la mateixa
+en la qual es basa aqueix apartat). Prova a autenticar-te amb l'usuari
+que hages creat, obtenir el token i emprar-ho per a obtenir el llistat
+de pel·lícules o qualsevol altra ruta.
+
+**
+* @Route("/api/v1/movies")
+*/
+class ApiController extends AbstractController
+{
+    /**
+     * @Route("/", name="api_movies_links", methods={"GET"})
+     * @param Request $request
+     * @param MovieRepository $movieRepository
+     * @return JsonResponse
+     */
+    public function index(Request $request, MovieRepository $movieRepository): JsonResponse
+    {
+        $movies = $movieRepository->findAll();
+
+        return new JsonResponse($movies, Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/{id}", name="api_moives_show", methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function show(Request $request,  ?Movie $movie): JsonResponse
+    {
+
+        if (!empty($movie))
+            return new JsonResponse($movie, Response::HTTP_OK);
+
+        else
+            return new JsonResponse("error", Response::HTTP_NOT_FOUND);
+    }
+
+    /**
+     *
+     * @Route("/", name="api_movies_create", methods={"POST"})
+     */
+
+    public function create(Request $request): JsonResponse
+    {
+        $movie = new Movie();
+        $data = [];
+        if ($content = $request->getContent()) {
+            $data = json_decode($content, true);
+        }
+        
+        try {
+            $movie->setTitle($data["title"]);
+            $movie->setOverview($data["overview"]);
+            $movie->setTagline($data["tagline"]);
+            $movie->setPoster($data["poster"]);
+            $movie->setReleaseDate(new \DateTime($data["release_date"]));
+
+        } catch (\Exception $e) {
+            $error["code"] = $e->getCode();
+            $error["message"] = $e->getMessage();
+            return new JsonResponse($error, Response::HTTP_BAD_REQUEST);
+        }
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($movie);
+        $em->flush();
+
+        return new JsonResponse($movie, Response::HTTP_CREATED);
+    }
+}
+```
