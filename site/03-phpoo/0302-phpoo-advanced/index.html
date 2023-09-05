@@ -1,0 +1,1074 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>PHP OO Avançat - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ppo-en-php-conceptes-avancants">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              PHP OO Avançat
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          1.- Introducció a la programació Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/01-intro/">
+        Estructura aplicacions web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/02-developement/">
+        Preparació de l'entorn de desenvolupament
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/02-phpbasics/">
+        PHP Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          PHP OO Avançat
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        PHP OO Avançat
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metodes-i-propietats-estatiques">
+    Mètodes i propietats estàtiques
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classes-abstractes">
+    Classes abstractes
+  </a>
+<nav aria-label="Classes abstractes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metodes-abstractes">
+    Mètodes abstractes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interficies">
+    Interfícies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classes-abstractes-vs-interficies">
+    Classes abstractes vs interfícies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#trets-traits">
+    Trets (Traits)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clonacio-dobjectes">
+    Clonació d'Objectes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classes-i-metodes-finals">
+    Classes i mètodes finals
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metodes-magics">
+    Mètodes màgics
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#espai-de-noms">
+    Espai de noms
+  </a>
+<nav aria-label="Espai de noms" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acces">
+    Accés
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#organitzacio">
+    Organització
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#autoload">
+    Autoload
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bibliografia">
+    Bibliografia
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0303-errorhandling/">
+        Errors i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-02-state/">
+        Manteniment de l'estat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-03-authentication/">
+        Autenticació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0501-data-access/">
+        Accés a dades amb PHP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0599-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/07-seguretat-control-acces/">
+        Seguretat i control d'accés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-pujada-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/20-gestio-actius/">
+        Gestió de fitxers CSS i Javascript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/15-unit-testing/">
+        Testing en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+        9.- Introducció als serveis web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/05-rest-api-symfony/">
+        REST API en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/06-jwt.md">
+        Seguretat en JWT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="ppo-en-php-conceptes-avancants">PPO en PHP. Conceptes avançants</h1>
+<h2 id="metodes-i-propietats-estatiques">Mètodes i propietats estàtiques</h2>
+<p>Els mètodes i propietats estàtics (o de classe) són aquells accessibles directament des de la classe, sense necessitat
+d'instànciar-la.</p>
+<p>Es declaren amb la paraula reservada <code>static</code> i s'accedeix a ells amb l'operador d'àmbit <code>::</code>.</p>
+<p>Si volem accedir a un mètode estàtic, es posa davant el nom de la classe:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">Product</span><span class="o">::</span><span class="na">newProduct</span><span class="p">()</span><span class="o">.</span>
+</code></pre></div>
+<p>Si des d'un mètode volem accedir a una propietat estàtica de la mateixa classe, s'utilitza la referencia <code>self</code>: <code>self::$numberOfProducts</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">const</span> <span class="no">IVA</span> <span class="o">=</span> <span class="mf">0.23</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$numberOfProducts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">newProducts</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nx">self</span><span class="o">::</span><span class="nv">$numberOfProducts</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nx">Product</span><span class="o">::</span><span class="na">newProducts</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$tax</span> <span class="o">=</span> <span class="nx">Product</span><span class="o">::</span><span class="na">IVA</span><span class="p">;</span>
+</code></pre></div>
+<p>També podem tindre classes normals que tinguen alguna propietat estàtica:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">const</span> <span class="no">IVA</span> <span class="o">=</span> <span class="mf">0.23</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="nx">int</span> <span class="nv">$numberOfProducts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="nx">string</span> <span class="nv">$code</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$code</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nx">self</span><span class="o">::</span><span class="nv">$numOfProducts</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">=</span> <span class="nv">$code</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getSummaryLine</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">return</span> <span class="s2">"El producte "</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span><span class="o">.</span><span class="s2">" és el número "</span><span class="o">.</span><span class="nx">self</span><span class="o">::</span><span class="nv">$numOfProducts</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$prod1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s2">"PS5"</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$prod2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s2">"XBOX Series X"</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$prod3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s2">"Nintendo Switch"</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span><span class="k">echo</span> <span class="nv">$prod3</span><span class="o">-&gt;</span><span class="na">getSummaryLine</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="classes-abstractes">Classes abstractes</h2>
+<p>Les classes abstractes són classes que no es poden instanciar, per la qual cosa actuaran de superclasse i serà obligatori crear subclasses per a fer ús d'ella. És a dir, una classe amb el modificador <code>abstract</code> no pot tenir objectes que la instancien, però sí podrà utilitzar-se de classe base i les seues subclasses sí podran utilitzar-se per a instanciar objectes.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">abstract</span> <span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>   <span class="o">...</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="metodes-abstractes">Mètodes abstractes</h3>
+<p>Un mètode en el qual s'indique <code>abstract</code>, ha de ser redefinit obligatòriament per les subclasses, i no podrà contenir codi.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>        <span class="nx">…</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Anem a fer una petita modificació en la nostra classe <code>Product</code>. Per a
+facilitar la creació de nous objectes, crearem un constructor al que se
+li passarà un array amb els valors dels atributs del nou producte.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">public</span> <span class="nv">$code</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="nv">$shortName</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="nv">$price</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">echo</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'code'</span><span class="p">];</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'name'</span><span class="p">];</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">shortName</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'short_name'</span><span class="p">];</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">price</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'price'</span><span class="p">];</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Questió</p>
+<p><strong>Què passa ara amb la classe <code>TV</code>, què hereta de <code>Product</code>? Quan crees un
+nou objecte d'aqueixa classe, es cridarà al constructor de Product?
+Pots crear un nou constructor específic perquè redefinisca el
+comportament de la classe base?</strong></p>
+</div>
+<p>Començant per aquesta última pregunta, òbviament pots definir un nou
+constructor per a les classes heretades que redefinisquen el
+comportament del que existeix en la classe base, tal com faries amb
+qualsevol altre mètode. I depenent de si programes o no el constructor
+en la classe heretada, es cridarà o no automàticament al constructor de
+la classe base.</p>
+<p>En PHP5+, si la classe heretada no té constructor propi, es cridarà
+automàticament al constructor de la classe base (si existeix). No
+obstant açò, si la classe heretada defineix el seu propi constructor,
+hauràs de ser tu el que realitze la crida al constructor de la classe
+base si ho consideres necessari, utilitzant per a açò la paraula
+<code>parent</code> i l'operador de resolució d'àmbit.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">TV</span> <span class="k">extends</span> <span class="nx">Product</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">public</span> <span class="nv">$size</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nv">$technology</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">print</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">.</span> <span class="s2">" polzades&lt;/p&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$row</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'size'</span><span class="p">];</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">technology</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'technology'</span><span class="p">];</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span> <span class="p">}</span>
+</code></pre></div>
+<p>Ja has vist amb amb anterioritat com s'utilitzava la paraula clau <code>self</code>
+per a tenir accés a la classe actual. La paraula <code>parent</code> és semblant. En
+utilitzar <code>parent</code> fas referència a la classe base de la actual, tal com
+apareix rere <code>extends</code>.</p>
+<h2 id="interficies">Interfícies</h2>
+<p>Un interfície (<em>interface</em>) és com una classe buida que solament conté declaracions de mètodes. 
+Es defineixen utilitzant la paraula <code>interface</code>. Per exemple, abans vam veure que podíem crear noves classes
+heretades de <code>Product</code>, com <code>TV</code> o <code>Ordinador</code>. També vam veure que en les subclasses
+podies redefinir el comportament del mètode perquè generara una eixida
+en HTML diferent per a cada tipus de producte.</p>
+<p>Si vols assegurar-te que tots els tipus de productes tinguen un mètode
+<code>show</code>, pots crear un interface com el següent.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">interface</span> <span class="nx">IShow</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span><span class="o">:</span> <span class="nx">Void</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<p>I quan crees les subclasses hauràs d'indicar amb la paraula <code>implements</code>
+que han de implementar els mètodes declarats en aquest interface.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">TV</span> <span class="k">extends</span> <span class="nx">Product</span> <span class="k">implements</span> <span class="nx">IShow</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>            <span class="nx">…</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="k">echo</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">.</span> <span class="s2">" polzades&lt;/p&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="nx">…</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Tots els mètodes que es declaren en un <code>interface</code> han de ser públics. A
+més de mètodes, els interfícies podran contenir constants però no
+atributs.</p>
+<p>Un interface és com un contracte que la classe ha de complir. En
+implementar tots els mètodes declarats en la interfície s'assegura la
+interoperabilitat entre classes. Si saps que una classe implementa un
+interfície determinada saps quins noms tenen els seus mètodes, quins
+paràmetres els has de passar i, probablement, podràs esbrinar fàcilment
+amb quins objectiu han sigut escrits.</p>
+<p>Per exemple, en la llibreria de PHP està definit la interfície
+<code>countable</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">Countable</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">abstract</span> <span class="k">public</span> <span class="nx">int</span> <span class="nb">count</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Si crees una classe per a la cistella de la compra en la tenda web,
+podries implementar aquesta interfície per a contar els productes que
+figuren en la mateixa.</p>
+<p>Abans vas aprendre que en PHP5 una classe només pot heretar d'una altra.
+En PHP5 no existeix l'herència múltiple. No obstant açò, sí és possible
+crear classes que implementen diverses interfícies, simplement separant
+la llista d'interfícies per comes després de la paraula <code>implements</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">TV</span> <span class="k">extends</span> <span class="nx">Product</span> <span class="k">implements</span> <span class="nx">IShow</span><span class="p">,</span> <span class="nx">Countable</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>         <span class="nx">…</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<p>L'única restricció és que els noms dels mètodes que s'hagen
+d'implementar en els diferents interfícies no coincidisquen. És a dir,
+en el nostre exemple, la interfície <code>IShow</code> no podria contenir el
+mètode <code>count</code>, doncs aquest ja està declarat en <code>Countable</code>.</p>
+<p>Des de PHP7 també es poden crear nous interfícies heretant d'uns altres ja
+existents. Es fa de la mateixa forma que amb les classes, utilitzant la
+paraula <code>extends</code>.</p>
+<h2 id="classes-abstractes-vs-interficies">Classes abstractes vs interfícies</h2>
+<p>Un dels dubtes més comuns en POO, és quina solució adoptar en algunes
+situacions: interfícies o classes abstractes. Ambdues permeten definir
+regles per a les classes que els implementen o hereten respectivament. I
+cap permet instanciar objectes. Les diferències principals entre ambdues
+opcions són:</p>
+<ul>
+<li>En les classes abstractes, els mètodes poden contenir codi. Si van a
+    existir diverses subclasses amb un comportament comú, es podria
+    programar en els mètodes de la classe abstracta. Si s'opta per un
+    interface, caldria repetir el codi en totes les classes que ho
+    implemente.</li>
+<li>Les classes abstractes poden contenir atributs, i les interfícies
+    no.</li>
+<li>No es pot crear una classe que herete de dues classes abstractes,
+    però sí es pot crear una classe que implemente diverses interfícies.</li>
+</ul>
+<p>Per exemple, en la botiga <em>online</em> va a haver-hi dos tipus d'usuaris:
+clients i empleats. Si necessites crear en la teua aplicació objectes de
+tipus Usuari (per exemple, per a manejar de forma conjunta als
+clients i als empleats), hauries de crear una classe no abstracta amb
+aqueix nom, de la qual heretarien Client i Empleat.</p>
+<p>Podeu llegir també l'article
+ <a href="https://poesiabinaria.net/2010/06/clases-abstractas-e-interfaces-en-php/">Clases abastractas e interfaces en PHP </a></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Usuari</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>     <span class="o">...</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">class</span> <span class="nc">Client</span> <span class="k">extends</span> <span class="nx">Usuari</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="7 "></span><span class="k">class</span> <span class="nc">Empleat</span> <span class="k">extends</span> <span class="nx">Usuari</span> <span class="p">{</span>
+<span class="linenos" data-linenos="8 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Però si no fóra així, hauries de decidir si crees o no <code>Usuari</code>, i si ho
+faries com una classe abstracta o com una interfície.</p>
+<p>Si per exemple, volgueres definir en un únic lloc els atributs comuns a
+Client i a Empleat, hauries de crear una classe abstracta Usuari de la
+qual hereten.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">abstract</span> <span class="k">class</span> <span class="nc">Usuari</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$dni</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">protected</span> <span class="nx">string</span> <span class="nv">$nom</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="o">...</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Però açò no podries fer-ho si ja tens planificada alguna relació
+d'herència per a una d'aquestes dues classes.</p>
+<p>Per a finalitzar amb les interfícies, a la llista de funcions de PHP
+relacionades amb la POO pots afegir les següents.</p>
+<table>
+<thead>
+<tr>
+<th>Funció</th>
+<th>Exemple</th>
+<th>Significat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_declared_interfícies</td>
+<td>print_r (get_declared_interfícies());</td>
+<td>Retorna un array amb els noms dels interfícies declarats.</td>
+</tr>
+<tr>
+<td>interface_exists</td>
+<td _="…">if (interface_exists('iShow')</td>
+<td>Retorna true si existeix l'interface que s'indica, o false en cas contrari.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="trets-traits">Trets (Traits)</h2>
+<p>Des de la seva versió 5.4.0, PHP implementa una metodologia de
+reutilització de codi anomenada <code>Traits</code>.</p>
+<p>Els trets («traits» en anglès) són un mecanisme de reutilització de
+codi en llenguatges d'herència simple, com PHP. L'objectiu d'un tret és
+el de reduir les limitacions pròpies de l'herència simple permetent que
+els desenvolupadors reutilitzen a voluntat conjunts de mètodes sobre
+diverses classes independents i pertanyents a classes jeràrquiques
+diferents. </p>
+<p>Un Trait és similar a una classe, però amb l'únic objectiu d'agrupar
+funcionalitats molt específiques i d'una manera coherent. No es pot
+instanciar directament un <code>Trait</code>. És per tant un afegit a l'herència
+tradicional, i habilita la composició horitzontal de comportaments; és a
+dir, permet combinar membres de classes sense haver d'usar herència.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">trait</span> <span class="nx">Saludar</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">function</span> <span class="nf">decirHola</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="k">return</span> <span class="s2">"hola"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">trait</span> <span class="nx">Despedir</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">function</span> <span class="nf">decirAdios</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">return</span> <span class="s2">"adiós"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">class</span> <span class="nc">Comunicacion</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">use</span> <span class="nx">Saludar</span><span class="p">,</span> <span class="nx">Despedir</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$comunicacion</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Comunicacion</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span><span class="k">echo</span> <span class="nv">$comunicacion</span><span class="o">-&gt;</span><span class="na">decirHola</span><span class="p">()</span> <span class="o">.</span> <span class="s2">", que tal. "</span> <span class="o">.</span> <span class="nv">$comunicacion</span><span class="o">-&gt;</span><span class="na">decirAdios</span><span class="p">();</span>
+</code></pre></div>
+<p>En l'exemple anterior la classe <code>Comunicacion</code> necessita reutilitzar els mètodes <code>Saludar::decirHola()</code> i 
+<code>Despedir::decirAdios()</code> com que en PHP no hi ha herència múltiple mitjançant els <code>trait</code> es pot aconseguir 
+reutilitzar-les.</p>
+<h2 id="clonacio-dobjectes">Clonació d'Objectes</h2>
+<p>Per crear una còpia d'un objecte s'utilitza la paraula clau <code>clone</code> (que
+invoca, si fos possible, al mètode  <code>__clone()</code> de l'objecte). No es pot
+cridar el mètode <code>__clone()</code> d'un objecte directament.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$copia_objecte</span> <span class="o">=</span> <span class="k">clone</span> <span class="nv">$objecte</span><span class="p">;</span>
+</code></pre></div>
+<p>Quan es clona un objecte, PHP7 durà a terme una còpia superficial de les
+propietats de l'objecte. Les propietats que siguen referències a altres
+variables (per exemple, objectes), mantindran les referències.</p>
+<p>Compte: si els atributs són objectes no es clonaran.</p>
+<h2 id="classes-i-metodes-finals">Classes i mètodes finals</h2>
+<p>Existeix una forma d'evitar que les classes heretades puguen redefinir
+el comportament dels mètodes existents en la superclasse: utilitzar la
+paraula <code>final</code>.</p>
+<p>Si en el nostre exemple haguérem fet:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$code</span><span class="p">;</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">;</span>         
+<span class="linenos" data-linenos="4 "></span>    <span class="k">public</span> <span class="nx">float</span> <span class="nv">$price</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">public</span> <span class="k">final</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="7 "></span>        <span class="k">print</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<p>En aquest cas el mètode <code>show</code> no podria redefinir-se en la classe <code>TV</code>.</p>
+<p>També es pot declarar una classe utilitzant <code>final</code>. En aquest cas no
+podran crear-se classes heretades utilitzant-les com a base.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">final</span> <span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="o">...</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="metodes-magics">Mètodes màgics</h2>
+<p>Totes les classes PHP ofereixen un conjunt de mètodes, també coneguts com a <em>mètodes màgics</em> que es poden sobreescriure per substituir el seu comportament. Alguns d’ells ja els han utilitzat.</p>
+<p>Davant de qualsevol dubte, és convenient consultar la <a href="https://www.php.net/manual/es/language.oop5.magic.php">documentació oficial</a>.</p>
+<p>Els més destacables són:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>__destruct ()</code> → S'invoca en perdre la referència. S'utilitza per tancar una connexió amb una base de dades, tancar un fitxer, etc.</li>
+<li><code>__toString ()</code> → representació de l'objecte com a cadena</li>
+<li><code>__get(propietat)</code>, <code>__set(propietat, valor)</code> → permetria l'accés a la propietat privada, tot i que sempre és més llegible/mantenible codificar el <em>getter/setter</em>.</li>
+<li><code>__isset(propietat)</code>, <code>__unset (propietat)</code> → us permet esbrinar o eliminar el valor d'una propietat.</li>
+<li><code>__sleep()</code>, <code>__wakeup ()</code> → S'executen quan es recuperen (<em>Unserialize</em>) o emmagatzemen un objecte serialitzat (<em>serialitze</em>), i s'utilitzen per definir quines propietats estan serialitzades.</li>
+<li><code>__call ()</code>, <code>__callstatic ()</code> → s'executen cridant a un mètode que no siga públic. Permeten mètodes de sobrecàrrega.</li>
+</ul>
+<h2 id="espai-de-noms">Espai de noms</h2>
+<p>Des de PHP 5.3 permeten organitzar classes/interfícies, funcions o constant de manera similar als paquets <em>java</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Recomanació</p>
+<p>Crea un espai de nom únic per fitxer i creeu una estructura de directoris respecte als nivells/subnivells (com es fa a <em>java</em>)</p>
+</div>
+<p>Es declara a la primera línia per la paraula clau <code>namespace</code> seguit del nom de l'espai de nom assignat (cada subnivell està separat amb la barra invertida <code>\</code>):</p>
+<p>Per exemple, per col·locar la classe <code>Product</code> dins de l'espai de noms <code>Dwes\Examples</code> faríem:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">namespace</span> <span class="nx">Dwes\Examples</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">const</span> <span class="no">IVA</span> <span class="o">=</span> <span class="mf">0.21</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">echo</span> <span class="s2">"&lt;p&gt; prod:"</span><span class="o">.</span> <span class="err">$</span> <span class="k">this</span><span class="o">-&gt;</span> <span class="na">name</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="acces">Accés</h3>
+<p>Per fer referència a un recurs que conté un espai de noms, primer cal tenir -lo disponible mitjançant <code>include</code> o <code>require</code>. Si el recurs es troba al mateix espai de noms, es fa un accés directe (es coneix com a accés sense qualificar).</p>
+<p>Hi ha realment tres tipus d’accés:</p>
+<ul>
+<li>Sense qualificar: <code>recurs</code></li>
+<li>Qualificat: <code>\rutaRelativa\recurs</code>. No cal posar l'espai de noms complet.</li>
+<li>Totalment qualificat: <code>\rutaAbsoluta\recurs</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">Dwes\Examples</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">include_once</span><span class="p">(</span><span class="s2">"Product.php"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">echo</span> <span class="nx">IVA</span><span class="p">;</span> <span class="c1">// sin cualificar</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">echo</span> <span class="nx">Utils\IVA</span><span class="p">;</span> <span class="c1">// acceso cualificado. Daría error, no existe \Dwes\Exemples\Utilitats\IVA</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">echo</span> <span class="nx">\Dwes\Exemples\IVA</span><span class="p">;</span> <span class="c1">// totalmente cualificado</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">();</span> <span class="c1">// lo busca en el mismo namespace y encuentra \Dwes\Ejemplos\Producto</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Model\Product</span><span class="p">();</span> <span class="c1">// daría error, no existe el namespace Model. Está buscando \Dwes\Ejemplos\Model\Producto</span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$p3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Dwes\Examples\Product</span><span class="p">();</span> <span class="c1">// \Dwes\Ejemplos\Producto</span>
+</code></pre></div>
+<p>Per a evitar la referència qualificada podem declarar l'ús mitjançant <code>use</code> (similar a fer un <code>import</code> en <em>Java</em>). Es faria 
+en la capçalera, després del <code>namespace</code>:</p>
+<p>Els tipus possibles són:</p>
+<ul>
+<li><code>use const nomQualificatConstant</code></li>
+<li><code>use function nomQualificatFuncio</code></li>
+<li><code>use nomQualificatClasse</code></li>
+<li><code>use nomQualificatClase as Alias</code> // per a canviar de nom elements</li>
+</ul>
+<p>Per exemple, si volem utilitzar la classe <code>\Dwes\Examples\Product</code> des d'un recurs que es trobe en l'arrel, per exemple en <code>index.php</code>, faríem:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">include_once</span><span class="p">(</span><span class="s2">"Dwes\Examples\Product.php"</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="k">const</span> <span class="no">Dwes\Exemples\IVA</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">use</span> <span class="nx">\Dwes\Exemples\Product</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nx">IVA</span><span class="p">;</span>
+<span class="linenos" data-linenos="8 "></span><span class="nv">$p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">();</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">To <code>use</code> or not to <code>use</code></p>
+<p>En resum, <code>use</code> permit acceder sense haver de qualificar-los a recursos que es troben en un altre <em>namespace</em>. Si estem en el mateix espai de noms, no necesitem usar <code>use</code>.</p>
+</div>
+<h3 id="organitzacio">Organització</h3>
+<p>Cada projecte, a mesura que creix, ha d’organitzar el seu codi font. Es planteja una organització en què els fitxers que interaccionen amb el navegador es col·loquen a l’arrel i les classes que definim entra dins d’un <code>namespace</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Organització, <em>includes</em> i <em>uses</em></p>
+<ul>
+<li>Posarem cada recurs en un fitxer independent.</li>
+<li>A la primera línia indicarem el seu <em>namespace</em> (si no està a l'arrel).</li>
+<li>Si utilitzem altres recursos, farem un <code>include_once</code> d'aquests recursos (classes, interfícies, etc ...).<ul>
+<li>Cada recurs ha d’incloure tots els altres recursos a què faça referència: la classe dels quals hereta, interfícies que implementen, les classes utilitzades/rebudes com a paràmetres, etc.</li>
+</ul>
+</li>
+<li>Si els recursos es troben en un espai de noms diferents dels que som, utilitzarem <code>use</code> amb la ruta completa i, a continuació, l'utilitzarem sense referències qualificades.</li>
+</ul>
+</div>
+<h3 id="autoload">Autoload</h3>
+<p>No és tediós haver de fer els <code>require</code> de les classes? La funcionalitat <em>autoload</em> arriba al rescat.</p>
+<p>Així, aquesta funcionalitat permet que les classes  que s’utilitzaran es carreguen automàticament i eviten haver de fer el <code>include_once</code> de cadascuna d'elles. Per fer-ho s'utilitza la funció <code>spl_autoload_register</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$nombreClase</span> <span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">include_once</span> <span class="nv">$nombreClase</span><span class="o">.</span><span class="s1">'.php'</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span> <span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">¿Per què s'anomena <em>autoload</em>?</p>
+<p>Perquè abans es realitzaba mitjançant el mètode màgic <code>__autoload()</code>, el qual està <em>deprecated</em> des de PHP 7.2</p>
+</div>
+<p>I com organitzem ara el codi per aprofitar-nos de la càrrega automàtica?</p>
+<p>Per facilitar la cerca dels recursos per incloure, és recomanable posar totes les classes de la mateixa carpeta. Les  situarem dins de <code>src</code> (no és obligatori, és la convenció que seguirem). Altres directoris que podem crear són <code>test</code> per fer les proves <em>phpunit</em> que després realitzarem, o la carpeta del <em>views</em> on s’emmagatzemaran les vistes del projecte.</p>
+<p>Com que hem col·locat tots els nostres recursos dins de <code>src</code>, ara el nostre <code>autoload.php</code> (que col·loquem al directori arrel) només mirarà dins d’aquest directori:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$className</span> <span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">include_once</span> <span class="s2">"src/"</span><span class="o">.</span><span class="nv">$className</span><span class="o">.</span><span class="s1">'.php'</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span> <span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Autoload i rutes errònies</p>
+<p>A Ubuntu, quan fa la classe que rep com a paràmetre, les barres de l’espai de noms (<code>\</code>) són diferents de les de les rutes (<code>/</code>).Per tant, utilitzem millor aquesta implementació del fitxer <code>autoload.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">spl_</span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="nv">$className</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="s2">"src</span><span class="se">\\</span><span class="s2">"</span><span class="o">.</span><span class="nv">$className</span><span class="o">.</span><span class="s1">'.php'</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">,</span> <span class="nv">$ruta</span><span class="p">);</span> <span class="c1">// Sustituimos las barras</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">include_once</span> <span class="nv">$ruta</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">);</span>
+</code></pre></div>
+</div>
+<h2 id="bibliografia">Bibliografia</h2>
+<ul>
+<li>José Luis Comesaña.  <em>Apuntes de formación a distancia del módulo
+    «Desarrollo web en entorno servidor» del CFGS DAW, elaborados y
+    licenciados por el Ministerio de Educación, Cultura y Deporte.</em> [en
+    línia]. 2012 [data de consulta: 13 de setembre de 2019].
+    Disponible en
+    \&lt;<a href="https://github.com/statickidz/TemarioDAW/tree/master/DWES">https://github.com/statickidz/TemarioDAW/tree/master/DWES</a>&gt;</li>
+<li>Antonio López. <em>Learning PHP 7.</em> Packt Publishing (29 de marzo de
+    2016).</li>
+<li>Medrano, Aitor, i Luis Alemañ. «3.- PHP Orientado a Objetos - Desarrollo Web en Entorno Servidor». Desarrollo Web en Entorno Servidor, <a href="https://aitor-medrano.github.io/dwes2122/03phpoo.html">https://aitor-medrano.github.io/dwes2122/03phpoo.html</a>. Consulta 15 octubre 2022.</li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: PHP OO Bàsic" class="md-footer__link md-footer__link--prev" href="../0301-phpoo-basic/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              PHP OO Bàsic
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Errors i excepcions" class="md-footer__link md-footer__link--next" href="../0303-errorhandling/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Errors i excepcions
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

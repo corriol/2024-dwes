@@ -1,0 +1,134 @@
+site_name: DWES
+
+
+theme: 
+  name: material
+  palette:
+  
+      # Palette toggle for light mode
+    - scheme: default
+      primary: brown
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: brown
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  language: ca
+  logo: assets/logo.png
+
+  include_sidebar: false 
+  features:
+    - toc.integrate
+
+nav:
+  - "Inici": "index.md"
+  - "1.- Introducció a la programació Web": 
+        "Estructura aplicacions web": "01-intro/01-intro.md"   
+        "Preparació de l'entorn de desenvolupament": "01-intro/02-developement.md" 
+        "Activitats": "01-intro/99-tasks.md" 
+  - "2.- El llenguatge PHP": 
+        "PHP Bàsic": "02-basics/02-phpbasics.md"
+        "Activitats": "02-basics/99-activities.md" 
+  - "3.- PHP Orientat a Objectes": 
+        "PHP OO Bàsic": "03-phpoo/0301-phpoo-basic.md"
+        "PHP OO Avançat": "03-phpoo/0302-phpoo-advanced.md"
+        "Errors i excepcions": "03-phpoo/0303-errorhandling.md"
+        "Activitats": "03-phpoo/0399-activities.md"
+  - "4.- Programació web":
+        "Formularis": "04-web-programming/04-01-forms.md"
+        "Manteniment de l'estat": "04-web-programming/04-02-state.md"
+        "Autenticació": "04-web-programming/04-03-authentication.md"
+        "Bones pràctiques": "04-web-programming/04-04-best-practices.md"
+#       "Autenticació HTTP": "04-web-programming/04-05-http-authentication.md"
+        "Activitats": "04-web-programming/04-99-tasks.md"
+  - "5.- Accés a dades amb PHP":
+       "Introducció": "05-data-access/0500-intro.md"
+       "Accés a dades amb PHP": "05-data-access/0501-data-access.md"
+       "Activitats": "05-data-access/0599-tasks.md"
+  - "6.- Composer. Introducció al testing":
+      "Introducció": "06-composer/06-01-intro.md"
+      "Composer": "06-composer/06-02-composer.md"      
+#       "Namespaces": "06-composer/06-04-namespaces.md"      
+      "Introducció al testing": "06-composer/06-05-tdd-intro.md"            
+      "Activitats": "06-composer/06-99-activities.md"
+  - "7.- Miniframework MVC": 
+      "Introducció": "07-mvc/07-00-intro.md"
+      "Sol·licitud i resposta": "07-mvc/07-01-classe-request-response.md"      
+      "Controlador frontal": "07-mvc/07-02-controlador-frontal.md"
+      "Rutes i controladors": "07-mvc/07-03-classe-router.md"
+      "Injecció de dependències": "07-mvc/07-04-dependency-injection"
+      "Activitats": "07-mvc/07-99-activitats.md"
+  - "8.- Symfony":
+      "Introducció a Symfony": "08-symfony/01-introducció-va.md"
+      "El patró MVC en Symfony": "08-symfony/02-mvc.md"
+      "El motor de plantilles Twig": "08-symfony/03-twig.md"
+      "Injecció de dependències": "08-symfony/04-injeccio-dependencies.md"      
+      "Doctrine": "08-symfony/05-doctrine.md"
+      "Doctrine. Relacions molts a molts": "08-symfony/11-relacions-molts-a-molts.md"                     
+      "Formularis i validació": "08-symfony/06-formularis-i-validació.md"      
+      "Seguretat i control d'accés": "08-symfony/07-seguretat-control-acces.md"         
+      "Pujada de fitxers": "08-symfony/08-pujada-fitxers.md"       
+      "Gestió de fitxers CSS i Javascript": "08-symfony/20-gestio-actius.md"             
+      "Repositoris i paginació": "08-symfony/08-repositoris-paginacio.md"                  
+#       "Altres funcionalitats": "08-symfony/09-altres-funcionalitats.md"               
+# #      "Bundles": "08-symfony/10-bundles.md"               
+#       "Pujada de fitxers": "08-symfony/10-pujada-de-fitxers.md"               
+      "Doctrine Fixtures Bundle": "08-symfony/14-fixtures-bundle.md"                     
+      "Integració de Javascript i accés a API": "08-symfony/13-creacio-api-basica.md"
+      "Testing en Symfony": "08-symfony/15-unit-testing.md"      
+#       "Activitats": "08-symfony/99-activitats.md"
+  - "9.- Introducció als serveis web":
+       "Introducció": "09-rest-api/01-introduccio-als-webservices.md"
+       "REST API": "09-rest-api/03-rest-api.md"
+       "REST API en Symfony": "09-rest-api/05-rest-api-symfony.md"
+       "Seguretat en JWT": "09-rest-api/06-jwt.md"      
+     
+
+    
+markdown_extensions:
+  - toc:
+      toc_depth: 3
+  - pymdownx.tabbed
+  - admonition
+  - abbr
+  - pymdownx.inlinehilite:
+  - pymdownx.superfences:  
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+
+  - pymdownx.highlight:
+      extend_pygments_lang:
+        - name: php-inline
+          lang: php
+          options:
+            startinline: true
+        - name: php
+          lang: php
+          options:
+            startinline: true
+      linenums_style: pymdownx-inline
+      linenums: true
+  - sane_lists
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  
+plugins:
+  - search
+  - mermaid2  
+
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+
+extra_css:
+  - stylesheets/extra.css  
+  
+copyright: 2023-2024 Vicent Jordà - Licencia CC BY-NC-SA

@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Introducció al testing - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#introduccio-al-testing">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Introducció al testing
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          1.- Introducció a la programació Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/01-intro/">
+        Estructura aplicacions web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/02-developement/">
+        Preparació de l'entorn de desenvolupament
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/02-phpbasics/">
+        PHP Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Errors i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-02-state/">
+        Manteniment de l'estat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-03-authentication/">
+        Autenticació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0501-data-access/">
+        Accés a dades amb PHP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0599-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Introducció al testing
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Introducció al testing
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tests-no-tinc-temps-per-a-aixo">
+    Tests?! ¡No tinc temps per a això!
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#que-son-els-test">
+    ¿Què són els Test?
+  </a>
+<nav aria-label="¿Què són els Test?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#avantatges-dels-test">
+    Avantatges dels Test
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tipus-de-proves">
+    Tipus de proves
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#test-manuals-en-el-flux-de-desenvolupament">
+    Test Manuals en el flux de desenvolupament
+  </a>
+<nav aria-label="Test Manuals en el flux de desenvolupament" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#problemes-dels-test-manuals">
+    Problemes dels test manuals
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caracteristiques-dels-tests-unitaris">
+    Característiques dels tests unitaris
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#piramide-de-test-i-gelat-de-test">
+    Piràmide de Test i Gelat de Test
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduccio-a-tdd">
+    Introducció a TDD
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/07-seguretat-control-acces/">
+        Seguretat i control d'accés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-pujada-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/20-gestio-actius/">
+        Gestió de fitxers CSS i Javascript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/15-unit-testing/">
+        Testing en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+        9.- Introducció als serveis web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/05-rest-api-symfony/">
+        REST API en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/06-jwt.md">
+        Seguretat en JWT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="introduccio-al-testing">Introducció al testing</h1>
+<h2 id="tests-no-tinc-temps-per-a-aixo">Tests?! ¡No tinc temps per a això!</h2>
+<p>Moltes vegades quan s'intenta ensenyar a fer proves o s'explica com això millorarà la
+qualitat del programari la resposta que obtenim és "No tinc temps per això", "L'aplicació ja està
+en producció, perquè provar-la ara?" i altres respostes similars que són una mostra de que el
+<em>testing</em> no es comprèn correctament.</p>
+<p>No obstant això, en aquests mateixos ambients on se'ns diu que no hi ha temps per al <em>testing</em>, podem veure
+com els desenvolupadors fan servir gran part de la seva jornada laboral en fer proves i altres activitats
+que podrien ser minimitzades amb un bon conjunt de tests:</p>
+<ul>
+<li>Proves manuals.</li>
+<li><em>Debugging</em></li>
+<li>Compilacions</li>
+</ul>
+<p>I aquestes són les més òbvies. Per exemple, les proves manuals són molt lentes, tedioses i solen provar
+pocs casos. En el cas del <em>debugging</em> arriba a ser tediós i moltes vegades el problema que busquem és
+difícil de localitzar i, tanmateix, si hi hagués un Test Automàtic hauríem pogut detectar-ho de manera més
+ràpida i perdre així menys temps.</p>
+<h2 id="que-son-els-test">¿Què són els Test?</h2>
+<p>Una definició que destaca per la seua simplicitat i concrecció és la següent:</p>
+<blockquote>
+<p>Un test és una especificació de l'aplicació</p>
+</blockquote>
+<p>Què vol dir això? Doncs que un test és simplement un requisit que, a part de definir-nos una
+necessitat fa una <em>segona funció</em>  que consisteix a <strong>verificar que aquest es compleix</strong>.</p>
+<p>Anem a veure alguns exemples.</p>
+<p>Partim de la idea d'una funció que sume dos números:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="k">return</span> <span class="nv">$a</span><span class="o">+</span><span class="nv">$b</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Quins serien els requisits d'aquesta funció? Un primer requisit podria ser que, efectivament, la función ha de sumar dos números qualsevols.</p>
+<p>Representant-ho com un test seria:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">shouldAddAPairOfNumbers</span><span class="p">(){</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="k">return</span> <span class="mi">5</span> <span class="o">===</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+Un altre requisit podria ser que sume números negatius. Per assegurar que aquest requisit s'està
+complint, podem crear un altre test:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">shouldAddNegativeNumbers</span><span class="p">(){</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="k">return</span> <span class="mi">3</span> <span class="o">===</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+En els anteriors exemples hem vist el que bàsicament és un test (unitari en aquest cas): una funció
+que comprova que una característica o especificació de l'aplicació es compleix. Altres definicions més acadèmiques són:</p>
+<blockquote>
+<p>El Testing de Software es una investigació dirigida a proporcionar a les parts interessades
+(<em>stakeholders</em>) informació sobre la qualitat del producte o servei que està provant-se.</p>
+</blockquote>
+<ul>
+<li>Kaner, Cem (November 17, 2006). <em>Exploratory Testing. Quality Assurance Institute Worldwide Annual
+Software Testing Conference</em>. Orlando, FL. Retrieved November 22, 2014.</li>
+</ul>
+<blockquote>
+<p>En el camp del <em>testing</em> de programari, l'automatización de test és l'uso de programari (separat del
+que s'està provant) per a  controlar l'execució de les proves i la comparació dels resultats reals amb els previstos</p>
+</blockquote>
+<ul>
+<li>Kolawa, Adam; Huizinga, Dorota (2007). <em>Automated Defect Prevention: Best Practices in Software
+Management</em>. Wiley-IEEE Computer Society Press.</li>
+</ul>
+<h3 id="avantatges-dels-test">Avantatges dels Test</h3>
+<ol>
+<li>Els test es poden executar, els requisits no. Això ens permet mantindre un cert grau de qualitat en el funcionament de la nostra aplicació al llarg de tot el desenvolupament.</li>
+<li>Es pot executar diverses vegades. Quan realitzem proves a mà moltes vegades per fàstig o el
+repetitiu del procés acabem provant sempre el mateix o fins i tot podem trobar un
+error i no recordar quins paràmetres usem per a reproduir-lo.</li>
+<li>En executar-los provem altres funcionalitats. Quan provem a mà una característica de l'aplicació
+moltes vegades no som conscients de l'abast d'aquesta, no obstant això, si tenim una
+bona bateria de Tests és altament probable que en executar-los estiguem provant altres àrees de l'aplicació
+que es poden veure compromeses amb els nostres canvis.</li>
+<li>Eviten que molts <em>bugs</em> arriben a producció. Quan s'introdueixen fallades en el programari sense tindre
+Tests és comú que aquests arriben fins a l'entorn productiu i passen latents mesos fins que un
+usuari o procés, amb els paràmetres adequats, provoque l'error i isca a la llum (provocant
+perdudes d'usuaris, benefici per a l'empresa de programari, etc). Tenint Tests podrem
+minimitzar notablement aquest tipus de situacions.</li>
+</ol>
+<p>Hi ha molts més avantatges però aquestes són algunes de les més notables. </p>
+<h2 id="tipus-de-proves">Tipus de proves</h2>
+<p>Existeixen multitud de casos de Test, ací n'introduirem uns pocs i els acompanyarem d'una xicoteta
+explicació.</p>
+<p>És important aclarir que sol haver-hi un error en la denominació general, desembocant en una
+definició errònia del que és un <strong>test funcional</strong>. En el següent llistat podrem veure diferents test
+funcionals (ja que proven funcionalitat del nostre programari).</p>
+<ul>
+<li>
+<p><strong>Test Unitaris</strong>: S'encarreguen de provar una unitat de codi de forma aïllada. Aquesta unitat no ha d'estar lligada a cap
+mena d'entrada/eixida (ja siga aquesta una base de dades, disc...). Són les proves més concretes i les més ràpides, per això
+ tendeixen a ser els més nombrosos.</p>
+</li>
+<li>
+<p><strong>Integració</strong>: Proven una unitat però permetent contacte amb entrada/eixida. Són mitjanament
+ràpids però no tant com els unitaris. També es poden considerar test d'integració (o de Components/Sistema)
+els que proven diferents parts del programari interdependent entre sí.</p>
+</li>
+<li><strong>Intefície d'usuari (UI)</strong>: Són els test que fan comprovacions sobre la base de la interfície d'usuari del nostre sistema.</li>
+<li><strong>End to End (e2e)</strong>: Test que comproven la nostra aplicació de punta a punta. És a dir, des de la interacció
+de l'Usuari o l'Actor que desencadene l'execució del programari fins que se li retorna algun tipus de resposta.
+Al costat dels de UI són els més costosos (dels automatitzats) ja que solen implicar alçar
+serveis, bases de dades i fins i tot navegadors per a simular la petició.</li>
+<li><strong>Manuals</strong>: Són també funcionals ja que proven el mateix que els de <em>UI</em> o <em>EndToEnd</em> però en lloc de ser
+executats per un codi que interactua amb una API o un navegador són executats per un humà
+amb la conseqüent lentitud extra. Solen ser limitats pel cost monetari i de temps, limitant-se a uns
+certs tipus com a Test d'Exploració o <em>Monkey Testing</em>.</li>
+</ul>
+<h4 id="i-quins-son-els-test-no-funcionals">I quins són els test no funcionals?</h4>
+<p>Són test que no proven funcionalitats de l'aplicació si no que ens asseguren un altre tipus de comportaments.</p>
+<p>A continuació llistem alguns:
+- Test d'Estrés: Comproven el rendiment de la nostra aplicació sota estrés.
+- Test de Càrrega: Comproven on està el límit de càrrega de la nostra aplicació.
+- Test d'Escalabilitat: Comproven que l'aplicació escala correctament. És útil en aplicacions
+Distribuïdes, *Serverless...</p>
+<p>Hi ha molts més tipus de Test, tant funcionals com no funcionals però hem nomenat els més
+coneguts i comuns.</p>
+<h2 id="test-manuals-en-el-flux-de-desenvolupament">Test Manuals en el flux de desenvolupament</h2>
+<p>Donat un formulari com el de la següent imatge i assumint que no tenim test automatitzats i sols fem test manuals:</p>
+<figure>
+<p><img alt="" src="../assets/form.png" width="500"> </img></p>
+</figure>
+<p>Quants noms serem capaços de provar per a assegurar el correcte funcionament? Podrem cerciorar-nos que provem suficients DNIs? I dates?
+El més probable és que provem tres o quatre diferents casos durant el desenvolupament i altres punts al final d'aquest per a comprovar que la funcionalitat s'executa aparentment sense problemes.</p>
+<h3 id="problemes-dels-test-manuals">Problemes dels test manuals</h3>
+<ul>
+<li>Necessitem que l'aplicació siga funcional. Fins que l'aplicació no siga executable d'alguna manera
+ no podrem realitzar cap prova.</li>
+<li>Necessitem configurar dependències, dades inicials, infraestructura (base de dades,
+configuracions...)</li>
+<li>Provem una quantitat de casos bastant limitat. Amb Test automatitzats podríem aconseguir
+que es proven un rang de valors aleatoris o que el valor que s'use en la prova canvie amb
+cada execució, etc.</li>
+<li>És difícil repetir tests i encara més realitzar proves anteriors. Amb els test manuals es dificulta el
+poder passar casos de prova d'una altra persona, implicant documents, processos, etc amb la
+lentitud que això provoca i la inviabilitat d'introduir-ho en el procés de desenvolupament.</li>
+</ul>
+<h2 id="caracteristiques-dels-tests-unitaris">Característiques dels tests unitaris</h2>
+<p>Els test unitaris proven una unitat de codi o <em>System Under Test(SUT)</em>. En l'exemple que vèiem a l'inici provàvem una
+funció que sumava dos números. Aquesta unitat es prova de forma aïllada. Si la unitat sota test tinguera algun tipus de dependència
+hauríem de falsejar-la. El mateix si necessitara accedir a alguna mena de base de dades o similar. D'aquesta aconseguirem independència per a la prova de la unitat que ens resulta d'interés en el test.</p>
+<p><strong>Utilitzen dobles de test (<em>Test Doubles</em>)</strong>. Per a realitzar el que comentem en l'anterior pas podem fer ús de dobles de tests.
+Aquest concepte represensta els objectes, classes o funcions que falsegen a la seua
+contrapart real per a enganyar la unitat sota proves i obtindre el comportament que ens
+interessa assegurar. En la següent imatge veiem com creem objectes que falsegen cert
+comportament per a provar el que ens interessa, en aquest cas que si creem un "Conductor" a partir de
+ un objecte "User" menor d'edat, obtenim una Excepció.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">testOnlyAdultCanDrive</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">expectException</span> <span class="p">(</span><span class="nx">MinorsAreNotAllowedToDrive</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$userStub</span><span class="o">=</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createMock</span><span class="p">(</span><span class="nx">User</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>    
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$userStub</span><span class="o">-&gt;</span><span class="na">method</span><span class="p">(</span><span class="s1">'getAge'</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>             <span class="o">-&gt;</span><span class="na">willReturn</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$carStub</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createMock</span><span class="p">(</span><span class="nx">Car</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">new</span> <span class="nx">Drive</span><span class="p">(</span><span class="nv">$userMock</span><span class="p">,</span><span class="nv">$carStub</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+</code></pre></div>
+<strong>Són ràpids</strong>. Una bateria de milers de Test Unitaris pot executar-se en qüestió de minuts. Això
+permet que siga fàcil d'incorporar al procés de desenvolupament i s'executen amb cada canvi que
+realitzem.</p>
+<p><strong>Són repetibles</strong>. En estar programats podem repetir un mateix test les vegades que siga necessari.
+Comproven que res s'haja trencat És a dir, comproven que els canvis que introduïm no
+afecten altres parts de l'aplicació.</p>
+<p><strong>Feedback Loop més curt</strong>. Per la seua velocitat i la possibilitat d'executar-los cada poc temps acurten
+el temps que passa des que s'introdueix un <em>bug</em> en el programari fins que aquest és detectat i
+solucionat.</p>
+<p><strong>Pipelines de CI, Hooks...</strong> Donada la seua velocitat d'execució aquest tipus de test és perfecte per a ser
+introduït en una <strong>Pipeline d'Integració Contínua</strong> o un <strong>Hook de Git</strong> que, per exemple, controle que
+abans de fer un <em>push</em> dels canvis al servidor passen tots els test.</p>
+<p><strong>Faciliten el codi desacoblat</strong>. Com veurem resulta molt més fàcil provar codi desacoblat
+pel que si ens acostumem a fer test Unitaris el nostre codi acabarà sent més
+desacoblat.</p>
+<p><strong>*refactoritzar sense por de trencar alguna cosa</strong>. Tindre una bona bateria de Tests ens permet fer
+<em>refactoring</em> sense tindre pànic al fet que es trenquen altres parts de l'aplicació. Si es donara el cas un test
+fallaria i immediatament podríem veure com és el problema i actuar en conseqüència.</p>
+<h2 id="piramide-de-test-i-gelat-de-test">Piràmide de Test i Gelat de Test</h2>
+<p>En la següent imatge veiem una contraposició de dues distribucions de Test.</p>
+<figure>
+<p><img alt="" src="../assets/testing_piramid.png" width="500"> </img></p>
+</figure>
+<p>En l'esquerra podem veure el que es coneix com a "Gelat de Testing", en el qual abunden els test
+manuals i els pocs que hi ha automatitzats són els test <em>End to End</em> o de <em>UI</em>. El <em>Testing ice-cream</em> és un antipatró de <em>Testing</em> (en la majoria de casos) en el qual són nombrosos els test que més costa realitzar i brillen per la seua absència els Test més lleugers i ràpids (integració i, sobretot, unitaris).</p>
+<p>A la dreta tenim la Piràmide de Test. Ací podem veure com els test més abundants són Unitaris i
+d'Integració, els més ràpids, mentre que el número de test lents com els d'Acceptació és molt
+menor i els test manuals estan reservats a test Exploratoris.</p>
+<h2 id="introduccio-a-tdd">Introducció a TDD</h2>
+<p>Desenvolupament guiat per proves de programari, en anglès: <em>Test-driven development (TDD)</em>, és una pràctica d'enginyeria de programari que involucra unes altres dues pràctiques: Escriure les proves primer (<em>Test First Development</em>) i Refacció (<em>Refactoring</em>). Per escriure les proves generalment s'utilitzen les proves unitàries (unit test en anglès). En primer lloc, s'escriu una prova i es verifica que les proves fallen. A continuació, s'implementa el codi que fa que la prova passi satisfactòriament i seguidament es refacciona el codi escrit. El propòsit del desenvolupament guiat per proves és aconseguir un codi net que funcioni. La idea és que els requisits siguin traduïts a proves, d'aquesta manera, quan les proves passin es garantirà que el programari compleix amb els requisits que s'han establert. </p>
+<p>Com que no és l'objectiu d'aquest curs aprofundir trobarem més informació en els següents recursos:</p>
+<ul>
+<li>Desenvolupament guiat per proves. (2021, 19 de novembre). <em>Viquipèdia, l'Enciclopèdia Lliure</em>. Data de consulta: 21:25, novembre 19, 2021 de <a href="http://ca.wikipedia.org/w/index.php?title=Desenvolupament_guiat_per_proves&amp;oldid=28627832">//ca.wikipedia.org/w/index.php?title=Desenvolupament_guiat_per_proves&amp;oldid=28627832</a>.</li>
+<li>La kata del DNI para aprendre TDD. (2018, 12 de desembre). <em>Fran Iglesias</em>.  <a href="https://franiglesias.github.io/iniciacion-tdd/">https://franiglesias.github.io/iniciacion-tdd/</a>.</li>
+<li>Curso Testing. <em>Andros Fenollosa</em> <a href="https://programadorwebvalencia.com/cursos/testing/introducci%C3%B3n/">https://programadorwebvalencia.com/cursos/testing/introducci%C3%B3n/</a></li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Composer" class="md-footer__link md-footer__link--prev" href="../06-02-composer/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Composer
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../06-99-activities/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

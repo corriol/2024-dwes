@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>2. Creant els CRUD - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#crud-i-assets">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              2. Creant els CRUD
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          1.- Introducció a la programació Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/01-intro/">
+        Estructura aplicacions web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/02-developement/">
+        Preparació de l'entorn de desenvolupament
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/02-phpbasics/">
+        PHP Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Errors i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-02-state/">
+        Manteniment de l'estat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-03-authentication/">
+        Autenticació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0501-data-access/">
+        Accés a dades amb PHP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0599-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/07-seguretat-control-acces/">
+        Seguretat i control d'accés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-pujada-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/20-gestio-actius/">
+        Gestió de fitxers CSS i Javascript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/15-unit-testing/">
+        Testing en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+        9.- Introducció als serveis web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/05-rest-api-symfony/">
+        REST API en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/06-jwt.md">
+        Seguretat en JWT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="crud-i-assets">CRUD i assets</h1>
+<p>{: .no_toc }</p>
+<h2 id="taula-de-continguts">Taula de continguts</h2>
+<p>{: .no_toc .text-delta  .nocount }</p>
+<ol>
+<li toc="toc">TOC</li>
+</ol>
+<h2 id="crud">CRUD</h2>
+<p>En <a href="https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html">The Symfony MakerBundle</a> trobarem com el comandament que permet crear els mètodes CRUD (<em>create</em>, <em>read</em>, <em>update</em>, <em>delete</em>).</p>
+<p>Per a crear els mètodes de les nostres entitats executarem:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span> php bin/console make:crud
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span> The class name of the entity to create CRUD <span class="o">(</span>e.g. TinyElephant<span class="o">)</span>:
+<span class="linenos" data-linenos=" 4 "></span> &gt; Link
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span> created: src/Controller/LinkController.php
+<span class="linenos" data-linenos=" 7 "></span> created: src/Form/LinkType.php
+<span class="linenos" data-linenos=" 8 "></span> created: templates/link/_delete_form.html.twig
+<span class="linenos" data-linenos=" 9 "></span> created: templates/link/_form.html.twig
+<span class="linenos" data-linenos="10 "></span> created: templates/link/edit.html.twig
+<span class="linenos" data-linenos="11 "></span> created: templates/link/index.html.twig
+<span class="linenos" data-linenos="12 "></span> created: templates/link/new.html.twig
+<span class="linenos" data-linenos="13 "></span> created: templates/link/show.html.twig
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>  Success! 
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span> Next: Check your new CRUD by going to /link/
+</code></pre></div>
+<p>Com es pot observar ens crearà el controlador, el formulari i les plantilles.</p>
+<p>{:.alert .alert-info}
+Les plantilles que comencen amb <code>_</code> són blocs de codi que s'insertaran dintre d'altres plantilles.</p>
+<p>El fitxer src/Controller/LinkController quedarà així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="o">...</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="sd">/**</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="sd"> * @Route("/link")</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="sd"> */</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">class</span> <span class="nc">LinkController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="11 "></span><span class="sd">     * @Route("/", name="link_index", methods={"GET"})</span>
+<span class="linenos" data-linenos="12 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="nv">$links</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Link</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span>            <span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'link/index.html.twig'</span><span class="p">,</span> <span class="p">[</span>
+<span class="linenos" data-linenos="20 "></span>            <span class="s1">'links'</span> <span class="o">=&gt;</span> <span class="nv">$links</span><span class="p">,</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="p">]);</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="25 "></span><span class="sd">     * @Route("/new", name="link_new", methods={"GET","POST"})</span>
+<span class="linenos" data-linenos="26 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span><span class="o">:</span> <span class="nx">Response</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="29 "></span>        <span class="nv">$link</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Link</span><span class="p">();</span>
+<span class="linenos" data-linenos="30 "></span>        <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createForm</span><span class="p">(</span><span class="nx">LinkType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$link</span><span class="p">);</span>
+<span class="linenos" data-linenos="31 "></span>        <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">handleRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+<span class="linenos" data-linenos="32 "></span>
+<span class="linenos" data-linenos="33 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos" data-linenos="34 "></span>            <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+<span class="linenos" data-linenos="35 "></span>            <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$link</span><span class="p">);</span>
+<span class="linenos" data-linenos="36 "></span>            <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+<span class="linenos" data-linenos="37 "></span>
+<span class="linenos" data-linenos="38 "></span>            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectToRoute</span><span class="p">(</span><span class="s1">'link_indhttps://github.com/corriol/dwes/blob/master/UD11/resources/_header.html.twigex'</span><span class="p">);</span>
+<span class="linenos" data-linenos="39 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="40 "></span>
+<span class="linenos" data-linenos="41 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'link/new.html.twig'</span><span class="p">,</span> <span class="p">[</span>
+<span class="linenos" data-linenos="42 "></span>            <span class="s1">'link'</span> <span class="o">=&gt;</span> <span class="nv">$link</span><span class="p">,</span>
+<span class="linenos" data-linenos="43 "></span>            <span class="s1">'form'</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">(),</span>
+<span class="linenos" data-linenos="44 "></span>        <span class="p">]);</span>
+<span class="linenos" data-linenos="45 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="46 "></span>
+<span class="linenos" data-linenos="47 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="48 "></span><span class="sd">     * @Route("/{id}", name="link_show", methods={"GET"})</span>
+<span class="linenos" data-linenos="49 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="50 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nx">Link</span> <span class="nv">$link</span><span class="p">)</span><span class="o">:</span> <span class="nx">Response</span>
+<span class="linenos" data-linenos="51 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="52 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'link/show.html.twig'</span><span class="p">,</span> <span class="p">[</span>
+<span class="linenos" data-linenos="53 "></span>            <span class="s1">'link'</span> <span class="o">=&gt;</span> <span class="nv">$link</span><span class="p">,</span>
+<span class="linenos" data-linenos="54 "></span>        <span class="p">]);</span>
+<span class="linenos" data-linenos="55 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="56 "></span>
+<span class="linenos" data-linenos="57 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="58 "></span><span class="sd">     * @Route("/{id}/edit", name="link_edit", methods={"GET","POST"})</span>
+<span class="linenos" data-linenos="59 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="60 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Link</span> <span class="nv">$link</span><span class="p">)</span><span class="o">:</span> <span class="nx">Response</span>
+<span class="linenos" data-linenos="61 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="62 "></span>        <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createForm</span><span class="p">(</span><span class="nx">LinkType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$link</span><span class="p">);</span>
+<span class="linenos" data-linenos="63 "></span>        <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">handleRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+<span class="linenos" data-linenos="64 "></span>
+<span class="linenos" data-linenos="65 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos" data-linenos="66 "></span>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+<span class="linenos" data-linenos="67 "></span>
+<span class="linenos" data-linenos="68 "></span>            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectToRoute</span><span class="p">(</span><span class="s1">'link_index'</span><span class="p">);</span>
+<span class="linenos" data-linenos="69 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="70 "></span>
+<span class="linenos" data-linenos="71 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'link/edit.html.twig'</span><span class="p">,</span> <span class="p">[</span>
+<span class="linenos" data-linenos="72 "></span>            <span class="s1">'link'</span> <span class="o">=&gt;</span> <span class="nv">$link</span><span class="p">,</span>
+<span class="linenos" data-linenos="73 "></span>            <span class="s1">'form'</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">(),</span>
+<span class="linenos" data-linenos="74 "></span>        <span class="p">]);</span>
+<span class="linenos" data-linenos="75 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="76 "></span>
+<span class="linenos" data-linenos="77 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="78 "></span><span class="sd">     * @Route("/{id}", name="link_delete", methods={"DELETE"})</span>
+<span class="linenos" data-linenos="79 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="80 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Link</span> <span class="nv">$link</span><span class="p">)</span><span class="o">:</span> <span class="nx">Response</span>
+<span class="linenos" data-linenos="81 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="82 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isCsrfTokenValid</span><span class="p">(</span><span class="s1">'delete'</span><span class="o">.</span><span class="nv">$link</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">(),</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'_token'</span><span class="p">)))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="83 "></span>            <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+<span class="linenos" data-linenos="84 "></span>            <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="nv">$link</span><span class="p">);</span>
+<span class="linenos" data-linenos="85 "></span>            <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+<span class="linenos" data-linenos="86 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="87 "></span>
+<span class="linenos" data-linenos="88 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectToRoute</span><span class="p">(</span><span class="s1">'link_index'</span><span class="p">);</span>
+<span class="linenos" data-linenos="89 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="90 "></span><span class="p">}</span>
+</code></pre></div>
+<p>{:.alert .alert-activity}
+Crea el controlador CRUD de l'entitat User.</p>
+<h2 id="estils-i-javascript">Estils i javascript</h2>
+<p>La forma més senzilla d'incloure fitxers css i js al nostre projecte és modificant la plantilla <code>base.html.twig</code> perquè els incloga directament des de la web.</p>
+<h3 id="_stylehtmltwig">_style.html.twig</h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;</span><span class="nt">link</span> <span class="nt">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span> <span class="nt">href</span><span class="o">=</span><span class="s2">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span> <span class="nt">integrity</span><span class="o">=</span><span class="s2">"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"</span> <span class="nt">crossorigin</span><span class="o">=</span><span class="s2">"anonymous"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&lt;</span><span class="nt">link</span> <span class="nt">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span> <span class="nt">href</span><span class="o">=</span><span class="s2">"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&lt;</span><span class="nt">script</span> <span class="nt">src</span><span class="o">=</span><span class="s2">"https://code.jquery.com/jquery-3.4.1.slim.min.js"</span> <span class="nt">integrity</span><span class="o">=</span><span class="s2">"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"</span> <span class="nt">crossorigin</span><span class="o">=</span><span class="s2">"anonymous"</span><span class="o">&gt;&lt;/</span><span class="nt">script</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&lt;</span><span class="nt">script</span> <span class="nt">src</span><span class="o">=</span><span class="s2">"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"</span> <span class="nt">integrity</span><span class="o">=</span><span class="s2">"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"</span> <span class="nt">crossorigin</span><span class="o">=</span><span class="s2">"anonymous"</span><span class="o">&gt;&lt;/</span><span class="nt">script</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&lt;</span><span class="nt">script</span> <span class="nt">src</span><span class="o">=</span><span class="s2">"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"</span> <span class="nt">integrity</span><span class="o">=</span><span class="s2">"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"</span> <span class="nt">crossorigin</span><span class="o">=</span><span class="s2">"anonymous"</span><span class="o">&gt;&lt;/</span><span class="nt">script</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>També inclourem el menú superior. </p>
+<p>{: .alert .alert-activity }
+Inclou els fitxers <a href="https://github.com/corriol/dwes/blob/master/UD11/resources/_style.html.twig"><code>_style.html.twig</code></a> i <a href="https://github.com/corriol/dwes/blob/master/UD11/resources/_header.html.twig"><code>_header.html.twig</code></a> al projecte. Comprova que tot funciona bé.</p>
+<p>{: .alert .alert-warning }
+Hem optat per una forma senzilla d'incloure CSS i javascript al nostre projecte, però dista molt de ser la més recomanable. Més endavant en endinsarem en la gestió de paquets per al frontend de la mà de <a href="https://symfony.com/doc/current/frontend.html">Webpack Encore</a>.</p>
+<h3 id="activant-bootstrap-4-als-formularis">Activant bootstrap 4 als formularis</h3>
+<p>Per a millorar l'aspecte dels formularis Symfony incorpora suport per a Bootstrap.</p>
+<p>Modifica el fitxer <code>twig.yaml</code> perquè quede de la següent manera:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># config/packages/twig.yaml</span>
+<span class="linenos" data-linenos="2 "></span><span class="nt">twig</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">form_themes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">'bootstrap_4_layout.html.twig'</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

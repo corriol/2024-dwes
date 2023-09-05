@@ -1,0 +1,1441 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Doctrine - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#gestio-del-model-de-dades-amb-doctrine">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Doctrine
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          1.- Introducció a la programació Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/01-intro/">
+        Estructura aplicacions web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/02-developement/">
+        Preparació de l'entorn de desenvolupament
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/02-phpbasics/">
+        PHP Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Errors i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-02-state/">
+        Manteniment de l'estat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-03-authentication/">
+        Autenticació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0501-data-access/">
+        Accés a dades amb PHP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0599-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Doctrine
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Doctrine
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduccio-a-doctrine">
+    Introducció a Doctrine
+  </a>
+<nav aria-label="Introducció a Doctrine" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#que-es-un-orm">
+    Què és un ORM?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuracio-basica-de-doctrine">
+    Configuració bàsica de Doctrine
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacio-dentitats">
+    Creació d'entitats
+  </a>
+<nav aria-label="Creació d'entitats" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generacio-de-lesquema">
+    Generació de l'esquema
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#editar-entitats">
+    Editar entitats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#establir-altres-claus-primaries">
+    Establir altres claus primàries
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operacions-contra-la-base-de-dades">
+    Operacions contra la base de dades
+  </a>
+<nav aria-label="Operacions contra la base de dades" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inserir-objectes">
+    Inserir objectes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#obtenir-objectes">
+    Obtenir objectes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#consultes-mes-avancades">
+    Consultes més avançades
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actualitzar-i-esborrar-objectes">
+    Actualitzar i esborrar objectes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#relacions-entre-entitats">
+    Relacions entre entitats
+  </a>
+<nav aria-label="Relacions entre entitats" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#treballar-amb-entitats-relacionades">
+    Treballar amb entitats relacionades
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-seguretat-control-acces/">
+        Seguretat i control d'accés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-pujada-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20-gestio-actius/">
+        Gestió de fitxers CSS i Javascript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../15-unit-testing/">
+        Testing en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+        9.- Introducció als serveis web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/05-rest-api-symfony/">
+        REST API en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/06-jwt.md">
+        Seguretat en JWT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="gestio-del-model-de-dades-amb-doctrine">Gestió del model de dades amb Doctrine</h1>
+<h2 id="introduccio-a-doctrine">Introducció a Doctrine</h2>
+<h3 id="que-es-un-orm">Què és un ORM?</h3>
+<p>Un ORM (<em>Object Relational Mapping</em>) és un <em>framework</em> encarregat de tractar
+amb una base de dades relacional (connectar amb ella, realitzar
+operacions de consulta, inserció, etc.), de manera que, de cara a
+l'aplicació, <em>es converteixen a objectes tots els elements que
+s'extraguen de la base de dades</em> i viceversa (els objectes de
+l'aplicació es transformen en registres de la base de dades, arribat el
+cas). D'aquesta forma, l'ORM s'encarregarà de realitzar aquesta
+conversió o mapatge automàticament per nosaltres. Definint una sèrie de
+regles, indicarem quines taules de la base de dades relacional es
+corresponen amb quines classes del nostre model, i quins camps de cada
+taula es corresponen amb quins atributs de cada classe. A partir d'ací,
+l'ORM s'encarregarà d'extraure la informació de la base de dades i
+crear els objectes corresponents, o de convertir els objectes amb els
+seus atributs en registres de la base de dades, amb les seues
+corresponents columnes.</p>
+<p>El principal avantatge d'utilitzar un ORM com Doctrine és aïllar
+l'aplicació del gestor de base de dades que hàgem triat (MySQL, Oracle,
+PostgreSQL...) ja que a <em>nivell d'aplicació treballarem amb objectes</em>, i
+serà Doctrine qui s'encarregue de connectar amb la base de dades
+triada, i transformar els objectes per a adaptar-los a la mateixa.</p>
+<h3 id="configuracio-basica-de-doctrine">Configuració bàsica de Doctrine</h3>
+<p>Per a poder utilitzar Doctrine, hem d'indicar com connectar al servidor
+de base de dades que anem a utilitzar. Aquests paràmetres de connexió es
+poden configurar en l'arxiu <code>.env</code> del nostre projecte. Aquest és un arxiu
+on es defineixen certes variables pròpies d'entorn, que després es
+processen i es converteixen en variables reals. En el nostre cas,
+definim una variable anomenada <code>DATABASE_URL</code>, amb una URL on s'especifiquen tant
+l'adreça i port de connexió a la base de dades, com el <em>login</em> i <em>password</em>
+necessaris per a accedir, així com el nom de la base de dades a la qual
+connectar. Per exemple, per a una base de dades MySQL, l'estructura
+general serà aquesta:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">DATABASE_URL</span><span class="o">=</span>mysql://db_user:db_password@127.0.0.1:3306/db_name
+</code></pre></div>
+<p>Tenint en compte l'usuari i contrasenya per defecte de phpMyAdmin per a
+XAMPP (usuari <em>root</em> i contrasenya buida), aquest podria ser un valor
+vàlid per a connectar a la nostra base de dades de contactes:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">DATABASE_URL</span><span class="o">=</span>mysql://root@127.0.0.1:3306/movies-symfony
+</code></pre></div>
+<p>Aquest arxiu <code>.env</code> pot utilitzar-se tant en desenvolupament com en
+producció, encara que en aquest últim cas es recomana definir variables
+d'entorn reals en el sistema, per a evitar pèrdua de rendiment en haver
+de traduir aquest arxiu per a cada petició.</p>
+<div class="admonition important">
+<p class="admonition-title">Gestió dels entorns</p>
+<p>Symfony suporta la noció d'entorns. Per defecte, té suport integrat per tres entorns, 
+però pots afegir-ne tants com vulgues: <code>dev</code>, <code>prod</code> i <code>test</code>. Tots els entorns 
+comparteixen el mateix codi, però treballen amb configuracions diferents.</p>
+<p>Per exemple, totes les eines de depuració estan habilitades en l'entorn <code>dev</code>. 
+En l'entorn <code>prod</code> l'aplicació està optimitzada per al rendiment.</p>
+<p>El canvi d'un entorn a un altre pot realitzar-se modificant la variable d'entorn <code>APP_ENV</code>.</p>
+<p>Un arxiu <code>.env</code> amb uns valors acuradament escollits es genera automàticament quan es crea el projecte:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>###&gt; symfony/framework-bundle ###
+<span class="linenos" data-linenos=" 2 "></span>APP_ENV=dev
+<span class="linenos" data-linenos=" 3 "></span>APP_SECRET=f307a57c2c035484820f08a0494076dc
+<span class="linenos" data-linenos=" 4 "></span>###&lt; symfony/framework-bundle ###
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>###&gt; symfony/mailer ###
+<span class="linenos" data-linenos=" 7 "></span># MAILER_DSN=smtp://localhost
+<span class="linenos" data-linenos=" 8 "></span>###&lt; symfony/mailer ###
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>DATABASE_URL="mysql://root@127.0.0.1:3306/symfony-movies"
+</code></pre></div>
+<p>Qualsevol paquet pot afegir més variables d'entorn a aquesta imatge gràcies a la seva recepta utilitzada per Symfony Flex.</p>
+<p>El fitxer <code>.env</code> s'envia al repositori i descriu els valors per defecte de l'entorn  de producció. Podeu substituir aquests valors creant un fitxer <code>.env.local</code>. Aquest fitxer no ha de ser enviat a l'repositori i és per això que el fitxer <code>.gitignore</code> ja l'està ignorant.</p>
+<p>Mai guardis dades secretes o confidencials en aquests arxius. </p>
+<p>Per a obtenir més informació consulta <a href="https://symfony.com/doc/current/configuration.html#configuration-environments">Configuring Symfony</a></p>
+</div>
+<p>En el cas que la base de dades encara no existisca, <em>Doctrine</em> pot
+crear-la per nosaltres. Per a açò, n'hi ha prou amb escriure el següent
+comando:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console doctrine:database:create
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span>Created database <span class="s1">'movies-symfony'</span> <span class="k">for</span> connection named default
+</code></pre></div>
+Automàticament, es prendrà el nom de la base de dades de la variable
+d'entorn anterior, es connectarà al servidor i es crearà (sense taules,
+de moment).</p>
+<h2 id="creacio-dentitats">Creació d'entitats</h2>
+<p>Les entitats, en Doctrine són objectes PHP que es poden identificar mitjançant un 
+identificador únic o clau primària. Aquestes classes no necessiten estendre cap 
+classe base abstracta o interfície. </p>
+<p>Una entitat conté propietats de persitència. Una propietat de persistència és una 
+instància de l'entitat que es desa i es recupera de la base de dades 
+mitjançant les capacitats de mapeig de dades de Doctrine.</p>
+<p>En resum, podríem dir que les entitats són les classes que van a compondre el model de dades de la
+nostra aplicació. Per exemple, per a la nostra aplicació de pel·licules,
+necessitarem una entitat/classe anomenada <code>Movie</code> que emmagatzeme les
+dades concretes de cada pel·lícula:</p>
+<div class="mermaid">classDiagram
+     class Movie{
+          -init id
+          -title string
+          -overview text
+          -poster string
+          -releaseDate date
+          -voters int = 0
+          -rating float = 0.0
+      }
+
+
+</div>
+<p>Per a crear una entitat, emprem el següent comando des del terminal
+(dins de la carpeta principal del nostre projecte Symfony):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console make:entity
+</code></pre></div>
+<p>S'iniciarà un assistent que ens anirà demanant informació per a
+construir l'entitat:</p>
+<ul>
+<li>Nom de la classe o entitat.</li>
+<li>Propietats o atributs de la classe, per a cadascun, demanarà el nom
+    (si directament premem <code>Intro</code> deixarà de demanar-nos més dades), el
+    tipus de dada, la longitud o grandària del camp, si admet nuls...</li>
+</ul>
+<p>Per exemple, per al cas de la nostra classe <code>Movie</code>, el procés quedaria
+així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>php bin/console make:entity
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span> Class name of the entity to create or update (e.g. FiercePuppy):
+<span class="linenos" data-linenos=" 4 "></span> &gt; Movie
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span> created: src/Entity/Movie.php
+<span class="linenos" data-linenos=" 7 "></span> created: src/Repository/MovieRepository.php
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span> Entity generated! Now let's add some fields!
+<span class="linenos" data-linenos="10 "></span> You can always add more fields later manually or by re-running this command.
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span> New property name (press &lt;return&gt; to stop adding fields):
+<span class="linenos" data-linenos="13 "></span> &gt; title
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span> Field type (enter ? to see all types) [string]:
+<span class="linenos" data-linenos="16 "></span> &gt; string
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span> Field length [255]:
+<span class="linenos" data-linenos="19 "></span> &gt; 100
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span> Can this field be null in the database (nullable) (yes/no) [no]:
+<span class="linenos" data-linenos="22 "></span> &gt; no
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span> updated: src/Entity/Movie.php
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span> Add another property? Enter the property name (or press &lt;return&gt; 
+<span class="linenos" data-linenos="27 "></span> to stop adding fields):
+<span class="linenos" data-linenos="28 "></span> &gt; tagline
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span> Field type (enter ? to see all types) [string]:
+<span class="linenos" data-linenos="31 "></span> &gt; string
+<span class="linenos" data-linenos="32 "></span>
+<span class="linenos" data-linenos="33 "></span> Field length [255]:
+<span class="linenos" data-linenos="34 "></span> &gt; 255
+<span class="linenos" data-linenos="35 "></span>
+<span class="linenos" data-linenos="36 "></span> Can this field be null in the database (nullable) (yes/no) [no]:
+<span class="linenos" data-linenos="37 "></span> &gt; yes
+<span class="linenos" data-linenos="38 "></span>
+<span class="linenos" data-linenos="39 "></span> updated: src/Entity/Movie.php
+<span class="linenos" data-linenos="40 "></span>
+<span class="linenos" data-linenos="41 "></span> Add another property? Enter the property name (or press &lt;return&gt; 
+<span class="linenos" data-linenos="42 "></span> to stop adding fields):
+<span class="linenos" data-linenos="43 "></span> &gt; poster
+<span class="linenos" data-linenos="44 "></span>
+<span class="linenos" data-linenos="45 "></span> Field type (enter ? to see all types) [string]:
+<span class="linenos" data-linenos="46 "></span> &gt; string
+<span class="linenos" data-linenos="47 "></span>
+<span class="linenos" data-linenos="48 "></span> Field length [255]:
+<span class="linenos" data-linenos="49 "></span> &gt; 100
+<span class="linenos" data-linenos="50 "></span>
+<span class="linenos" data-linenos="51 "></span> Can this field be null in the database (nullable) (yes/no) [no]:
+<span class="linenos" data-linenos="52 "></span> &gt; no
+<span class="linenos" data-linenos="53 "></span>
+<span class="linenos" data-linenos="54 "></span> updated: src/Entity/Movie.php
+<span class="linenos" data-linenos="55 "></span>
+<span class="linenos" data-linenos="56 "></span> Add another property? Enter the property name (or press &lt;return&gt; 
+<span class="linenos" data-linenos="57 "></span> to stop adding fields):
+<span class="linenos" data-linenos="58 "></span> &gt; releaseDate 
+<span class="linenos" data-linenos="59 "></span>
+<span class="linenos" data-linenos="60 "></span> Field type (enter ? to see all types) [string]:
+<span class="linenos" data-linenos="61 "></span> &gt; date
+<span class="linenos" data-linenos="62 "></span>
+<span class="linenos" data-linenos="63 "></span> Can this field be null in the database (nullable) (yes/no) [no]:
+<span class="linenos" data-linenos="64 "></span> &gt; no
+<span class="linenos" data-linenos="65 "></span>
+<span class="linenos" data-linenos="66 "></span> updated: src/Entity/Movie.php
+<span class="linenos" data-linenos="67 "></span>
+<span class="linenos" data-linenos="68 "></span> Add another property? Enter the property name (or press &lt;return&gt; 
+<span class="linenos" data-linenos="69 "></span> to stop adding fields):
+<span class="linenos" data-linenos="70 "></span> &gt; overview
+<span class="linenos" data-linenos="71 "></span>
+<span class="linenos" data-linenos="72 "></span> Field type (enter ? to see all types) [string]:
+<span class="linenos" data-linenos="73 "></span> &gt; text
+<span class="linenos" data-linenos="74 "></span>
+<span class="linenos" data-linenos="75 "></span> Can this field be null in the database (nullable) (yes/no) [no]:
+<span class="linenos" data-linenos="76 "></span> &gt; no
+<span class="linenos" data-linenos="77 "></span>
+<span class="linenos" data-linenos="78 "></span> updated: src/Entity/Movie.php
+<span class="linenos" data-linenos="79 "></span>
+<span class="linenos" data-linenos="80 "></span> Add another property? Enter the property name (or press &lt;return&gt; 
+<span class="linenos" data-linenos="81 "></span> to stop adding fields):
+<span class="linenos" data-linenos="82 "></span> &gt; 
+<span class="linenos" data-linenos="83 "></span>
+<span class="linenos" data-linenos="84 "></span> Success! 
+<span class="linenos" data-linenos="85 "></span>
+<span class="linenos" data-linenos="86 "></span>Next: When you're ready, create a migration with php bin/console make:migration
+</code></pre></div>
+<p>Com a resultat, es generarà una classe <code>Movie</code> dins de la carpeta
+<code>src/Entity</code>. El codi queda com segueix:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="  1 "></span><span class="sd">/**</span>
+<span class="linenos" data-linenos="  2 "></span><span class="sd"> * @ORM\Entity(repositoryClass=MovieRepository::class)</span>
+<span class="linenos" data-linenos="  3 "></span><span class="sd"> */</span>
+<span class="linenos" data-linenos="  4 "></span><span class="k">class</span> <span class="nc">Movie</span>
+<span class="linenos" data-linenos="  5 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="  6 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="  7 "></span><span class="sd">     * @ORM\Id</span>
+<span class="linenos" data-linenos="  8 "></span><span class="sd">     * @ORM\GeneratedValue</span>
+<span class="linenos" data-linenos="  9 "></span><span class="sd">     * @ORM\Column(type="integer")</span>
+<span class="linenos" data-linenos=" 10 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 11 "></span>    <span class="k">private</span> <span class="nv">$id</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 12 "></span>
+<span class="linenos" data-linenos=" 13 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 14 "></span><span class="sd">     * @ORM\Column(type="string", length=100)</span>
+<span class="linenos" data-linenos=" 15 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 16 "></span>    <span class="k">private</span> <span class="nv">$title</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 17 "></span>
+<span class="linenos" data-linenos=" 18 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 19 "></span><span class="sd">     * @ORM\Column(type="string", length=255, nullable=true)</span>
+<span class="linenos" data-linenos=" 20 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 21 "></span>    <span class="k">private</span> <span class="nv">$tagline</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 22 "></span>
+<span class="linenos" data-linenos=" 23 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 24 "></span><span class="sd">     * @ORM\Column(type="string", length=100)</span>
+<span class="linenos" data-linenos=" 25 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 26 "></span>    <span class="k">private</span> <span class="nv">$poster</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 27 "></span>
+<span class="linenos" data-linenos=" 28 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 29 "></span><span class="sd">     * @ORM\Column(type="text")</span>
+<span class="linenos" data-linenos=" 30 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 31 "></span>    <span class="k">private</span> <span class="nv">$overview</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 32 "></span>
+<span class="linenos" data-linenos=" 33 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 34 "></span><span class="sd">     * @ORM\Column(type="date")</span>
+<span class="linenos" data-linenos=" 35 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 36 "></span>    <span class="k">private</span> <span class="nv">$releaseDate</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 37 "></span>
+<span class="linenos" data-linenos=" 38 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getId</span><span class="p">()</span><span class="o">:</span> <span class="o">?</span><span class="nx">int</span>
+<span class="linenos" data-linenos=" 39 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 40 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 41 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 42 "></span>
+<span class="linenos" data-linenos=" 43 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTitle</span><span class="p">()</span><span class="o">:</span> <span class="o">?</span><span class="nx">string</span>
+<span class="linenos" data-linenos=" 44 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 45 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 46 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 47 "></span>
+<span class="linenos" data-linenos=" 48 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setTitle</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$title</span><span class="p">)</span><span class="o">:</span> <span class="nx">self</span>
+<span class="linenos" data-linenos=" 49 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 50 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">title</span> <span class="o">=</span> <span class="nv">$title</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 51 "></span>
+<span class="linenos" data-linenos=" 52 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 53 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 54 "></span>
+<span class="linenos" data-linenos=" 55 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTagline</span><span class="p">()</span><span class="o">:</span> <span class="o">?</span><span class="nx">string</span>
+<span class="linenos" data-linenos=" 56 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 57 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tagline</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 58 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 59 "></span>
+<span class="linenos" data-linenos=" 60 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setTagline</span><span class="p">(</span><span class="o">?</span><span class="nx">string</span> <span class="nv">$tagline</span><span class="p">)</span><span class="o">:</span> <span class="nx">self</span>
+<span class="linenos" data-linenos=" 61 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 62 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tagline</span> <span class="o">=</span> <span class="nv">$tagline</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 63 "></span>
+<span class="linenos" data-linenos=" 64 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 65 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 66 "></span>
+<span class="linenos" data-linenos=" 67 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPoster</span><span class="p">()</span><span class="o">:</span> <span class="o">?</span><span class="nx">string</span>
+<span class="linenos" data-linenos=" 68 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 69 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">poster</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 70 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 71 "></span>
+<span class="linenos" data-linenos=" 72 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setPoster</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$poster</span><span class="p">)</span><span class="o">:</span> <span class="nx">self</span>
+<span class="linenos" data-linenos=" 73 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 74 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">poster</span> <span class="o">=</span> <span class="nv">$poster</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 75 "></span>
+<span class="linenos" data-linenos=" 76 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 77 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 78 "></span>
+<span class="linenos" data-linenos=" 79 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getOverview</span><span class="p">()</span><span class="o">:</span> <span class="o">?</span><span class="nx">string</span>
+<span class="linenos" data-linenos=" 80 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 81 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">overview</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 82 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 83 "></span>
+<span class="linenos" data-linenos=" 84 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setOverview</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$overview</span><span class="p">)</span><span class="o">:</span> <span class="nx">self</span>
+<span class="linenos" data-linenos=" 85 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 86 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">overview</span> <span class="o">=</span> <span class="nv">$overview</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 87 "></span>
+<span class="linenos" data-linenos=" 88 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 89 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 90 "></span>
+<span class="linenos" data-linenos=" 91 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getReleaseDate</span><span class="p">()</span><span class="o">:</span> <span class="o">?</span><span class="nx">\DateTimeInterface</span>
+<span class="linenos" data-linenos=" 92 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 93 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">releaseDate</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 94 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 95 "></span>
+<span class="linenos" data-linenos=" 96 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setReleaseDate</span><span class="p">(</span><span class="nx">\DateTimeInterface</span> <span class="nv">$releaseDate</span><span class="p">)</span><span class="o">:</span> <span class="nx">self</span>
+<span class="linenos" data-linenos=" 97 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 98 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">releaseDate</span> <span class="o">=</span> <span class="nv">$releaseDate</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 99 "></span>
+<span class="linenos" data-linenos="100 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+<span class="linenos" data-linenos="101 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="102 "></span><span class="p">}</span>
+</code></pre></div>
+Com podem observar, el camp <code>id</code> que usàvem en la nostra base de dades
+de prova (el servei creat a tal efecte) l'hem reemplaçat per un camp enter 
+ que es genera automàticament com a clau principal de la classe. Per tant, només hem
+hagut d'especificar el títol, l'eslògan, la sinopsi, la data d'estrena i el pòster.</p>
+<p>Quant als tipus de dades que podem especificar, si premem <code>?</code> i <code>Intro</code> quan
+especifique el tipus de dada, veurem un llistat complet dels
+tipus disponibles (també ho podeu consultar ací). L'habitual serà
+treballar amb cadenes de text d'una longitud determinada (<em>string</em>),
+textos il·limitats (<em>text</em>), enters (<em>integer</em>), booleans (<em>boolean</em>), reals
+(<em>float</em>), dates (<em>timestamp</em> o <em>datetime</em>, depenent del que vulguem
+emmagatzemar)...</p>
+<div class="admonition important">
+<p class="admonition-title">Repositori associat a l'entitat</p>
+<p>En crear l'entitat mitjançat l'ordre <code>make:entity</code> és crea també un repositori
+associat, que es vincula mitjançant el paràmetre <code>repositoryClass</code> de la anotació
+<code>@ORM\Entity</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">/**</span>
+<span class="linenos" data-linenos="2 "></span> <span class="o">*</span> <span class="o">@</span><span class="nx">ORM\Entity</span><span class="p">(</span><span class="nx">repositoryClass</span><span class="o">=</span><span class="nx">MovieRepository</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span> <span class="o">*</span> <span class="o">/</span>
+</code></pre></div>
+</div>
+<h3 id="generacio-de-lesquema">Generació de l'esquema</h3>
+<p>Una vegada hem definit l'entitat, podem generar la corresponent taula
+en la base de dades. Per a açò, escrivim aquest comando:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console make:migration
+</code></pre></div>
+<p>El que fa aquest comando és aplicar els canvis entre el nostre model
+d'entitats i l'esquema de la base de dades, i generar un arxiu PHP que
+s'encarregarà de bolcar aqueixos canvis a la base de dades. Per consola
+se'ns informarà d'on està aquest arxiu perquè ho comprovem (estarà en
+la carpeta <code>src/Migrations</code>), i si tot és correcte, executant aquest altre
+comando es reflectiran els canvis en la base de dades:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console doctrine:migration:migrate
+</code></pre></div>
+<p>Com podem comprovar, cada atribut de la nostra entitat <code>Movie</code> es
+correspon amb un camp del mateix nom en la taula <code>movie</code>.</p>
+<p><img alt="movies structure" src="../assets/symfony-movies-phpMyAdmin.png"/></p>
+<p>Convé esmentar també que aquest últim comando executarà
+tots els arxius de migració que encara no s'hagen migrat efectivament a la base 
+de dades, per la qual cosa si hi ha algun que no
+vulguem migrar (perquè s'haja generat equivocadament, per exemple),
+haurem d'eliminar-la abans.</p>
+<h3 id="editar-entitats">Editar entitats</h3>
+<p>Què passa si, després de crear una entitat, volem modificar la seua
+estructura? Podem editar la classe de l'entitat manualment per a
+afegir, modificar o esborrar camps, però també podem tornar a executar
+el comando <code>make:entity</code>, indicar el mateix nom de classe que volem
+modificar, i especificar els nous camps que vulguem afegir (en el cas
+que el que vulguem siga afegir camps).</p>
+<p>Després de definir els canvis en la(s) entitat(s) desitjada(es), haurem
+de generar una nova migració amb els comandos vistos en el subapartat
+anterior.</p>
+<h3 id="establir-altres-claus-primaries">Establir altres claus primàries</h3>
+<p>Per defecte, hem vist que Doctrine agrega un camp <code>id</code> a les entitats,
+que és autonuméric i actua com a clau primària. En el cas que no
+vulguem que siga així, i preferim triar un altre camp no autonumèric
+com a clau primària, hem de seguir aquests passos:</p>
+<ul>
+<li>Eliminar l'atribut <code>id</code> i el seu <code>getter</code> corresponent de l'entitat.</li>
+<li>Afegir la següent anotació a l'atribut que hàgem triat com a clau primària: </li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> <span class="sd">/**</span>
+<span class="linenos" data-linenos="2 "></span><span class="sd">   * @ORM\Id()</span>
+<span class="linenos" data-linenos="3 "></span><span class="sd">   * ...</span>
+<span class="linenos" data-linenos="4 "></span><span class="sd"> */</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="k">private</span> <span class="nv">$fieldName</span>
+</code></pre></div>
+En el cas que siga una clau primària composta per més d'un camp, haurem
+d'afegir aquesta anotació en cada camp que forme part de la clau
+primària.</p>
+<h2 id="operacions-contra-la-base-de-dades">Operacions contra la base de dades</h2>
+<p>Ara que ja hem vist com definir entitats simples, vegem com fer
+operacions amb elles, tals com a insercions, esborrats, modificacions i
+consultes. Per a realitzar aquestes operacions, ens valdrem d'un
+objecte molt important en Doctrine, el seu <em>entity manager</em>, a través del
+que farem les insercions, esborrats, etc. També utilitzarem el
+repositori de l'entitat corresponent, per a realitzar les cerques.</p>
+<h3 id="inserir-objectes">Inserir objectes</h3>
+<p>Si volem afegir objectes nous a la nostra base de dades, n'hi ha prou
+que creem un objecte de l'entitat corresponent en el mètode oportú, i
+cridem al mètode <code>persist</code> i <code>flush</code> de l'<em>entity manager</em> de Doctrine.</p>
+<p>Per exemple, per a provar, crearem un controlador en la nostra
+classe <code>MovieController</code> associat a una ruta <code>/movies/create</code>, que de
+moment serà de proves fins que fem un formulari d'inserció. Dins
+d'aquest mètode, crearem un objecte <code>Movie</code> amb dades prefixades,
+obtenim l'<em>entity manager</em> de Doctrine i persistim l'objecte:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="sd">/**</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="sd">* @Route("/movies/create", name="movies_create")</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sd">*/</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$movie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Movie</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s2">"Ava"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setOverview</span><span class="p">(</span><span class="s2">"A black ops assassin is forced to fight for her </span>
+<span class="linenos" data-linenos="10 "></span><span class="s2">        own survival after a job goes dangerously wrong."</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setReleaseDate</span><span class="p">(</span><span class="k">new</span> <span class="nx">DateTime</span><span class="p">(</span><span class="s2">"2020-09-25"</span><span class="p">));</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setPoster</span><span class="p">(</span><span class="s2">"noposter.jpg"</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$movie</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"The movie with id "</span> <span class="o">.</span> <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">()</span><span class="o">.</span> 
+<span class="linenos" data-linenos="17 "></span>        <span class="s2">" has been inserted successfully!"</span> <span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Si accedim des del navegador a <code>movies-symfony/movies/create</code>
+podrem veure el resultat en la taula <code>movie</code> de la nostra base de dades:</p>
+<p>És important recalcar que la cridada <code>persist</code> per si sola no actualitza
+la base de dades, sinó que indica que es vol persistir l'objecte
+indicat. És la crida a <code>flush</code> la que fa efectiva aqueixa persistència.</p>
+<h4 id="detectant-errors-en-la-insercio">Detectant errors en la inserció</h4>
+<p>Si ocorre algun error en la inserció (per exemple, perquè algun camp és
+nul i no puga ser-ho, o perquè es duplica la clau primària), es
+provocarà una excepció en cridar al mètode <code>flush</code>. Podem tractar aquest
+error simplement capturant l'excepció i generant la resposta apropiada:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$object</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">try</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"Object inserted"</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"Error inserting objects"</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="obtenir-objectes">Obtenir objectes</h3>
+<p>A l'hora d'obtenir objectes d'una taula, existeixen diferents mètodes
+que podem emprar. Per exemple:</p>
+<ul>
+<li>El mètode <code>find</code> localitza l'objecte per la clau primària (normalment
+    l'<code>id</code>) que se li passa com a paràmetre. Així cercaríem la pel·lícula
+    amb id 1: <code>$movie = $repositori-&gt;find(1)</code>;</li>
+<li>El mètode <code>findOneBy</code> localitza un objecte que complisca els criteris
+    de cerca passats com a paràmetre. Així cercaríem la pel·lícula el títol
+    del qual siga "Ava": 
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$movie</span> <span class="o">=</span> <span class="nv">$repositori</span><span class="o">-&gt;</span><span class="na">findOneBy</span><span class="p">([</span><span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"Ava"</span><span class="p">]);</span> 
+</code></pre></div>
+    En el cas
+    de voler definir més criteris de cerca, es passarien un darrere  <br/>
+    l'altre en l'array, separats per comes.</li>
+<li>El mètode <code>findBy</code> localitza tots els objectes que complisquen els
+    criteris de cerca passats com a paràmetre. Aquesta instrucció és com
+    l'anterior, però retorna un array de pel·lícules amb tots els
+    resultats coincidents (en el cas que hi haja un sol resultat,
+    retorna un array d'un element):
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> <span class="nv">$movies</span> <span class="o">=</span> <span class="nv">$repositori</span><span class="o">-&gt;</span><span class="na">findBy</span><span class="p">([</span><span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"Ava"</span><span class="p">]);</span>
+</code></pre></div></li>
+<li>El mètode <code>findAll</code> (sense paràmetres), obté tots els objectes de la
+    col·lecció. 
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$movies</span> <span class="o">=</span> <span class="nv">$repositori</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</code></pre></div></li>
+</ul>
+<p>Tots aquests mètodes s'obtenen a partir d'un repositori de la classe,
+que ve a ser alguna cosa així com un assistent que ens ajuda a obtenir
+objectes que pertanguen a aqueixa classe.</p>
+<p>Vegem un exemple amb la nostra classe <code>MovieController</code>, modificarem
+el nostre mètode <code>show</code> perquè, en lloc de cercar en la base de
+dades de prova que hem vingut emprant en sessions anteriors, cerque per
+<code>id</code> en la base de dades real. Per a açò, obtenim el repositori de la nostra 
+classe <code>Movie</code> i cerquem (<em>find</em>)
+la pel·lícua amb l'identificador que hem rebut com a paràmetre:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="sd">     * @Route("/movies/{id}", name="movies_show", requirements={"id"="\d+"})</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$movieRepository</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Movie</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$movie</span> <span class="o">=</span> <span class="nv">$movieRepository</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$movie</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'movies_show.html.twig'</span><span class="p">,</span> <span class="p">[</span><span class="s2">"movie"</span><span class="o">=&gt;</span><span class="nv">$movie</span><span class="p">]</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="k">else</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'movies_show.html.twig'</span><span class="p">,</span> <span class="p">[</span>
+<span class="linenos" data-linenos="15 "></span>                <span class="s1">'movie'</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">]</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
+</code></pre></div>
+<h3 id="consultes-mes-avancades">Consultes més avançades</h3>
+<p>Amb els mètodes de consulta anteriors podem realitzar consultes que es
+limiten a comprovar si un o diversos camps d'un objecte són iguals a
+uns criteris de cerca determinats. Però, com podríem, per exemple,
+cercar les pel·lícules el títol dels quals continga un cert text, o les pel·licules
+estrenades en un període determinat? Per a aquest tipus de consultes,
+necessitem ampliar el repositori de la nostra entitat.</p>
+<p>Per exemple, per a la nostra entitat <code>Movie</code>, imaginem que volem cercar
+les pel·lícules el títol dels quals coincideix en un cert text. Per a aconseguir
+açò, necessitem editar el repositori de l'entitat, que està en
+<code>src/Repository/MovieRepository.php</code>. Aquest arxiu conté comentats un
+parell de mètodes de prova que podríem definir per a ampliar les
+capacitats de l'entitat.</p>
+<p>En el nostre cas, afegirem un mètode que s'encarregarà d'obtenir
+les pel·lícules el títol o la sinopsi dels quals continga un text determinat que li
+passem com a paràmetre:
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="sd">      * @return Movie[] Returns an array of Movie objects </span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">filterByText</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$text</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$qb</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createQueryBuilder</span><span class="p">(</span><span class="s1">'m'</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>            <span class="o">-&gt;</span><span class="na">orWhere</span><span class="p">(</span><span class="s1">'m.title LIKE :value'</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="o">-&gt;</span><span class="na">orWhere</span><span class="p">(</span><span class="s1">'m.overview LIKE :value'</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$qb</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">'value'</span><span class="p">,</span> <span class="s2">"%"</span><span class="o">.</span><span class="nv">$text</span><span class="o">.</span><span class="s2">"%"</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$qb</span><span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">'m.title'</span><span class="p">,</span> <span class="s1">'ASC'</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="nv">$query</span> <span class="o">=</span> <span class="nv">$qb</span><span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">();</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">return</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">();</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+</code></pre></div>
+Emprem el <em>query builder</em> de Doctrine per a construir la consulta amb
+aqueixa sintaxi específica. En primer lloc, definim un element que hem
+cridat <code>m</code> (de <code>Movie</code>) que usarem per a referenciar les propietats de
+les pel·lícules, per exemple, en la clàusula <code>where</code>. El que ve a fer aquest codi és cercar aquelles
+pel·lícules <code>m</code> el títol de les quals coincideixca amb el paràmetre <code>text</code>, i a
+continuació específica que aquest paràmetre <code>text</code> és igual al paràmetre
+que rebem en el mètode, tancat entre símbols '%', per a indicar que és
+igual el que hi haja davant o darrere del text.</p>
+<p>Ara, ja podríem utilitzar aquest mètode des d'on ho necessitem. Per
+exemple, podem modificar el mètode <code>filter</code> de <code>MovieController</code> perquè
+cerque pel·lícules per títol emprant aquest nou mètode:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="sd">     * @Route("/movies/{text}", name="movies_filter")</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">filter</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$text</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$movieRepository</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Movie</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$movies</span> <span class="o">=</span> <span class="nv">$movieRepository</span><span class="o">-&gt;</span><span class="na">findByTitle</span><span class="p">(</span><span class="nv">$text</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'movies_filter.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="s1">'movies'</span> <span class="o">=&gt;</span> <span class="nv">$movies</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="p">));</span>        
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+</code></pre></div>
+Si, per exemple, volguérem cercar per una propietat numèrica (per
+exemple, persones l'edat de les quals siga major que una donada),
+usaríem una sintaxi com aquesta (també molt similar a SQL):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$qb</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createQueryBuilder</span><span class="p">(</span><span class="s1">'p'</span><span class="p">)</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="o">-&gt;</span><span class="na">andWhere</span><span class="p">(</span><span class="s1">'p.edat &gt; :edat'</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">'edat'</span><span class="p">,</span> <span class="nv">$edat</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">();</span>
+</code></pre></div>
+<p>Alternativament, també podem emprar un llenguatge anomenat DQL (<em>Doctrine
+Query Language</em>) per a realitzar la consulta anterior:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getEntityManager</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$query</span> <span class="o">=</span> <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">createQuery</span><span class="p">(</span><span class="s1">'SELECT m FROM App\Movie m WHERE m.title LIKE</span>
+<span class="linenos" data-linenos="3 "></span><span class="s1">    :text'</span> <span class="p">)</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">'text'</span><span class="p">,</span> <span class="s1">'%'</span><span class="o">.</span> <span class="nv">$text</span><span class="o">.</span> <span class="s1">'%'</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+</code></pre></div>
+<p>I, com a tercera via, també podem emprar SQL estàndard, però en aquest
+cas el que obtindríem ja no seria un array d'objectes, sinó un array de
+registres, com si empràrem la llibreria PDO de PHP per a accedir a la
+base de dades.</p>
+<p>Ací teniu enllaços per a consultar informació addicional tant de <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/query-builder.html">Query
+Builder</a> 
+com del <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/dql-doctrine-query-language.html">llenguatge DQL</a>.</p>
+<h3 id="actualitzar-i-esborrar-objectes">Actualitzar i esborrar objectes</h3>
+<h4 id="actualitzar-objectes">Actualitzar objectes</h4>
+<p>Per a actualitzar un objecte en una base de dades, hem de seguir tres
+passos:</p>
+<ol>
+<li>Obtenir l'objecte de la base de dades (típicament fent un find per
+    la seua clau primària)</li>
+<li>Modificar les dades necessàries amb els respectius setters de
+    l'objecte</li>
+<li>Fer un <em>flush</em> per a actualitzar els canvis en la base de dades.</li>
+</ol>
+<p>Si, per exemple, volguérem actualitzar les dades de la pel·lícula amb <code>id</code> =
+1, faríem açò:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$repository</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Movie</span><span class="o">::</span><span class="na">class</span><span class="p">);</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$movie</span> <span class="o">=</span> <span class="nv">$repository</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$movie</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s2">"Updated movie"</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span>        <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span> 
+<span class="linenos" data-linenos="8 "></span>    <span class="p">}</span>
+</code></pre></div>
+<h4 id="esborrar-objectes">Esborrar objectes</h4>
+<p>L'esborrat d'objectes és similar a l'actualització: hem d'obtenir
+l'objecte també, però després cridem al mètode <code>remove</code> per a
+esborrar-lo, i finalment a <code>flush</code>. Així esborraríem la pel·lícula amb
+id 1</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$entityManager</span> <span class="o">=</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$repository</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Movie</span><span class="o">::</span><span class="na">class</span><span class="p">);</span> 
+<span class="linenos" data-linenos="3 "></span><span class="nv">$movie</span> <span class="o">=</span> <span class="nv">$repository</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$movie</span><span class="p">)</span> <span class="p">{</span> 
+<span class="linenos" data-linenos="6 "></span>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="nv">$movie</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span> 
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+Novament, tant en l'actualització com en l'esborrat, el mètode <code>flush</code>
+pot provocar una excepció si l'operació no ha pogut dur-se a terme. Hem
+de tenir-ho en compte per a capturar-la i generar la resposta oportuna.</p>
+<h2 id="relacions-entre-entitats">Relacions entre entitats</h2>
+<p>Fins ara les operacions que hem fet s'han centrat en una única taula o
+entitat (l'entitat/taula de pel·lícules en l'exemple de les anotacions). 
+Vegem ara com podem treballar amb més d'una taula/entitat que estiguen relacionades
+entre sí.</p>
+<p>Existeixen dos tipus principals de relacions entre entitats:</p>
+<ul>
+<li>Molts a un: en aquest tipus s'englobarien les relacions "un a
+    molts", "molts a un" i "un a un", ja que en qualsevol dels tres
+    casos, la relació es reflecteix afegint una clau ajeno en una de les
+    dues entitats que referencie a l'altra.</li>
+<li>Molts a molts: en aquest tipus de relacions, es necessita d'una
+    taula addicional per a reflectir la relació entre les entitats.</li>
+</ul>
+<p>Anem a definir una relació molts a un en la nostra base de dades de
+pel·lícules. Per a açò, anem a crear primer una entitat anomenada
+<code>Genre</code>, que només continga un id autoincremental i un nom (<em>string</em>):</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>php bin/console make:entity
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span>Class name of the entity to create or update <span class="o">(</span>i.g. AgreeableGnome<span class="o">)</span>:
+<span class="linenos" data-linenos=" 4 "></span>&gt;Genre
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>created: src/Entity/Genre.php
+<span class="linenos" data-linenos=" 7 "></span>created: src/Repository/GenreRepository.php
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>New property name <span class="o">(</span>press to stop adding fields<span class="o">)</span>:
+<span class="linenos" data-linenos="10 "></span>&gt;name
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>Field <span class="nb">type</span> <span class="o">(</span>enter? to see all types<span class="o">)</span> <span class="o">[</span>string<span class="o">]</span>:
+<span class="linenos" data-linenos="13 "></span>&gt;string
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>Field length <span class="o">[</span><span class="m">255</span><span class="o">]</span>:
+<span class="linenos" data-linenos="16 "></span>&gt;255
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>Can this field be null <span class="k">in</span> the database <span class="o">(</span>nullable<span class="o">)</span> <span class="o">(</span>yes/no<span class="o">)</span> <span class="o">[</span>no<span class="o">]</span>:
+<span class="linenos" data-linenos="19 "></span>&gt;no
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>updated: src/Entity/Genre.php
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>Add another property? Enter the property name <span class="o">(</span>or press to stop adding
+<span class="linenos" data-linenos="24 "></span>fields<span class="o">)</span>:
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span>Success!
+</code></pre></div>
+Després de generar la nova entitat, crearem la corresponent taula en
+la base de dades a través de la migració.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console make:migration
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span>php bin/console doctrine:migration:migrate
+</code></pre></div>
+<p>Ara, anem a fer que les pel·lícules tinguen un gènere associat. Per a
+açò, editem l'entitat <code>Movie</code> i li afegim un nou camp, anomenat
+gènere, que serà de tipus <strong>relació molts a un</strong> (una pel·lícula pertanyerà
+a una categoria, i un gènere pot tenir moltes pel·lícules).</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>php bin/console make:entity
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span>Class name of the entity to create or update (i.g. DeliciousPuppy):
+<span class="linenos" data-linenos=" 4 "></span>&gt; Movie
+<span class="linenos" data-linenos=" 5 "></span>Your entity already exists! So let's add some new fields!
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>New property name (press to stop adding fields):
+<span class="linenos" data-linenos=" 8 "></span>&gt;genre
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>Field type (enter? to see all types) \[string\]:
+<span class="linenos" data-linenos="11 "></span>&gt;relation
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>What class should this entity be related to?:
+<span class="linenos" data-linenos="14 "></span>&gt;Genre
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>What type of relationship is this?
+<span class="linenos" data-linenos="17 "></span>---------------------------------------------------------------------
+<span class="linenos" data-linenos="18 "></span>Type        Description
+<span class="linenos" data-linenos="19 "></span>---------------------------------------------------------------------
+<span class="linenos" data-linenos="20 "></span>ManyToOne   Each Movie relates to (has) one Genre.
+<span class="linenos" data-linenos="21 "></span>            Each Genre can relate/has to (have) many Movie objects
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>OneToMany   Each Movie can relate to (have) many Genre objects.
+<span class="linenos" data-linenos="24 "></span>            Each Genre relates to (has) one Movie
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span>ManyToMany  Each Movie can relate to (have) many Genre objects.
+<span class="linenos" data-linenos="27 "></span>            Each Província can also relate to (have) many Contacte objects
+<span class="linenos" data-linenos="28 "></span>
+<span class="linenos" data-linenos="29 "></span>OneToOne    Each Movie relates to (has) exactly one Genre.
+<span class="linenos" data-linenos="30 "></span>            Each Genre also relates to (has) exactly one Movie.
+<span class="linenos" data-linenos="31 "></span>
+<span class="linenos" data-linenos="32 "></span>Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+<span class="linenos" data-linenos="33 "></span>&gt; ManyToOne
+<span class="linenos" data-linenos="34 "></span>
+<span class="linenos" data-linenos="35 "></span>Is the Movie.genre property allowed to be null (nullable)?
+<span class="linenos" data-linenos="36 "></span>(yes/no) [yes]:
+<span class="linenos" data-linenos="37 "></span>&gt; no
+<span class="linenos" data-linenos="38 "></span>
+<span class="linenos" data-linenos="39 "></span>Do you want to add a new property to Genre so that you can
+<span class="linenos" data-linenos="40 "></span>access/update Movie objects from it - i.g. $genre-\&gt;getMovies()? (yes/no) [yes]:
+<span class="linenos" data-linenos="41 "></span>&gt;no
+<span class="linenos" data-linenos="42 "></span>
+<span class="linenos" data-linenos="43 "></span>updated: src/Entity/Movie.php
+<span class="linenos" data-linenos="44 "></span>
+<span class="linenos" data-linenos="45 "></span>Add another property? Enter the property name (or press to stop adding
+<span class="linenos" data-linenos="46 "></span>fields):
+<span class="linenos" data-linenos="47 "></span>
+<span class="linenos" data-linenos="48 "></span>Success!
+</code></pre></div>
+<p>Com pot veure's, a l'hora de triar el tipus de camp, indiquem que és
+una relació (<em>relation</em>), en aquest cas ens demana indicar a quina entitat
+està vinculada (Genre, en aquest cas), i quin tipus de relació és
+(<em>ManyToOne</em> en el nostre cas, però podem triar qualsevol de les altres
+tres opcions <em>OneToMany</em>, <em>OneToOne</em> o <em>ManyToMany</em>). També podem comprovar
+que l'assistent ens pregunta si volem afegir un camp en l'altra
+entitat perquè la relació siga bidireccional (és a dir, perquè des d'un
+objecte de qualsevol de les dues entitats puguem consultar el/els
+objecte(s) associat(s) de l'altra. En aquest cas indiquem que no per a
+simplificar el codi.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Cal tenir en compte que si la taula <code>movie</code> ja té pel·lícules, i a l'hora
+de crear la clau aliena decidim que no puga tenir valors nuls tindrem 
+problemes, ja que fallarà la integritat referencial. </p>
+<p>Hi ha diverses solucions com crear un gènere amb id 0 o indicar que 
+la clau aliena <code>genre</code> sí pot contenir valors nuls. I després, canviar-ho.</p>
+</div>
+<p>Després d'aquests canvis, realitzem de nou la migració, i ja tindrem el
+nou camp afegit en la nostra entitat <code>Movie</code> i a la taula <code>movie</code> de
+la base de dades:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="sd">/**</span>
+<span class="linenos" data-linenos="2 "></span><span class="sd">* @ORM\ManyToOne(targetEntity="App\Entity\Genre")</span>
+<span class="linenos" data-linenos="3 "></span><span class="sd">* @ORM\JoinColumn(nullable=false)</span>
+<span class="linenos" data-linenos="4 "></span><span class="sd">*/</span>
+</code></pre></div>
+<h3 id="treballar-amb-entitats-relacionades">Treballar amb entitats relacionades</h3>
+<p>Ara que ja sabem relacionar entitats entre sí. Com podem inserir una
+entitat que depèn d'una altra, o accedir a les dades d'una entitat des
+de l'altra?</p>
+<h4 id="insercio-dentitats-relacionades">Inserció d'entitats relacionades</h4>
+<p>Per exemple, si volguérem inserir un pel·lícula assignant-li un
+gènere:</p>
+<ul>
+<li>
+<p>Si el gènere no existeix, crearem un objecte de tipus
+    Genre, i després un altre de tipus Movie, establint com a
+    <code>genre</code> l'objecte <code>Genre</code> recentment creat: </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$genre</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Genre</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$genre</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s2">"Western"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$movie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Movie</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s2">"A test title"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setTagline</span><span class="p">(</span><span class="s2">"A test tagline"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setReleaseDate</span><span class="p">(</span><span class="k">new</span> <span class="nx">\DateTime</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setPoster</span><span class="o">-&gt;</span><span class="na">setPoster</span><span class="p">(</span><span class="s2">"noposter.jpg"</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setOverview</span><span class="o">-&gt;</span><span class="na">setOverview</span><span class="p">(</span><span class="s2">"A test overview"</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setGenre</span><span class="p">(</span><span class="nv">$genre</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$genre</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$movie</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+</code></pre></div>
+</li>
+<li>
+<p>Si el gènere sí existeix, el recuperem de la base de dades (amb
+    algun mètode <code>find</code> o similar) i després crearem crear l'objecte 
+    Movie i li assignem aqueix objecte Genre: </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$repositori</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Genre</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$genre</span> <span class="o">=</span> <span class="nv">$repository</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$movie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Movie</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s2">"A test title"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setTagline</span><span class="p">(</span><span class="s2">"A test tagline"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setReleaseDate</span><span class="p">(</span><span class="k">new</span> <span class="nx">\DateTime</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setPoster</span><span class="o">-&gt;</span><span class="na">setPoster</span><span class="p">(</span><span class="s2">"noposter.jpg"</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setOverview</span><span class="o">-&gt;</span><span class="na">setOverview</span><span class="p">(</span><span class="s2">"A test overview"</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setGenre</span><span class="p">(</span><span class="nv">$genre</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$genre</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$movie</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+</code></pre></div>
+</li>
+</ul>
+<h4 id="obtenir-entitats-relacionades">Obtenir entitats relacionades</h4>
+<p>En el cas que recuperem una entitat que està relacionada amb una
+altra, l'accés a aqueixa altra entitat és immediat des de la primera.
+Per exemple, si volguérem saber el nom del gènere d'una pel·lícula amb
+id 1, faríem alguna cosa així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$repositori</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Movie</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$movie</span> <span class="o">=</span> <span class="nv">$repositori</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> 
+<span class="linenos" data-linenos="3 "></span><span class="nv">$genreName</span> <span class="o">=</span> <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">getGenre</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">();</span>
+</code></pre></div>
+<p>En qualsevol cas, és important recalcar que Doctrine no recupera les
+dades de l'entitat relacionada (la província, en aquest cas), fins que
+es demanen efectivament (és a dir, fins que no preguntem pel nom del genre, 
+Doctrine no tracta d'obtenir l'objecte Genre complet). Aquesta estratègia
+de recuperació d'entitats relacionades s'anomena <em>lazy loading</em> o càrrega
+diferida.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Injecció de dependències" class="md-footer__link md-footer__link--prev" href="../04-injeccio-dependencies/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Injecció de dependències
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Doctrine. Relacions molts a molts" class="md-footer__link md-footer__link--next" href="../11-relacions-molts-a-molts/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Doctrine. Relacions molts a molts
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({});</script></body>
+</html>

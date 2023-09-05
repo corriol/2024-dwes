@@ -1,0 +1,1088 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>El motor de plantilles Twig - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#gestio-de-plantilles-amb-twig">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              El motor de plantilles Twig
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          1.- Introducció a la programació Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/01-intro/">
+        Estructura aplicacions web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/02-developement/">
+        Preparació de l'entorn de desenvolupament
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/02-phpbasics/">
+        PHP Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Errors i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-02-state/">
+        Manteniment de l'estat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-03-authentication/">
+        Autenticació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0501-data-access/">
+        Accés a dades amb PHP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0599-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          El motor de plantilles Twig
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        El motor de plantilles Twig
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definint-plantilles-de-vistes-amb-twig">
+    Definint plantilles de vistes amb Twig
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-nostra-primera-plantilla">
+    La nostra primera plantilla
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#plantilles-amb-parts-variables">
+    Plantilles amb parts variables
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#estructures-de-control-en-plantilles">
+    Estructures de control en plantilles
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#herencia-de-plantilles">
+    Herència de plantilles
+  </a>
+<nav aria-label="Herència de plantilles" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#incloure-plantilles-dins-daltres">
+    Incloure plantilles dins d'altres
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enllacos-a-rutes-i-a-elements-estatics">
+    Enllaços a rutes i a elements estàtics
+  </a>
+<nav aria-label="Enllaços a rutes i a elements estàtics" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#afegir-contingut-estatic-en-plantilles">
+    Afegir contingut estàtic en plantilles
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enllacar-a-altres-rutes-de-laplicacio">
+    Enllaçar a altres rutes de l'aplicació
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#altres-caracteristiques-interessants-de-twig">
+    Altres característiques interessants de Twig
+  </a>
+<nav aria-label="Altres característiques interessants de Twig" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#us-de-filtres">
+    Ús de filtres
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comentaris">
+    Comentaris
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reutilitzar-contingut-de-plantilles-pare">
+    Reutilitzar contingut de plantilles pare
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cicles">
+    Cicles
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-seguretat-control-acces/">
+        Seguretat i control d'accés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-pujada-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20-gestio-actius/">
+        Gestió de fitxers CSS i Javascript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../15-unit-testing/">
+        Testing en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+        9.- Introducció als serveis web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/05-rest-api-symfony/">
+        REST API en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/06-jwt.md">
+        Seguretat en JWT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="gestio-de-plantilles-amb-twig">Gestió de plantilles amb Twig</h1>
+<h2 id="definint-plantilles-de-vistes-amb-twig">Definint plantilles de vistes amb Twig</h2>
+<p>Els exemples de controladors vistos fins ara queden un poc
+limitats, perquè el disseny brilla per la seua absència. Ens hem limitat
+a mostrar un text pla amb les dades per a comprovar que el controlador
+funciona, o en tot cas, a generar un HTML rudimentari en l'objecte
+<code>Response</code> per a mostrar una llista. Però si volem generar una vista més
+complicada, no és bona idea fer-ho afegint els elements en la cadena de
+text per a la resposta. Ara veurem com podem generar vistes amb una mica
+de disseny, gràcies al motor de plantilles Twig.</p>
+<p>La filosofia d'utilitzar motors de plantilles com Twig és separar tot
+el possible el codi PHP de l'estructura HTML de la pàgina, de manera
+que tota la lògica de negoci queda fora de la vista (en el controlador,
+normalment), i en aquesta deixem el necessari per a mostrar el contingut
+al client.</p>
+<p>Per a açò, el que es sol fer és, des del controlador, accedir al
+model per a obtenir o modificar les dades necessàries, emmagatzemar-los
+en variables i passar aquestes variables a les vistes o plantilles,
+de manera que aquestes només hagen d'encarregar-se de mostrar aqueixa
+informació amb l'estructura i disseny adequats. Aïllem, per tant, el
+treball del programador d'una banda (controlador i model), i el del
+dissenyador per un altre (vistes)</p>
+<h2 id="la-nostra-primera-plantilla">La nostra primera plantilla</h2>
+<p>Anem a veure com renderitzar una plantilla amb Twig. En primer lloc, hem
+de fer alguns petits canvis en el controlador que vaja a usar Twig:
+farem que la classe del controlador herete d'<code>AbstractController</code>
+(incorporant aquesta classe del seu corresponent espai de noms):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="o">...</span> 
+<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="nx">Symfony</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="k">class</span> <span class="nc">NameController</span> <span class="k">extends</span> <span class="nx">AbstractController</span> <span class="p">{</span>
+</code></pre></div>
+<p>Açò ho farem per a poder utilitzar algunes de les facilitats que ens
+dona <code>AbstractController</code>, com per exemple el mètode <code>render</code> per a
+renderitzar vistes. Com hem comentat en sessions anteriors, les vistes
+s'emmagatzemen en la carpeta <code>templates</code> del nostre projecte Symfony, i
+si emprem Twig com a motor de plantilles, tenen l'extensió <code>.html.twig.</code>
+Per exemple, crearem una plantilla anomenada <code>home.html.twig</code> en la
+nostra aplicació de <em>movies</em>, amb aquest codi:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Movies<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Welcome to Movie FX<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Ara modificarem la classe <code>src/Controller/HomeController</code> perquè
+herete d'<code>AbstractController</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">class</span> <span class="nc">HomeController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">{</span>
+</code></pre></div>
+... 
+i modifiquem també el mètode <code>home</code> perquè, en lloc de mostrar una
+resposta de text pla, renderitze la vista <code>home.html.twig</code> que acabem de
+fer. Per a açò, el codi serà el següent:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="sd">/**</span>
+<span class="linenos" data-linenos="2 "></span><span class="sd">* @Route("/", name="home")</span>
+<span class="linenos" data-linenos="3 "></span><span class="sd">*/</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">home</span><span class="p">()</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'home.html.twig'</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Observa com emprem l'objecte <code>$this</code> (recorda, ara la nostra classe és
+un subtipus d'<code>AbstractController</code>) per a accedir al mètode <code>render</code> i
+renderitzar la vista que li indiquem, que automàticament se cercarà des
+de la carpeta <code>templates</code>.</p>
+<h2 id="plantilles-amb-parts-variables">Plantilles amb parts variables</h2>
+<p>La plantilla anterior no és alguna cosa massa habitual, ja que únicament
+conté text estàtic. El normal és que hi haja alguna part que varie, i
+que li siga proporcionada des del controlador. Anem a veure un altre
+exemple amb la fitxa de la pel·lícula: anem a la nostra classe
+<code>src/Controller/MovieController</code> i fem que també herete
+d'<code>AbstractController:</code></p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="k">class</span> <span class="nc">MovieController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+</code></pre></div>
+Anem a generar una plantilla anomenada <code>movies_show.html.twig</code> en la
+nostra carpeta <code>templates</code>. Rebrà com a paràmetre del controlador la 
+pel·lícula amb el codi indicat (després veurem com), i mostrarà en la
+plantilla les seues dades. El codi de la plantilla pot quedar així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Movie data<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">movie.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Tagline: <span class="cp">{{</span> <span class="nv">movie.tagline</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Release date: <span class="cp">{{</span> <span class="nv">movie.release_date</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Emprem la notació de la doble clau <code>{{ ... }}</code> per a situar variables, que normalment 
+són dades que esperem rebre de fora (del controlador, en aquest cas). Ens faltaria, 
+en el mètode <code>show</code> de <code>MovieController</code>, obtenir la pel·lícula desitjada (açò ja ho tenim fet) i passar-li-la a la vista, d'aquesta manera:
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="sd">/**</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="sd">  * @Route("/movies/{id}", name="movies_show", requirements={"id"="\d+"})</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sd">  */</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nv">$id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movies</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 8 "></span>            <span class="k">function</span><span class="p">(</span><span class="nv">$movie</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>                <span class="k">return</span> <span class="nv">$movie</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">==</span> <span class="nv">$id</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="p">});</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'movies_show.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="15 "></span>                <span class="s1">'movie'</span> <span class="o">=&gt;</span> <span class="nb">array_shift</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="p">));</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="k">else</span>
+<span class="linenos" data-linenos="19 "></span>            <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"Movie not found"</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="p">}</span>
+</code></pre></div>
+Com veus, n'hi ha prou amb utilitzar un array de paràmetres en el
+mètode <code>render</code> per a passar-li a la vista tot el que necessite,
+identificant cada cosa amb el nom que vulguem, i que coincidirà amb el
+qual s'utilitzarà en el codi de la vista (el paràmetre <code>movie</code>, en
+aquest cas).</p>
+<h2 id="estructures-de-control-en-plantilles">Estructures de control en plantilles</h2>
+<p>La plantilla anterior és un exemple per a afegir parts dinàmiques en el
+contingut de la mateixa, però està alguna cosa "coixa": què passa si no
+trobem la pel·lícula? En aquest cas, el controlador es limita
+a retornar una resposta de text pla que diu "Movie not found", però
+podríem emprar la mateixa vista (o una altra) per a mostrar aquesta
+informació més elaborada. Així, el controlador renderizará la mateixa
+vista, passant-li una pel·lícula vàlida o <code>null</code>, segons el cas:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nv">$id</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movies</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span>            <span class="k">function</span><span class="p">(</span><span class="nv">$movie</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>            <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>                <span class="k">return</span> <span class="nv">$movie</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">==</span> <span class="nv">$id</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>            <span class="p">});</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'movies_show.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="11 "></span>                <span class="s1">'movie'</span> <span class="o">=&gt;</span> <span class="nb">array_shift</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="p">));</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">else</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'movies_show.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="16 "></span>                <span class="s1">'movie'</span> <span class="o">=&gt;</span> <span class="k">null</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="p">));</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="p">}</span>
+</code></pre></div>
+i la vista distingirà si hi ha o no pel·lícula, per a mostrar una o una
+altra informació:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Movie data<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">movie</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">movie.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Tagline<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>: <span class="cp">{{</span> <span class="nv">movie.tagline</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Release date<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>: <span class="cp">{{</span> <span class="nv">movie.release_date</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Movie not found<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+Observa com hem inclòs un bloc <code>{% ... %}</code>, que són 
+blocs d'acció,  emprats per a definir certes sentències de control (condicions, bucles)
+ i incloure dins el codi associat a aquesta sentència.</p>
+<p>De la mateixa manera, per al controlador de filtratge de pel·lícules per títol,
+podem crear una nova vista (per exemple, "movies_filter.html.twig"),
+que mostre el llistat de pel·lícules que reba ja filtrat del controlador:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Movies<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">movies</span> <span class="cp">%}</span> 
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">movie</span> <span class="k">in</span> <span class="nv">movies</span> <span class="cp">%}</span>  
+<span class="linenos" data-linenos=" 5 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">movie.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Tagline<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>: <span class="cp">{{</span> <span class="nv">movie.tagline</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Release date<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>: <span class="cp">{{</span> <span class="nv">movie.release_date</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span> 
+<span class="linenos" data-linenos="10 "></span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>No movies found<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</code></pre></div>
+Així, el codi del controlador es limitarà a filtrar les i
+a passar-li'ls a la vista:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>   <span class="k">public</span> <span class="k">function</span> <span class="nf">filter</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movies</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span>            <span class="k">function</span><span class="p">(</span><span class="nv">$movie</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$text</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>            <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>                <span class="k">return</span> <span class="nb">strpos</span><span class="p">(</span><span class="nv">$movie</span><span class="p">[</span><span class="s2">"title"</span><span class="p">],</span> <span class="nv">$text</span><span class="p">)</span> <span class="o">!==</span> <span class="k">false</span><span class="p">;</span>                
+<span class="linenos" data-linenos=" 7 "></span>            <span class="p">});</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$response</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="k">foreach</span> <span class="p">(</span><span class="nv">$result</span> <span class="k">as</span> <span class="nv">$movie</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>                <span class="nv">$response</span> <span class="o">.=</span> <span class="s2">"&lt;ul&gt;&lt;li&gt;"</span> <span class="o">.</span> <span class="nv">$movie</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/li&gt;"</span> <span class="o">.</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="s2">"&lt;li&gt;"</span> <span class="o">.</span> <span class="nv">$movie</span><span class="p">[</span><span class="s2">"tagline"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/li&gt;"</span> <span class="o">.</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="s2">"&lt;li&gt;"</span> <span class="o">.</span> <span class="nv">$movie</span><span class="p">[</span><span class="s2">"release_date"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/li&gt;&lt;/ul&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'movies_filter.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="17 "></span>                <span class="s1">'movies'</span> <span class="o">=&gt;</span> <span class="nv">$result</span>
+<span class="linenos" data-linenos="18 "></span>                <span class="p">));</span>        
+<span class="linenos" data-linenos="19 "></span>        <span class="p">}</span>        
+<span class="linenos" data-linenos="20 "></span>    <span class="p">}</span>
+</code></pre></div>
+Observa com podem emprar bucles en les plantilles per a recórrer
+col·leccions de dades passades des del controlador.</p>
+<h2 id="herencia-de-plantilles">Herència de plantilles</h2>
+<p>L'herència de plantilles ens permet reaprofitar el codi d'unes en
+unes altres. En realitat, açò és alguna cosa molt habitual en el disseny
+web: que totes les pàgines (o diverses) d'una web compartisquen la
+mateixa capçalera i peu, per exemple. Així, podem definir una estructura
+o <em>layout</em> base en una plantilla, i fer que altres hereten d'ella
+per a emplenar certs buits. Vegem un exemple amb la nostra web de
+pel·lícules.</p>
+<p>En primer lloc, definirem la plantilla base. Teniu un exemple en què
+basar-vos ja fet, en l'arxiu <code>templates/base.html.twig</code>, que proporciona
+un esquelet que podríem aprofitar per a moltes aplicacions:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Welcome!<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">stylesheets</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">javascripts</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+Com podem observar, la part "emplenable" de la plantilla es defineix
+mitjançant blocs (<em>blocks</em>), de manera que en les diferents subplantilles
+podem indicar quins blocs de la plantilla pare volem emplenar. Per
+exemple, anem a definir una subplantilla per a la pàgina d'inici.
+Retoquem la nostra plantilla <code>home.html.twig</code> i la deixem així:</p>
+<p _="%" endraw="endraw"><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">'base.html.twig'</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Movies<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span> <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Movies<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Welcome to Movies FX Site!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="8 "></span>
+<span class="linenos" data-linenos="9 "></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div></p>
+<p>És important que, si una plantilla hereta d'una altra, el primer codi
+que hi haja en aqueixa plantilla (sense explicar comentaris previs) siga
+una instrucció {% raw %}<code>{% extends ... %}</code> {% endraw %} per a indicar que és una herència.
+Després, n'hi ha prou amb emplenar els blocs que el seu contingut
+vulguem modificar o establir: en aquest exemple, els blocs <em>title</em> i <em>body</em>,
+definits en la plantilla base, encara que el bloc <em>title</em> es podria deixar
+predefinit com a "Movies" en la plantilla base també.</p>
+<p>De la mateixa manera, definiríem les plantilles <code>movies_show.html.twig</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">'base.html.twig'</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Movies<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>   
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Movie data<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">movie</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">movie.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Tagline<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>: <span class="cp">{{</span> <span class="nv">movie.tagline</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Release date<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>: <span class="cp">{{</span> <span class="nv">movie.release_date</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Movie not found<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="16 "></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+<p>... i <code>movies_filter.html.twig</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">'base.html.twig'</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Movies<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>   
+<span class="linenos" data-linenos=" 5 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Movies<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">movies</span> <span class="cp">%}</span> 
+<span class="linenos" data-linenos=" 7 "></span>    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">movie</span> <span class="k">in</span> <span class="nv">movies</span> <span class="cp">%}</span>  
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">movie.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Tagline<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>: <span class="cp">{{</span> <span class="nv">movie.tagline</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Release date<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>: <span class="cp">{{</span> <span class="nv">movie.release_date</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span> 
+<span class="linenos" data-linenos="14 "></span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>No movies found<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="17 "></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+<h3 id="incloure-plantilles-dins-daltres">Incloure plantilles dins d'altres</h3>
+<p>Altra opció interessant, a part de l'herència, és la de poder incloure
+una plantilla com a part del contingut d'una altra. N'hi ha prou amb
+utilitzar la instrucció <code>include</code>, seguida del nom de la plantilla i, si
+els necessita, els seus paràmetres associats. Per exemple, podríem
+traure la llista de pel·lícules d'una plantilla anomenada
+<code>movie_data.html.twig</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">movie.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Tagline<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>: <span class="cp">{{</span> <span class="nv">movie.tagline</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Release date<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>: <span class="cp">{{</span> <span class="nv">movie.release_date</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>I incloure-la tant en <code>movies_show</code>...</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">'base.html.twig'</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Movies<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>   
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Movie data<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">movie</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="cp">{{</span> <span class="nv">include</span> <span class="o">(</span><span class="s1">'movie_data.html.twig'</span><span class="o">,</span> <span class="o">{</span><span class="s1">'movie'</span><span class="o">:</span> <span class="nv">movie</span> <span class="o">})</span> <span class="cp">}}</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Movie not found<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+<p>... com en <code>movies_filter</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">'base.html.twig'</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Movies<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>   
+<span class="linenos" data-linenos=" 5 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Movies<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">movies</span> <span class="cp">%}</span> 
+<span class="linenos" data-linenos=" 7 "></span>    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">movie</span> <span class="k">in</span> <span class="nv">movies</span> <span class="cp">%}</span>  
+<span class="linenos" data-linenos=" 8 "></span>        <span class="cp">{{</span> <span class="nv">include</span> <span class="o">(</span><span class="s1">'movie_data.html.twig'</span><span class="o">,</span> <span class="o">{</span><span class="s1">'movie'</span><span class="o">:</span> <span class="nv">movie</span> <span class="o">})</span> <span class="cp">}}</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span> 
+<span class="linenos" data-linenos="10 "></span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>No movies found<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="13 "></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+<h2 id="enllacos-a-rutes-i-a-elements-estatics">Enllaços a rutes i a elements estàtics</h2>
+<p>Per a finalitzar aquest apartat d'edició de plantilles, ens queden dos
+aspectes importants a tractar:</p>
+<ul>
+<li>Com incloure contingut estàtic (fulles d'estil, imatges... i tot el
+    que, en general, estiga dins de la carpeta "public" del projecte)</li>
+<li>Com afegir enllaços a altres rutes</li>
+</ul>
+<h3 id="afegir-contingut-estatic-en-plantilles">Afegir contingut estàtic en plantilles</h3>
+<p>Per a il·lustrar com afegir contingut estàtic en plantilles, anem a
+definir en la nostra carpeta <code>public</code> de la web de pel·lícules una
+subcarpeta <code>css</code>, i dins un arxiu <code>styles.css</code> (que quedarà, per tant, en
+<code>public/css/styles.css</code>. Definim dins un estil bàsic per a provar. Per
+exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nt">body</span> <span class="p">{</span> <span class="k">background-color</span><span class="p">:</span> <span class="mh">#99ccff</span><span class="p">;</span> <span class="p">}</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">h1</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">black</span><span class="p">;</span> <span class="p">}</span>
+<span class="linenos" data-linenos="3 "></span><span class="err">}</span>
+</code></pre></div>
+<p>Ara, anem a afegir aquest estil a la nostra web. Com tenim un bloc
+<code>stylesheets</code> en la nostra plantilla <code>base.html.twig</code>, podem aprofitar-ho i
+incloure el CSS dins d'aquest bloc, perquè ho utilitzen totes les
+subplantillas:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Welcome!<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">stylesheets</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">'css/styles.css'</span><span class="o">)</span> <span class="cp">}}</span><span class="s">"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">javascripts</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>De la mateixa manera, si tinguérem una imatge, per exemple,
+<code>public/images/image.png</code>, podríem afegir-la en la plantilla  amb un cosa així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">'images/image.png'</span><span class="o">)</span> <span class="cp">}}</span><span class="s">"</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<p>Podem també emprar rutes absolutes, emprant la instrucció <code>absolute_url</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">absolute_url</span><span class="o">(</span><span class="nv">asset</span><span class="o">(</span><span class="s1">'images/image.png'</span><span class="o">))</span> <span class="cp">}}</span><span class="s">"</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<p>En el cas d'arxius javascript, s'afegirien en el bloc <code>javascripts</code> de la plantilla base (o
+d'alguna subplantilla, si es vol). Per exemple, suposant que tenim un
+arxiu <code>library.js</code> penjant de la subcarpeta <code>public/js</code>, faríem alguna cosa
+així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">javascripts</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">'js/library.js'</span><span class="o">)</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+<h3 id="enllacar-a-altres-rutes-de-laplicacio">Enllaçar a altres rutes de l'aplicació</h3>
+<p>Si el que volem és definir un enllaç a una altra ruta o pàgina de la
+nostra aplicació, en aqueix cas utilitzem la funció <code>path</code> per a indicar
+el nom (<code>name</code>) que hàgem assignat a la ruta a la qual volem anar. Per
+exemple, si volem anar a la fitxa d'una pel·lícula el codi del qual està
+emmagatzemat en la variable <code>id</code>, faríem alguna cosa així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">'movies_show'</span><span class="o">,</span> <span class="o">{</span><span class="s1">'id'</span><span class="o">:</span> <span class="nv">id</span><span class="o">})</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="altres-caracteristiques-interessants-de-twig">Altres característiques interessants de Twig</h2>
+<p>A més de tot l'exposat durant aquest apartat, existeixen altres
+característiques interessants de Twig. Vegem algunes d'elles ràpidament
+en aquesta subsecció.</p>
+<h3 id="us-de-filtres">Ús de filtres</h3>
+<p>Quan volem mostrar informació en una plantilla amb la sintaxi de la doble
+clau <code>{{...}}</code>, podem emprar <strong>filtres</strong> per a processar la informació a
+mostrar i donar-li cert format. Els filtres en Twig s'activen
+mitjançant la barra vertical (<code>|</code>), seguida del filtre a aplicar. Per exemple,
+si volem mostrar el nom del títol  en majúscules, faríem alguna cosa
+així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">{{</span> <span class="nv">movie.title</span> <span class="o">|</span> <span class="nf">upper</span> <span class="cp">}}</span>
+</code></pre></div>
+<p>Existeixen altres filtres útils, com <strong>lower</strong> (per a mostrar la
+informació en minúscules), o <strong>date</strong> , per a formatar dates amb el
+format que es vulga:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">{{</span> <span class="nv">dada_de_tipus_data</span> <span class="o">|</span> <span class="nf">date</span><span class="o">(</span><span class="s2">"d/m/Y"</span><span class="o">)</span><span class="cp">}}</span>
+</code></pre></div>
+<h3 id="comentaris">Comentaris</h3>
+<p>És possible també afegir línies de comentaris en les plantilles Twig,
+mitjançant la sintaxi <code>{# ... #}</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c">{# Açò és un comentari #}</span>
+</code></pre></div>
+<h3 id="reutilitzar-contingut-de-plantilles-pare">Reutilitzar contingut de plantilles pare</h3>
+<p>Hem vist que podem sobreescriure el contingut d'un bloc (block) d'una
+plantilla pare, simplement definint el mateix bloc en la subplantilla
+filla. Però també és possible reutilitzar el contingut del pare i afegir
+el propi de la filla, cridant al pare amb <code>parent</code>. Per exemple, imaginem
+que, a més dels estils CSS que tinguem definits en <code>base.html.twig</code>, volem
+afegir altres particulars per a una plantilla, sense perdre els de el
+pare. Ho faríem així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">stylesheets</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="cp">{{</span> <span class="nb">parent</span><span class="o">()</span> <span class="cp">}}</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">'css/some_styles.css'</span><span class="o">)</span> <span class="cp">}}</span><span class="s">"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="4 "></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">{%</span> <span class="k">endraw</span> <span class="cp">%}</span>
+</code></pre></div>
+<h3 id="cicles">Cicles</h3>
+<p>L'opció <em>cycle</em> és molt útil quan volem alternar cíclicament certs valors
+en un bucle. Per exemple, per a mostrar un llistat amb 10 files i estils
+de fila alterns, podem fer alguna cosa així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="m">1..10</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">cycle</span><span class="o">([</span><span class="s1">'par'</span><span class="o">,</span> <span class="s1">'impar'</span><span class="o">],</span> <span class="nv">i</span><span class="o">)</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>    ...
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</code></pre></div>
+<h4 id="altres-opcions">Altres opcions</h4>
+<p>Existeixen altres opcions que no hem vist i podeu consultar
+en la <a href="[https://twig.symfony.com/">web oficial de Twig</a>.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: El patró MVC en Symfony" class="md-footer__link md-footer__link--prev" href="../02-mvc/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              El patró MVC en Symfony
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Injecció de dependències" class="md-footer__link md-footer__link--next" href="../04-injeccio-dependencies/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Injecció de dependències
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

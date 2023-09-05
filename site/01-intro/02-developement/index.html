@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Preparació de l'entorn de desenvolupament - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#preparant-lentorn-de-desenvolupament">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Preparació de l'entorn de desenvolupament
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          1.- Introducció a la programació Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01-intro/">
+        Estructura aplicacions web
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Preparació de l'entorn de desenvolupament
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Preparació de l'entorn de desenvolupament
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eines-de-desevolupament">
+    Eines de desevolupament
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installacio-de-lentorn-de-desenvolupament-lamp">
+    Instal·lació de l'entorn de desenvolupament LAMP
+  </a>
+<nav aria-label="Instal·lació de l'entorn de desenvolupament LAMP" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installar-phpstorm">
+    Instal·lar PHPStorm
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacio-de-projectes-i-comprovacio-de-la-installacio-de-php">
+    Creació de projectes i comprovació de la instal·lació de PHP
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#integrant-lexecutable-de-php">
+    Integrant l'executable de PHP
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eines-per-a-la-depuracio-de-codi">
+    Eines per a la depuració de codi
+  </a>
+<nav aria-label="Eines per a la depuració de codi" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installacio-dxdebug-30">
+    Instal·lació d'XDEBUG 3.0
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/02-phpbasics/">
+        PHP Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Errors i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-02-state/">
+        Manteniment de l'estat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-03-authentication/">
+        Autenticació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0501-data-access/">
+        Accés a dades amb PHP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0599-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/07-seguretat-control-acces/">
+        Seguretat i control d'accés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-pujada-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/20-gestio-actius/">
+        Gestió de fitxers CSS i Javascript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/15-unit-testing/">
+        Testing en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+        9.- Introducció als serveis web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/05-rest-api-symfony/">
+        REST API en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/06-jwt.md">
+        Seguretat en JWT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="preparant-lentorn-de-desenvolupament">Preparant l'entorn de desenvolupament</h1>
+<p>Per a poder provar els nostres llocs web necessitarem instal·lar una
+sèrie d'eines com són: el servidor web Apache, el mòdul PHP per a
+aquest servidor, el SGBD MySql, un front-end per al SGBD (PHPMyAdmin),
+etc.</p>
+<p>Per simplificar les coses optarem per instal·lar-ho mitjançant XAMPP, un
+paquet de programari lliure que conté el servidor HTTP Apache, la base
+de dades de MySQL i eines necessàries per utilitzar el PHP i el
+llenguatge de programació Perl.</p>
+<h2 id="eines-de-desevolupament">Eines de desevolupament</h2>
+<p>Per a programar en llenguatges encastats com PHP, ASP o Phython és
+suficient amb un editor de text pla. No obstant sempre és recomanable
+treballar en un entorn integrat de desenvolupament o IDE (acrònim en
+anglès de <em>Integrated development environment</em>). Un IDE és una eina
+informàtica per al desenvolupament de programari de manera còmoda i
+ràpida. Així doncs és un entorn de desenvolupament que agrupa diferents
+funcions en un sol programa, habitualment: editor de codi, compilador,
+depurador i un programa de disseny d'interfície gràfica.</p>
+<p>El principal avantatge és que facilita la tasca del programador mentre
+que l'inconvenient més important és que pot provocar mals hàbits a
+l'hora de programar o provocar errors que a priori començant de zero no
+es produirien.</p>
+<p>Alguns dels IDE més emprats per al desenvolupament web són:</p>
+<ul>
+<li>Eclipse</li>
+<li>Netbeans</li>
+<li>Atom</li>
+<li>Sublime</li>
+<li>PHPStorm</li>
+<li>Brackets</li>
+</ul>
+<p>Durant les activitats anteriors has preparat el teu propi entorn de
+desenvolupament sobre una màquina virtual (o una real) tal com s'ha
+explicat en les anotacions. Després, has de crear un projecte php
+utilitzant PHPStorm i visualitzar la pàgina principal a través del teu
+servidor XAMPP.</p>
+<p>Al llarg del curs, crearem els nostres projectes utilitzant l'IDE PHPStorm.</p>
+<p>Aquesta eina és de pagament, però podem utilitzar-la de forma gratuïta per a projectes OpenSource i amb finalitats educatives. En aqueixos
+casos caldrà sol·licitar la llicència corresponent al fabricant del programari. Una vegada obtinguda la llicència educativa pel professor,
+serà renovable anualment i podran utilitzar-la tots els alumnes del curs. És una eina molt completa que ens permetrà la integració amb
+moltes de les funcionalitats que emprarem.</p>
+<h2 id="installacio-de-lentorn-de-desenvolupament-lamp">Instal·lació de l'entorn de desenvolupament LAMP</h2>
+<ol>
+<li>Descarrega el paquet XAMPP que continga la versió de PHP en la que anem a treballar durant el curs per a la nostra màquina
+    (<a href="https://www.apachefriends.org/">https://www.apachefriends.org/</a>).</li>
+<li>Dona-li permisos d'execució al fitxer descarregat:
+    <code>sudo chmod +x xampp-linux-x64-X.X.X-X-installer.run</code></li>
+<li>Executem l'assistent d'instal·lació
+    <code>sudo ./xampp-linux-x64-X.X.X.-X-installer.run</code></li>
+<li>En l'assistent d'instal·lació, deixarem les opcions per defecte
+    (excepte la qual ens parla de bitnami que la desmarcarem).</li>
+<li>Una vegada finalitzada la instal·lació, el nostre XAMPP es trobarà
+    en el directori <code>/opt/lampp</code></li>
+<li>Ara ja pots arrancar els serveis amb la següent ordre:
+    <code>sudo /opt/lampp/lampp start</code></li>
+<li>Quan els arranques, si obris el navegador i ens anem a la url
+    <a href="http://localhost">http://localhost</a>, ens hauria d'aparèixer la pàgina de benvinguda de
+    XAMPP.</li>
+<li>Per a parar els serveis podem fer açò:
+    <code>sudo /opt/lampp/xampp stop</code></li>
+<li>En qualsevol cas, és molt més còmode treballar amb el panell de
+    control de XAMPP que podrem executar amb la següent ordre:
+    <code>sudo /opt/lampp/manager-linux-x64.run</code></li>
+<li>Veurem que s'inicia l'aplicació que ens permet controlar els
+    serveis de XAMPP.</li>
+</ol>
+<figure>
+<p><img alt="[*Panell de control de
+XAMPP*]{.title}" src="../assets/Captura_de_pantalla_a_2019-09-13_21-03-02.png" title="Panell de control de XAMPP"/></p>
+<figcaption>Panell de control de
+XAMPP</figcaption>
+</figure>
+<h3 id="installar-phpstorm">Instal·lar PHPStorm</h3>
+<p>Per a instal·lar l'IDE PHPStorm seguirem els següents passos:</p>
+<ol>
+<li>Executarem
+    <code>sudo snap install phpstorm --classic</code></li>
+<li>Ens demanarà si volem importar dades d'una instal·lació anterior,
+    al que contestarem, òbviament, que no.</li>
+<li>Ens demanarà que acceptem la política de privadesa.</li>
+<li>En executar l'aplicació per primera vegada ens demanarà les dades
+    de llicència. Cada alumne s'haurà de registrar utilitzant l'enllaç
+    que us passarà el professor en classe. en prémer l'enllaç ens
+    redirigirà a la pàgina web de jetbrains perquè ens registrem. Una
+    vegada registrats, podrem accedir a l'aplicació amb el nostre
+    compte o amb el codi d'activació que ens proporcionen.</li>
+<li>Finalment, indicarem la configuració inicial.</li>
+</ol>
+<h3 id="creacio-de-projectes-i-comprovacio-de-la-installacio-de-php">Creació de projectes i comprovació de la instal·lació de PHP</h3>
+<p>Seguirem els passos que s'indiquen a continuació:</p>
+<ol>
+<li>Arrancar XAMPP</li>
+<li>Iniciar el mòdul Apache</li>
+<li>Executar PHPStorm</li>
+<li>Crear un projecte buit amb <code>Create New &gt; Project PHP Empty Project</code></li>
+<li>
+<p>Posar al projecte el nom <code>practica1</code> i situar-lo en el directori
+    <code>/opt/lampp/htdocs</code> . Amb açò es crea un directori de nom <code>practica1</code> dintre de <code>/opt/lampp/htdocs</code>.</p>
+<p><img alt="" src="../assets/projecte.png"/></p>
+</li>
+<li>
+<p>En la finestra de l'esquerra (explorador de projectes) apareix el projecte creat. Dins d'ell crearem un nou fitxer PHP prement botó dret sobre el nom i seleccionant <code>New &gt; PHP File</code> . Li posem de nom <code>index.php</code> .</p>
+</li>
+<li>
+<p>En el fitxer creat introduïm les següents línies de codi:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&lt;!</span><span class="nx">doctype</span> <span class="nx">html</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">"es"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Desenvolupament</span> <span class="nx">web</span> <span class="nx">en</span> <span class="nx">entorn</span> <span class="nx">servidor</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"description"</span> <span class="nx">content</span><span class="o">=</span><span class="s2">"PHP, PHPStorm"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"author"</span> <span class="nx">content</span><span class="o">=</span><span class="s2">"Homer Simpson"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="nb">phpinfo</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="13 "></span><span class="x">    &lt;/body&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">&lt;/html&gt;</span>
+</code></pre></div>
+<ol start="8">
+<li>
+<p>Canviem l'autor del document al nostre nom.</p>
+</li>
+<li>
+<p>Obrim el navegador i teclegem en la barra d'adreces la url:
+<a href="http://localhost/practica1">http://localhost/practica1</a></p>
+</li>
+<li>
+<p>Apareixerà una pàgina similar a la de la següent imatge:
+    <img alt="" src="../assets/phpinfo.png"/></p>
+</li>
+</ol>
+<h3 id="integrant-lexecutable-de-php">Integrant l'executable de PHP</h3>
+<p>PHPStorm disposa d'ajuda intel·ligent (IntelliJ IDEA). Perquè aquesta
+ajuda es corresponga amb la versió de php que tenim en el nostre XAMPP
+haurem de registrar l'executable de PHP de XAMPP en el nostre PHPStorm.</p>
+<p>Per a açò seguirem els següents passos:</p>
+<ol>
+<li>En la pantalla d'inici anem a <code>Configure – Settings</code>.</li>
+<li>En la llista de categories de l'esquerra anem a
+    <code>Language &amp; Frameworks - PHP</code>.</li>
+<li>Necessitem indicar quin és el nostre intèrpret. ja que la llista
+    està buida anem a configurar un de la següent forma:<ol>
+<li>Fem clic en el botó <code>...</code> de la llista d'intèrprets</li>
+<li>Premem el botó + de la cantonada superior esquerra per a
+    afegir-ne un.</li>
+<li>Li posem el nom PHP de XAMPP.</li>
+<li>Indiquem instal·lat on nostre està XAMPP: <code>/opt/lampp/bin/php</code></li>
+<li>Immediatament ens indicarà la versió de l'intèrpret que tenim
+    instal·lat</li>
+<li>Premem OK i seleccionem el nou interprete en la llista
+    d'intèrprets.</li>
+<li>Finalment, seleccionem en l'opció PHP <em>language level</em> aquell
+    que es corresponga amb l'intèrpret que acabem de configurar.</li>
+<li>Ara el nostre PHPStorm farà ús del PHP de XAMPP i utilitzarà la
+    versió de PHP que tenim instal·lada quan ens oferisca les
+    ajudes.</li>
+<li>Primer projecte amb PHPStorm Per a començar a treballar amb
+    PHPStorm anem a crear el nostre primer projecte PHP buit.
+    Tingueu en compte que el projecte heu de crear-ho en el
+    directori <code>/opt/lampp/htdocs</code> i que necessitem tenir permisos
+    d'escriptura en aquest directori.</li>
+</ol>
+</li>
+</ol>
+<p><strong>Compte!</strong> Pot ser que ho hàgem instal·lat com <code>root</code>, mentre que quan
+executem PHPStorm ho fem amb l'usuari <code>dwes</code>, per tant, l'usuari
+<code>dwes</code> necessita poder escriure en aquest directori.</p>
+<p>Per a assegurar-nos que tenim permisos, anirem amb una finestra de
+terminal al directori <code>/opt/lampp</code> i executarem la següent ordre:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>ls –la htdocs
+</code></pre></div>
+<p>Aquesta ordre ens dirà qui és el propietari de la carpeta i quins
+permisos té.</p>
+<p>En el cas que el propietari siga root executarem la seguent ordre:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo chown -hR dwes htdocs/
+</code></pre></div>
+<p>Açò canviarà el propietari a l'usuari <code>dwes</code>, amb el que tindrem permís
+d'escriptura en aquest directori des de PHPStorm.</p>
+<p>Treballarem tenint els projectes en la mateixa carpeta.</p>
+<h2 id="eines-per-a-la-depuracio-de-codi">Eines per a la depuració de codi</h2>
+<p>En els entorns de desevolupament és necessari disposar de ferramentes que ens
+permenten depurar les nostres aplicacions. Ja siga per arreglar errors com per
+millorar l'execució del codi.</p>
+<p>Els entorns de desevolupament d'aplicacions d'escriptori solen disposar dels seus
+propis sistemes de depuració, en el cas dels llenguatges d'entorn servidor alguns ecosistemes
+  com el de .Net de Microsoft l'inclouen. Per a PHP hi ha diverses ferramentes com  XDebug o DBG.</p>
+<h3 id="installacio-dxdebug-30">Instal·lació d'XDEBUG 3.0</h3>
+<div class="admonition warning">
+<p class="admonition-title">XDebug 3.0</p>
+<p>Recentment s'ha publicat XDebug 3.0, versió que cobreix aquest document. Si busqueu informació, tingau en compte en quina versió treballeu.</p>
+</div>
+<p>A continuació, explicarem com instal·lar el mòdul XDebug 3 en un entorn basat en XAMPP. Abans de res comprovarem que no el tenim
+instal·lat, per a això seguirem els següents passos:</p>
+<ol>
+<li>
+<p>Obrim la pàgina de benvinguda de XAMPP escrivint al navegador la URL
+<a href="http://localhost">http://localhost</a>.</p>
+</li>
+<li>
+<p>A la part superior de la pàgina tenim una sèrie d'enllaços, entre
+els que es troba un que diu <code>phpinfo</code>. Feu clic en aquest enllaç.</p>
+</li>
+<li>
+<p>Se'ns mostrarà la pàgina de configuració del nostre mòdul php. Anem
+a seleccionar tots els continguts d'aquesta pàgina i els anem a copiar.</p>
+</li>
+<li>
+<p>Obrirem al navegador la següent URL: <a href="http://xdebug.org/wizard.php">http://xdebug.org/wizard.php</a>.</p>
+</li>
+<li>
+<p>En aquesta pàgina podrem comprovar quins mòduls tenim instal·lats en
+nostre mòdul PHP. Per a això, enganxarem els continguts que hem copiat
+prèviament a la caixa de text que apareix i premerem <code>Analyse
+mi phpinfo() output</code>.</p>
+</li>
+<li>
+<p>Ens apareixeran un resultats semblants a aquests:</p>
+</li>
+</ol>
+<p><img alt="XDebug" src="../assets/Screenshot_2019-09-14_Xdebug_Support__Tailored_Installation_Instructions.png"/></p>
+<p>Com es pot observar, l'extensió XDebug no està instal·lada.</p>
+<p>Una altra informació important que ens dóna és que el nostre fitxer de
+configuració del PHP el podem trobar en <code>/opt/lampp/etc/php.ini</code> i les
+extensions les tenim en
+<code>/opt/lampp/lib/php/extensions/no-debug-non-zts-20180731</code></p>
+<p><em>És important que recordem aquestes dades.</em></p>
+<p>Per instal·lar l'extensió XDebug seguirem les instruccions que ens
+indica la pàgina anterior però compte perquè cal fer algunes
+modificacions:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Els caràcters <code>#</code> representen valors que depenen de cada instal·lació, així que cal tindre-ho en compte en executar-ho.</p>
+</div>
+<ol>
+<li>Descarregueu <a href="https://xdebug.org/download">la darrera versió d'Xdebug</a></li>
+<li>Instal·leu els requisits previs per a la compilació d'extensions
+    PHP.\
+    Instal·leu-lo amb el sistema Ubuntu amb:
+    <code>apt-get install php-dev autoconf automake</code></li>
+<li>Desempaqueteu el fitxer descarregat amb <code>tar -xvzf xdebug-#.#.#.tgz</code></li>
+<li>Executar: <code>cd xdebug-#.#.#</code></li>
+<li>
+<p>Executar: <code>/opt/lampp/bin/phpize</code> (hem canviat la ruta perquè
+    execute el phpize de XAMPP).</p>
+<p>Com a part de la seva eixida hauria de mostrar:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Configuring for:
+<span class="linenos" data-linenos="2 "></span>...
+<span class="linenos" data-linenos="3 "></span>Zend Module Api No: ########
+<span class="linenos" data-linenos="4 "></span>Zend Extension Api No: #########
+</code></pre></div>
+<p>Si no és així, estàs utilitzant phpize incorrecta. Seguiu aquesta
+entrada de FAQ i passeu al pas següent.</p>
+</li>
+<li>
+<p>Executar: <code>./configure --with-php-config=/opt/lampp/bin/php-config</code>
+    (hem afegit la ruta del php-config de XAMPP).</p>
+</li>
+<li>Compilem les fonts: <code>make</code></li>
+<li>Executar:
+    <code>sudo cp modules/xdebug.so /opt/lampp/lib/php/extensions/no-debug-non-zts-########</code></li>
+<li>
+<p>Edita <code>/opt/lampp/etc/php.ini</code> i afegeix les següents línies al
+    final</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>[xdebug]
+<span class="linenos" data-linenos="2 "></span>zend_extension=xdebug
+</code></pre></div>
+</li>
+<li>
+<p>Reinicieu el servidor web</p>
+</li>
+</ol>
+<p>Repeteix els passos del 1 al 5 inicials per comprovar que XDebug sí està
+instal·lat.</p>
+<p><img alt="" src="../assets/Screenshot_2019-09-14_Xdebug_Support__Tailored_Installation_Instructions%281%29.png"/></p>
+<p>Després caldrà configurar PHPStorm per a connectar-lo a XDebug <a href="https://www.jetbrains.com/help/phpstorm/configuring-xdebug.html#integrationWithProduct">Integració amb PHPStorm</a> i instal·lar una extensió de Firefox <a href="https://addons.mozilla.org/ca/firefox/addon/xdebug-helper-for-firefox/?src=search">Xdebug Helper</a> o Chrome.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Estructura aplicacions web" class="md-footer__link md-footer__link--prev" href="../01-intro/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Estructura aplicacions web
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../99-tasks/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

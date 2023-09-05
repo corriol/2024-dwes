@@ -1,0 +1,1031 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Injecció de dependències - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#el-contenidor-de-serveis-i-la-injeccio-de-dependencies">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Injecció de dependències
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          1.- Introducció a la programació Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/01-intro/">
+        Estructura aplicacions web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/02-developement/">
+        Preparació de l'entorn de desenvolupament
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/02-phpbasics/">
+        PHP Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Errors i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-02-state/">
+        Manteniment de l'estat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-03-authentication/">
+        Autenticació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0501-data-access/">
+        Accés a dades amb PHP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0599-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Injecció de dependències
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Injecció de dependències
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduccio">
+    Introducció
+  </a>
+<nav aria-label="Introducció" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuracio-general-dels-serveis">
+    Configuració general dels serveis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mostrar-serveis-actuals">
+    Mostrar serveis actuals
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#utilitzar-serveis">
+    Utilitzar serveis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-serveis">
+    Crear serveis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#altres-opcions">
+    Altres opcions
+  </a>
+<nav aria-label="Altres opcions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#combinar-serveis">
+    Combinar serveis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arguments-sense-autowiring">
+    Arguments sense "autowiring"
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parametres-globals">
+    Paràmetres globals
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#associar-arguments-per-nom-o-per-tipus">
+    Associar arguments per nom o per tipus
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-seguretat-control-acces/">
+        Seguretat i control d'accés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-pujada-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20-gestio-actius/">
+        Gestió de fitxers CSS i Javascript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../15-unit-testing/">
+        Testing en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+        9.- Introducció als serveis web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/05-rest-api-symfony/">
+        REST API en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/06-jwt.md">
+        Seguretat en JWT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="el-contenidor-de-serveis-i-la-injeccio-de-dependencies">El contenidor de serveis i la injecció de dependències</h1>
+<h2 id="introduccio">Introducció</h2>
+<p>La <strong>injecció de dependències</strong> és un concepte habitualment lligat
+a <em>frameworks</em> de desenvolupament web. Fa referència a un patró de
+disseny orientat a relacionar adequadament els objectes que componen
+l'aplicació de manera que es comparteixen certs recursos globals o es
+subministren a cada classe que els necessite en lloc de ser la mateixa
+classe qui els crea. Açò afavoreix el desacoblament de la nostra
+aplicació, en permetre que els elements que la componen siguen més
+independents entre si. Per exemple, imaginem que hem d'accedir des de
+diverses classes o fitxers font a una base de dades MySQL. Sense la
+injecció de dependències, hauríem de crear la connexió a la base de
+dades en cadascuna d'aqueixes classes o fitxers font.No obstant això,
+comptant amb aquesta característica, algun element de l'aplicació
+s'encarregarà de crear la connexió, i facilitar-la als altres elements
+que la necessiten.</p>
+<p>Per a gestionar aquesta injecció de dependències Symfony utilitza un
+objecte anomenat <strong>contenidor de serveis</strong> que és qui s'encarregarà
+ de crear les instàncies de tots aqueixos elements que seran compartits 
+ o accedits des de diferents llocs del codi, i que
+cridarem <strong>serveis</strong>. </p>
+<p>Symfony ja compta amb una sèrie de serveis predefinits, i cada mòdul de
+tercers (<em>bundle</em>) que afegim a l'aplicació incorpora els seus
+propis.</p>
+<h3 id="configuracio-general-dels-serveis">Configuració general dels serveis</h3>
+<p>De forma general, els serveis es configuren en l'arxiu
+<strong>services.yaml</strong> dins de la carpeta <em>config</em> de la nostra aplicació. Si
+fem una ullada a la configuració d'inici, podem distingir quatre
+apartats:</p>
+<ol>
+<li>Configuració de paràmetres globals per a tots els serveis. Ací
+    definirem les propietats que podran ser accedides per tots els
+    serveis que utilitzem o creem. Per exemple, hi ha un paràmetre
+    <em>locale</em> per a indicar que la localització de l'aplicació empra
+    l'idioma anglés per defecte 
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">parameters</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">locale</span><span class="p">:</span> <span class="s">'en'</span>
+</code></pre></div></li>
+<li>
+<p>Després es té la secció de <em>services</em>. El primer apartat dins
+    d'aquesta secció indica la configuració per defecte que tindran els
+    serveis: 
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">services</span><span class="p">:</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">_defaults</span><span class="p">:</span> 
+<span class="linenos" data-linenos="3 "></span>        <span class="nt">autowire</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nt">autoconfigure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="nt">public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+<em>autowire</em> fa referència al fet que els serveis
+    s'auto-injecten, és a dir, quan es passa com a paràmetre un servei
+    a un mètode indicant el nom de la classe, automàticament Symfony
+    crea l'objecte corresponent i el passa com a paràmetre. Per
+    exemple, si fem: </p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">use</span> <span class="nx">Psr</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="err">...</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="x">{</span>
+<span class="linenos" data-linenos="5 "></span><span class="x">    public function method(LoggerInterface $logger)</span>
+</code></pre></div>
+Symfony detectarà la classe <em>LoggerInterface</em> com un servei existent,
+crearà una instància del mateix i la passarà al mètode com a paràmetre.
+* <em>autoconfigure</em> indica que els serveis que es creen es registren automàticament atenent al seu tipus. Per exemple, si vam crear una
+classe que hereta de Command, es registrarà automàticament com un comando.
+* <em>public</em> indica el nivell de visibilitat dels serveis, que per defecte
+no és públic (opció recomanada).</p>
+</li>
+<li>
+<p>A continuació, hi ha una secció que permet que qualsevol cosa que
+    definim en la carpeta <em>src</em> es puga utilitzar com a servei, i
+    injectar-se en altres elements, a excepció dels elements indicats en
+    la propietat <em>exclude</em>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">App\</span><span class="p">:</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">resource</span><span class="p">:</span> <span class="s">'../src/*'</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">exclude</span><span class="p">:</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="p p-Indicator">-</span> <span class="s">'../src/DependencyInjection/'</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="p p-Indicator">-</span> <span class="s">'../src/Entity/'</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="p p-Indicator">-</span> <span class="s">'../src/Kernel.php'</span>
+<span class="linenos" data-linenos="7 "></span>        <span class="p p-Indicator">-</span> <span class="s">'../src/Tests/'</span>
+</code></pre></div></p>
+</li>
+<li>Finalment, hi ha un últim apartat dedicat als controladors, per a
+    permetre que els serveis se'ls puguen injectar com a arguments,
+    encara que no heretem de cap classe base de controlador. 
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">App\Controller\</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">resource</span><span class="p">:</span> <span class="s">'../src/Controller'</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">'controller.service_arguments'</span><span class="p p-Indicator">]</span>
+</code></pre></div></li>
+</ol>
+<h3 id="mostrar-serveis-actuals">Mostrar serveis actuals</h3>
+<p>En sessions anteriors, en parlar del comando <em>bin/console</em> que tenim
+disponible en qualsevol projecte Symfony, vam posar com a exemple un
+comando que mostra tots els serveis que es tenen actualment disponibles
+en la nostra aplicació:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console debug:autowiring
+</code></pre></div>
+<h2 id="utilitzar-serveis">Utilitzar serveis</h2>
+<p>En Symfony existeixen multitud de serveis ja predefinits i llestos per a
+utilitzar-se, com per exemple un <em>mailer</em> per a enviar correus
+electrònics, o un <em>logger</em> per a generar missatges de log de diferent
+índole (errors, <em>warnings</em> , etc). Per a utilitzar-los, n'hi ha prou
+amb passar com a paràmetre al controlador que ho requerisca un objecte
+del tipus corresponent. Per exemple, si volem utilitzar un <em>logger</em> ,
+Symfony posa a la nostra disposició el <em>bundle</em> Monolog, a través de la
+classe <em>LoggerInterface.</em> N'hi ha prou que passem un paràmetre
+d'aquest tipus al nostre controlador per a utilitzar-ho.</p>
+<p>Anem al nostre projecte de pel·lícules, en concret a la classe
+<code>src/Controller/HomeController</code>, i utilitzem aquest <em>logger</em> per a
+traure un missatge amb la data i hora de l'accés a la pàgina d'inici.
+La classe quedarà així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">Psr\Log\LoggerInterface</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">class</span> <span class="nc">HomeController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">private</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="19 "></span><span class="sd">     * @Route("/", name="home")</span>
+<span class="linenos" data-linenos="20 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">home</span><span class="p">()</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="nv">$now</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">();</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">"Access on </span><span class="si">{</span><span class="nv">$now</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s2">"Y/m/d H:i:s"</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s2">"home.html.twig"</span><span class="p">);</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="28 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">nota</p>
+<p>Observa com hem emprat la classe DateTime de PHP, posant-li una barra 
+invertida davant perquè la reconega com a pròpia de PHP.</p>
+</div>
+<p>Podríem haver passat directament l'objecte <em>LoggerInterface</em> al mètode
+<em>home</em>, però és més habitual passar els serveis a un constructor de
+la classe i guardar-los en atributs de la mateixa, per a poder ser
+utilitzats per més d'un mètode.</p>
+<p>Si accedim a l'arrel de l'aplicació (
+<a href="http://movies-symfony/"><em>http://movies-symfony</em></a> ), es generarà
+el corresponent missatge de registre (<em>log</em>). Aquests missatges es guarden per
+defecte en la subcarpeta <code>var/log</code>, en concret en l'arxiu <code>dev.log</code> si estem en
+mode desenvolupament, o en <code>prod.log</code> si estem en producció. Es poden
+configurar aquests arxius i altres opcions, però l'ús d'aquesta
+llibreria no forma part dels continguts d'aquest curs, l'emprarem
+només com a exemple d'ús de serveis, i per a alguna depuració puntual
+d'algun controlador.</p>
+<p>A més del mètode <em>info</em> vist en l'exemple, existeixen altres mètodes
+per a generar missatges de major o menor prioritat, com per exemple
+<em>warning, error, critical...</em> Es pot obtenir un llistat fent una ullada
+al codi de <code>LoggerInterface.</code></p>
+<h2 id="crear-serveis">Crear serveis</h2>
+<p>Ara vorem com crear els nostres propis serveis. Seguint amb la nostra
+aplicació d'exemple (movies), extraurem la "base de dades" de
+pel·lícules a un servei. Si recordem, per a evitar de moment utilitzar una
+base de dades real, havíem creat a mà un <em>array</em> de pel·lícules en la nostra
+classe <em>src/Controller/MovieController</em>. El que farem ara serà
+definir aquest array dins d'un servei, per a poder accedir a ell des de
+qualsevol element de l'aplicació.</p>
+<p>Els serveis es poden crear en qualsevol carpeta de <em>src</em>, ja que, com
+hem vist, qualsevol element d'aquesta carpeta (excepte uns pocs
+preconfigurats) automàticament es defineix com a servei. Per a
+agrupar-los tots, podem crear-los, per exemple, en la subcarpeta
+<em>src/Service</em>. En el nostre cas, cridarem a la classe del servei
+<em>DBTest</em>. Definim dins l'array, i un mètode que ho retorne:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">namespace</span> <span class="nx">App\Service</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">class</span> <span class="nc">DBTest</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">private</span> <span class="k">array</span> <span class="nv">$movies</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">[</span><span class="s2">"id"</span><span class="o">=&gt;</span><span class="s2">"2"</span><span class="p">,</span> <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"Ava"</span><span class="p">,</span> 
+<span class="linenos" data-linenos=" 8 "></span>        <span class="s2">"tagline"</span> <span class="o">=&gt;</span> <span class="s2">"Kill. Or be killed"</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="s2">"release_date"</span> <span class="o">=&gt;</span> <span class="s2">"25/09/2020"</span><span class="p">],</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">[</span><span class="s2">"id"</span> <span class="o">=&gt;</span> <span class="s2">"3"</span><span class="p">,</span> 
+<span class="linenos" data-linenos="11 "></span>        <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"Bill &amp;Ted Face the Music"</span><span class="p">,</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="s2">"tagline"</span> <span class="o">=&gt;</span> <span class="s2">"The future awaits"</span><span class="p">,</span> 
+<span class="linenos" data-linenos="13 "></span>        <span class="s2">"release_date"</span> <span class="o">=&gt;</span> <span class="s2">"24/09/2020"</span><span class="p">],</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="p">[</span><span class="s2">"id"</span> <span class="o">=&gt;</span> <span class="s2">"4"</span><span class="p">,</span> <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"Hard Kill"</span><span class="p">,</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="s2">"tagline"</span> <span class="o">=&gt;</span> <span class="s2">"Take on a madman. Save the world."</span><span class="p">,</span> 
+<span class="linenos" data-linenos="16 "></span>            <span class="s2">"release_date"</span> <span class="o">=&gt;</span> <span class="s2">"14/09/2020"</span><span class="p">],</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="p">[</span><span class="s2">"id"</span> <span class="o">=&gt;</span> <span class="s2">"5"</span><span class="p">,</span> <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"The Owners"</span><span class="p">,</span> <span class="s2">"tagline"</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
+<span class="linenos" data-linenos="18 "></span>            <span class="s2">"release_date"</span> <span class="o">=&gt;</span> <span class="s2">"10/05/2020"</span><span class="p">],</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="p">[</span><span class="s2">"id"</span> <span class="o">=&gt;</span> <span class="s2">"6"</span><span class="p">,</span> <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"The New Mutants"</span><span class="p">,</span>
+<span class="linenos" data-linenos="20 "></span>            <span class="s2">"tagline"</span> <span class="o">=&gt;</span> <span class="s2">"It's time to face your demons."</span><span class="p">,</span> 
+<span class="linenos" data-linenos="21 "></span>            <span class="s2">"release_date"</span> <span class="o">=&gt;</span> <span class="s2">"20/04/2020"</span><span class="p">],</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="p">];</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">()</span><span class="o">:</span><span class="k">array</span> <span class="p">{</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movies</span><span class="p">;</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="27 "></span><span class="p">}</span>
+</code></pre></div>
+<p>La nostra classe <em>src/Controller/MovieController</em> quedarà d'aquesta
+manera:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">...</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">MovieController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">private</span> <span class="k">array</span> <span class="nv">$movies</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">DBTest</span> <span class="nv">$data</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movies</span> <span class="o">=</span> <span class="nv">$data</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="o">...</span>
+</code></pre></div>
+<p>Com veiem, el que s'ha fet és utilitzar un constructor per a
+passar-li com a paràmetre el servei (objecte de tipus <em>DBTest</em> ), i
+guardar les dades en un atribut intern de la classe, per a poder-lo usar
+tant en el mètode <em>show</em> com en el mètode <em>filter</em>. Recorda afegir
+també la corresponent línia <em>use</em> per a utilitzar la classe <em>DBTest</em>.</p>
+<h2 id="altres-opcions">Altres opcions</h2>
+<p>Ara que ja sabem com crear serveis propis i utilitzar-los, o bé
+utilitzar serveis de Symfony o de <em>bundles</em> de tercers, anem a veure
+algunes opcions una mica més avançades que afecten al contenidor de
+serveis i als serveis que utilitzem i desenvolupem.</p>
+<h3 id="combinar-serveis">Combinar serveis</h3>
+<p>Què ocorreria si en una classe o mètode determinat necessitem emprar més
+d'un servei? Tenim dues alternatives:</p>
+<ol>
+<li>
+<p>Passar tants paràmetres com a serveis es requerisquen, normalment al
+    constructor de la classe. Per exemple, si necessitem un objecte de
+    tipus <em>DBTest</em> i un altre de tipus <em>LoggerInterface</em> en una
+    mateixa classe, podem fer açò: 
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">MyClass</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="k">array</span> <span class="nv">$movies</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">DBTest</span> <span class="nv">$data</span><span class="p">,</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movies</span> <span class="o">=</span> <span class="nv">$data</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Com a segona alternativa, també es pot crear una classe que
+    encapsule els objectes necessaris (para no passar-los per separat
+    com a paràmetre), i després utilitzar un objecte d'aqueixa classe
+    en el constructor. Així, per al mateix exemple anterior primer
+    crearíem una classe que encapsulara un objecte <code>DBTest</code> i un altre
+    <code>LoggerInterface</code>... </p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">CombinedService</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="k">array</span> <span class="nv">$movies</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">DBTest</span> <span class="nv">$data</span><span class="p">,</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movies</span> <span class="o">=</span> <span class="nv">$data</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="c1">// create getters or methods to acces </span>
+</code></pre></div>
+... i després l'utilitzariem en la classe:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">MyClass</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">private</span> <span class="nv">$service</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">CombinedService</span> <span class="nv">$service</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$service</span> <span class="o">=</span> <span class="nv">$service</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="o">...</span>
+</code></pre></div>
+</li>
+</ol>
+<h3 id="arguments-sense-autowiring">Arguments sense <em>"autowiring"</em></h3>
+<p>Hem vist que l'opció de configuració <em>autowiring</em> existent en l'arxiu
+<em>config/services.yaml</em> fa referència al fet que quan passem un objecte
+d'un servei determinat a un mètode (indicant el tipus d'objecte)
+Symfony automàticament crea l'objecte per nosaltres i li'l passa al
+mètode.</p>
+<p>No obstant això, existeixen alguns arguments per als quals Symfony no pot
+aplicar aquest mecanisme. Per exemple, suposem que en la nostra classe
+<em>HomeController</em> volem que el format de data per al missatge de registre (<em>log</em>)
+siga personalizable, i per tant, es puga passar com a argument. La
+classe quedaria així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">...</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">class</span> <span class="nc">HomeController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">private</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">private</span> <span class="nx">string</span> <span class="nv">$dateFormat</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$dateFormat</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dateFormat</span> <span class="o">=</span> <span class="nv">$dateFormat</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="16 "></span><span class="sd">     * @Route("/", name="home")</span>
+<span class="linenos" data-linenos="17 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">home</span><span class="p">()</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="nv">$now</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">();</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">"Access on </span><span class="si">{</span><span class="nv">$now</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dateFormat</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s2">"home.html.twig"</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Però si intentem utilitzar-lo (accedint a <em>movies-symfony</em> ),
+obtindrem el següent missatge d'error:</p>
+<blockquote>
+<p>Cannot autowire service "App\Controller\HomeController": argument "$dateFormat" 
+of method "__construct()" is type-hinted "string", you should 
+configure its value explicitly.</p>
+</blockquote>
+<p>En realitat, el que ha ocorregut és bastant simple: per al primer
+argument ( <em>LoggerInterface</em> ), Symfony sap on obtenir-lo i com
+construir-lo, però per al segon, al no estar tipat (no s'ha indicat el tipus) 
+ni tenir un valor per defecte, Symfony no sap què fer amb ell. Per a solucionar el
+problema, podem definir arguments propis d'un servei, és a dir,
+arguments que va a utilitzar un servei determinat i que no són auto-
+injectables. Per a açò, editem l'arxiu <em>config/services.yaml</em> indicant
+el nom de la classe afectada, i els paràmetres no auto-injectables que pot rebre el
+constructor. En el nostre cas, afegim aquestes línies al final de
+l'arxiu:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nt">App\Controller\HomeController</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>        <span class="nt">arguments</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>            <span class="nt">$dateFormat</span><span class="p">:</span> <span class="s">'Y/m/d</span><span class="nv"> </span><span class="s">H:i:s'</span>
+</code></pre></div>
+<p>Recorda no usar el tabulador per a indentar les propietats (si no quatre
+espais). El que hem fet ha sigut indicar que la classe
+<em>HomeController</em> tindrà un argument anomenat <em>formatoFecha</em> en el seu
+constructor, el valor del qual per defecte és l'indicat.</p>
+<h3 id="parametres-globals">Paràmetres globals</h3>
+<p>És possible també definir paràmetres de configuració globals a tots els
+serveis, en la secció <em>parameters</em> de l'arxiu <em>config/services.yaml</em>.
+De fet, ja tenim un paràmetre global definit que indica la localització
+o idioma general de la pàgina:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">parameters</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">locale</span><span class="p">:</span> <span class="s">'en'</span>
+</code></pre></div>
+<p>Tornant a l'exemple anterior, podríem afegir un nou paràmetre que
+indique que el format de data per defecte per a qualsevol servei que ho
+requerisca serà el vist abans:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">parameters</span><span class="p">:</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">locale</span><span class="p">:</span> <span class="s">'en'</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">default_date_format</span><span class="p">:</span> <span class="s">'Y/m/d</span><span class="nv"> </span><span class="s">H:i:s'</span>
+</code></pre></div>
+I podríem utilitzar aquest paràmetre en <em>qualsevol</em> arxiu de
+configuració YAML. Per a començar, ho podem utilitzar més a baix, quan
+especifiquem l'argument <em>formatoFecha</em> per a la classe
+<em>HomeController</em>. Ara farem que prenga el seu valor del paràmetre
+global, en lloc de posar-li-ho a mà:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">App\Controller\HomeController</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">arguments</span><span class="p">:</span> 
+<span class="linenos" data-linenos="3 "></span>        <span class="nt">$dateFormat</span><span class="p">:</span> <span class="s">'%default_date_format%'</span>
+</code></pre></div>
+<p>Podem accedir als paràmetres globals des de qualsevol controlador,
+sempre que herete de la classe <em>Controller</em> (i no <em>AbstractController</em> )
+accedint a la seua propietat <em>container</em> :</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">MiController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">myFunction</span><span class="p">()</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="nv">$format</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">getParameter</span><span class="p">(</span><span class="s1">'default_date_format'</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="associar-arguments-per-nom-o-per-tipus">Associar arguments per nom o per tipus</h3>
+<p>Per a finalitzar amb aquest apartat, veurem que es poden associar o
+establir els arguments dels serveis tant pel tipus d'argument (en el
+cas que s'especifique tipus) com pel nom del mateix. Per a açò, dins de
+l'arxiu <code>config/services.yaml</code> , i en concret dins de l'apartat
+<code>services &gt; _defaults</code> , afegim una propietat <code>bind</code> , i en ella
+indiquem tantes associacions com vulguem.</p>
+<p>Vegem un exemple amb l'objecte <code>logger</code> que hem usat per a mostrar
+missatges de log. Aquest objecte és de tipus <code>LoggerInterface</code> , que en
+realitat és una interfície, i qualsevol llibreria que la implemente pot
+servir com a font per a generar aqueixos arxius de <em>log</em>. Una d'elles és
+<code>Monolog</code>, i és la que s'utilitza per defecte, però podrien ser unes
+altres.</p>
+<h4 id="associacio-per-nom">Associació per nom</h4>
+<p>Per exemple, podem fer que, sempre que un servei tinga un argument
+anomenat <em>logger</em>, s'utilitze la llibreria <em>Monolog</em> :</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">services</span><span class="p">:</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">_defaults</span><span class="p">:</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="l l-Scalar l-Scalar-Plain">...</span> 
+<span class="linenos" data-linenos="4 "></span>    <span class="nt">bind</span><span class="p">:</span> 
+<span class="linenos" data-linenos="5 "></span>        <span class="nt">$logger</span><span class="p">:</span> <span class="s">'@monolog.logger.request'</span>
+</code></pre></div>
+Si definim un servei amb un constructor així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">private</span> <span class="nv">$logger</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$logger</span><span class="p">)</span> 
+<span class="linenos" data-linenos="4 "></span><span class="p">{</span> 
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span> 
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<p>automàticament a l'argument <em>logger</em> se li assignarà un objecte del
+tipus <em>LoggerInterface</em> de <em>Monolog</em> , encara que no especifiquem el
+tipus.</p>
+<h4 id="associacio-per-tipus">Associació per tipus</h4>
+<p>Alternativament, en lloc d'usar el nom de l'argument, podem fer que,
+sempre que un servei intente utilitzar la interfície <em>LoggerInterface</em>
+(la que hem utilitzat en els exemples d'aquesta sessió), s'empre
+per defecte la implementació que fa d'ella la llibreria <em>Monolog</em> :</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">services</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">_defaults</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nt">bind</span><span class="p">:</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="nt">Psr\Log\LoggerInterface</span><span class="p">:</span> <span class="s">'@monolog.logger.request'</span>
+</code></pre></div>
+<p>D'aquesta manera, sempre que utilitzem un objecte de tipus
+<em>LoggerInterface</em>, se li associarà una instància del logger de
+<em>Monolog</em> també.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: El motor de plantilles Twig" class="md-footer__link md-footer__link--prev" href="../03-twig/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              El motor de plantilles Twig
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Doctrine" class="md-footer__link md-footer__link--next" href="../05-doctrine/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Doctrine
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

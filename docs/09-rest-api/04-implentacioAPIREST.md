@@ -1,0 +1,73 @@
+---
+layout: default
+title: Implementació d'una API REST.
+nav_order: 4
+parent: 10. Serveis Web I Api Rest (JSON)
+has_children: false 
+---
+
+# Implementació d'una API RESTful en PHP
+
+Anem a implementar una API senzilla basada en el nostre
+framework MVC.
+
+Tindrem els següents _endpoints_ que caldrà definir en la taula
+de rutes.
+
+* POST /api/v1/movies
+* GET /api/v1/movies
+* GET /api/v1/movies/:id 
+
+Tin en compte que aquesta versió és molt bàsica i té mancances quant a 
+validació i filtratge de dades. 
+
+Com hem vist en l'apartat anterior el servidor respon a les sol·licitud HTTP
+amb dades en format JSON i un codi d'estat.
+
+Per poder respondre en dades en format JSON hem implementat el mètode
+`Response::jsonResponse`.
+
+```php
+/**
+  * @param $element
+  * @return false|string
+*/
+public function jsonResponse(array $element, integer $code)
+{
+    header('Content-Type: application/json; charset=UTF-8');
+    return json_encode($element);
+}
+```
+<div markdown="1" class="alert-info alert">
+Perquè un objecte puga convertir-se en un string JSON caldrà implementar
+en la classe l'interfície `JsonSerializable` que obliga a implmentar el mètode `jsonSerialize` que haurà de tornar un array que represente l'objecte.
+</div>
+
+```php
+# src/Controllers/ApiController.php
+    
+/**
+  * @return string
+  * @throws \App\Core\Exception\ModelException
+*/
+public function index(): string
+{
+    $movieModel = App::getModel(MovieModel::class);
+    $movies = $movieModel->findAllPaginated(1, 8,
+        ["release_date" => "DESC", "title" => "ASC"]);
+    return $this->response->jsonResponse($movies);
+}
+```
+
+## Prova de la API amb Postman
+
+
+## Documentació de la API en OpenApi
+
+
+## Consumir la API 
+
+
+
+
+

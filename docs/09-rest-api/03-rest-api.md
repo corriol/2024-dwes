@@ -1,0 +1,118 @@
+# REST API
+
+## Introducció
+La transferència d'estat representacional (en anglès ReST) és un estil d'arquitectura de programari per a sistemes 
+hipermèdia distribuïts com la World Wide Web. El terme es va originar l'any 2000, en una tesi doctoral sobre la web 
+escrita per Roy Fielding, un dels principals autors de l'especificació del protocol HTTP i ha passat a ser àmpliament 
+utilitzat per la comunitat de desenvolupament.
+
+## Característiques
+
+Si bé el terme REST es referia originalment a un conjunt de principis d'arquitectura -descrits més baix-, en 
+l'actualitat s'usa en el sentit més ampli per descriure qualsevol interfície entre sistemes que utilitze directament 
+HTTP per obtenir dades o indicar l'execució d'operacions sobre les dades, en qualsevol format (XML, JSON, etc) sense 
+les abstraccions addicionals dels protocols basats en patrons d'intercanvi de missatges, com ara SOAP. És possible 
+dissenyar sistemes de serveis web d'acord amb l'estil arquitectural REST de Fielding i també és possible dissenyar 
+interfícies XMLHTTP d'acord amb l'estil de crida a procediment remot (RPC), però sense usar SOAP. Aquests dos usos 
+diferents del terme REST causen certa confusió en les discussions tècniques, encara que RPC no és un exemple de REST.
+
+REST afirma que la web ha gaudit d'escalabilitat com a resultat d'una sèrie de dissenys fonamentals clau:
+
+ * **Un protocol client/servidor sense estat**: cada missatge HTTP conté tota la informació necessària per comprendre 
+ la petició. Com a resultat, ni el client ni el servidor necessiten recordar cap estat de les comunicacions entre 
+ missatges. No obstant això, en la pràctica, moltes aplicacions basades en HTTP utilitzen cookies i altres mecanismes 
+ per mantenir l'estat de la sessió.
+ * **Un conjunt d'operacions ben definides** que s'apliquen a tots els recursos d'informació: HTTP defineix un conjunt 
+ petit d'operacions, les més importants són POST, GET, PUT i DELETE. Sovint aquestes operacions s'equiparen a les 
+ operacions CRUD en bases de dades (CLAE en valencià: crear, llegir, actualitzar, esborrar) que es requereixen per a la
+  persistència de dades, encara que POST no encaixa exactament en aquest esquema.
+ * **Una sintaxi universal per identificar els recursos**. En un sistema REST, cada recurs és adreçable únicament a 
+ través del seu URI.
+ * **L'ús d'hipermitjans**, tant per a la informació de l'aplicació com per a les transicions d'estat de l'aplicació: 
+ la representació d'aquest estat en un sistema REST són típicament HTML o XML. Com a resultat d'això, és possible 
+ navegar d'un recurs REST a molts altres, simplement seguint enllaços sense requerir l'ús de registres o una altra 
+ infraestructura addicional.
+
+## Verbs
+Les API de REST ens permeten desenvolupar qualsevol tipus d’aplicació web amb totes les operacions possibles CRUD (crear, recuperar, actualitzar, suprimir). Les directrius REST suggereixen utilitzar un mètode HTTP específic en un tipus específic de cridades realitzades al servidor (tot i que tècnicament és possible incomplir aquesta directriu, però està molt desaconsellat).
+
+Utilitzeu la informació indicada a continuació per trobar un mètode HTTP adequat per a l'acció de l'API.
+
+### HTTP GET
+
+Utilitzeu les sol·licituds GET **per recuperar informació o recursos** i no modificar-los de cap manera. Com que les sol·licituds GET no canvien l’estat del recurs es diu que són *mètodes segurs*. Addicionalment, les API GET haurien de ser idempotents, el que significa que fer múltiples sol·licituds idèntiques ha de produir el mateix resultat cada vegada fins que una altra API (POST o PUT) haja canviat l'estat del recurs al servidor.
+
+Per a qualsevol API GET determinada, si el recurs es troba al servidor, ha de retornar el codi de resposta HTTP 200 (OK), juntament amb el cos de resposta, que normalment és contingut XML o JSON (per la seva naturalesa independent de la plataforma).
+
+En cas que el recurs NO es trobe al servidor, ha de retornar el codi de resposta HTTP 404 (NO TROBAT). De la mateixa manera, si es determina que la sol·licitud GET no està formada correctament, el servidor retornarà el codi de resposta HTTP 400 (BAD REQUEST).
+
+#### URI de sol·licitud d’exemple
+
+ * HTTP GET http://www.appdomain.com/users
+ * HTTP GET http://www.appdomain.com/users?size=20&page=5
+ * HTTP GET http://www.appdomain.com/users/123
+ * HTTP GET http://www.appdomain.com/users/123/address
+
+### HTTP POST
+
+Utilitzeu les API POST per crear nous recursos subordinats, per exemple, un fitxer està subordinat al directori que el conté o una fila està subordinada a una taula de bases de dades. Parlant estrictament en termes de REST, els mètodes POST s’utilitzen per crear un nou recurs en la colecció de recursos.
+
+L’ideal és que, si s’ha creat un recurs al servidor d’origen, la resposta hauria de ser el codi de resposta HTTP 201 (Creat) i contindrà una entitat que descriu l’estat de la sol·licitud i fa referència al nou recurs i una capçalera d’ubicació.
+
+Moltes vegades, l’acció realitzada pel mètode POST pot no derivar en un recurs que puga ser identificat per un URI. En aquest cas, el codi de resposta HTTP 200 (OK) o el 204 (No Content) és l'estat de resposta adequat.
+
+Les respostes a aquest mètode no són emmagatzemades en memòria cau, tret que la resposta incloga els camps de capçalera adequats de control de caché o caduca.
+
+Tingueu en compte que POST no és segur ni idempotent i, si s'invoquen dues sol·licituds POST idèntiques es produiran dos recursos diferents que continguin la mateixa informació (excepte els identificadors de recursos).
+
+#### URI de sol·licitud d’exemple
+
+ * HTTP POST http://www.appdomain.com/users
+ * HTTP POST http://www.appdomain.com/users/123/accounts
+
+
+### HTTP PUT
+
+Utilitzeu les API PUT principalment per actualitzar un recurs existent (si el recurs no existeix, llavors l'API pot decidir crear un recurs nou o no). Si s'ha creat un recurs nou per l'API PUT, el servidor d'origen ha d'informar a l'agent d'usuari mitjançant la resposta del codi HTTP 201 (Creada) i si es modifica un recurs existent, els 200 (OK) o els 204 (Sense contingut). S'han d'enviar codis de resposta per indicar la finalització correcta de la sol·licitud.
+
+Si la sol·licitud passa per una memòria cau i l'URI de sol·licitud identifica una o més entitats actualment en caché, aquestes entitats haurien de ser considerades no vistes. Les respostes a aquest mètode no són caché.
+
+La diferència entre les API de POST i PUT es pot observar en els URI de sol·licitud. Les sol·licituds POST es realitzen a les col·leccions de recursos, mentre que les peticions PUT es realitzen en un recurs individual.
+
+#### URI de sol·licitud d’exemple
+
+* HTTP PUT http://www.appdomain.com/users/123
+* HTTP PUT http://www.appdomain.com/users/123/accounts/456
+
+### HTTP DELETE
+
+Com el nom indica les API DELETE s’utilitzen per eliminar recursos (identificats per l’URI de la sol·licitud).
+
+Una resposta exitosa de les sol·licituds DELETE haria ser el codi de resposta HTTP 200 (D'acord) si la resposta inclou una entitat que descriu l'estat, 202 (Acceptat) si l'acció s'ha posat en qua, o 204 (Sense contingut) si l'acció s'ha realitzat, però la resposta no inclou una entitat.
+
+Les operacions DELETE són idempotents. Si suprimiu un recurs, se suprimirà de la col·lecció de recursos. Cridar repetidament a la API en aquest recurs no canviarà el resultat, però, cridar a un recurs per segona vegada retornarà un 404 (NO TROBAT) ja que ja es va eliminar. Alguns poden argumentar que fa això que el mètode DELETE no sigui idempotent. És una qüestió de discussió i d’opinió personal.
+
+#### URI de sol·licitud d’exemple
+
+ * HTTP DELETE http://www.appdomain.com/users/123
+ * HTTP DELETE http://www.appdomain.com/users/123/accounts/456
+
+
+Resum dels Mètodes HTTP per a les API RESTful
+
+La taula següent resumeix l’ús dels mètodes HTTP comentats anteriorment.
+
+
+| HTTP Method | CRUD	| Entire Collection (e.g. /users) |	Specific Item (e.g. /users/123) |
+| ----------- | ---- | ------------------------------- | --------------------------------- | 
+| POST	| Create	 | 201 (Created), ‘Location’ header with link to /users/{id} containing new ID.	 | Avoid using POST on single resource |
+| GET | Read | 200 (OK), list of users. Use pagination, sorting and filtering to navigate big lists. |	200 (OK), single user. 404 (Not Found), if ID not found or invalid. |
+| PUT |	Update/Replace |	405 (Method not allowed), unless you want to update every resource in the entire collection of resource. | 200 (OK) or 204 (No Content). Use 404 (Not Found), if ID not found or invalid. |
+| PATCH	| Partial Update/Modify |	405 (Method not allowed), unless you want to modify the collection itself. |	200 (OK) or 204 (No Content). Use 404 (Not Found), if ID not found or invalid.|
+| DELETE	 | Delete | 405 (Method not allowed), unless you want to delete the whole collection — use with caution. | 200 (OK). 404 (Not Found), if ID not found or invalid. |
+
+## Bibliografia
+
+ * Colaboradores de Wikipedia. Transferencia de Estado Representacional [en línea]. Wikipedia, La enciclopedia libre, 2019 [fecha de consulta: 17 de febrero del 2020]. Disponible en [<https://es.wikipedia.org/w/index.php?title=Transferencia_de_Estado_Representacional&oldid=122090690>](https://es.wikipedia.org/w/index.php?title=Transferencia_de_Estado_Representacional&oldid=122090690). 
+ * WebConcepts. REST API concepts and examples. Youtube, 2014. Disponible en [https://www.youtube.com/watch?v=7YcW25PHnAA](https://www.youtube.com/watch?v=7YcW25PHnAA)
+ * RestfulApi.net. HTTP Methods. Disponible en [https://restfulapi.net/http-methods/](https://restfulapi.net/http-methods/).

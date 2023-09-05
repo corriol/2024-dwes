@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>REST API en Symfony - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#desenvolupament-de-serveis-rest-amb-symfony">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              REST API en Symfony
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          1.- Introducció a la programació Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/01-intro/">
+        Estructura aplicacions web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/02-developement/">
+        Preparació de l'entorn de desenvolupament
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/02-phpbasics/">
+        PHP Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Errors i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-02-state/">
+        Manteniment de l'estat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-03-authentication/">
+        Autenticació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0501-data-access/">
+        Accés a dades amb PHP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0599-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/07-seguretat-control-acces/">
+        Seguretat i control d'accés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-pujada-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/20-gestio-actius/">
+        Gestió de fitxers CSS i Javascript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/15-unit-testing/">
+        Testing en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+        9.- Introducció als serveis web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          REST API en Symfony
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        REST API en Symfony
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduccio">
+    Introducció
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pas-1-arrencar-del-projecte">
+    Pas 1: Arrencar del projecte
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pas-2-crear-el-model-de-dades">
+    Pas 2: Crear el model de dades
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pas-3-restringir-operacions">
+    Pas 3: Restringir operacions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pas-4-filtrar-per-propietats">
+    Pas 4: Filtrar per propietats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pas-5-validar-les-dades">
+    Pas 5: Validar les dades
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pas-6-provar-la-api">
+    Pas 6: Provar la API
+  </a>
+<nav aria-label="Pas 6: Provar la API" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installar-el-paquet-de-testing">
+    Instal·lar el paquet de testing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#preparar-la-base-de-dades-de-prova">
+    Preparar la base de dades de prova
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installar-paquets-addicionals">
+    Instal·lar paquets addicionals
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exemple">
+    Exemple
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pas-7-triar-les-propietats-a-exposar-serialitzacio">
+    Pas 7: Triar les propietats a exposar. Serialització
+  </a>
+<nav aria-label="Pas 7: Triar les propietats a exposar. Serialització" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activar-les-anotacions">
+    Activar les anotacions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aplicar-les-als-recursos">
+    Aplicar-les als recursos
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">
+    Recursos
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-jwt.md">
+        Seguretat en JWT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="desenvolupament-de-serveis-rest-amb-symfony">Desenvolupament de serveis REST amb Symfony</h1>
+<h2 id="introduccio">Introducció</h2>
+<p>Vegem ara quins passos donar per a construir una API REST que done
+suport a les operacions bàsiques sobre una o diverses entitats:
+consultes (GET), insercions (POST), modificacions (PUT) i esborrats
+(DELETE).</p>
+<p>A l'hora d'implementar una solució en Symfony ens trobem en tres opcions:</p>
+<ol>
+<li>API senzilla amb els mètodes que ens proporciona la classe <code>AbstractController</code>.</li>
+<li>Fer ús d'un <em>bundle</em> com <strong>FOSRestBundle</strong> que ens permet una major flexibilitat.</li>
+<li>Fer ús d'<a href="https://api-platform.com">API platform</a>, una ferramenta molt completa basada en PHP per a crear API Rest.</li>
+</ol>
+<p>L'elecció d'una solució o altra dependrà de cada projecte. En aquest curs emprarem API platform.</p>
+<h2 id="pas-1-arrencar-del-projecte">Pas 1: Arrencar del projecte</h2>
+<p>El projecte d'exemple serà un projecte independent basat en Truiter. Així podrem aprofitar el model de dades.</p>
+<p>Primerament crearem el projecte de Symfony:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">composer create-project symfony/skeleton api-truiter-symfony ^5.4</span>
+</code></pre></div>
+En aquesta ordre crearem un projecte bàsic de Symfony en la versió 5.4, es tracta d'un projecte que no inclou ni Doctrine, 
+ni Twig, per exemple.</p>
+<p>Twig no serà necessari, ja que es tracta d'una API, però Doctrine, sí. A continuació instal·larem el paquet d'API platform que
+inclou entre altres components Doctrine:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">composer require api</span>
+</code></pre></div>
+<p>En accedir a <code>http://localhost/api</code> veurem la documentació de l'API:</p>
+<figure>
+<p><img alt="assets/step-1.png" src="../assets/step-1.png"/></p>
+<figcaption>
+    http://localhost/api
+</figcaption>
+</figure>
+<p>Actualment no tenim res.</p>
+<h2 id="pas-2-crear-el-model-de-dades">Pas 2: Crear el model de dades</h2>
+<p>Les entitats i els repositoris els copiarem del projecte Truiter o podrem
+crear-lo de nou fent ús del <em>Maker Bundle</em>.</p>
+<p>En eixa cas caldrà instal·lar-lo. Aprofitarem per instal·lar altres components que 
+ens seran útils.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require symfony/maker-bundle --dev
+<span class="linenos" data-linenos="2 "></span>composer require doctrine/doctrine-fixtures-bundle --dev
+<span class="linenos" data-linenos="3 "></span>composer require fakerphp/faker --dev
+<span class="linenos" data-linenos="4 "></span>composer require mmo/faker-images --dev
+<span class="linenos" data-linenos="5 "></span>composer require symfony/profiler-pack --dev 
+<span class="linenos" data-linenos="6 "></span>composer require symfony/apache-pack
+</code></pre></div>
+Llevarem les referències a VichUploader, ja que usarem els formularis d'una altra forma.</p>
+<p>L'entitat Tweet quedaria així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="hll"><span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">ApiPlatform\Metadata\ApiResource</span><span class="p">;</span>
+</span><span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">App\Repository\TweetRepository</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Doctrine\Common\Collections\ArrayCollection</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">use</span> <span class="nx">Doctrine\Common\Collections\Collection</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">use</span> <span class="nx">Doctrine\DBAL\Types\Types</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="c1">#[ORM\Entity(repositoryClass: TweetRepository::class)]</span>
+<span class="hll"><span class="linenos" data-linenos="12 "></span><span class="c1">#[ApiResource]</span>
+</span><span class="linenos" data-linenos="13 "></span><span class="k">class</span> <span class="nc">Tweet</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="c1">#[ORM\Id]</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="c1">#[ORM\GeneratedValue]</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="c1">#[ORM\Column]</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">int</span> <span class="nv">$id</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>    <span class="c1">#[ORM\Column(length: 280)]</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="c1">#[Assert\Length(min: 2, max: 280)]</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">string</span> <span class="nv">$text</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span>    <span class="c1">#[ORM\Column(type: Types::DATETIME_MUTABLE)]</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="c1">#[Assert\NotBlank]</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">\DateTimeInterface</span> <span class="nv">$createdAt</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="27 "></span>
+<span class="linenos" data-linenos="28 "></span>    <span class="c1">#[ORM\Column]</span>
+<span class="linenos" data-linenos="29 "></span>    <span class="c1">#[Assert\NotBlank]</span>
+<span class="linenos" data-linenos="30 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">int</span> <span class="nv">$likeCount</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="31 "></span>
+<span class="linenos" data-linenos="32 "></span>    <span class="c1">#[ORM\ManyToOne(inversedBy: 'tweets')]</span>
+<span class="linenos" data-linenos="33 "></span>    <span class="c1">#[ORM\JoinColumn(nullable: false)]</span>
+<span class="linenos" data-linenos="34 "></span>    <span class="c1">#[Assert\NotBlank]</span>
+<span class="linenos" data-linenos="35 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">User</span> <span class="nv">$author</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="36 "></span>
+<span class="linenos" data-linenos="37 "></span>    <span class="c1">#[ORM\OneToMany(mappedBy: 'tweet', targetEntity: Photo::class)]</span>
+<span class="linenos" data-linenos="38 "></span>    <span class="k">private</span> <span class="nx">Collection</span> <span class="nv">$attachments</span><span class="p">;</span>
+<span class="linenos" data-linenos="39 "></span>
+<span class="linenos" data-linenos="40 "></span>    <span class="c1">//... </span>
+<span class="linenos" data-linenos="41 "></span><span class="p">}</span>
+</code></pre></div>
+<p>L'atribute <code>#[ApiResource]</code> indica que aquesta entitat estarà exposada en la API.</p>
+<div class="admonition danger">
+<p class="admonition-title">Important</p>
+<p>Si volem treballar en la nova versió de API platform "&gt;=2.7" caldrà activar la següent configuració:
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># api/config/packages/api_platform.yaml</span>
+<span class="linenos" data-linenos="2 "></span><span class="nt">api_platform</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">metadata_backward_compatibility_layer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div></p>
+</div>
+<p>En accedir a la API ens mostrarà el següent:</p>
+<figure>
+<p><img alt="" src="../assets/step-2.png"/></p>
+</figure>
+<h2 id="pas-3-restringir-operacions">Pas 3: Restringir operacions</h2>
+<p><a href="https://api-platform.com/docs/core/operations/#enabling-and-disabling-operations">Enabling or disabling operations</a></p>
+<h2 id="pas-4-filtrar-per-propietats">Pas 4: Filtrar per propietats</h2>
+<p><a href="https://api-platform.com/docs/core/filters/">Filters</a></p>
+<h2 id="pas-5-validar-les-dades">Pas 5: Validar les dades</h2>
+<p><a href="https://api-platform.com/docs/distribution/#validating-data">Validating data</a></p>
+<h2 id="pas-6-provar-la-api">Pas 6: Provar la API</h2>
+<h3 id="installar-el-paquet-de-testing">Instal·lar el paquet de <em>testing</em></h3>
+<p>Primerament caldrà instal·lar els paquets:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer req --dev symfony/test-pack
+<span class="linenos" data-linenos="2 "></span>composer req symfony/http-client
+</code></pre></div>
+<p>Aquest paquet instal·larà els paquets bàsics necessaris per començar.</p>
+<h3 id="preparar-la-base-de-dades-de-prova">Preparar la base de dades de prova</h3>
+<p>Com que es tracta de proves funcionals que modificaran la base de dades és molt important 
+tindre preparats unes dades de prova consistents amb <code>DoctrineFixturesBundles</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Entorn de proves</p>
+<p>Recorda que has de configurar la base de dades en el fitxer <code>.env.test</code> i d'executar les ordres amb l'opció <code>--env=test</code> 
+perquè treballen en l'entorn de _testing`.</p>
+</div>
+<p>A més, és interessant <a href="https://symfony.com/doc/current/testing.html#resetting-the-database-automatically-before-each-test">instal·lar i configurar</a> el paquet <code>dama/doctrine-test-bundle</code> que deixa la base de dades al seu estat inicial després de cada prova.</p>
+<h3 id="installar-paquets-addicionals">Instal·lar paquets addicionals</h3>
+<p>Si volem fer proves amb <code>JSON Schema</code> per comprovar que les dades rebudes compleixen amb el seu esquema.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer req --dev justinrainbow/json-schema
+</code></pre></div>
+<h3 id="exemple">Exemple</h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">namespace</span> <span class="nx">App\Tests\Service</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">ApiPlatform\Symfony\Bundle\Test\ApiTestCase</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">App\Entity\Tweet</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">DateTime</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">TweetsTest</span> <span class="k">extends</span> <span class="nx">ApiTestCase</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testGetCollectionReturnsValidData</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$response</span> <span class="o">=</span> <span class="k">static</span><span class="o">::</span><span class="na">createClient</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'/api/tweets'</span><span class="p">,</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="p">[</span> <span class="s2">"headers"</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Accept: application/json"</span><span class="p">]]</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertResponseIsSuccessful</span><span class="p">();</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertMatchesResourceCollectionJsonSchema</span><span class="p">(</span><span class="nx">Tweet</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertCount</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">());</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testPostValidData</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="nv">$response</span> <span class="o">=</span> <span class="k">static</span><span class="o">::</span><span class="na">createClient</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span> <span class="s1">'/api/tweets'</span><span class="p">,</span>
+<span class="linenos" data-linenos="25 "></span>            <span class="p">[</span>
+<span class="linenos" data-linenos="26 "></span>                <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Accept: application/json"</span><span class="p">],</span>
+<span class="linenos" data-linenos="27 "></span>                <span class="s1">'json'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<span class="linenos" data-linenos="28 "></span>                    <span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="s1">'Proves'</span><span class="p">,</span>
+<span class="linenos" data-linenos="29 "></span>                    <span class="s1">'author'</span> <span class="o">=&gt;</span> <span class="s1">'/api/users/1'</span>
+<span class="linenos" data-linenos="30 "></span>                <span class="p">]</span>
+<span class="linenos" data-linenos="31 "></span>            <span class="p">]</span>
+<span class="linenos" data-linenos="32 "></span>        <span class="p">);</span>
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span>        <span class="nv">$date</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
+<span class="linenos" data-linenos="35 "></span>        <span class="nv">$dateStr</span> <span class="o">=</span> <span class="nv">$date</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">'c'</span><span class="p">);</span>
+<span class="linenos" data-linenos="36 "></span>
+<span class="linenos" data-linenos="37 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertResponseStatusCodeSame</span><span class="p">(</span><span class="mi">201</span><span class="p">);</span>
+<span class="linenos" data-linenos="38 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertMatchesResourceItemJsonSchema</span><span class="p">(</span><span class="nx">Tweet</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="39 "></span>
+<span class="linenos" data-linenos="40 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertJsonContains</span><span class="p">([</span>
+<span class="linenos" data-linenos="41 "></span>                <span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="s1">'Proves'</span><span class="p">,</span>
+<span class="linenos" data-linenos="42 "></span>                <span class="s1">'createdAt'</span> <span class="o">=&gt;</span> <span class="nv">$dateStr</span><span class="p">,</span>
+<span class="linenos" data-linenos="43 "></span>                <span class="s1">'author'</span> <span class="o">=&gt;</span> <span class="s1">'/api/users/1'</span><span class="p">,</span>
+<span class="linenos" data-linenos="44 "></span>                <span class="s1">'likeCount'</span> <span class="o">=&gt;</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="45 "></span>        <span class="p">]);</span>
+<span class="linenos" data-linenos="46 "></span>
+<span class="linenos" data-linenos="47 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="48 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Cal destacar que afegim <code>'headers' =&gt; ["Accept: application/json"]</code> per demanar la resposta
+en format JSON bàsic. </p>
+<p>Respecte a la data, el que fem es passar-la en format <strong>ISO 8601</strong>.</p>
+<p><a href="https://api-platform.com/docs/distribution/testing/#writing-functional-tests">Functional tests</a></p>
+<h2 id="pas-7-triar-les-propietats-a-exposar-serialitzacio">Pas 7: Triar les propietats a exposar. Serialització</h2>
+<p>Abans d'entrar en màteria, és interessant tindre clars alguns conceptes:</p>
+<ul>
+<li><strong>Serialitzar</strong>. La serialització és el procés de convertir un objecte en una altre format per a emmagatzemar-lo o transmetre'l i posteriorment ser decodificat.</li>
+<li><strong>Normalitzar.</strong> Ajuden en el procés de serialització, convertint els objectes en un element intermig, com pot ser una array.</li>
+</ul>
+<figure>
+<p><img alt="Component serialitzador" src="../assets/serializer-component.png"/></p>
+</figure>
+<p>El <code>serializer</code> de Symfony ens permetrà definir quines propietats exposem depenent del context.</p>
+<p><a href="https://api-platform.com/docs/core/serialization/">The Serialization Process</a></p>
+<p>En el cas que ens ocupa, a l'hora de crear un nou <code>Tweet</code>, que un usuari puga enviar la data de creació
+o el número de <em>likes</em> no és desitjable. En canvi, en el cas de recuperar els tweets sí que té sentit.</p>
+<p>Gràcies a Symfony Serializer podrem configurar este escenari.</p>
+<p>API Platform permet definir el contex fent ús dels grups i així controlar que es mostra en llegir (normalització) i 
+en escriure (denormalització).</p>
+<h3 id="activar-les-anotacions">Activar les anotacions</h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># config/packages/framework.yaml</span>
+<span class="linenos" data-linenos="2 "></span><span class="nt">framework</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">serializer</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> enable_annotations</span><span class="p">:</span> <span class="nv">true</span> <span class="p p-Indicator">}</span>
+</code></pre></div>
+<h3 id="aplicar-les-als-recursos">Aplicar-les als recursos</h3>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">...</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">#[ApiResource(</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nx">normalizationContext</span><span class="o">:</span> <span class="p">[</span><span class="s1">'groups'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'read'</span><span class="p">]],</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nx">denormalizationContext</span><span class="o">:</span> <span class="p">[</span><span class="s1">'groups'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'write'</span><span class="p">]],</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">)]</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">class</span> <span class="nc">Tweet</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">#[ORM\Column(length: 280)]</span>
+<span class="hll"><span class="linenos" data-linenos=" 8 "></span>    <span class="c1">#[Groups(['read', 'write'])]</span>
+</span><span class="linenos" data-linenos=" 9 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">string</span> <span class="nv">$text</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="c1">#[ORM\Column(type: Types::DATETIME_MUTABLE)]</span>
+<span class="hll"><span class="linenos" data-linenos="12 "></span>    <span class="c1">#[Groups(['read'])]</span>
+</span><span class="linenos" data-linenos="13 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">\DateTimeInterface</span> <span class="nv">$createdAt</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="c1">#[ORM\Column]</span>
+<span class="hll"><span class="linenos" data-linenos="16 "></span>    <span class="c1">#[Groups(['read'])]</span>
+</span><span class="linenos" data-linenos="17 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">int</span> <span class="nv">$likeCount</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+</code></pre></div>
+D'esta forma aconseguiríem que en fer GET es mostraren els tres camps però 
+en fer POST sols <code>text</code>.</p>
+<h2 id="recursos">Recursos</h2>
+<ul>
+<li><a href="https://github.com/corriol/2023-truiter-api">Repositori de Github de Truiter API</a></li>
+<li><a href="https://www.youtube.com/watch?v=ZRBRtA_2NAo">API Platform Crash Course</a></li>
+<li><a href="https://symfonycasts.com/screencast/api-platform">API Platform 3: Mythically Good RESTful APIs</a></li>
+<li>En <a href="https://itdo-solutions.medium.com/primeros-pasos-con-symfony-5-como-api-rest-f0fa8c4d5962">Primeros pasos con Symfony 5 como API REST</a> 
+es genera una API basada en els mateixos components que hem utilitzat.</li>
+<li>En <a href="https://www.adcisolutions.com/knowledge/getting-started-rest-api-symfony-4">Getting started REST API with Symfony 4</a> 
+s'utilitzen diversos components addicionals com el Fos-Rest-Bundle i JMS Serializer.</li>
+<li>En <a href="https://www.youtube.com/playlist?list=PLC8ntN5__iMIAy9V6XO37Dx_bQ5V7zc-h">Curso de Symfony 5. Creando una API desde cero</a> teniu
+un curs molt complet sobre com crear una API en Symfony 5 des de cero.</li>
+<li><a href="https://api-platform.com/docs/core/getting-started/">API Platform</a> és un framework que permet crear API de forma quasi automàtica en
+Symfony.</li>
+<li><a href="https://medium.com/francisco-ugalde/restful-api-con-symfony-4-jwt-parte-1-2accdf59a0ae">https://medium.com/francisco-ugalde/restful-api-con-symfony-4-jwt-parte-1-2accdf59a0ae</a></li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: REST API" class="md-footer__link md-footer__link--prev" href="../03-rest-api/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              REST API
+            </div>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

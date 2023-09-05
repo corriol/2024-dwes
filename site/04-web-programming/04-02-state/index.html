@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Manteniment de l'estat - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#manteniment-de-lestat">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Manteniment de l'estat
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          1.- Introducció a la programació Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/01-intro/">
+        Estructura aplicacions web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/02-developement/">
+        Preparació de l'entorn de desenvolupament
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/02-phpbasics/">
+        PHP Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Errors i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Manteniment de l'estat
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Manteniment de l'estat
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#galletes-cookies">
+    Galletes (cookies)
+  </a>
+<nav aria-label="Galletes (cookies)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#problemes-de-seguretat-relacionats-amb-galletes">
+    Problemes de seguretat relacionats amb galletes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#maneig-de-sessions">
+    Maneig de sessions
+  </a>
+<nav aria-label="Maneig de sessions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuracio">
+    Configuració
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inici-i-fi-duna-sessio">
+    Inici i fi d'una sessió
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aplicacions-practiques">
+    Aplicacions pràctiques
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-03-authentication/">
+        Autenticació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0501-data-access/">
+        Accés a dades amb PHP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0599-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/07-seguretat-control-acces/">
+        Seguretat i control d'accés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-pujada-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/20-gestio-actius/">
+        Gestió de fitxers CSS i Javascript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/15-unit-testing/">
+        Testing en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+        9.- Introducció als serveis web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/05-rest-api-symfony/">
+        REST API en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/06-jwt.md">
+        Seguretat en JWT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="manteniment-de-lestat">Manteniment de l’estat</h1>
+<p>Recorda que HTTP és un protocol sense estat, el que significa que un cop un servidor web completa la sol·licitud d’un client d’un recurs, la connexió entre els dos acaba. Dit d’una altra manera, no hi ha manera que un servidor recorde una que una seqüència de sol·licituds prové del mateix client.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Mantenir l’estat és poder fer el seguiment d’una sequència de sol·licituds d’un client.</p>
+</div>
+<p>No obstant això mantenir l’estat, poder fer el seguiment d’una seqüència de sol·licituds d’un client, és molt útil. No podeu crear una aplicació que tinga cistella de la compra, per exemple, si no podeu mantenir l’estat. Heu de saber quan un usuari afegeix articles a la cistella o els elimina i el contingut final de la cistella si el client decideix adquirir els productes.</p>
+<p>Per solucionar aquesta manca d’estat de la web tenim disponibles diverses tècniques com l’ús cookies o de sessions que veurem a continuació.</p>
+<p>Combinant mecanismes d’autenticació i tècniques per a mantenir l’estat podem crear aplicacions web segures.</p>
+<h2 id="galletes-cookies">Galletes (<em>cookies</em>)</h2>
+<p>Una galleta és un fitxer de text que un lloc web guarda a l'entorn de l'usuari de navegador. El seu ús més típic és
+l'emmagatzematge de les preferències de l'usuari (per exemple, l'idioma en que s'han de mostrar les pàgines), perquè no
+haja de tornar a indicar-les la propera vegada que visiteu el lloc.</p>
+<p>Si utilitzes Firefox com a navegador, pots accedir a <code>Desenvolupador web</code> – <code>Inspector d'emmagatzematge</code> des del
+menú principal. Entre les seves característiques et permet consultar i editar les galetes emmagatzemades en el mateix.</p>
+<p><img alt="Inspeccionar galetes en Firefox" src="images/galetes-firefox.png"/></p>
+<p>En PHP, per emmagatzemar una galleta al navegador de l'usuari, pots utilitzar la funció <code>setcookie</code>. L'únic paràmetre
+obligatori que has de fer servir és el nom de la galleta, però admet diversos paràmetres més opcionals.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> <span class="nb">setcookie</span><span class="p">(</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nx">string</span> <span class="nv">$name</span><span class="p">,</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nx">string</span> <span class="nv">$value</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nx">int</span> <span class="nv">$expires</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nx">string</span> <span class="nv">$path</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nx">string</span> <span class="nv">$domain</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="nx">bool</span> <span class="nv">$secure</span> <span class="o">=</span> <span class="k">false</span><span class="p">,</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="nx">bool</span> <span class="nv">$httponly</span> <span class="o">=</span> <span class="k">false</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Per a més informació consulta: <a href="https://www.php.net/manual/es/function.setcookie.php">https://www.php.net/manual/es/function.setcookie.php</a>.</p>
+</div>
+<p>Per exemple, si vols emmagatzemar en una galleta la data del darrer accés d'un usuari, pots fer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">setcookie</span> <span class="p">(</span><span class="s2">"last_visit_date"</span><span class="p">,</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nb">time</span><span class="p">(),</span> <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">);</span>
+</code></pre></div>
+<p>Els dos primers paràmetres són el nom de la galeta i el seu valor. El tercer és la data de caducitat de la mateixa en format <code>timestamp</code> (en l'exemple, una hora des del moment en què s'execute). En cas de no figurar aquest paràmetre, la galeta s'eliminarà quan es tanque el navegador. Tingues en compte que també es poden aplicar restriccions a les pàgines del lloc que poden accedir a una galeta en funció de la ruta.</p>
+<p>Les galetes es transmeten entre el navegador i el servidor web utilitzant les capçaleres del protocol 
+HTTP. <strong>Per això, les sentències <code>setcookie</code> s'han d'enviar abans que el navegador mostre cap informació a pantalla.</strong></p>
+<p><img alt="Enviament de cookies HTTP" src="../assets/cookie-http-transfer.png"/></p>
+<p>Podeu trobar més informació en <a href="https://blog.webf.zone/ultimate-guide-to-http-cookies-2aa3e083dbae">Ultimate Guide to HTTP Cookies</a></p>
+<p>El procés de recuperació de la informació que emmagatzema una galleta és molt simple. Quan accedeixes a un lloc web, el
+navegador li envia de forma automàtica tot el contingut de les galetes que emmagatzema relatives a aquest lloc en
+concret. Des PHP pots accedir a aquesta informació per mitjà de la variable superglobal <code>$_COOKIE</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Sempre que utilitzeu galetes en una aplicació web, heu de tenir en compte que en última instància la seva 
+disponibilitat està controlada pel client. Per exemple, alguns usuaris deshabiliten les galetes al navegador perquè 
+pensen que la informació que emmagatzemen pot suposar un potencial problema de seguretat. O que la informació que
+emmagatzemen pot arribar a perdre perquè l'usuari decideix formatar l'equip o simplement eliminar-les de sistema.</p>
+</div>
+<p>Si un cop emmagatzemada una galeta al navegador vols eliminar-la abans que expire, pots utilitzar 
+la mateixa funció <code>setcookie</code> però indicant una data de caducitat anterior a l'actual.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Quina és la durada per defecte d'una galeta si no s'indica la data de caducitat, com en la següent crida a la funció <code>setcookie</code>?</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">setcookie</span> <span class="p">(</span><span class="s2">"idioma"</span><span class="p">,</span> <span class="s2">"espanyol"</span><span class="p">);</span>
+</code></pre></div>
+<ol>
+<li>Fins que es tanque el navegador de l'usuari.</li>
+<li>1 hora.</li>
+</ol>
+</div>
+<h3 id="problemes-de-seguretat-relacionats-amb-galletes">Problemes de seguretat relacionats amb galletes</h3>
+<p>A l'hora de fer ús de galetes, cal ser conscient dels potencials problemes de seguretat que 
+poden patir.</p>
+<p>En l'article <a href="https://blog.webf.zone/ultimate-guide-to-http-cookies-2aa3e083dbae">Ultimate Guide to HTTP Cookies</a> s'exposen tres dels problemes més rellevants i la seua sol·lució.</p>
+<p>Aquest article és una referència molt completa dels possibles valors i atributs que es poden fer servir les galetes: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookie headers</a></p>
+<h2 id="maneig-de-sessions">Maneig de sessions</h2>
+<p>Com acabes de veure, una forma per guardar informació particular de cada usuari és utilitzar galetes (<em>cookies</em>). No obstant això, hi ha diversos problemes associats a les galetes, com el nombre d'elles que admet el navegador, o la seva grandària màxima. Per solucionar aquests inconvenients, existeixen les sessions. El terme sessió fa referència al conjunt d'informació relativa a un usuari concret.</p>
+<p>Aquesta informació pot ser tan simple com el nom de l'usuari mateix, o més complexa, com els articles que ha dipositat a la cistella de compra d'una botiga en línia.</p>
+<p>Cada usuari diferent d'un lloc web té la seva pròpia informació de sessió. Per distingir una sessió d'una altra s'usen els <strong>identificadors de sessió</strong> (SID). Un SID és un atribut que s'assigna a cada un dels visitants d'un lloc web i l'identifica. D'aquesta manera, si el servidor web coneix el SID d'un usuari, pot relacionar-lo amb tota la informació que posseeix sobre ell, que es manté en la sessió de l'usuari. Aquesta informació s'emmagatzema en el servidor web, generalment en fitxers tot i que també es poden utilitzar altres mecanismes d'emmagatzematge com bases de dades. Com ja hauràs suposat, la qüestió ara és: ¿i on s'emmagatzema aquest SID, identificador de la sessió, que és únic per a cada usuari? Doncs hi ha dues maneres de mantenir el SID entre les pàgines d'un lloc web que visita l'usuari:</p>
+<ul>
+<li>Utilitzant galetes.</li>
+<li>Propagant el SID en un paràmetre de la URL. El SID s'afegeix com una part més de la URL, de la forma:</li>
+</ul>
+<p>http://www.misitioweb.com/tienda/listado.php&amp;<strong>PHPSESSID=34534fg4ffg34ty</strong></p>
+<p>En l'exemple anterior, el SID és el valor del paràmetre <code>PHPSESSID</code>.</p>
+<p>Cap de les dues maneres és perfecta. Ja saps els problemes que té la utilització de cookies. Malgrat això, és el millor mètode i el més utilitzat. Propagar el SID com a part de la URL comporta majors desavantatges, com la impossibilitat de mantenir el SID entre diferents sessions, o el fet que compartir la URL amb una altra persona implica compartir també l'identificador de sessió.</p>
+<p>La bona notícia, és que el procés de maneig de sessions en PHP està automatitzat en gran mida. Quan un usuari visita un lloc web, no cal programar un procediment per veure si hi ha un SID previ i carregar les dades associades amb el mateix. Tampoc has d'utilitzar la funció <code>setcookie</code> si vols emmagatzemar els SID en galetes, o anar passant el SID entre les pàgines web del teu lloc si et decideixes per propagar. Tot això PHP ho fa automàticament.</p>
+<div class="admonition info">
+<p class="admonition-title">Server side cookies</p>
+<p>A la informació que s'emmagatzema en la sessió d'un usuari també se li coneix com a galetes en la part de servidor (<em>server side cookies</em>). Has de tenir en compte que encara aquesta informació no viatja entre el client i el servidor, sí que ho fa el SID, bé com a part de l'URL o en una capçalera HTTP si es guarda en una galleta. En tots dos casos, això planteja un possible problema de seguretat. El SID pot ser aconseguit per una altra persona, i a partir de la mateixa obtenir la informació de la sessió de l'usuari. La manera més segura d'utilitzar sessions és emmagatzemant els SID en galetes i utilitzar HTTPS per a xifrar la informació que es transmet entre el servidor web i el client.</p>
+</div>
+<h3 id="configuracio">Configuració</h3>
+<p>Per defecte, PHP inclou suport per a la gestió de sessions. Abans, però, d'utilitzar sessions en el teu lloc web, has de configurar correctament PHP utilitzant els següents directives en el fitxer
+<code>php.ini</code> segons corresponga:</p>
+<table>
+<thead>
+<tr>
+<th>Directiva</th>
+<th>significat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>session.use_cookies</code></td>
+<td>Indica si s'han d'usar cookies (1) o propagació a la URL (0) per emmagatzemar el SID.</td>
+</tr>
+<tr>
+<td><code>session.use_only_cookies</code></td>
+<td>S'ha d'activar (1) quan fas servir cookies per emmagatzemar els SID, i a més no vols que es reconeguin els SID que es puguin passar com part de la URL (aquest mètode es pot usar per usurpar l'identificador d'un altre usuari)</td>
+</tr>
+<tr>
+<td><code>session.save_handler</code></td>
+<td>S'utilitza per indicar a PHP com ha de emmagatzemar les dades de la sessió de l'usuari. Hi ha quatre opcions: en fitxers (files), en memòria (Mm), en una base de dades SQLite (sqlite) o utilitzant per a això funcions que ha de definir el programador (user). El valor per defecte (Files) funcionarà sense problemes en la majoria dels casos.</td>
+</tr>
+<tr>
+<td><code>session.name</code></td>
+<td>Determina el nom de la galleta que s'utilitzarà per guardar el SID. La seva valor per defecte és PHPSESSID.</td>
+</tr>
+<tr>
+<td><code>session.auto_start</code></td>
+<td>El seu valor per defecte és 0, i en aquest cas hauràs de fer servir la funció session_start per gestionar l'inici de les sessions. Si fas servir sessions al lloc web, pot ser bona idea canviar el seu valor a 1 per que PHP activi de forma automàtica el maneig de sessions.</td>
+</tr>
+<tr>
+<td><code>session.cookie_lifetime</code></td>
+<td>Si utilitzes l'URL per propagar el SID, aquest es perdrà quan tanque el navegador. No obstant això, si utilitzes galetes, el SID es mantindrà mentre no es destruisca la galleta. En el seu valor per defecte (0), les galetes es destrueixen quan es tanca el navegador. Si vols que es mantingui el SID durant més temps, has d'indicar en aquesta directiva aquest temps en segons.</td>
+</tr>
+<tr>
+<td><code>session.gc_maxlifetime</code></td>
+<td>Indica el temps en segons que s'ha de mantenir activa la sessió, encara que no hi hagi cap activitat per part de l'usuari. El seu valor per defecte és 1440. És a dir, passats 24 minuts des de l'última activitat per part de l'usuari, es tanca la sessió automàticament.</td>
+</tr>
+<tr>
+<td><code>session.cookie_path</code></td>
+<td>Indica la ruta que ha d'existir per a enviar la galleta de sessió.</td>
+</tr>
+<tr>
+<td><code>session.cookie_domain</code></td>
+<td>Domini que ha d'haver perquè s'envie la <code>cookie</code>. Quan no s'indica valor la galleta s'envia sols al nom complet de host que l'ha enviada.</td>
+</tr>
+<tr>
+<td><code>session.cookie_secure</code></td>
+<td>Quan té el valor <code>On</code> la galleta sols s'enviarà si les urls són HTTPS.</td>
+</tr>
+<tr>
+<td><code>session.cookie_httponly</code></td>
+<td>Quan té el valor <code>On</code> s'indica als navegadors que el JavaScript no pot llegir-les.</td>
+</tr>
+</tbody>
+</table>
+<p>La funció <code>phpinfo</code>, de la qual ja vam parlar amb anterioritat, t'ofereix informació sobre la configuració actual de les directives de sessió.</p>
+<div class="admonition info">
+<p class="admonition-title">Cal saber</p>
+<p>La majoria de directives de PHP es poden modificar en temps d'execució amb la funció <a href="https://www.php.net/manual/en/function.ini-set.php"><code>ini_set</code></a>. </p>
+</div>
+<p>En la documentació de PHP tens informació sobre aquestes i altres directives que permeten configurar el maneig de sessions.</p>
+<p><a href="https://www.php.net/manual/es/session.configuration.php">https://www.php.net/manual/es/session.configuration.php</a></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Si la informació de l'usuari que vols emmagatzemar inclou contingut privat com una contrasenya, ¿què utilitzaries, galetes o la sessió de l'usuari?</p>
+</div>
+<h3 id="inici-i-fi-duna-sessio">Inici i fi d'una sessió</h3>
+<p>L'inici d'una sessió pot tenir lloc de dues maneres. Si has activat la directiva <code>session.auto_start</code> en la configuració de PHP, la sessió començarà automàticament quan un usuari es connecte al teu lloc web. En el cas que aquest usuari ja haja obert una sessió amb anterioritat, i aquesta no s'haja eliminat, en lloc d'obrir una nova sessió es reprendrà la anterior. Per a això s'utilitzarà el SID anterior, que estarà emmagatzemat en una galleta (recorda que si fas servir propagació de l'SID, no podràs restaurar sessions anteriors; el SID figura a la URL i es perd quan tanques el navegador).</p>
+<p>Si per contra, decideixes no utilitzar l'inici automàtic de sessions, hauràs executar la funció <code>session_start()</code> per indicar a PHP que inicie una nova sessió o reprenga l'anterior. Anteriorment aquesta funció tornava sempre <code>true</code>, a partir de la versió 5.3.0 de PHP el seu comportament és més coherent: retorna <code>false</code> en cas de no poder iniciar o restaurar la sessió.</p>
+<p>Com l'inici de sessió requereix utilitzar <code>cookies</code>, i aquestes es transmeten en els encapçalats HTTP, heu de tenir en compte que per poder iniciar una sessió utilitzant <code>session_start</code>, hauràs de fer les cridades a aquesta funció abans que la pàgina web mostre informació al navegador.</p>
+<p>A més, totes les pàgines que necessiten utilitzar la informació emmagatzemada en la sessió, hauran d'executar la funció <code>session_start</code>.</p>
+<p>Mentre la sessió estiga oberta, pots utilitzar la variable superglobal <code>$_SESSION</code> per afegir informació a la sessió de l'usuari, o per accedir a la informació emmagatzemada en la sessió. Per
+exemple, per comptar el nombre de vegades que l'usuari visita la pàgina, pots fer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="c1">// Iniciamos la sesión o recuperamos la anterior sesión existente</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="c1">// Comprobamos si la variable ya existe</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]))</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="k">else</span>
+<span class="linenos" data-linenos="8 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Si en lloc de el nombre de visites, voldries emmagatzemar l'instant en què es produeix cadascuna, la variable de sessió "visites" ha de ser una matriu i per tant hauràs de canviar el codi anterior per:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span> <span class="c1">// Iniciamos la sesión o recuperamos la anterior sesión existente</span>
+<span class="linenos" data-linenos="3 "></span> <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span> <span class="c1">// En cada visita añadimos un valor al array "visitas"</span>
+<span class="linenos" data-linenos="5 "></span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">][]</span> <span class="o">=</span> <span class="nb">mktime</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Encara que com ja has vist, pots configurar PHP perquè elimine de forma automàtica les dades de una sessió passat cert temps, en ocasions pot ser necessari tancar-la de forma manual en un moment determinat. Per exemple, si utilitzes sessions per recordar la informació d'autenticació hauràs donar-li a l'usuari de la pàgina web la possibilitat de tancar la sessió quan ho crega convenient.</p>
+<p>En PHP tens dues funcions per eliminar la informació emmagatzemada en la sessió:</p>
+<ul>
+<li><code>session_unset</code>. Elimina les variables emmagatzemades a la sessió actual, però no elimina la informació de la sessió del dispositiu d'emmagatzematge usat.</li>
+<li><code>session_destroy</code>. Elimina completament la informació de la sessió del dispositiu d'emmagatzematge.</li>
+</ul>
+<h3 id="aplicacions-practiques">Aplicacions pràctiques</h3>
+<h4 id="autenticacio-dusuaris">Autenticació d'usuaris</h4>
+<p>Gràcies a les sessions podem emmagatzemar un <em>token</em> únic per poder saber si un usuari ha iniciat sessió correctament o no.</p>
+<h4 id="evitar-atacs-csrf">Evitar atacs CSRF</h4>
+<p>La falsificació de sol·licituds entre llocs (CSRF) és un tipus d'atac que es produeix quan un lloc web, correu electrònic, bloc, missatge instantani o programa maliciós fa que el navegador web d'un usuari realitze una acció no desitjada en un lloc de confiança quan l'usuari s'autentica. </p>
+<p>En el cas dels formularis hem d'assegurar-nos que l'origen de la petició prové de la nostra aplicació web. Per a aconseguir-ho caldrà:</p>
+<ol>
+<li>Generar un <em>token</em> únic quan es sol·licite mostrar un formulari.</li>
+<li>Guardar el <em>token</em> en un variable de sessió.</li>
+<li>Incloure en el formulari un camp ocult amb el token.</li>
+<li>En el moment de processar el formulari comprovarem que el <em>token</em> enviat pel formulari coincideix amb el <em>token</em> emmagatzemat en la variable de sessió. Si no és així, mostarem un error. </li>
+</ol>
+<h4 id="separar-la-logica-dels-formularis">Separar la lògica dels formularis</h4>
+<p>Fins ara, hem creat formularis (<em>self-processing forms</em>) que es processaven en el mateix fitxer. 
+Combinant variables de sessió i redireccions podem aconseguir separar la lògica del formulari en dos fitxer.</p>
+<p>Si agafem com a exemple la creació de nous tuits:</p>
+<p>El fitxer <code>tweet-new.php</code> s'encarregarà de mostrar el formulari i el fitxer <code>tweet-process.php</code> s'encarregarà de processar-lo.  En cas d'errors de validació es redirigirà a <code>tweet-new.php</code> guardant en una variable de sessió els errors i les dades correctament validades. En cas d'èxit, <code>tweet-process.php</code> redirigirà a la pàgina <code>index.php</code> guardant en una variable de sessió el missatge d'èxit, que caldrà mostrar en <code>index.php</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Redireccions</p>
+<p>Una redirecció és una tècnica que permet fer que el servidor web responga amb una URL diferent a l’actual.</p>
+<p>Per a aconseguir s’utilitza la funció <code>header()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Send to the browser a new url and send a HTTP redirect code (302)</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">header</span><span class="p">(</span><span class="s1">'Location: /index.php'</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="c1">// this function terminate the current script</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">exit</span><span class="p">();</span>
+</code></pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Compte amb les redireccions</p>
+<p>És molt important fer una correcta gestió dels errors abans de fer una redirecció, sinó és possible que s’amaguen els errors i passen coses estranyes.</p>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Formularis" class="md-footer__link md-footer__link--prev" href="../04-01-forms/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Formularis
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Autenticació" class="md-footer__link md-footer__link--next" href="../04-03-authentication/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Autenticació
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

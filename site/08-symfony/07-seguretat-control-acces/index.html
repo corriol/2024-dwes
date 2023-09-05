@@ -1,0 +1,1227 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Seguretat i control d'accés - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#seguretat-i-control-dacces">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Seguretat i control d'accés
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          1.- Introducció a la programació Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/01-intro/">
+        Estructura aplicacions web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/02-developement/">
+        Preparació de l'entorn de desenvolupament
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/02-phpbasics/">
+        PHP Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-basics/99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Errors i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-02-state/">
+        Manteniment de l'estat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-03-authentication/">
+        Autenticació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0501-data-access/">
+        Accés a dades amb PHP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-data-access/0599-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Seguretat i control d'accés
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Seguretat i control d'accés
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuracio-de-la-seguretat-en-symfony">
+    Configuració de la seguretat en Symfony
+  </a>
+<nav aria-label="Configuració de la seguretat en Symfony" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#larxiu-securityyaml-el-firewall-de-symfony">
+    L'arxiu "security.yaml". El firewall de Symfony
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#establir-la-manera-dautenticacio-i-origen-de-dades">
+    Establir la manera d'autenticació i origen de dades
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#algunes-opcions-avancades">
+    Algunes opcions avançades
+  </a>
+<nav aria-label="Algunes opcions avançades" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#encriptar-les-contrasenyes">
+    Encriptar les contrasenyes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#treballar-amb-rols">
+    Treballar amb rols
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#obtenir-lobjecte-user">
+    Obtenir l'objecte user
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eixint-de-laplicacio-logout">
+    Eixint de l'aplicació (logout)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">
+    Recursos
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-pujada-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20-gestio-actius/">
+        Gestió de fitxers CSS i Javascript
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../15-unit-testing/">
+        Testing en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+        9.- Introducció als serveis web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/05-rest-api-symfony/">
+        REST API en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/06-jwt.md">
+        Seguretat en JWT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="seguretat-i-control-dacces">Seguretat i control d'accés</h1>
+<h2 id="configuracio-de-la-seguretat-en-symfony">Configuració de la seguretat en Symfony</h2>
+<p>El sistema de seguretat de Symfony és molt potent i versàtil, encara que
+també pot resultar complicat d'entendre i configurar. En
+aquesta sessió aprendrem a establir els elements principals del mateix:</p>
+<ul>
+<li><strong>El mecanisme d'autenticació</strong>, és a dir, establir on estan
+    registrats els usuaris amb accés a l'aplicació, per poder accedir
+    a ells i validar les credencials.</li>
+<li><strong>El mecanisme d'autorització</strong>, és a dir, una vegada s'ha validat
+    l'usuari que accedeix, i sempre que aquest siga correcte,
+    determinar els seus permisos i a quins recursos pot accedir i a
+    quins no.</li>
+</ul>
+<h3 id="larxiu-securityyaml-el-firewall-de-symfony">L'arxiu "security.yaml". El firewall de Symfony</h3>
+<p>L'arxiu <code>config/packages/security.yaml</code> emmagatzema la configuració
+general del sistema de seguretat de la nostra aplicació Symfony. El seu
+contingut per defecte és aquest:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nt">security</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nt">enable_authenticator_manager</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="c1"># https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nt">password_hashers</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nt">Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface</span><span class="p">:</span> <span class="s">'auto'</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="c1"># https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nt">providers</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nt">users_in_memory</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> memory</span><span class="p">:</span> <span class="nv">null</span> <span class="p p-Indicator">}</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nt">firewalls</span><span class="p">:</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nt">dev</span><span class="p">:</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="nt">pattern</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^/(_(profiler|wdt)|css|images|js)/</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="nt">security</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="nt">main</span><span class="p">:</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="nt">lazy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">users_in_memory</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>            <span class="c1"># activate different ways to authenticate</span>
+<span class="linenos" data-linenos="18 "></span>            <span class="c1"># https://symfony.com/doc/current/security.html#the-firewall</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>            <span class="c1"># https://symfony.com/doc/current/security/impersonating_user.html</span>
+<span class="linenos" data-linenos="21 "></span>            <span class="c1"># switch_user: true</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>    <span class="c1"># Easy way to control access for large sections of your site</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="c1"># Note: Only the *first* access control that matches will be used</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="nt">access_control</span><span class="p">:</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="c1"># - { path: ^/admin, roles: ROLE_ADMIN }</span>
+<span class="linenos" data-linenos="27 "></span>        <span class="c1"># - { path: ^/profile, roles: ROLE_USER }</span>
+</code></pre></div>
+<p>Primerament cal dir que el sistema de seguretat de Symfony va canviar de forma significativa
+en la versió 5.3. La clau <code>enable_authenticator_manager: true</code> indica que estem usant 
+aquest nou sistema.</p>
+<p>La secció <code>firewalls</code> és el nucli principal del nostre sistema de
+seguretat. Dins veiem dos subsecciones: <code>dev</code>, que simplement
+s'assegura que el <em>profiler</em> de Symfony i la barra de depuració (WDT, <em>Web
+Debug Toolbar</em>) no es veguen afectats pel nostre sistema de seguretat, 
+de manera que puguem seguir tenint la informació d'estat en la barra 
+inferior que apareix en provar l'aplicació:</p>
+<p><img alt="Web Debug Toolbar" src="../assets/movies-wdt.png"/></p>
+<p>La resta d'elements de l'aplicació es gestionaran des de la subsecció
+<code>main</code>, on posarem la lògica de seguretat de la nostra aplicació. De
+fet, el no tenir una subsecció <code>pattern</code> implica que automàticament
+absorbeix la resta d'URLs que no hagen coincidit amb cap patró anterior
+del firewall.</p>
+<p>La subsecció <code>anonymous: true</code> indica que es permet un accés anònim a les
+seccions que no estiguen protegides. De fet, si accedim a
+<code>movies-symfony</code> i examinem la barra inferior d'estat, veurem que
+hem iniciat sessió com usuaris a anònims (<em>anon.</em>).</p>
+<p>Veurem a continuació com afegir elements d'autenticació en aquest
+apartat de configuració.</p>
+<h3 id="establir-la-manera-dautenticacio-i-origen-de-dades">Establir la manera d'autenticació i origen de dades</h3>
+<p>Podem establir diferents formes d'autenticació, i diferents fonts de
+dades d'on obtenir els usuaris per a validar. El mecanisme més simple
+(i menys recomanat) consisteix a utilitzar una autenticació bàsica
+d'HTTP (aquella que mostra un "prompt" bàsic per a introduir <em>login</em> i
+<em>password</em>), i emmagatzemar els usuaris en el propi arxiu <code>security.yaml</code>.
+Els <em>passwords</em> poden (han de) estar encriptats en aquest arxiu, però
+encara així, no és un mecanisme molt recomanable d'emmagatzematge.</p>
+<p>Ens saltarem aquesta opció, i anirem a la qual realment ens interessa:
+tindrem els usuaris registrats en una taula d'una base de dades MySQL
+(en aquest cas, de la nostra base de dades de pel·lícules), i definirem un
+formulari d'inici de sessió que utilitzar per a validar-nos contra aqueixa taula
+a l'hora d'accedir a recursos protegits.</p>
+<h4 id="definir-lentitat-i-taula-dusuaris">Definir l'entitat i taula d'usuaris</h4>
+<p>En la nostra aplicació de pel·lícules anem a afegir una nova entitat per
+a emmagatzemar els usuaris de l'aplicació, i la seua corresponent taula
+associada, emprant Doctrine. Els usuaris tindran en aquest cas un identificador
+(autonumèric generat per Doctrine), un nom d'usuari, una contrasenya, un correu electrònic i
+un rol (més endavant veurem per a què s'utilitza el rol).</p>
+<p>Per tant, crearem primer l'entitat d'aquesta forma:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span> php bin/console make:entity
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span> Class name of the entity to create or update (e.g. TinyPizza):
+<span class="linenos" data-linenos=" 4 "></span> &gt; User
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span> created: src/Entity/User.php
+<span class="linenos" data-linenos=" 7 "></span> created: src/Repository/UserRepository.php
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span> Entity generated! Now let's add some fields!
+<span class="linenos" data-linenos="10 "></span> You can always add more fields later manually or by re-running this command.
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span> New property name (press &lt;return&gt; to stop adding fields):
+<span class="linenos" data-linenos="13 "></span> &gt; username
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span> Field type (enter ? to see all types) [string]:
+<span class="linenos" data-linenos="16 "></span> &gt; string
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span> Field length [255]:
+<span class="linenos" data-linenos="19 "></span> &gt; 100 
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span> Can this field be null in the database (nullable) (yes/no) [no]:
+<span class="linenos" data-linenos="22 "></span> &gt; 
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span> updated: src/Entity/User.php
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span> Add another property? Enter the property name (or press &lt;return&gt; to stop adding fields):
+<span class="linenos" data-linenos="27 "></span> &gt; password
+<span class="linenos" data-linenos="28 "></span>
+<span class="linenos" data-linenos="29 "></span> Field type (enter ? to see all types) [string]:
+<span class="linenos" data-linenos="30 "></span> &gt; string
+<span class="linenos" data-linenos="31 "></span>
+<span class="linenos" data-linenos="32 "></span> Field length [255]:
+<span class="linenos" data-linenos="33 "></span> &gt; 255
+<span class="linenos" data-linenos="34 "></span>
+<span class="linenos" data-linenos="35 "></span> Can this field be null in the database (nullable) (yes/no) [no]:
+<span class="linenos" data-linenos="36 "></span> &gt; no
+<span class="linenos" data-linenos="37 "></span>
+<span class="linenos" data-linenos="38 "></span> updated: src/Entity/User.php
+<span class="linenos" data-linenos="39 "></span>
+<span class="linenos" data-linenos="40 "></span> Add another property? Enter the property name (or press &lt;return&gt; to stop adding fields):
+<span class="linenos" data-linenos="41 "></span> &gt; email
+<span class="linenos" data-linenos="42 "></span>
+<span class="linenos" data-linenos="43 "></span> Field type (enter ? to see all types) [string]:
+<span class="linenos" data-linenos="44 "></span> &gt; string
+<span class="linenos" data-linenos="45 "></span>
+<span class="linenos" data-linenos="46 "></span> Field length [255]:
+<span class="linenos" data-linenos="47 "></span> &gt; 255
+<span class="linenos" data-linenos="48 "></span>
+<span class="linenos" data-linenos="49 "></span> Can this field be null in the database (nullable) (yes/no) [no]:
+<span class="linenos" data-linenos="50 "></span> &gt; yes 
+<span class="linenos" data-linenos="51 "></span>
+<span class="linenos" data-linenos="52 "></span> updated: src/Entity/User.php
+<span class="linenos" data-linenos="53 "></span>
+<span class="linenos" data-linenos="54 "></span> Add another property? Enter the property name (or press &lt;return&gt; to stop adding fields):
+<span class="linenos" data-linenos="55 "></span> &gt; role
+<span class="linenos" data-linenos="56 "></span>
+<span class="linenos" data-linenos="57 "></span> Field type (enter ? to see all types) [string]:
+<span class="linenos" data-linenos="58 "></span> &gt; string
+<span class="linenos" data-linenos="59 "></span>
+<span class="linenos" data-linenos="60 "></span> Field length [255]:
+<span class="linenos" data-linenos="61 "></span> &gt; 20
+<span class="linenos" data-linenos="62 "></span>
+<span class="linenos" data-linenos="63 "></span> Can this field be null in the database (nullable) (yes/no) [no]:
+<span class="linenos" data-linenos="64 "></span> &gt; no
+<span class="linenos" data-linenos="65 "></span>
+<span class="linenos" data-linenos="66 "></span> updated: src/Entity/User.php
+<span class="linenos" data-linenos="67 "></span>
+<span class="linenos" data-linenos="68 "></span> Add another property? Enter the property name (or press &lt;return&gt; to stop adding fields):
+<span class="linenos" data-linenos="69 "></span> &gt; 
+<span class="linenos" data-linenos="70 "></span>
+<span class="linenos" data-linenos="71 "></span>  Success!         
+</code></pre></div>
+<p>Una vegada creada l'entitat, el següent pas és migrar els canvis a la
+base de dades, com ja hem fet prèviament:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console make:migration
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span>php bin/console doctrine:migration:migrate
+</code></pre></div>
+<p>Alternativament a aquests dos comandos, i en el cas que done algun
+conflicte amb migracions prèvies, també podem executar aquests altres
+dos, que gestionen millor les diferències o novetats a migrar:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console doctrine:migrations:diff
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span>php bin/console doctrine:migrations:migrate
+</code></pre></div>
+<p>Podem afegir a mà un usuari de prova en la base de dades, amb aquests
+atributs:</p>
+<ul>
+<li>username: user</li>
+<li>password: user</li>
+<li>email: proves@proves.org</li>
+<li>role: ROLE_USER</li>
+</ul>
+<p>Insistim, tornarem a tractar els rols més endavant. De moment deixarem
+establit aquest per a aquest usuari de prova.</p>
+<h4 id="implementar-les-interficies-requerides">Implementar les interfícies requerides</h4>
+<p>Per a poder utilitzar una entitat com a font d'usuaris que puguen iniciar sessió, és
+necessari que aquesta entitat implemente la interfície <code>UserInterface</code> i la interfície <code>PasswordAuthenticatedUserInterface</code>, la
+qual cosa obliga a definir els mètodes:</p>
+<ul>
+<li><code>getRoles()</code>, que retornarà un array amb els rols de l'usuari (en
+    aquest cas, cada usuari només tindrà un rol, que retornarem en un
+    array)</li>
+<li><code>getPassword()</code>, que retornarà el password de l'usuari</li>
+<li><code>getUserIdentifier()</code>, que retornarà el login de l'usuari</li>
+<li><code>getSalt()</code>, que en ocasions no és necessari emprar. S'empra en
+    mecanismes de codificació de passwords més avançats que els que
+    veurem en el curs. Així que en el nostre exemple retornarem <code>null</code>.</li>
+<li><code>eraseCredentials()</code>, que s'empra per a eliminar informació sensible
+    o privada de l'usuari. Pot ser útil si, per exemple, s'emmagatzema
+    el <em>password</em> de l'usuari sense encriptar. En primera instància ho
+    farem així, però després ho encriptarem, així que aquest mètode ho
+    deixarem buit.</li>
+</ul>
+<p>A més, convé implementar la interfície <code>Serializable</code> per a poder
+serialitzar objectes de tipus <code>User</code> i enviar-los entre les parts de
+l'aplicació (més endavant veurem com obtenir l'objecte <code>User</code> de
+l'usuari que ha iniciat sessió). Açò implica afegir dos mètodes més: <code>serialize</code> (per
+a convertir l'usuari en text que enviar entre components) i <code>unserialize</code>
+(per a convertir un text en un objecte <code>User</code>).</p>
+<p>Amb tot açò, la nostra entitat <code>User</code> queda així (eliminem els <code>getters</code> i
+<code>setters</code> generats automàticament i que no anem a emprar en realitat):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/Entity/User.php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>     <span class="o">*</span> <span class="nx">Alternatively</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">roles</span> <span class="nx">might</span> <span class="nx">be</span> <span class="nx">stored</span> <span class="nx">on</span> <span class="nx">a</span> <span class="sb">``</span><span class="nx">roles</span><span class="sb">``</span> <span class="nx">property</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 6 "></span>     <span class="o">*</span> <span class="k">and</span> <span class="nx">populated</span> <span class="nx">in</span> <span class="nx">any</span> <span class="nx">number</span> <span class="nx">of</span> <span class="nx">different</span> <span class="nx">ways</span> <span class="nx">when</span> <span class="nx">the</span> <span class="nx">user</span> <span class="nx">object</span>
+<span class="linenos" data-linenos=" 7 "></span>     <span class="o">*</span> <span class="nx">is</span> <span class="nx">created</span><span class="o">.</span>
+<span class="linenos" data-linenos=" 8 "></span>     <span class="o">*</span>
+<span class="linenos" data-linenos=" 9 "></span>     <span class="o">*</span> <span class="o">@</span><span class="k">return</span> <span class="nx">string</span><span class="p">[]</span> <span class="nx">The</span> <span class="nx">user</span> <span class="nx">roles</span>
+<span class="linenos" data-linenos="10 "></span>     <span class="o">*/</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getRoles</span><span class="p">()</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="k">return</span> <span class="p">[</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">role</span><span class="p">];</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="17 "></span><span class="sd">     * Returns the salt that was originally used to encode the password.</span>
+<span class="linenos" data-linenos="18 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos="19 "></span><span class="sd">     * This can return null if the password was not encoded using a salt.</span>
+<span class="linenos" data-linenos="20 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos="21 "></span><span class="sd">     * @return string|null The salt</span>
+<span class="linenos" data-linenos="22 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getSalt</span><span class="p">()</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="27 "></span>
+<span class="linenos" data-linenos="28 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="29 "></span><span class="sd">     * Removes sensitive data from the user.</span>
+<span class="linenos" data-linenos="30 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos="31 "></span><span class="sd">     * This is important if, at any given point, sensitive information like</span>
+<span class="linenos" data-linenos="32 "></span><span class="sd">     * the plain-text password is stored on this object.</span>
+<span class="linenos" data-linenos="33 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="34 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">eraseCredentials</span><span class="p">()</span>
+<span class="linenos" data-linenos="35 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="36 "></span>        <span class="c1">// TODO: Implement eraseCredentials() method.</span>
+<span class="linenos" data-linenos="37 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="38 "></span>
+<span class="linenos" data-linenos="39 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="40 "></span><span class="sd">     * String representation of object.</span>
+<span class="linenos" data-linenos="41 "></span><span class="sd">     * @link https://php.net/manual/en/serializable.serialize.php</span>
+<span class="linenos" data-linenos="42 "></span><span class="sd">     * @return string|null The string representation of the object or null</span>
+<span class="linenos" data-linenos="43 "></span><span class="sd">     * @throws Exception Returning other type than string or null</span>
+<span class="linenos" data-linenos="44 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="45 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">serialize</span><span class="p">()</span><span class="o">:</span> <span class="o">?</span><span class="nx">string</span>
+<span class="linenos" data-linenos="46 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="47 "></span>        <span class="k">return</span> <span class="nb">serialize</span><span class="p">([</span>
+<span class="linenos" data-linenos="48 "></span>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">(),</span>
+<span class="linenos" data-linenos="49 "></span>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">(),</span>
+<span class="linenos" data-linenos="50 "></span>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getPassword</span><span class="p">()</span>
+<span class="linenos" data-linenos="51 "></span>        <span class="p">]);</span>
+<span class="linenos" data-linenos="52 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="53 "></span>
+<span class="linenos" data-linenos="54 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="55 "></span><span class="sd">     * Constructs the object.</span>
+<span class="linenos" data-linenos="56 "></span><span class="sd">     * @link https://php.net/manual/en/serializable.unserialize.php</span>
+<span class="linenos" data-linenos="57 "></span><span class="sd">     * @param string $serialized The string representation of the object.</span>
+<span class="linenos" data-linenos="58 "></span><span class="sd">     * @return void</span>
+<span class="linenos" data-linenos="59 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="60 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">unserialize</span><span class="p">(</span><span class="nv">$serialized</span><span class="p">)</span>
+<span class="linenos" data-linenos="61 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="62 "></span>        <span class="k">list</span><span class="p">(</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">password</span><span class="p">)</span> <span class="o">=</span> 
+<span class="linenos" data-linenos="63 "></span>            <span class="nb">unserialize</span><span class="p">(</span><span class="nv">$serialized</span><span class="p">,</span> <span class="p">[</span><span class="s1">'allowed_classes'</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">]);</span>
+<span class="linenos" data-linenos="64 "></span>    <span class="p">}</span>
+</code></pre></div>
+<p>En el cas de la funció <code>unserialize</code>, se li passa com a segon paràmetre un
+array d'opcions. L'opció <code>allowed_classes</code> que s'utilitza en aquest
+exemple, posada a <code>false</code>, fa que no es permeta la serialització
+d'objectes de cap classe (només els tipus simples que componen els
+atributs de l'entitat <code>User</code>, en aquest cas).</p>
+<h4 id="configurar-lorigen-de-dades-i-la-manera-dautenticacio">Configurar l'origen de dades i la manera d'autenticació</h4>
+<p>Anem ara a indicar on ha de buscar Symfony els usuaris quan algú intente
+accedir al sistema. Per a açò, anem a l'arxiu de configuració
+<code>config/packages/security.yaml</code>, i afegim un nou proveïdor de dades,
+enllaçat a l'entitat <code>User</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">security</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">providers</span><span class="p">:</span> 
+<span class="linenos" data-linenos="3 "></span>        <span class="l l-Scalar l-Scalar-Plain">...</span> 
+<span class="linenos" data-linenos="4 "></span>        <span class="l l-Scalar l-Scalar-Plain">user_provider</span><span class="p p-Indicator">:</span> 
+<span class="linenos" data-linenos="5 "></span>            <span class="nt">entity</span><span class="p">:</span> 
+<span class="linenos" data-linenos="6 "></span>                <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">App\Entity\User</span> 
+<span class="linenos" data-linenos="7 "></span>                <span class="nt">property</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">username</span>
+</code></pre></div>
+<p>Indiquem el nom de l'entitat, i el nom de l'atribut que s'usuarà com a nom d'usuari
+en l'inici de sessió.</p>
+<p>Després, una mica més a baix en aqueix mateix fitxer (subsección
+<code>security &gt; firewalls &gt; main</code>), establim que inicie sessió mitjançant
+un formulari, que s'activarà amb la ruta anomenada <code>login</code> que definirem
+després:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nt">security</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nt">firewalls</span><span class="p">:</span> 
+<span class="linenos" data-linenos=" 3 "></span>        <span class="nt">dev</span><span class="p">:</span> 
+<span class="linenos" data-linenos=" 4 "></span>        <span class="l l-Scalar l-Scalar-Plain">...</span> 
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nt">main</span><span class="p">:</span> 
+<span class="linenos" data-linenos=" 6 "></span>            <span class="nt">anonymous</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+<span class="linenos" data-linenos=" 7 "></span>            <span class="nt">form_login</span><span class="p">:</span> 
+<span class="linenos" data-linenos=" 8 "></span>                <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user_provider</span> 
+<span class="linenos" data-linenos=" 9 "></span>                <span class="nt">login_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">login</span> 
+<span class="linenos" data-linenos="10 "></span>                <span class="nt">check_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">login</span>
+</code></pre></div>
+<p>En aquest cas, hem anul·lat (posat a null) l'accés anònim (açò és el que
+significa el símbol <code>"~"</code> al costat d'anonymous. D'altra banda,
+indiquem que tant per a mostrar el formulari com per a verificar l'inici de
+sessió, s'acudirà a la mateixa ruta <code>login</code>, emprant com a proveïdor
+d'usuaris l'element <code>user_provider</code> que hem definit abans, basat en
+l'entitat <code>User</code>.</p>
+<p>Podem, a més, definir quins recursos es protegiran amb aquest
+formulari. Convé, almenys, especificar un patró de ruta que excloga al
+propi formulari d'inici de sessió, ja que en cas contrari entraríem en un bucle
+infinit en el qual, per a accedir al formulari d'inici de sessió, hauríem 
+d'iniciar sessió amb el formulari d'inici de sessió. Per a açò, editem la secció
+<code>access_control</code> al final de l'arxiu <code>security.yaml</code>, i indiquem, almenys,
+dues rutes: una sense protegir per a l'inici de sessió, i l'altra protegida per al
+que vulguem (en aquest cas, la resta de l'aplicació):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">access_control</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span><span class="p p-Indicator">-</span>   <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/login</span><span class="p p-Indicator">,</span><span class="nt"> rols</span><span class="p">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p p-Indicator">}</span>
+<span class="linenos" data-linenos="3 "></span><span class="p p-Indicator">-</span>   <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/</span><span class="p p-Indicator">,</span><span class="nt"> rols</span><span class="p">:</span> <span class="nv">ROLE_USER</span> <span class="p p-Indicator">}</span>
+</code></pre></div>
+<p>Finalment, també podem especificar el sistema de codificació del password.
+Ara com ara no ho usar cap tipus de codificació, per la qual cosa afegim aquest
+subapartat al final (dins de la secció <code>security</code>):
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">encoders</span><span class="p">:</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">App\User\Entity</span><span class="p">:</span> 
+<span class="linenos" data-linenos="3 "></span>        <span class="l l-Scalar l-Scalar-Plain">plaintext</span>
+</code></pre></div></p>
+<h4 id="definir-la-ruta-i-el-formulari-dinici-de-sessio">Definir la ruta i el formulari d'inici de sessió</h4>
+<p>Finalment, anem a crear un nou controlador anomenat <code>SecurityController</code> en
+la nostra carpeta de <code>src/Controller</code>, que definirà una nova ruta <code>/login</code>
+per a mostrar el formulari d'inici de sessió i verificar l'error de validació,
+si és el cas. Pot quedar més o menys així:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">SecurityController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="sd">     * @Route("/login", name="login")</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">login</span><span class="p">(</span><span class="nx">AuthenticationUtils</span> <span class="nv">$authenticationUtils</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$error</span> <span class="o">=</span> <span class="nv">$authenticationUtils</span><span class="o">-&gt;</span><span class="na">getLastAuthenticationError</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$lastUsername</span> <span class="o">=</span> <span class="nv">$authenticationUtils</span><span class="o">-&gt;</span><span class="na">getLastUsername</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'security/login.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="s1">'error'</span> <span class="o">=&gt;</span> <span class="nv">$error</span><span class="p">,</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="s1">'lastUserName'</span><span class="o">=&gt;</span> <span class="nv">$lastUsername</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">));</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+</code></pre></div>
+Podríem obtenir altres dades del procés de validació. Per exemple, en
+cas que l'usuari no es valide correctament, podríem recuperar el seu
+nom d'usuari per a tornar-lo a introduir automàticament en la plantilla del
+formulari, i així evitar que l'haja de tornar a escriure. Per a açò,
+tenim el mètode <code>getLastUsername()</code> de l'objecte <code>AuthenticationUtils</code>.
+N'hi ha prou amb recuperar la dada i passar-li-la a la plantilla:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$lastUsername</span> <span class="o">=</span> <span class="nv">$authenticationUtils</span><span class="o">-&gt;</span><span class="na">getLastUsername</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'security/login.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="4 "></span>            <span class="s1">'error'</span> <span class="o">=&gt;</span> <span class="nv">$error</span><span class="p">,</span>
+<span class="linenos" data-linenos="5 "></span>            <span class="s1">'lastUserName'</span><span class="o">=&gt;</span> <span class="nv">$lastUsername</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="p">));</span>
+</code></pre></div>
+El formulari d'inici de sessió estarà en <code>login.html.twig</code>, pot ser alguna
+cosa així:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">'base.html.twig'</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Movies - Login<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"container"</span> <span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"row"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"col-sm-12"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>            <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span> <span class="na">novalidate</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>                <span class="cp">{%</span> <span class="k">if</span> <span class="nv">error</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="12 "></span>                    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"alert alert-danger"</span> <span class="na">role</span><span class="o">=</span><span class="s">"alert"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>                        <span class="cp">{{</span> <span class="nv">error.messageKey</span> <span class="cp">}}</span>
+<span class="linenos" data-linenos="14 "></span>                    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span>                <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="16 "></span>                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-group"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>                    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"username"</span><span class="p">&gt;</span>Username<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="18 "></span>                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-control"</span>
+<span class="linenos" data-linenos="19 "></span>                           <span class="na">name</span><span class="o">=</span><span class="s">"_username"</span> <span class="na">id</span><span class="o">=</span><span class="s">"username"</span>
+<span class="linenos" data-linenos="20 "></span>                           <span class="na">value</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">lastUserName</span> <span class="cp">}}</span><span class="s">"</span>
+<span class="linenos" data-linenos="21 "></span>                    <span class="na">placeholder</span><span class="o">=</span><span class="s">"Username:"</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="22 "></span>                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="23 "></span>                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-group"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="24 "></span>                    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"password"</span><span class="p">&gt;</span>Contrasenya<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="25 "></span>                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"password"</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-control"</span>
+<span class="linenos" data-linenos="26 "></span>                           <span class="na">name</span><span class="o">=</span><span class="s">"_password"</span> <span class="na">id</span><span class="o">=</span><span class="s">"password"</span>
+<span class="linenos" data-linenos="27 "></span>                           <span class="na">value</span><span class="o">=</span><span class="s">""</span>
+<span class="linenos" data-linenos="28 "></span>                    <span class="na">placeholder</span><span class="o">=</span><span class="s">"Password:"</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="29 "></span>                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="30 "></span>                <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"Login"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="31 "></span>            <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="32 "></span>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="33 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="34 "></span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="35 "></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+<p>Com veiem, es té un bloc <code>div</code> condicional per a mostrar un error de
+validació si és el cas. A més, el formulari ha de complir unes normes:
+el camp de login ha de cridar-se <code>_username</code> (atribut "name"), i el camp
+de password ha de cridar-se <code>_password</code>. Aquestes opcions poden
+configurar-se i personalitzar-se.</p>
+<p>Després de tots aquests passos, ja tindrem llest el sistema
+d'autenticació. Pot semblar estrany, però així és... En realitat,
+Symfony es fa càrrec automàticament de la validació de l'usuari quan
+aquest envia el formulari d'inici de sessió. Si hi ha algun error, es registrarà
+dins del controlador <code>login</code> i es renderizará el formulari amb el missatge
+d'error. Si tot és correcte, es redirigirà a l'usuari automàticament
+cap a la pàgina que havia sol·licitat.</p>
+<h2 id="algunes-opcions-avancades">Algunes opcions avançades</h2>
+<p>Ara que ja hem aprés a configurar una forma bàsica d'autenticació amb
+formulari d'inici de sessióogin, vegem alguns aspectes una mica més avançats de la
+configuració de la seguretat en Symfony.</p>
+<h3 id="encriptar-les-contrasenyes">Encriptar les contrasenyes</h3>
+<p>És convenient que les contrasenyes dels usuaris registrats no estiguen
+en text pla sense encriptar, com en l'exemple anterior. Podem emprar,
+per exemple, un algorisme d'encriptació Argon o bcrype per a xifrar-les. En el nostre
+cas, i seguint les recomanacions de la documentació oficial de Symfony deixarem que 
+siga Symfony qui trie el millor algorisme possible. Açò
+suposa dos passos extra:</p>
+<ul>
+<li>Indicar a Symfony que els passwords estan encriptats 
+    perquè aplique un algorisme per a encriptar qualsevol contrasenya,
+    inclòs el que introduïsca l'usuari en iniciar sessió, i així poder
+    comparar si les dos contrasenyes encriptades coincideixen. Per a fer
+    açò, hem d'editar l'arxiu de configuració
+    <code>config/packages/security.yaml</code> i indicar que l'entitat Usuari
+    utilitzarà el mètode d'encriptació que hàgem escollit: 
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># config/packages/security.yaml</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nt">security</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1"># ...</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nt">password_hashers</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="c1"># auto hasher with default options for the User class (and children)</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nt">App\Entity\User</span><span class="p">:</span> <span class="s">'auto'</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="c1"># auto hasher with custom options for all PasswordAuthenticatedUserInterface instances</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nt">Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface</span><span class="p">:</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="nt">algorithm</span><span class="p">:</span> <span class="s">'auto'</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="nt">cost</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">15</span> 
+</code></pre></div></li>
+<li>Encriptar de forma automàtica els passwords dels usuaris quan es
+    registren. Si tinguérem un formulari de registre en la nostra
+    aplicació, i tenim les dades de l'usuari guardats en un objecte
+    usuari, i el password en sí en un objecte <code>password</code>, l'encriptació
+    seria com segueix: 
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="k">use</span> <span class="nx">Symfony</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">register</span><span class="p">(</span><span class="nx">UserPasswordHasherInterface</span> <span class="nv">$encoder</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="o">...</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="o">...</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$plainTextPassword</span> <span class="o">=</span> <span class="s2">"..."</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="c1">// Assignem ací la resta d'atributs de l'usuari</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$hashedPassword</span> <span class="o">=</span> <span class="nv">$encoder</span><span class="o">-&gt;</span><span class="na">hashPassword</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="nv">$plainTextPassword</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="nv">$hashedPassord</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="c1">// Guardar en la base de dades, si escau</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="o">...</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nx">UserPasswordHasherInterface</span> <span class="nv">$passwordHasher</span><span class="p">,</span> <span class="nx">UserInterface</span> <span class="nv">$user</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="c1">// ... e.g. get the password from a "confirm deletion" dialog</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="nv">$plainTextPassword</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$passwordHasher</span><span class="o">-&gt;</span><span class="na">isPasswordValid</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="nv">$plaintextPassword</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="23 "></span>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">AccessDeniedHttpException</span><span class="p">();</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<p>El que fem és acudir a la configuració de l'arxiu <code>security.yaml</code>
+anterior per a veure què codificador s'ha establit, i mitjançant l'objecte de tipus
+<code>UserPasswordHashInterface</code> que rep com a paràmetre del mètode, i del seu mètode
+<code>hashPassword</code>, codificar el password amb aqueix mateix algorisme.</p>
+<p>Aquest mètode rep com a primer paràmetre l'usuari sobre el qual s'està treballant, i
+com a segon paràmetre el password a codificar. Una vegada codificat, se li
+assigna a l'usuari, i ja es podria guardar en la base de dades.</p>
+<p>Per a provar el nostre exemple de pel·lícules, com no tenim formulari de
+registre, codificarem manualment el/els password(s) que tinguem en
+la base de dades. Podem emprar webs com <a href="https://bcrypt-generator.com/">https://bcrypt-generator.com/</a>. </p>
+<h3 id="treballar-amb-rols">Treballar amb rols</h3>
+<p>En els exemples fets fins ara, ens hem limitat a definir un camp <code>role</code> en
+la nostra entitat <code>User</code>, i a emmagatzemar un usuari amb rol <code>ROLE_USER</code>,
+però sense prestar massa atenció al que aqueix rol significa.</p>
+<p>Per a començar, hem de saber que tots els rols que definim en la nostra
+aplicació han de començar amb el prefix <code>ROLE_</code> perquè Symfony els tracte
+com a tals. Existeix la possibilitat de configurar aquesta opció i posar
+rols més flexibles o arbitraris.</p>
+<p>Symfony permet definir diferents rols en una aplicació, i establir una
+jerarquia entre ells, de manera que un rol puga fer tot el que fa un
+altre més altres coses. A més, podem protegir l'accés a recursos per a
+determinats rols, de manera que només certs rols (o rols que estiguen
+per sobre d'ells en la jerarquia) puguen accedir.</p>
+<h4 id="assignar-diferents-rols-a-diferents-recursos-protegits">Assignar diferents rols a diferents recursos protegits</h4>
+<p>En el cas que cada zona protegida de la nostra aplicació puga tenir
+assignats rols diferents, n'hi ha prou amb indicar el rol (o rols entre
+claudàtors) que tenen permís per a cada zona. Per exemple, en aquest cas
+protegim l'accés a qualsevol ruta que comence per <code>/admin</code> perquè
+només puguen accedir usuaris amb rol ROLE_ADMIN o ROLE_MANAGER, a més de
+la configuració ja establida en exemples previs:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="l l-Scalar l-Scalar-Plain">security</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="l l-Scalar l-Scalar-Plain">access_control</span><span class="p p-Indicator">:</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/login</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p p-Indicator">}</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">ROLE_USER</span> <span class="p p-Indicator">}</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/admin</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ROLE_ADMIN</span><span class="p p-Indicator">,</span> <span class="nv">ROLE_MANAGER</span><span class="p p-Indicator">]</span> <span class="p p-Indicator">}</span>
+</code></pre></div>
+<h4 id="establir-jerarquies-entre-rols">Establir jerarquies entre rols</h4>
+<p>Pot ser necessari també establir una jerarquia entre rols, de manera
+que, si es té un rol de nivell superior, es tindrà accés a tots els
+recursos que exigisquen un rol de nivell inferior. Per a fer açò, afegim
+un subapartat <code>role_hierarchy</code> en la nostra secció <code>security</code> de
+<code>config/packages/security.yaml</code>, establint aquesta jerarquia. En el
+següent exemple, el rol <code>ROLE_ADMIN</code> conté a <code>ROLE_USER</code>, i el
+<code>ROLE_SUPERADMIN</code> conté tant a <code>ROLE_ADMIN</code> (i, per tant, a <code>ROLE_USER</code>), com
+a <code>ROLE_MANAGER</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">security</span><span class="p">:</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="l l-Scalar l-Scalar-Plain">...</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="l l-Scalar l-Scalar-Plain">role_hierarchy</span><span class="p p-Indicator">:</span> 
+<span class="linenos" data-linenos="4 "></span>        <span class="nt">ROLE_ADMIN</span><span class="p">:</span> 
+<span class="linenos" data-linenos="5 "></span>            <span class="l l-Scalar l-Scalar-Plain">ROLE_USER</span> 
+<span class="linenos" data-linenos="6 "></span>        <span class="nt">ROLE_SUPER_ADMIN</span><span class="p">:</span>
+<span class="linenos" data-linenos="7 "></span>            <span class="p p-Indicator">[</span><span class="nv">ROLE_ADMIN</span><span class="p p-Indicator">,</span> <span class="nv">ROLE_MANAGER</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<h4 id="comprovar-rols-des-dels-controladors-i-vistes">Comprovar rols des dels controladors i vistes</h4>
+<p>Existeix també la possibilitat de forçar una comprovació de seguretat en
+el codi dels controladors, basant-se en si l'usuari registrat té cert
+rol o no, o simplement si s'ha autenticat o no. Per exemple, aquest
+controlador permet l'accés al seu codi si l'usuari té el <code>ROLE_ADMIN</code>:
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>   <span class="sd">/**</span>
+<span class="linenos" data-linenos="2 "></span><span class="sd">     * @Route("/movies/create", name="movies_create")</span>
+<span class="linenos" data-linenos="3 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">denyAccessUnlessGranted</span><span class="p">(</span><span class="s1">'ROLE_ADMIN'</span><span class="p">,</span>
+<span class="linenos" data-linenos="7 "></span>            <span class="k">null</span><span class="p">,</span> <span class="s1">'Accés restringit a administradors'</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span>        <span class="o">...</span>
+</code></pre></div>
+Aquest altre controlador simplement comprova si l'usuari s'ha
+autenticat correctament abans de seguir:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">otherController</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">denyAccessUnlessGranted</span><span class="p">(</span><span class="s1">'IS_AUTHENTICATED_FULLY'</span><span class="p">);</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="o">...</span>
+</code></pre></div>
+En qualsevol cas, el mètode <code>denyAccessUnlessGranted</code> provoca que:</p>
+<ul>
+<li>Si l'usuari encara no s'ha autenticat, se li redirigeix a la
+    pàgina d'inici de sessió.</li>
+<li>Si s'ha autenticat però no té el rol requerit, es genera una
+    pàgina d'error HTTP 403 (accés prohibit). Aquesta pàgina es pot
+    personalitzar.</li>
+</ul>
+<p>També és possible comprovar un determinat rol o autenticació des del
+codi d'una plantilla Twig, mitjançant la funció <code>is_granted</code>. Açò pot
+servir per a mostrar o no certs apartats de la vista.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">is_granted</span><span class="o">(</span><span class="s1">'ROLE_ADMIN'</span><span class="o">)</span> <span class="cp">%}</span> 
+<span class="linenos" data-linenos="2 "></span>    ... 
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</code></pre></div>
+<h3 id="obtenir-lobjecte-user">Obtenir l'objecte <code>user</code></h3>
+<p>Una vegada autenticats, l'objecte <code>user</code> es pot obtenir a través del
+mètode <code>getUser</code>, normalment des de dins d'un controlador. Així, podríem
+fer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="sd">/**</span>
+<span class="linenos" data-linenos="2 "></span><span class="sd">* @Route("/admin", name="admin")</span>
+<span class="linenos" data-linenos="3 "></span><span class="sd">*/</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">admin</span><span class="p">()</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">denyAccessUnlessGranted</span><span class="p">(</span><span class="s1">'IS_AUTHENTICATED_FULLY'</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUser</span><span class="p">();</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"Bienvenido a /admin, "</span> <span class="o">.</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getUserName</span><span class="p">());</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Des d'una plantilla Twig també és possible accedir a l'usuari
+que ha iniciat sessió i obtenir, per exemple, el seu nom d'usuari, amb 
+l'objecte <code>app.user</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Benvingut/a, <span class="cp">{{</span> <span class="nv">app.user.username</span> <span class="cp">}}</span>
+</code></pre></div>
+<h3 id="eixint-de-laplicacio-logout">Eixint de l'aplicació (logout)</h3>
+<p>Podem configurar el tancament de sessió o <em>logout</em> a través d'arxius YAML
+exclusivament. N'hi ha prou amb seguir aquests dos passos:</p>
+<ul>
+<li>En primer lloc, establim que quan s'isca de l'aplicació es
+    redirigirà, per exemple, a l'arrel de la mateixa. Açò es fa en
+    l'arxiu <code>config/packages/security.yaml:</code>. Per exemple, per a
+    permetre tancar sessió en el firewall <code>main</code>, amb el qual estem
+    treballant en el nostre exemple, faríem açò: 
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">firewalls</span><span class="p">:</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="l l-Scalar l-Scalar-Plain">...</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="l l-Scalar l-Scalar-Plain">main</span><span class="p p-Indicator">:</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nt">logout</span><span class="p">:</span>
+<span class="linenos" data-linenos="5 "></span>            <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/logout</span>
+<span class="linenos" data-linenos="6 "></span>            <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/</span>
+</code></pre></div></li>
+<li>En segon lloc, definim una ruta en l'arxiu <code>config/routes.yaml</code> que
+    associe el nom "logout" (o com el vulguem cridar) amb la ruta que
+    hàgem definit abans (en aquest cas, la ruta <code>/logout</code>): 
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">logout</span><span class="p">:</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">path</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="l l-Scalar l-Scalar-Plain">/logout</span>
+</code></pre></div>
+Amb açò, i algun enllaç en les nostres plantilles per a poder tancar
+sessió (per exemple, en la plantilla base)...</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s2">"logout"</span><span class="o">)</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span>Tancar sessió<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>... ja podrem canviar d'usuari o eixir de l'aplicació.</p>
+<h2 id="recursos">Recursos</h2>
+<p>El recurs d'informació el trobaràs en el capítol <a href="https://symfony.com/doc/5.4/security.html">Security</a> 
+dins de la documentació oficial de Symfony.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Formularis i validació" class="md-footer__link md-footer__link--prev" href="../06-formularis-i-validaci%C3%B3/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Formularis i validació
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Pujada de fitxers" class="md-footer__link md-footer__link--next" href="../08-pujada-fitxers/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Pujada de fitxers
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
