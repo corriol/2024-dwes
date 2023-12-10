@@ -273,6 +273,117 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Composer
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Composer
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduccio">
+    Introducció
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gestio-de-dependecies">
+    Gestió de dependècies
+  </a>
+<nav aria-label="Gestió de dependècies" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installacio-de-paquets">
+    Instal·lació de paquets
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#versionat-semantic-semver">
+    Versionat semàntic (SemVer)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installacio-dependencies">
+    Instal·lació dependències
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actualitzacio-de-paquets">
+    Actualització de paquets
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#addicio-de-dependencies">
+    Addició de dependències
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#packagist">
+    Packagist
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#carrega-automatica-de-classes">
+    Càrrega automàtica de classes
+  </a>
+<nav aria-label="Càrrega automàtica de classes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#carrega-de-classes-personalitzades">
+    Càrrega de classes personalitzades
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-04-namespaces/">
+        Namespaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -282,17 +393,20 @@
 <article class="md-content__inner md-typeset">
 <h1 id="composer">Composer</h1>
 <h2 id="introduccio">Introducció</h2>
-<p>Abans de tot cal definir què és un compoment o paquet en PHP. Un component PHP és un conjunt de codi <strong>reutilitzable</strong> que t’ajuda a solucionar un problema específic de la teua aplicació. Aquests components solen estar formats per diverses classes. <strong>Composer</strong> és una eina que permet gestionar components en PHP. </p>
-<p>Composer permet declarar els components dels que depèn el nostre projecte i gestionar-los (instal·lar/actualitzar). A diferència dels gestors de paquets com Apt o Yum, Composer gestiona els paquets per projecte, instal·lant-los en el directori (<code>vendor</code>) del projecte. </p>
-<p>Per defecte, no instal·la res de forma global. Per tant, és un gestor de dependències. Aquesta idea no és nova i Composer s’inspira fortament en npm de node i el bundler de ruby.</p>
+<p>Abans de tot, cal definir què és un compoment o paquet en PHP. Un component PHP és un conjunt de codi <strong>reutilitzable</strong> que t’ajuda a solucionar un problema específic de la teua aplicació. Aquests components solen estar formats per diverses classes. <strong>Composer</strong> és una eina que permet gestionar components en PHP. </p>
+<p>Composer permet declarar els components dels que depèn el nostre projecte i gestionar-los (instal·lar/actualitzar). A diferència dels gestors de paquets com <em>Apt</em> o <em>Yum</em>, <em>Composer</em> gestiona els paquets per projecte, instal·lant-los en el directori (<code>vendor</code>). </p>
+<p>Per defecte, no instal·la res de forma global. Per tant, és un gestor de dependències. Aquesta idea no és nova i Composer s’inspira fortament en <em>npm</em> de Nodejs i el <em>bundler</em> de ruby.</p>
 <p>Composer ens soluciona dos problemes:</p>
 <ul>
 <li><strong>Gestionar les dependències amb llibreries de tercers.</strong> Només cal que declarem les dependències i Composer s'encarregarà de descarregar i instal·lar tot el que siga necessari</li>
 <li><strong><em>Autoloading</em> del nostre codi.</strong> Ja no haurem de fer més <code>require</code>, Composer ho farà per nosaltres</li>
 </ul>
-<h2 id="us-basic">Ús bàsic</h2>
 <p>Composer manté la seua configuració en dos fitxers: <code>composer.json</code> i <code>composer.lock</code>.</p>
-<p>Per usar Composer el primer que necessitem és disposar de l’arxiu <code>composer.json</code>. En aquest fitxer existeixen un seguit
+<ul>
+<li><code>composer.json</code> conté la informació de configuració principal del projecte. Aquí és on especifiques les dependencies del teu projecte, les versions que vols utilitzar, i altres configuracions com ara <em>autoloaders</em>, <em>scripts</em> post-instal·lació, etc. És un fitxer en format JSON i se sol mantenir al repositori del teu projecte perquè altres desenvolupadors puguin veure i reproduir la configuració del teu entorn.</li>
+<li><code>composer.lock</code> és generat automàticament per Composer després de la instal·lació de dependències o quan es fa una actualització. Conté una llista exacta de les versions de cada paquet que s'han instal·lat, així com les seves dependències. Això assegura que tots els desenvolupadors o servidors que treballin amb el mateix codi utilitzin les mateixes versions de les dependencies, evitant possibles problemes de compatibilitat.</li>
+</ul>
+<p>Com hem dit, en usar Composer el primer que necessitem és disposar de l’arxiu <code>composer.json</code>. En aquest fitxer existeixen un seguit
 d'estructures d'informació:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">{</span>
 <span class="linenos" data-linenos="2 "></span>    <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
@@ -300,7 +414,9 @@ d'estructures d'informació:</p>
 <span class="linenos" data-linenos="4 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 </code></pre></div>
-<p><code>require</code> indica els paquets que requerix la aplicació i els mapeja (en l’exemple, <code>monolog/monolog</code>) a la versió requerida (en aquest cas: <code>2.0.*</code>).</p>
+<h2 id="gestio-de-dependecies">Gestió de dependècies</h2>
+<h3 id="installacio-de-paquets">Instal·lació de paquets</h3>
+<p>Amb el paràmetre <code>require</code>  podem instal·lar els paquets que requerix la aplicació, després els mapeja (en l’exemple, <code>monolog/monolog</code>) a la versió requerida (en aquest cas: <code>2.0.*</code>).</p>
 <p>Si necessitàrem usar en un projecte el component <code>monolog</code> executariem en la carpeta del projecte:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog
 </code></pre></div>
@@ -312,12 +428,20 @@ d'estructures d'informació:</p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require vendor/package
 </code></pre></div>
 Sovint les dues parts són idèntiques.</p>
-<p>El fitxer <code>composer.lock</code> guarda la versió exacta que s'ha instal·lat de cada paquet. El projecte es fixa a unes determinades versions. Tant el <code>composer.lock</code> com el <code>composer.json</code> han d'estar al repositori.</p>
-<h3 id="limitar-la-versio-dels-paquets">Limitar la versió dels paquets</h3>
+<h3 id="versionat-semantic-semver">Versionat semàntic (SemVer)</h3>
+<p>Per poder controlar la versió dels paquets s'utilitza el <strong>versionat semàntic</strong>, un estàndar de facto per a la numeració de versions. Aquest sistema consta de tres parts principals en el número de versió: <em>Major</em>, <em>Minor</em> i <em>Patch</em>, que s'expressen com "MAJOR.MINOR.PATCH".</p>
+<ul>
+<li><code>Major</code>: S'incrementa quan es fan canvis incompatibles amb versions anteriors o quan es realitzen canvis importants que afecten la funcionalitat del programa.</li>
+<li><code>Minor</code>: S'incrementa quan s'afegeixen funcionalitats noves de manera compatible amb versions anteriors. És a dir, no afecta la compatibilitat enrere.</li>
+<li><code>Patch</code>: S'incrementa quan es realitzen correccions d'errors (<em>bug fixes</em>) compatibles amb les versions anteriors.</li>
+</ul>
+<p>Podeu trobar més informació en el següent document:
+<a href="http://semver.org/lang/es/">http://semver.org/lang/es/</a></p>
+<h4 id="limitacio-de-la-versio-dels-paquets">Limitació de la versió dels paquets</h4>
 <p>En alguns casos és necessari limitar les versions dels paquetes per mantindre compatibilitat. Hi ha diverses formes d'expressar dites limitacions:</p>
 <ul>
 <li>Restricció de la versió exacta<ul>
-<li>Exemple: 1.0.2  #MAJOR.MINOR.PATCH.</li>
+<li>Exemple: 1.0.2  <code>#MAJOR.MINOR.PATCH</code>.</li>
 </ul>
 </li>
 <li>Rang de versions<ul>
@@ -327,12 +451,12 @@ Sovint les dues parts són idèntiques.</p>
 <li><code>&gt;=1.0 &lt;1.1</code> || <code>&gt;=1.2</code></li>
 </ul>
 </li>
-<li>Rang de versions comodins (.*)<ul>
-<li>Es pot especificar una patró en un  * comodí. <code>1.0.*</code> és l'equivalent de <code>&gt;=1.0 &lt;1.1</code>.</li>
+<li>Rang de versions comodins (<code>.*</code>)<ul>
+<li>Es pot especificar un patró en un  <code>*</code> comodí. <code>1.0.*</code> és l'equivalent de <code>&gt;=1.0 &lt;1.1</code>.</li>
 <li>Exemple: <code>1.0.*</code></li>
 </ul>
 </li>
-<li>Rang amb tilde  (~)<ul>
+<li>Rang amb tilde (<code>~</code>)<ul>
 <li>L'operador <code>~</code>  s'explica millor en un exemple: 
     <code>~1.2</code> és equivalent a <code>&gt;=1.2 &lt;2.0.0</code>, mentre que <code>~1.2.3</code> és equivalent a <code>&gt;=1.2.3 &lt;1.3.0</code>. </li>
 <li>Exemple: <code>~1.2</code></li>
@@ -344,12 +468,8 @@ Sovint les dues parts són idèntiques.</p>
 </ul>
 </li>
 </ul>
-<h2 id="versionat-semantic-semver">Versionat semàntic (semver)</h2>
-<p>Els números de versió i la forma en que canvien informen sobre el que va ser modificat d'una versió a una altra.</p>
-<p>Veure l'especificació en el següent document:
-<a href="http://semver.org/lang/es/">http://semver.org/lang/es/</a></p>
-<h2 id="installant-dependencies">Instal·lant dependències</h2>
-<p>L’ordre <code>install</code> comprova primer si existeix el fitxer <code>composer.lock</code>, i si existeix, descàrrega exactament les versions que s'indiquen en aquest l'arxiu <code>composer.lock</code>.</p>
+<h3 id="installacio-dependencies">Instal·lació dependències</h3>
+<p>L’ordre <code>install</code> comprova primer si existeix el fitxer <code>composer.lock</code>, i si existeix, descàrrega exactament les versions que s'indiquen en aquest.</p>
 <p>Si treballem en equip, tot l'equip tindrà les mateixes versions.</p>
 <p>Executem la següent ordre:</p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer install
@@ -360,9 +480,9 @@ Es generarà el directori <code>vendor/</code> amb les llibreries de les quals d
 <p>Hem d'afegir el directori <code>vendor/</code> a l'arxiu <code>.gitignore</code>, perquè crea gran quantitat de fitxers que després s'han de descarregar amb <code>composer install</code>.</p>
 </div>
 <p>L’ordre també crea un fitxer <code>composer.lock</code></p>
-<h2 id="actualitzar-versions">Actualitzar versions</h2>
+<h3 id="actualitzacio-de-paquets">Actualització de paquets</h3>
 <p>Si tenim l'arxiu <code>composer.lock</code> sempre s'instal·laran les mateixes versions dels paquets.</p>
-<p>Per actualitzar a noves versions, fem servir l’ordre <code>composer update</code>. Aquesta ordre fa que Composer busque les versions més recents de les llibreries sempre que segueixin complint les restriccions de les versions indicades a l'arxiu <code>composer.json</code>. També actualitza l'arxiu <code>composer.lock</code>.</p>
+<p>Per actualitzar a noves versions, fem servir l’ordre <code>composer update</code>. Aquesta ordre fa que <em>Composer</em> busque les versions més recents dels paquets sempre que seguisquen complint les restriccions de les versions indicades al fitxer <code>composer.json</code>. També actualitza l'arxiu <code>composer.lock</code>.</p>
 <p>Si només volem instal·lar o actualitzar una dependència, podem indicar el seu nom després de l’ordre:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer update monolog/monolog
 </code></pre></div>
@@ -370,7 +490,7 @@ Es generarà el directori <code>vendor/</code> amb les llibreries de les quals d
 <p class="admonition-title">No actualitzar en producció</p>
 <p>Quan desplegues una aplicació basada en Composer a producció, usa sempre <code>composer install</code>. No haurieu d'usar mai <code>composer update</code> ja que podria ser que s'actualitzara algun paquet a una versió no provada. </p>
 </div>
-<h2 id="afegint-dependencies">Afegint dependències</h2>
+<h3 id="addicio-de-dependencies">Addició de dependències</h3>
 <p>L’ordre que afegeix noves dependències en el arxiu <code>composer.json</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require
 </code></pre></div>
@@ -379,20 +499,19 @@ Es generarà el directori <code>vendor/</code> amb les llibreries de les quals d
 Podem passar les noves dependències com argument de l'ordre.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog:
 </code></pre></div>
-<h2 id="packagist">Packagist</h2>
+<h3 id="packagist">Packagist</h3>
 <p>Packagist és el repositori central de paquets que pot gestionar Composer.</p>
 <p>Lloc Web: http://packagist.org</p>
-<h2 id="carrega-automatica-de-classes">Carrega automàtica de classes</h2>
-<p>Normalment les llibreries proporcionen informació sobre la càrrega automàtica de les seves classes. Composer genera un arxiu <code>vendor/autoload.php</code>.</p>
+<h2 id="carrega-automatica-de-classes">Càrrega automàtica de classes</h2>
+<p>Normalment els paquets proporcionen informació sobre la càrrega automàtica de les seves classes. Així, <em>Composer</em> genera un fitxer <code>vendor/autoload.php</code>.</p>
 <p>Incloent aquest fitxer en el projecte, podem utilitzar qualsevol classe instal·lada a través de Composer sense haver de incloure-la  explícitament:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
 </code></pre></div>
-<p>En el nostre cas, afegirem el <code>require</code> anterior en el fitxer <code>bootsrap.php</code>.</p>
 <div class="admonition important">
 <p class="admonition-title"><code>vendor/autoload.php</code></p>
 <p><code>autoload.php</code> és el punt d'entrada de l'aplicació a totes les funcionalitats que ens oferix <strong>Composer</strong>.</p>
 </div>
-<h3 id="classes-personalitzades">Classes personalitzades</h3>
+<h3 id="carrega-de-classes-personalitzades">Càrrega de classes personalitzades</h3>
 <p>Podem emprar l’<em>autoloader</em> de Composer per a carregar les nostres classes. Si el nostre <em>namespace</em> és <code>App</code> i els arxius estan en <code>src</code> afegirem:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nt">"autoload"</span><span class="p">:</span> <span class="p">{</span>
 <span class="linenos" data-linenos="2 "></span>        <span class="nt">"psr-4"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"App\\"</span><span class="p">:</span> <span class="s2">"src/"</span> <span class="p">}</span>
@@ -408,6 +527,34 @@ Podem passar les noves dependències com argument de l'ordre.</p>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Introducció" class="md-footer__link md-footer__link--prev" href="../06-01-intro/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Introducció
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Namespaces" class="md-footer__link md-footer__link--next" href="../06-04-namespaces/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Namespaces
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
