@@ -6,18 +6,18 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.2, mkdocs-material-9.2.8" name="generator"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
 <title>Autenticació d'usuaris i control d'accés - DWES</title>
-<link href="../../assets/stylesheets/main.046329b4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
 <link href="../../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
-<body data-md-color-accent="indigo" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<body data-md-color-accent="" data-md-color-primary="brown" data-md-color-scheme="default" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -28,13 +28,13 @@
 </div>
 <div data-md-component="announce">
 </div>
-<header class="md-header md-header--shadow" data-md-component="header">
-<nav aria-label="Capçalera" class="md-header__inner md-grid">
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
 <img alt="logo" src="../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
 </label>
 <div class="md-header__title" data-md-component="header-title">
 <div class="md-header__ellipsis">
@@ -53,17 +53,17 @@
 </div>
 </div>
 <form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
 </label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="brown" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
 </label>
 </form>
 <label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
 <label class="md-search__overlay" for="__search"></label>
@@ -71,12 +71,12 @@
 <form class="md-search__form" name="search">
 <input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
 <label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </label>
-<nav aria-label="Cerca" class="md-search__options">
-<button aria-label="Neteja" class="md-search__icon md-icon" tabindex="-1" title="Neteja" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
 </button>
 </nav>
 </form>
@@ -84,9 +84,9 @@
 <div class="md-search__scrollwrap" data-md-scrollfix="">
 <div class="md-search-result" data-md-component="search-result">
 <div class="md-search-result__meta">
-            Inicialitzant cerca
+            Initializing search
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+<ol class="md-search-result__list"></ol>
 </div>
 </div>
 </div>
@@ -100,7 +100,7 @@
 <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
-<nav aria-label="Navegació" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
 <img alt="logo" src="../../assets/logo.png"/>
@@ -110,360 +110,310 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../..">
-<span class="md-ellipsis">
-    Inici
-  </span>
-</a>
+        Inici
+      </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-<span class="md-ellipsis">
-    1. Introducció a la programació Web
-  </span>
-<span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        1. Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-label="1. Introducció a la programació Web" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
-            1. Introducció a la programació Web
-          </label>
+          1. Introducció a la programació Web
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../01-intro/01-intro/">
-<span class="md-ellipsis">
-    Estructura aplicacions web
-  </span>
-</a>
+        Estructura aplicacions web
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../01-intro/02-developement/">
-<span class="md-ellipsis">
-    Preparació de l'entorn de desenvolupament
-  </span>
-</a>
+        Preparació de l'entorn de desenvolupament
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../01-intro/99-tasks/">
-<span class="md-ellipsis">
-    Activitats
-  </span>
-</a>
+        Activitats
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-<span class="md-ellipsis">
-    2. El llenguatge PHP
-  </span>
-<span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        2. El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-label="2. El llenguatge PHP" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
-            2. El llenguatge PHP
-          </label>
+          2. El llenguatge PHP
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../02-basics/02-phpbasics/">
-<span class="md-ellipsis">
-    PHP Bàsic
-  </span>
-</a>
+        PHP Bàsic
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../02-basics/99-activities/">
-<span class="md-ellipsis">
-    Activitats
-  </span>
-</a>
+        Activitats
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-<span class="md-ellipsis">
-    3. PHP Orientat a Objectes
-  </span>
-<span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3. PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<nav aria-label="3. PHP Orientat a Objectes" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-            3. PHP Orientat a Objectes
-          </label>
+          3. PHP Orientat a Objectes
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
-<span class="md-ellipsis">
-    PHP OO Bàsic
-  </span>
-</a>
+        PHP OO Bàsic
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
-<span class="md-ellipsis">
-    PHP OO Avançat
-  </span>
-</a>
+        PHP OO Avançat
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
-<span class="md-ellipsis">
-    Errors i excepcions
-  </span>
-</a>
+        Errors i excepcions
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../03-phpoo/0399-activities/">
-<span class="md-ellipsis">
-    Activitats
-  </span>
-</a>
+        Activitats
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-<span class="md-ellipsis">
-    4.- Programació web
-  </span>
-<span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-            4.- Programació web
-          </label>
+          4.- Programació web
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../04-01-forms/">
-<span class="md-ellipsis">
-    Formularis
-  </span>
-</a>
+        Formularis
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../04-02-state/">
-<span class="md-ellipsis">
-    Manteniment de l'estat
-  </span>
-</a>
+        Manteniment de l'estat
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../04-03-authentication/">
-<span class="md-ellipsis">
-    Autenticació
-  </span>
-</a>
+        Autenticació
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../04-04-best-practices/">
-<span class="md-ellipsis">
-    Bones pràctiques
-  </span>
-</a>
+        Bones pràctiques
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../04-99-tasks/">
-<span class="md-ellipsis">
-    Activitats
-  </span>
-</a>
+        Activitats
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-<span class="md-ellipsis">
-    5.- Accés a dades amb PHP
-  </span>
-<span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
-            5.- Accés a dades amb PHP
-          </label>
+          5.- Accés a dades amb PHP
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../05-data-access/0500-intro/">
-<span class="md-ellipsis">
-    Introducció
-  </span>
-</a>
+        Introducció
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../05-data-access/0501-data-access/">
-<span class="md-ellipsis">
-    Accés a dades amb PHP
-  </span>
-</a>
+        Accés a dades amb PHP
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../05-data-access/0599-tasks/">
-<span class="md-ellipsis">
-    Activitats
-  </span>
-</a>
+        Activitats
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-<span class="md-ellipsis">
-    6.- Composer. Introducció al testing
-  </span>
-<span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-            6.- Composer. Introducció al testing
-          </label>
+          6.- Composer. Introducció al testing
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../06-composer/06-01-intro/">
-<span class="md-ellipsis">
-    Introducció
-  </span>
-</a>
+        Introducció
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../06-composer/06-02-composer/">
-<span class="md-ellipsis">
-    Composer
-  </span>
-</a>
+        Composer
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../06-composer/06-04-namespaces/">
-<span class="md-ellipsis">
-    Namespaces
-  </span>
-</a>
+        Namespaces
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
-<span class="md-ellipsis">
-    Introducció al testing
-  </span>
-</a>
+        Introducció al testing
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../06-composer/06-99-activities/">
-<span class="md-ellipsis">
-    Activitats
-  </span>
-</a>
+        Activitats
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
-<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-<span class="md-ellipsis">
-    7.- Miniframework MVC
-  </span>
-<span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            7.- Miniframework MVC
-          </label>
+          7.- Miniframework MVC
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../07-mvc/07-00-intro/">
-<span class="md-ellipsis">
-    Introducció
-  </span>
-</a>
+        Introducció
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../07-mvc/07-01-classe-request-response/">
-<span class="md-ellipsis">
-    Sol·licitud i resposta
-  </span>
-</a>
+        Sol·licitud i resposta
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../07-mvc/07-02-controlador-frontal/">
-<span class="md-ellipsis">
-    Controlador frontal
-  </span>
-</a>
+        Controlador frontal
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../07-mvc/07-03-classe-router/">
-<span class="md-ellipsis">
-    Rutes i controladors
-  </span>
-</a>
+        Rutes i controladors
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../07-mvc/07-04-dependency-injection">
-<span class="md-ellipsis">
-    Injecció de dependències
-  </span>
-</a>
+        Injecció de dependències
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
-<span class="md-ellipsis">
-    Activitats
-  </span>
-</a>
+        Activitats
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
-<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-<span class="md-ellipsis">
-    8.- Symfony
-  </span>
-<span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
-            8.- Symfony
-          </label>
+          8.- Symfony
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../08-symfony/01-introducci%C3%B3-va/">
-<span class="md-ellipsis">
-    Introducció a Symfony
-  </span>
-</a>
+        Introducció a Symfony
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../08-symfony/02-mvc/">
-<span class="md-ellipsis">
-    El patró MVC en Symfony
-  </span>
-</a>
+        El patró MVC en Symfony
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../08-symfony/03-twig/">
-<span class="md-ellipsis">
-    El motor de plantilles Twig
-  </span>
-</a>
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/07-seguretat-control-acces/">
+        Seguretat i control d'accés
+      </a>
 </li>
 </ul>
 </nav>
@@ -497,16 +447,16 @@
 <p>Al servidor web Apache, el que has estat utilitzant en anteriors unitats, hi ha una utilitat en línia d'ordres, <code>htpasswd</code>, que permet emmagatzemar en un fitxer una llista d'usuaris i els seus respectives contrasenyes. La informació relativa a les contrasenyes s'emmagatzema xifrada; tot i així, és convenient crear aquest fitxer en un lloc no accessible pels usuaris de servidor web.</p>
 <p>http://httpd.apache.org/docs/2.0/es/howto/auth.html</p>
 <p>Per exemple, per crear el fitxer d'usuari i afegir-li el usuari "dwes", pots fer:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo<span class="w"> </span>htpasswd<span class="w"> </span>-c<span class="w"> </span>users<span class="w"> </span>dwes
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo htpasswd -c users dwes
 </code></pre></div>
 <p>i introduir la contrasenya corresponent a aquest usuari.</p>
 <p>L'opció <code>-c</code> indica que s'ha de crear el fitxer, per la qual cosa només hauràs de fer-la servir quan introdueixis el primer usuari i contrasenya. Fixa't que en l'exemple anterior, el
 fitxer es crea a la ruta /etc/apache2/users, que en principi no és accessible via web.</p>
 <p>Per indicar-li a l'servidor Apache quins recursos tenen accés restringit, una opció és crear un fitxer <code>.htaccess</code> en el directori en què es trobin, amb les següents directives:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>AuthName<span class="w"> </span><span class="s2">"Contingut restringit"</span>
-<span class="linenos" data-linenos="2 "></span>AuthType<span class="w"> </span>Basic
-<span class="linenos" data-linenos="3 "></span>AuthUserFile<span class="w"> </span>/etc/apache2/users
-<span class="linenos" data-linenos="4 "></span>requereix<span class="w"> </span>valid-user
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>AuthName <span class="s2">"Contingut restringit"</span>
+<span class="linenos" data-linenos="2 "></span>AuthType Basic
+<span class="linenos" data-linenos="3 "></span>AuthUserFile /etc/apache2/users
+<span class="linenos" data-linenos="4 "></span>requereix valid-user
 </code></pre></div>
 <p>El significat de cadascuna de les directives anteriors és el següent:</p>
 <table>
@@ -563,9 +513,9 @@ fitxer es crea a la ruta /etc/apache2/users, que en principi no és accessible v
 </table>
 <p>És a dir, que si crees una pàgina web que mostre els valors d'aquestes variables, i prepares el servidor web per utilitzar autenticació HTTP, quan accedisques a aquesta pàgina amb l'usuari "dwes" obtindràs alguna cosa com el següent:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html PUBLIC "- // W3C // DTD HTML 4.01 Transitional // EN" "http://www.w3.org/TR/html4/loose.dtd "&gt;</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="cm">&lt;!-- Desenvolupament Web a Entorn Servidor --&gt;</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="cm">&lt;!-- Tema 4: Desenvolupament d'aplicacions web amb PHP --&gt;</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="cm">&lt;!-- Exemple: Autenticació HTTP --&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c">&lt;!-- Desenvolupament Web a Entorn Servidor --&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c">&lt;!-- Tema 4: Desenvolupament d'aplicacions web amb PHP --&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c">&lt;!-- Exemple: Autenticació HTTP --&gt;</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 6 "></span>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">"content-type"</span> <span class="na">content</span><span class="o">=</span><span class="s">"text / html; charset = UTF-8"</span> <span class="p">/&gt;</span>
@@ -589,7 +539,7 @@ fitxer es crea a la ruta /etc/apache2/users, que en principi no és accessible v
 <span class="linenos" data-linenos="5 "></span>    <span class="k">echo</span> <span class="s2">"Usuari no reconegut!"</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span>    <span class="k">exit</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>La funció <code>header</code> envia capçaleres HTTP (bloc de dades que forma part de l'protocol HTTP i s'envia abans de la informació pròpia que es transmet. Permet especificar codis d'estat, accions requerides a servidor, o el tipus d'informació que es transmet), però s'ha d'utilitzar abans que es mostre res per pantalla. En cas contrari, obtindràs un error. Més informació: <a href="http://es.php.net/manual/es/function.header.php">http://es.php.net/manual/es/function.header.php</a></p>
 <p>Amb el codi anterior, la pàgina envia un error 401, el que força al navegador a sol·licitar les credencials d'accés (nom d'usuari i contrasenya). Si s'introdueixen, s'executa la resta de la pàgina i es mostra el seu contingut. En aquest cas, caldria afegir algun codi per comprovar que el nom d'usuari i contrasenya són vàlids, tal com veurem a continuació. Si es prem el botó "Cancel", es mostra el missatge d'error que s'indica. Modifica la pàgina anterior utilitzant la funció header perquè sol·liciti les credencials a l'usuari.</p>
@@ -629,24 +579,24 @@ fitxer es crea a la ruta /etc/apache2/users, que en principi no és accessible v
 <span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="s2">"Usuari no reconegut!"</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="k">exit</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="7 "></span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="7 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>Recorda que el codi PHP no s'envia al navegador, de manera que la informació d'autenticació que introdueixis en el codi no serà visible per l'usuari. No obstant això, això farà el teu codi menys portable. Si necessites modificar el nom d'usuari o la contrasenya, hauràs de fer modificacions en el codi. A més, no podràs permetre a l'usuari introduir la seva pròpia contrasenya.</p>
 <p>Una solució millor és utilitzar un emmagatzematge extern per als noms d'usuari i les seves
 contrasenyes. Per això podries emprar un fitxer de text, o millor encara, una base de dades. La informació d'autenticació podrà estar aïllada en la seva pròpia base de dades, o compartir espai d'emmagatzematge amb les dades que utilitze la teva aplicació web.</p>
 <p>Si vols emmagatzemar la informació dels usuaris a la base de dades "<code>dwes</code>", has de crear una nova taula en la seva estructura. Per a això, revisa i executa aquestes sentències SQL.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">-- Seleccionem la base de dades</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="n">USE</span><span class="w"> </span><span class="n">dwes</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">USE</span> <span class="n">dwes</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span>
 <span class="linenos" data-linenos=" 4 "></span><span class="c1">-- Creem la taula</span>
-<span class="linenos" data-linenos=" 5 "></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">usuaris</span><span class="w"> </span><span class="p">(</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="n">usuari</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="n">contrasenya</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnoDB</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">usuaris</span> <span class="p">(</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">usuari</span> <span class="nb">VARCHAR</span> <span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">contrasenya</span> <span class="nb">VARCHAR</span> <span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span>
 <span class="linenos" data-linenos="10 "></span><span class="c1">-- Creem l'usuari dwes</span>
-<span class="linenos" data-linenos="11 "></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">usuaris</span><span class="w"> </span><span class="p">(</span><span class="n">usuari</span><span class="p">,</span><span class="w"> </span><span class="n">contrasenya</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
-<span class="linenos" data-linenos="12 "></span><span class="p">(</span><span class="s1">'dwes'</span><span class="p">,</span><span class="w"> </span><span class="s1">'e8dc8ccd5e5f9e3a54f07350ce8a2d3d'</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">usuaris</span> <span class="p">(</span><span class="n">usuari</span><span class="p">,</span> <span class="n">contrasenya</span><span class="p">)</span> <span class="k">VALUES</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">(</span><span class="s1">'dwes'</span><span class="p">,</span> <span class="s1">'e8dc8ccd5e5f9e3a54f07350ce8a2d3d'</span><span class="p">);</span>
 </code></pre></div>
 <p>Tot i que es podrien emmagatzemar les contrasenyes en text pla, és millor fer-ho en format encriptat. En l'exemple anterior, per a l'usuari "dwes" s'emmagatzema el hash MD5 (mètode per generar un resum d'un text o un document, de tal manera que a partir de l'resum obtingut no és possible recuperar el text original ni estar un altre text a partir de el qual s'obtingui el mateix resum. Es diu hash a el resum obtingut a l'aplicar una funció hash. Una de les funcions hash més esteses és MD5, que genera 128 bits com a resum (normalment es representa mitjançant una cadena de text de 28 caràcters o mitjançant 32 dígits hexadecimals)) corresponent a la contrasenya "abc123.". En PHP pots utilitzar la funció md5 per calcular el hash MD5 d'una cadena de text.</p>
 <p>http://es.php.net/manual/es/function.md5.php</p>
@@ -681,9 +631,9 @@ contrasenyes. Per això podries emprar un fitxer de text, o millor encara, una b
 <span class="linenos" data-linenos="29 "></span>}
 <span class="linenos" data-linenos="30 "></span>
 <span class="linenos" data-linenos="31 "></span><span class="cp">&lt;!DOCTYPE html PUBLIC "- // W3C // DTD HTML 4.01 Transitional // EN" "http://www.w3.org/TR/html4/loose.dtd " &gt;</span>
-<span class="linenos" data-linenos="32 "></span><span class="cm">&lt;!-- Desenvolupament Web a Entorn Servidor --&gt;</span>
-<span class="linenos" data-linenos="33 "></span><span class="cm">&lt;!-- Tema 4: Desenvolupament d'aplicacions web amb PHP --&gt;</span>
-<span class="linenos" data-linenos="34 "></span><span class="cm">&lt;!-- Exemple: Utilització de MySQL per autenticació HTTP --&gt;</span>
+<span class="linenos" data-linenos="32 "></span><span class="c">&lt;!-- Desenvolupament Web a Entorn Servidor --&gt;</span>
+<span class="linenos" data-linenos="33 "></span><span class="c">&lt;!-- Tema 4: Desenvolupament d'aplicacions web amb PHP --&gt;</span>
+<span class="linenos" data-linenos="34 "></span><span class="c">&lt;!-- Exemple: Utilització de MySQL per autenticació HTTP --&gt;</span>
 <span class="linenos" data-linenos="35 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="36 "></span>    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="37 "></span>        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv </span><span class="o">=</span> <span class="s">"content-type"</span> <span class="na">content </span><span class="o">=</span> <span class="s">"text / html; charset = UTF-8"</span><span class="p">&gt;</span>
@@ -756,7 +706,7 @@ sentències <code>setcookie</code> s'han d'enviar abans que el navegador mostri 
 <span class="linenos" data-linenos="33 "></span>        <span class="nv">$dwes</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
 <span class="linenos" data-linenos="34 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="35 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="36 "></span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="36 "></span><span class="cp">?&gt;</span><span class="x"></span>
 <span class="linenos" data-linenos="37 "></span><span class="x">&lt;!DOCTYPE html PUBLIC "- // W3C // DTD HTML 4.01 Transitional // EN" " http://www.w3.org/TR/html4/loose.dtd "&gt;</span>
 <span class="linenos" data-linenos="38 "></span><span class="x">&lt;!-- Desenvolupament Web a Entorn Servidor --&gt;</span>
 <span class="linenos" data-linenos="39 "></span><span class="x">&lt;!-- Tema 4: Desenvolupament d'aplicacions web amb PHP --&gt;</span>
@@ -779,7 +729,7 @@ sentències <code>setcookie</code> s'han d'enviar abans que el navegador mostri 
 <span class="linenos" data-linenos="56 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="57 "></span>    <span class="k">else</span>
 <span class="linenos" data-linenos="58 "></span>        <span class="k">echo</span> <span class="s2">"S'ha produït l'error </span><span class="si">$error</span><span class="s2">. &lt;br /&gt;"</span><span class="p">;</span>
-<span class="linenos" data-linenos="59 "></span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="59 "></span><span class="cp">?&gt;</span><span class="x"></span>
 <span class="linenos" data-linenos="60 "></span><span class="x">&lt;/body&gt;</span>
 <span class="linenos" data-linenos="61 "></span><span class="x">&lt;/html&gt;</span>
 </code></pre></div>
@@ -890,7 +840,7 @@ exemple, per comptar el nombre de vegades que l'usuari visita la pàgina, pots f
 <span class="linenos" data-linenos="6 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span>    <span class="k">else</span>
 <span class="linenos" data-linenos="8 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>Si en lloc de el nombre de visites, voldries emmagatzemar l'instant en què es produeix cadascuna, la variable de sessió "visites" ha de ser una matriu i per tant hauràs de canviar el codi anterior per:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
@@ -898,7 +848,7 @@ exemple, per comptar el nombre de vegades que l'usuari visita la pàgina, pots f
 <span class="linenos" data-linenos="3 "></span> <span class="nb">session_start</span><span class="p">();</span>
 <span class="linenos" data-linenos="4 "></span> <span class="c1">// En cada visita añadimos un valor al array "visitas"</span>
 <span class="linenos" data-linenos="5 "></span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">][]</span> <span class="o">=</span> <span class="nb">mktime</span><span class="p">();</span>
-<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>Encara que com ja has vist, pots configurar PHP perquè elimine de forma automàtica les dades de una sessió passat cert temps, en ocasions pot ser necessari tancar-la de forma manual en un moment determinat. Per exemple, si utilitzes sessions per recordar la informació d'autenticació hauràs donar-li a l'usuari de la pàgina web la possibilitat de tancar la sessió quan ho crega convenient.</p>
 <p>En PHP tens dues funcions per eliminar la informació emmagatzemada en la sessió:</p>
@@ -1065,39 +1015,39 @@ En el codi anterior, la sessió de l'usuari s'inicia sòl si es proporciona un n
 <p>Les plantilles de Twig</p>
 <p>{%raw%}</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">#posts/favourite.twig</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="sx">%}</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">body</span> <span class="sx">%}</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="sx">    &lt;!-- MOSTREM LES ENTRADES --&gt;</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="sx">    {% for post in posts %}</span>
-<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="w">            </span><span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{{</span><span class="w"> </span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="w"> </span><span class="p">}}</span><span class="o">&lt;</span><span class="sr">/h2&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>            <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/h2&gt;</span>
 <span class="linenos" data-linenos=" 7 "></span><span class="sr">            &lt;p&gt;Escrit per:&lt;strong&gt;{{ post.user.fullname }} &lt;/s</span><span class="n">trong</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="w">                </span><span class="p">{{</span><span class="w"> </span><span class="n">post</span><span class="o">.</span><span class="n">published_at</span><span class="o">|</span><span class="n">date</span><span class="p">(</span><span class="s2">"d/m/Y"</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span>
+<span class="linenos" data-linenos=" 8 "></span>                <span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">published_at</span><span class="o">|</span><span class="n">date</span><span class="p">(</span><span class="s2">"d/m/Y"</span><span class="p">)</span> <span class="p">}}</span>
 <span class="linenos" data-linenos=" 9 "></span>
-<span class="linenos" data-linenos="10 "></span><span class="w">                </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">admin</span><span class="w"> </span><span class="sx">%}</span>
+<span class="linenos" data-linenos="10 "></span>                <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">admin</span> <span class="sx">%}</span>
 <span class="linenos" data-linenos="11 "></span><span class="sx">                    &lt;a class="btn px-2 secondary-link"</span>
 <span class="linenos" data-linenos="12 "></span><span class="sx">                       href="{{ router.generateURL('Post', 'search') }</span><span class="p">}</span><span class="s2">"&gt;</span>
-<span class="linenos" data-linenos="13 "></span><span class="s2">                        &lt;span class="</span><span class="n">fa</span><span class="w"> </span><span class="n">fa</span><span class="o">-</span><span class="n">pencil</span><span class="o">-</span><span class="n">square</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="s2">                        &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">pencil</span><span class="o">-</span><span class="n">square</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
 <span class="linenos" data-linenos="14 "></span>
-<span class="linenos" data-linenos="15 "></span><span class="s2">                    &lt;a class="</span><span class="n">btn</span><span class="w"> </span><span class="n">px</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">secondary</span><span class="o">-</span><span class="n">link</span><span class="s2">"</span>
-<span class="linenos" data-linenos="16 "></span><span class="s2">                       href="</span><span class="p">{{</span><span class="w"> </span><span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="w"> </span><span class="s1">'search'</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span><span class="s2">"&gt;</span>
-<span class="linenos" data-linenos="17 "></span><span class="s2">                        &lt;span class="</span><span class="n">fa</span><span class="w"> </span><span class="n">fa</span><span class="o">-</span><span class="n">trash</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="15 "></span><span class="s2">                    &lt;a class="</span><span class="n">btn</span> <span class="n">px</span><span class="o">-</span><span class="mi">2</span> <span class="n">secondary</span><span class="o">-</span><span class="n">link</span><span class="s2">"</span>
+<span class="linenos" data-linenos="16 "></span><span class="s2">                       href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'search'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="s2">                        &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">trash</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
 <span class="linenos" data-linenos="18 "></span><span class="s2">                {% endif %}</span>
 <span class="linenos" data-linenos="19 "></span>
 <span class="linenos" data-linenos="20 "></span><span class="s2">            &lt;/p&gt;</span>
-<span class="linenos" data-linenos="21 "></span><span class="s2">            &lt;div class="</span><span class="n">fakeimg</span><span class="s2">"&gt;&lt;img class="</span><span class="n">w</span><span class="o">-</span><span class="mi">25</span><span class="w"> </span><span class="n">img</span><span class="o">-</span><span class="n">thumbnail</span><span class="w"> </span><span class="n">float</span><span class="o">-</span><span class="n">left</span><span class="w"> </span><span class="n">mr</span><span class="o">-</span><span class="mi">2</span><span class="s2">"</span>
-<span class="linenos" data-linenos="22 "></span><span class="s2">                                      src="</span><span class="p">{{</span><span class="w"> </span><span class="n">image_dir</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">post</span><span class="o">.</span><span class="n">image</span><span class="w"> </span><span class="p">}}</span><span class="s2">"/&gt;&lt;/div&gt;</span>
+<span class="linenos" data-linenos="21 "></span><span class="s2">            &lt;div class="</span><span class="n">fakeimg</span><span class="s2">"&gt;&lt;img class="</span><span class="n">w</span><span class="o">-</span><span class="mi">25</span> <span class="n">img</span><span class="o">-</span><span class="n">thumbnail</span> <span class="n">float</span><span class="o">-</span><span class="n">left</span> <span class="n">mr</span><span class="o">-</span><span class="mi">2</span><span class="s2">"</span>
+<span class="linenos" data-linenos="22 "></span><span class="s2">                                      src="</span><span class="p">{{</span> <span class="n">image_dir</span> <span class="o">~</span> <span class="n">post</span><span class="o">.</span><span class="n">image</span> <span class="p">}}</span><span class="s2">"/&gt;&lt;/div&gt;</span>
 <span class="linenos" data-linenos="23 "></span>
 <span class="linenos" data-linenos="24 "></span><span class="s2">            &lt;p&gt;{{ post.summary }}&lt;/p&gt;</span>
 <span class="linenos" data-linenos="25 "></span>
-<span class="linenos" data-linenos="26 "></span><span class="s2">            &lt;p&gt;&lt;a href="</span><span class="p">{{</span><span class="w"> </span><span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="w"> </span><span class="s1">'showById'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nb">id</span><span class="p">:</span><span class="w"> </span><span class="n">post</span><span class="o">.</span><span class="n">id</span><span class="p">})</span><span class="w"> </span><span class="p">}}</span><span class="s2">"&gt;Llegir més&lt;/a&gt;</span>
+<span class="linenos" data-linenos="26 "></span><span class="s2">            &lt;p&gt;&lt;a href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'showById'</span><span class="p">,</span> <span class="p">{</span><span class="nb">id</span><span class="p">:</span> <span class="n">post</span><span class="o">.</span><span class="n">id</span><span class="p">})</span> <span class="p">}}</span><span class="s2">"&gt;Llegir més&lt;/a&gt;</span>
 <span class="linenos" data-linenos="27 "></span><span class="s2">            &lt;/p&gt;</span>
 <span class="linenos" data-linenos="28 "></span><span class="s2">            &lt;div class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">"&gt;</span>
 <span class="linenos" data-linenos="29 "></span><span class="s2">                &lt;!-- MOSTREM ELS TAGS --&gt;</span>
 <span class="linenos" data-linenos="30 "></span><span class="s2">                {% for tag in post.tags %}</span>
 <span class="linenos" data-linenos="31 "></span>
-<span class="linenos" data-linenos="32 "></span><span class="s2">                    &lt;a class="</span><span class="n">btn</span><span class="w"> </span><span class="n">btn</span><span class="o">-</span><span class="n">light</span><span class="s2">"</span>
-<span class="linenos" data-linenos="33 "></span><span class="s2">                       href="</span><span class="p">{{</span><span class="w"> </span><span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="w"> </span><span class="s1">'showByTag'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">id</span><span class="p">:</span><span class="w"> </span><span class="n">tag</span><span class="o">.</span><span class="n">id</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">}}</span><span class="s2">"&gt; &lt;span</span>
-<span class="linenos" data-linenos="34 "></span><span class="s2">                                class="</span><span class="n">fa</span><span class="w"> </span><span class="n">fa</span><span class="o">-</span><span class="n">tags</span><span class="s2">" aria-hidden="</span><span class="kp">true</span><span class="s2">"&gt;{{ tag.name }} &lt;/a&gt;</span>
+<span class="linenos" data-linenos="32 "></span><span class="s2">                    &lt;a class="</span><span class="n">btn</span> <span class="n">btn</span><span class="o">-</span><span class="n">light</span><span class="s2">"</span>
+<span class="linenos" data-linenos="33 "></span><span class="s2">                       href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'showByTag'</span><span class="p">,</span> <span class="p">{</span> <span class="nb">id</span><span class="p">:</span> <span class="n">tag</span><span class="o">.</span><span class="n">id</span> <span class="p">})</span> <span class="p">}}</span><span class="s2">"&gt; &lt;span</span>
+<span class="linenos" data-linenos="34 "></span><span class="s2">                                class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">tags</span><span class="s2">" aria-hidden="</span><span class="kp">true</span><span class="s2">"&gt;{{ tag.name }} &lt;/a&gt;</span>
 <span class="linenos" data-linenos="35 "></span>
 <span class="linenos" data-linenos="36 "></span><span class="s2">                {% endfor %}</span>
 <span class="linenos" data-linenos="37 "></span>
@@ -1106,40 +1056,40 @@ En el codi anterior, la sessió de l'usuari s'inicia sòl si es proporciona un n
 <span class="linenos" data-linenos="40 "></span><span class="s2">        &lt;div class="</span><span class="n">clearfix</span><span class="s2">"&gt;&lt;/div&gt;</span>
 <span class="linenos" data-linenos="41 "></span>
 <span class="linenos" data-linenos="42 "></span><span class="s2">    {% endfor %}</span>
-<span class="linenos" data-linenos="43 "></span><span class="s2">    &lt;form class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">" action="</span><span class="p">{{</span><span class="w"> </span><span class="n">router</span><span class="o">.</span><span class="n">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="w"> </span><span class="s1">'emptyFavourite'</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span><span class="s2">" method="</span><span class="n">post</span><span class="s2">"&gt;</span>
-<span class="linenos" data-linenos="44 "></span><span class="s2">        &lt;input type="</span><span class="n">submit</span><span class="s2">" class="</span><span class="n">btn</span><span class="w"> </span><span class="n">btn</span><span class="o">-</span><span class="n">info</span><span class="s2">" value="</span><span class="no">Buidar</span><span class="w"> </span><span class="n">favorits</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="43 "></span><span class="s2">    &lt;form class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">" action="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'emptyFavourite'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">" method="</span><span class="n">post</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="44 "></span><span class="s2">        &lt;input type="</span><span class="n">submit</span><span class="s2">" class="</span><span class="n">btn</span> <span class="n">btn</span><span class="o">-</span><span class="n">info</span><span class="s2">" value="</span><span class="no">Buidar</span> <span class="n">favorits</span><span class="s2">"&gt;</span>
 <span class="linenos" data-linenos="45 "></span><span class="s2">    &lt;/form&gt;</span>
 <span class="linenos" data-linenos="46 "></span><span class="s2">{% endblock %}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># posts/show.twig</span>
 <span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="s2">"base.twig"</span><span class="w"> </span><span class="sx">%}</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.twig"</span> <span class="sx">%}</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="sx">{% block body %}</span>
-<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="o">&lt;!--</span><span class="w"> </span><span class="no">MOSTREM</span><span class="w"> </span><span class="no">LES</span><span class="w"> </span><span class="no">ENTRADES</span><span class="w"> </span><span class="o">--&gt;</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{{</span><span class="w"> </span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="w"> </span><span class="p">}}</span><span class="o">&lt;</span><span class="sr">/h2&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">&lt;!--</span> <span class="no">MOSTREM</span> <span class="no">LES</span> <span class="no">ENTRADES</span> <span class="o">--&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/h2&gt;</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="sr">        &lt;p&gt;Escrit per:&lt;strong&gt;{{ post.user.fullname }} &lt;/s</span><span class="n">trong</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="w">            </span><span class="p">{{</span><span class="w"> </span><span class="n">post</span><span class="o">.</span><span class="n">published_at</span><span class="o">|</span><span class="n">date</span><span class="p">(</span><span class="s2">"d/m/Y"</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">published_at</span><span class="o">|</span><span class="n">date</span><span class="p">(</span><span class="s2">"d/m/Y"</span><span class="p">)</span> <span class="p">}}</span>
 <span class="linenos" data-linenos="10 "></span>
-<span class="linenos" data-linenos="11 "></span><span class="w">            </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">admin</span><span class="w"> </span><span class="sx">%}</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">admin</span> <span class="sx">%}</span>
 <span class="linenos" data-linenos="12 "></span><span class="sx">                &lt;a class="btn px-2 secondary-link"</span>
 <span class="linenos" data-linenos="13 "></span><span class="sx">                   href="{{ router.generateURL('Post', 'search') }</span><span class="p">}</span><span class="s2">"&gt;</span>
-<span class="linenos" data-linenos="14 "></span><span class="s2">                    &lt;span class="</span><span class="n">fa</span><span class="w"> </span><span class="n">fa</span><span class="o">-</span><span class="n">pencil</span><span class="o">-</span><span class="n">square</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="s2">                    &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">pencil</span><span class="o">-</span><span class="n">square</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
 <span class="linenos" data-linenos="15 "></span>
-<span class="linenos" data-linenos="16 "></span><span class="s2">                &lt;a class="</span><span class="n">btn</span><span class="w"> </span><span class="n">px</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">secondary</span><span class="o">-</span><span class="n">link</span><span class="s2">"</span>
-<span class="linenos" data-linenos="17 "></span><span class="s2">                   href="</span><span class="p">{{</span><span class="w"> </span><span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="w"> </span><span class="s1">'search'</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span><span class="s2">"&gt;</span>
-<span class="linenos" data-linenos="18 "></span><span class="s2">                    &lt;span class="</span><span class="n">fa</span><span class="w"> </span><span class="n">fa</span><span class="o">-</span><span class="n">trash</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="16 "></span><span class="s2">                &lt;a class="</span><span class="n">btn</span> <span class="n">px</span><span class="o">-</span><span class="mi">2</span> <span class="n">secondary</span><span class="o">-</span><span class="n">link</span><span class="s2">"</span>
+<span class="linenos" data-linenos="17 "></span><span class="s2">                   href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'search'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="18 "></span><span class="s2">                    &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">trash</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
 <span class="linenos" data-linenos="19 "></span><span class="s2">            {% endif %}</span>
 <span class="linenos" data-linenos="20 "></span>
 <span class="linenos" data-linenos="21 "></span><span class="s2">        &lt;/p&gt;</span>
-<span class="linenos" data-linenos="22 "></span><span class="s2">        &lt;div class="</span><span class="n">fakeimg</span><span class="s2">"&gt;&lt;img class="</span><span class="n">w</span><span class="o">-</span><span class="mi">25</span><span class="w"> </span><span class="n">img</span><span class="o">-</span><span class="n">thumbnail</span><span class="w"> </span><span class="n">float</span><span class="o">-</span><span class="n">left</span><span class="w"> </span><span class="n">mr</span><span class="o">-</span><span class="mi">2</span><span class="s2">"</span>
-<span class="linenos" data-linenos="23 "></span><span class="s2">                                  src="</span><span class="p">{{</span><span class="w"> </span><span class="n">image_dir</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">post</span><span class="o">.</span><span class="n">image</span><span class="w"> </span><span class="p">}}</span><span class="s2">"/&gt;&lt;/div&gt;</span>
+<span class="linenos" data-linenos="22 "></span><span class="s2">        &lt;div class="</span><span class="n">fakeimg</span><span class="s2">"&gt;&lt;img class="</span><span class="n">w</span><span class="o">-</span><span class="mi">25</span> <span class="n">img</span><span class="o">-</span><span class="n">thumbnail</span> <span class="n">float</span><span class="o">-</span><span class="n">left</span> <span class="n">mr</span><span class="o">-</span><span class="mi">2</span><span class="s2">"</span>
+<span class="linenos" data-linenos="23 "></span><span class="s2">                                  src="</span><span class="p">{{</span> <span class="n">image_dir</span> <span class="o">~</span> <span class="n">post</span><span class="o">.</span><span class="n">image</span> <span class="p">}}</span><span class="s2">"/&gt;&lt;/div&gt;</span>
 <span class="linenos" data-linenos="24 "></span><span class="s2">        &lt;p&gt;{{ post.content|markdown_to_html }}&lt;/p&gt;</span>
-<span class="linenos" data-linenos="25 "></span><span class="s2">        &lt;form class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">" action="</span><span class="p">{{</span><span class="w"> </span><span class="n">router</span><span class="o">.</span><span class="n">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="w"> </span><span class="s1">'addToFavourite'</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span><span class="s2">" method="</span><span class="n">post</span><span class="s2">"&gt;</span>
-<span class="linenos" data-linenos="26 "></span><span class="s2">            &lt;input type="</span><span class="n">hidden</span><span class="s2">" name="</span><span class="n">post</span><span class="s2">" value="</span><span class="p">{{</span><span class="w"> </span><span class="n">post</span><span class="o">.</span><span class="n">id</span><span class="w"> </span><span class="p">}}</span><span class="s2">" /&gt;</span>
-<span class="linenos" data-linenos="27 "></span><span class="s2">            &lt;input type="</span><span class="n">submit</span><span class="s2">" class="</span><span class="n">btn</span><span class="w"> </span><span class="n">btn</span><span class="o">-</span><span class="n">info</span><span class="s2">" value="</span><span class="no">Afegir</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">favorits</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="25 "></span><span class="s2">        &lt;form class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">" action="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'addToFavourite'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">" method="</span><span class="n">post</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="26 "></span><span class="s2">            &lt;input type="</span><span class="n">hidden</span><span class="s2">" name="</span><span class="n">post</span><span class="s2">" value="</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">id</span> <span class="p">}}</span><span class="s2">" /&gt;</span>
+<span class="linenos" data-linenos="27 "></span><span class="s2">            &lt;input type="</span><span class="n">submit</span><span class="s2">" class="</span><span class="n">btn</span> <span class="n">btn</span><span class="o">-</span><span class="n">info</span><span class="s2">" value="</span><span class="no">Afegir</span> <span class="n">a</span> <span class="n">favorits</span><span class="s2">"&gt;</span>
 <span class="linenos" data-linenos="28 "></span><span class="s2">        &lt;/form&gt;</span>
-<span class="linenos" data-linenos="29 "></span><span class="s2">        &lt;p class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">"&gt;&lt;a href="</span><span class="p">{{</span><span class="w"> </span><span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="w"> </span><span class="s1">'index'</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span><span class="s2">"&gt;Pàgina principal&lt;/a&gt;</span>
+<span class="linenos" data-linenos="29 "></span><span class="s2">        &lt;p class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">"&gt;&lt;a href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'index'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">"&gt;Pàgina principal&lt;/a&gt;</span>
 <span class="linenos" data-linenos="30 "></span><span class="s2">        &lt;/p&gt;</span>
 <span class="linenos" data-linenos="31 "></span><span class="s2">    &lt;/div&gt;</span>
 <span class="linenos" data-linenos="32 "></span><span class="s2">{% endblock %}</span>
@@ -1364,16 +1314,15 @@ En el codi anterior, la sessió de l'usuari s'inicia sòl si es proporciona un n
 <footer class="md-footer">
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-<div class="md-copyright__highlight">
-      2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
-    </div>
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
-      Material for MkDocs
-    </a>
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2023-2024 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
 </div>
 </div>
 </div>
@@ -1382,8 +1331,8 @@ En el codi anterior, la sessió de l'usuari s'inicia sòl si es proporciona un n
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
-<script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 </body>
 </html>
