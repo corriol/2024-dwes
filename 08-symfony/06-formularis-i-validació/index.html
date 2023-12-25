@@ -484,6 +484,11 @@
     Afegir estils per a les validacions
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#personalitzacio-dels-formularis">
+    Personalització dels formularis
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -514,7 +519,7 @@ la comunicació amb la base de dades a través de l'ORM Doctrine. Hem fet
 alguns controladors d'exemple per a cercar dades, o per a inserir.
 Però, en aquest últim cas, al no disposar encara d'un mecanisme perquè
 s'envien dades d'inserció des del client, hem optat ara com ara per
-inserir unes dades prefixades, és a dir, una pel·lícula amb unes dades 
+inserir unes dades prefixades, és a dir, una publicació amb unes dades 
 ja predefinides en el codi.</p>
 <p>En aquesta sessió veurem de quina forma es poden definir formularis en
 Symfony associats a una determinada entitat, perquè el que s'envie en
@@ -524,9 +529,8 @@ la finalitat de poder-los modificar.</p>
 <h3 id="creacio-del-formulari-en-el-controlador">Creació del formulari en el controlador</h3>
 <p>Els formularis poden crear-se fàcilment des de qualsevol controlador.
 N'hi ha prou que creem o obtinguem l'objecte associat al formulari
-(per exemple, una pel·lícula), i carreguem un formulari amb ell. En la
-nostra aplicació de pel·lícules, anem a crear un nou controlador que
-responga a la URI <code>/movies/create</code>, i que cree una pel·lícula buida i la mostre al
+(per exemple, una publicació), i carreguem un formulari amb ell. En el nostre blog, crearem un nou controlador que
+responga a la URI <code>/posts/new</code>, que cree una publicació buida i la mostre al
 formulari.</p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="o">...</span>
@@ -536,22 +540,23 @@ formulari.</p>
 <span class="linenos" data-linenos=" 6 "></span><span class="p">{</span>
 <span class="linenos" data-linenos=" 7 "></span><span class="o">...</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="sd">/**</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="sd">* @Route("/movies/create", name="movies_create")</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="sd">* @Route("/posts/new", name="app_posts_create")</span>
 <span class="linenos" data-linenos="10 "></span><span class="sd">*/</span>
-<span class="linenos" data-linenos="11 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">()</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">()</span>
 <span class="linenos" data-linenos="12 "></span><span class="p">{</span>
-<span class="linenos" data-linenos="13 "></span>    <span class="nv">$movie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Movie</span><span class="p">();</span>
-<span class="linenos" data-linenos="14 "></span>    <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createFormBuilder</span><span class="p">(</span><span class="nv">$movie</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="nv">$post</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Post</span><span class="p">();</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createFormBuilder</span><span class="p">(</span><span class="nv">$post</span><span class="p">)</span>
 <span class="linenos" data-linenos="15 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'title'</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
-<span class="linenos" data-linenos="16 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'overview'</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
-<span class="linenos" data-linenos="17 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'releaseDate'</span><span class="p">,</span> <span class="nx">DateType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
-<span class="linenos" data-linenos="18 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'poster'</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
-<span class="linenos" data-linenos="19 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'create'</span><span class="p">,</span> <span class="nx">SubmitType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'label'</span> <span class="o">=&gt;</span> <span class="s1">'Create'</span><span class="p">))</span>
-<span class="linenos" data-linenos="20 "></span>        <span class="o">-&gt;</span><span class="na">getForm</span><span class="p">();</span>
-<span class="linenos" data-linenos="21 "></span>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'create.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-<span class="linenos" data-linenos="22 "></span>    <span class="s1">'form'</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">()));</span>
-<span class="linenos" data-linenos="23 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="24 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'slug'</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>        
+<span class="linenos" data-linenos="17 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'summary'</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'content'</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'publishedAt'</span><span class="p">,</span> <span class="nx">DateType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'create'</span><span class="p">,</span> <span class="nx">SubmitType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'label'</span> <span class="o">=&gt;</span> <span class="s1">'Create'</span><span class="p">))</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="o">-&gt;</span><span class="na">getForm</span><span class="p">();</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'post_create.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="s1">'form'</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">()));</span>
+<span class="linenos" data-linenos="24 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span><span class="o">...</span>
 </code></pre></div>
 Com podem veure, a través del <em>form builder</em> de Symfony es crea el
 formulari. Després, afegim tants camps com a atributs tinga l'entitat
@@ -590,56 +595,55 @@ per un text personalitzat. Per a l'i­mail, per exemple, podríem posar:</p>
 <span class="linenos" data-linenos="2 "></span><span class="s1">        electrònic'</span><span class="p">))</span>
 </code></pre></div>
 <h4 id="millorant-el-nostre-formulari">Millorant el nostre formulari</h4>
-<p>Aprofitant la varietat de tipus de camps que ofereix Symfony, anem a
-millorar una mica el nostre formulari:</p>
+<p>Aprofitant la varietat de tipus de camps que ofereix Symfony, millorarem
+ una mica el nostre formulari:</p>
 <ul>
-<li>Per al gènere que afegírem en la sessió de
-    Doctrine, podem emprar un EntityType que prenga les seues dades de
-    l'entitat <code>Genre</code>.</li>
+<li>Per a l'<code>author</code> que afegírem en la sessió de
+    Doctrine sobre relacions, podem emprar un <code>EntityType</code> que prenga les seues dades de
+    l'entitat <code>User</code>.</li>
 </ul>
 <p>Amb açò, el formulari quedaria així:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>   <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'genre'</span><span class="p">,</span> <span class="nx">EntityType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span><span class="s1">'class'</span> <span class="o">=&gt;</span>
-<span class="linenos" data-linenos="2 "></span>            <span class="nx">Genre</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">'choice_label'</span> <span class="o">=&gt;</span> <span class="s1">'name'</span><span class="p">])</span> <span class="o">...</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>   <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'author'</span><span class="p">,</span> <span class="nx">EntityType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span><span class="s1">'class'</span> <span class="o">=&gt;</span>
+<span class="linenos" data-linenos="2 "></span>            <span class="nx">User</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">'choice_label'</span> <span class="o">=&gt;</span> <span class="s1">'username'</span><span class="p">])</span> <span class="o">...</span>
 </code></pre></div>
 <h3 id="renderitzant-el-formulari">Renderitzant el formulari</h3>
 <p>El codi del controlador anterior acaba renderitzant una vista cridada
-<code>create.html.twig</code> que, ara com ara, no existeix. En aquesta vista haurem de
-renderizar el formulari. Podria quedar-se així:</p>
+<code>post_create.html.twig</code> que, ara com ara, no existeix. En aquesta vista haurem de 
+renderitzar el formulari. Podria quedar-se així:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">'base.html.twig'</span> <span class="cp">%}</span>
 <span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Movies<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Publicació<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
 <span class="linenos" data-linenos=" 5 "></span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>New Movie<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Nova publicació<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="cp">{{</span> <span class="nv">form_start</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
 <span class="linenos" data-linenos=" 8 "></span>        <span class="cp">{{</span> <span class="nv">form_widget</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
 <span class="linenos" data-linenos=" 9 "></span>    <span class="cp">{{</span> <span class="nv">form_end</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
 <span class="linenos" data-linenos="10 "></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </code></pre></div>
-<p>Les tres línies sota l'encapçalat h1 són les responsables de
-la renderización del formulari, a partir del paràmetre <code>form</code> que 
+<p>Les tres línies sota l'encapçalat <code>h1`` són les responsables de
+la renderització del formulari, a partir del paràmetre</code>form` que 
 li passem des del controlador.</p>
-<p>Si ara accedim a <code>http://movies-symfony/movies/create</code> podrem veure el
+<p>Si ara accedim a <code>http://blog-site/posts/new</code>, veurem el
 formulari:</p>
 <p><img alt="form" src="../assets/form-movie.png"/></p>
 <h3 id="emplenant-els-camps-del-formulari">Emplenant els camps del formulari</h3>
 <p>Tornem al nostre nou controlador. Si construïm un objecte farcit amb
 dades, veurem cada dada en el seu camp associat:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">()</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$movie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Movie</span><span class="p">();</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s2">" Groundhog Day"</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setTagline</span><span class="p">(</span><span class="s2">"He’s having the worst </span>
-<span class="linenos" data-linenos=" 6 "></span><span class="s2">        day of his life … over, and over …"</span><span class="p">);</span>      
-<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setReleaseDate</span><span class="p">(</span><span class="k">new</span> <span class="nx">\DateTime</span><span class="p">(</span><span class="s2">"1993-05-07"</span><span class="p">));</span>
-<span class="linenos" data-linenos=" 8 "></span>
-<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createFormBuilder</span><span class="p">(</span><span class="nv">$movie</span><span class="p">)</span>
-<span class="linenos" data-linenos="10 "></span><span class="o">...</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">()</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$post</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Post</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s2">"Groundhog Day"</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">setSlug</span><span class="p">(</span><span class="s2">"groundhog-day"</span><span class="p">);</span>      
+<span class="linenos" data-linenos="6 "></span>    <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">setPublishedAt</span><span class="p">(</span><span class="k">new</span> <span class="nx">\DateTime</span><span class="p">(</span><span class="s2">""</span><span class="p">));</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span>    <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createFormBuilder</span><span class="p">(</span><span class="nv">$post</span><span class="p">)</span>
+<span class="linenos" data-linenos="9 "></span><span class="o">...</span>
 </code></pre></div>
 <h2 id="enviament-de-formularis">Enviament de formularis</h2>
 <p>Parlem ara sobre com enviar el formulari. Per defecte, si no s'indica
-gens, el formulari s'envia per POST a la mateixa URI que el genera (en
-el nostre cas, a <code>movies/create</code>. De fet, si intentem enviar el formulari
+res, el formulari s'envia per POST a la mateixa URI que el genera (en
+el nostre cas, a <code>posts/new</code>. De fet, si intentem enviar el formulari
 en aquest moment, amb les dades que siguen, es tornarà a carregar la
 vista del formulari, però no haurem inserit res.</p>
 <p>Per a gestionar l'enviament d'aquestes dades, cal fer algunes
@@ -649,17 +653,17 @@ modificacions sobre el nostre controlador:</p>
     contindrà les dades del formulari enviat (en el cas que s'haja
     enviat)</li>
 <li>En segon lloc, dins del codi del controlador, hem de processar
-    aqueixes dades (si n'hi ha), validar-les (açò ho veurem a
+    eixes dades (si n'hi ha), validar-les (açò ho veurem a
     continuació) i si són vàlides, realitzar la corresponent inserció o
     modificació.</li>
 <li>Finalment, podem redirigir a una altra ruta en cas d'èxit, o tornar
-    a renderizar el formulari en cas d'error, o en cas que no s'haja
+    a renderitzar el formulari en cas d'error, o en cas que no s'haja
     enviat (per exemple, quan carreguem el formulari per a emplenar-ho).</li>
 </ul>
 <p>Unint aquestes premisses, el nostre controlador quedaria així:</p>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/Controller/MovieController.php</span>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/Controller/DefaultController.php</span>
 <span class="linenos" data-linenos=" 2 "></span>     <span class="sd">/**</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="sd">     * @Route("/movies/create", name="movies_create")</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sd">     * @Route("/posts/new", name="app_posts_new")</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="sd">     */</span>
 <span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 6 "></span>    <span class="p">{</span>
@@ -668,32 +672,32 @@ modificacions sobre el nostre controlador:</p>
 <span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">handleRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
 <span class="linenos" data-linenos="10 "></span>
 <span class="linenos" data-linenos="11 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>
-<span class="linenos" data-linenos="12 "></span>            <span class="nv">$movie</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="nv">$post</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
 <span class="linenos" data-linenos="13 "></span>            <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
-<span class="linenos" data-linenos="14 "></span>            <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$movie</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$post</span><span class="p">;</span>
 <span class="linenos" data-linenos="15 "></span>            <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
-<span class="linenos" data-linenos="16 "></span>            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectToRoute</span><span class="p">(</span><span class="s1">'home'</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectToRoute</span><span class="p">(</span><span class="s1">'app_index'</span><span class="p">);</span>
 <span class="linenos" data-linenos="17 "></span>        <span class="p">}</span>
-<span class="linenos" data-linenos="18 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'movies_create.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'posts_create.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
 <span class="linenos" data-linenos="19 "></span>            <span class="s1">'form'</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">()));</span>
 <span class="linenos" data-linenos="20 "></span>
 <span class="linenos" data-linenos="21 "></span>    <span class="o">...</span>
 <span class="linenos" data-linenos="22 "></span>    <span class="p">}</span>
 </code></pre></div>
-Si provem ara a carregar el formulari i realitzar una inserció, ens
-enviarà a la pàgina d'inici, i podrem veure la nova pel·lícula en
+Si carreguem el formulari i realitzem una inserció, ens
+enviarà a la pàgina d'inici, i podrem veure la nova publicació en
 la taula corresponent de la base de dades.</p>
 <h3 id="modificacio-de-dades">Modificació de dades</h3>
-<p>El que hem fet en l'exemple anterior és una inserció d'un nova
-pel·lícula, però... com seria fer una modificació de pel·lícula existent?.
-El funcionament seria molt similar, però amb un petit canvi: la ruta del
-controlador rebrà com a paràmetre l'identificador de la pel·lícula a modificar, 
-i a partir d'ací, cercaríem la pel·lícula i el carregaríem en el formulari,
-incloent el seu <code>id</code> en un camp ocult. D'aquesta forma, en fer <code>persist</code>
-es modificaria la pel·lícula existent.</p>
+<p>El que hem fet en l'exemple anterior és una inserció d'una nova
+publicació, però... com seria fer una modificació de publicació existent?
+El funcionament seria molt similar, però amb un xicotet canvi: la ruta del
+controlador rebrà com a paràmetre l'identificador de la publicació a modificar, 
+i a partir d'ací, cercaríem la publicació i la carregaríem en el formulari,
+incloent-hi el seu <code>id</code> en un camp ocult. D'aquesta forma, en fer <code>persist</code>
+es modificaria la publicació seleccionada.</p>
 <p>Podem provar-ho amb aquest controlador:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>  <span class="sd">/**</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="sd">     * @Route("/movies/{id}/edit", name="movies_edit")</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="sd">     * @Route("/posts/{id}/edit", name="movies_edit")</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="sd">     */</span>
 <span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">,</span> <span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 5 "></span>    <span class="p">{</span>
@@ -723,17 +727,18 @@ es modificaria la pel·lícula existent.</p>
 <span class="linenos" data-linenos="29 "></span>       <span class="o">...</span>
 <span class="linenos" data-linenos="30 "></span>    <span class="p">}</span>
 </code></pre></div>
-<p>Veiem que el codi és molt similar al de la inserció, excepte pel paràmetre
-id que rep el controlador amb el codi de la pel·lícula a editar, la
-cerca inicial d'aquesta película en la base de dades, i el camp ocult <code>id</code> en el formulari.</p>
-<div class="alert-warning alert">
+<p>Veiem que el codi és molt semblant al de la inserció, excepte pel paràmetre
+<code>id</code> que rep el controlador amb l'identificador de la publicació a editar, la
+cerca inicial d'aquesta publicació, i el camp ocult <code>id</code> en el formulari.</p>
+<div class="admonition alert">
+<p class="admonition-title">Symfony autowiring</p>
 <p>Recorda que Symfony ens proporciona la possibilitat de fer <em>autowiring</em> de 
 les entitats, afegint-les com a paràmetres en lloc del seu <code>id</code>.</p>
 </div>
-<p>Recorda afegir el corresponent use al principi perquè reconega la classe
+<p>Recorda afegir el corresponent <code>use</code> al principi perquè reconega la classe
 <code>HiddenType</code>.</p>
-<p>Ara, si accedim a <code>movies-symfony/movies/1/edit</code>, per exemple
-(suposant que tinguem una pel·lícula amb id = 1 en la base de dades), es
+<p>Ara, si accedim a <code>blog-site/posts/1/edit</code>, per exemple
+(suposant que tinguem una publicació amb 1 com identificador), es
 carregarà el formulari amb les seues dades, i en enviar-lo, es
 modificaran els camps que hàgem canviat, i es carregarà la pàgina
 d'inici.</p>
@@ -805,37 +810,37 @@ validar dades en la documentació oficial de Symfony: <a href="https://symfony.c
 en el tinter i no deixen de ser igualment importants.</p>
 <h3 id="creacio-de-classes-per-a-formularis">Creació de classes per a formularis</h3>
 <p>Fins ara, hem definit els formularis directament en els controladors
-afectats. Així, en el cas de l'aplicació de pel·lícules, hem definit un
-formulari per a la ruta <code>/movies/create</code> i un altre (el mateix,
-pràcticament) per a la ruta <code>/movies/{id}/edit</code>.</p>
+afectats. Així, en la nostra aplicació, hem definit un
+formulari per a la ruta <code>/posts/new</code> i un altre (el mateix,
+pràcticament) per a la ruta <code>/posts/{id}/edit</code>.</p>
 <p>El recomanat, segons la documentació de Symfony, és no situar els
 formularis directament en els controladors, sinó crear-los en una classe
 a banda. D'aquesta forma, podríem reutilitzar els formularis en diversos
 controladors, i no repetir codi innecessàriament.</p>
 <p>Vegem com quedaria aquesta classe per al formulari d'inserció i edició
-de pel·lícules. Com sempre, podem crear el formulari on vulguem, però per
+de publicacions. Com sempre, podem crear el formulari on vulguem, però per
 unificar criteris, i seguint els exemples de la documentació de Symfony,
 crearem una carpeta <code>Form</code> en la nostra carpeta <code>src</code>, i posarem dins els
-formularis. En el nostre cas, crearem una classe anomenada <code>MovieType</code>,
+formularis. En el nostre cas, crearem una classe anomenada <code>PostType</code>,
 que heretarà d'una classe base genèrica de Symfony cridada
 <code>AbstractType</code>. Dins, definim el mètode <code>buildForm</code> que s'encarregarà de
-crear el formulari, com fèiem abans en el mètode nou o a editar:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/Form/MovieType.php</span>
+crear el formulari, com féiem abans en el mètode nou o a editar:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/Form/PostType.php</span>
 <span class="linenos" data-linenos=" 2 "></span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
 <span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$builder</span>
 <span class="linenos" data-linenos=" 6 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'title'</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
-<span class="linenos" data-linenos=" 7 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'tagline'</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
-<span class="linenos" data-linenos=" 8 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'overview'</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
-<span class="linenos" data-linenos=" 9 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'releaseDate'</span><span class="p">,</span> <span class="nx">DateType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
-<span class="linenos" data-linenos="10 "></span>                <span class="p">[</span><span class="s1">'widget'</span> <span class="o">=&gt;</span> <span class="s2">"single_text"</span><span class="p">]</span>
-<span class="linenos" data-linenos="11 "></span>        <span class="p">)</span>
-<span class="linenos" data-linenos="12 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'poster'</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
-<span class="linenos" data-linenos="13 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'genre'</span><span class="p">,</span> <span class="nx">EntityType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
-<span class="linenos" data-linenos="14 "></span>            <span class="p">[</span><span class="s1">'class'</span> <span class="o">=&gt;</span> <span class="nx">Genre</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
-<span class="linenos" data-linenos="15 "></span>                <span class="s1">'choice_label'</span> <span class="o">=&gt;</span> <span class="s1">'name'</span><span class="p">,</span>
-<span class="linenos" data-linenos="16 "></span>                <span class="s1">'placeholder'</span> <span class="o">=&gt;</span> <span class="s1">'Select a genre'</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'slug'</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'summary'</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'content'</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'publishedAt'</span><span class="p">,</span> <span class="nx">DateType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+<span class="linenos" data-linenos="11 "></span>                <span class="p">[</span><span class="s1">'widget'</span> <span class="o">=&gt;</span> <span class="s2">"single_text"</span><span class="p">]</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'author'</span><span class="p">,</span> <span class="nx">EntityType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="p">[</span><span class="s1">'class'</span> <span class="o">=&gt;</span> <span class="nx">User</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+<span class="linenos" data-linenos="15 "></span>                <span class="s1">'choice_label'</span> <span class="o">=&gt;</span> <span class="s1">'username'</span><span class="p">,</span>
+<span class="linenos" data-linenos="16 "></span>                <span class="s1">'placeholder'</span> <span class="o">=&gt;</span> <span class="s1">'Select a user'</span><span class="p">,</span>
 <span class="linenos" data-linenos="17 "></span>            <span class="p">]</span>
 <span class="linenos" data-linenos="18 "></span>        <span class="p">)</span>
 <span class="linenos" data-linenos="19 "></span>        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'create'</span><span class="p">,</span> <span class="nx">SubmitType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'label'</span> <span class="o">=&gt;</span> <span class="s1">'Create'</span><span class="p">));</span>
@@ -845,30 +850,29 @@ crear el formulari, com fèiem abans en el mètode nou o a editar:</p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>   <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
 <span class="linenos" data-linenos="2 "></span>    <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">([</span>
-<span class="linenos" data-linenos="4 "></span>            <span class="s1">'data_class'</span> <span class="o">=&gt;</span> <span class="nx">Movie</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+<span class="linenos" data-linenos="4 "></span>            <span class="s1">'data_class'</span> <span class="o">=&gt;</span> <span class="nx">Post</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
 <span class="linenos" data-linenos="5 "></span>        <span class="p">]);</span>
 <span class="linenos" data-linenos="6 "></span>    <span class="p">}</span>
 </code></pre></div>
-Ara, només ens queda reemplaçar el codi de crear el formulari en nou o
+Ara només ens queda reemplaçar el codi de crear el formulari en nou o
 editar per l'ús d'aquesta nova classe:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/Controller/MovieController.php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="p">{</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$movie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Movie</span><span class="p">();</span>
-<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createForm</span><span class="p">(</span><span class="nx">MovieType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$movie</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$post</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Post</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createForm</span><span class="p">(</span><span class="nx">PostType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$post</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 6 "></span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">handleRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 8 "></span>
-<span class="linenos" data-linenos=" 9 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>
-<span class="linenos" data-linenos="10 "></span>        <span class="nv">$movie</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
-<span class="linenos" data-linenos="11 "></span>        <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
-<span class="linenos" data-linenos="12 "></span>        <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$movie</span><span class="p">);</span>
-<span class="linenos" data-linenos="13 "></span>        <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
-<span class="linenos" data-linenos="14 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectToRoute</span><span class="p">(</span><span class="s1">'home'</span><span class="p">);</span>
-<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="16 "></span>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'movies_create.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-<span class="linenos" data-linenos="17 "></span>        <span class="s1">'form'</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">()));</span>
-<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>        
+<span class="linenos" data-linenos="10 "></span>        <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$post</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectToRoute</span><span class="p">(</span><span class="s1">'app_index'</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'posts_create.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="s1">'form'</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="p">));</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">}</span>
 </code></pre></div>
 <h3 id="afegint-estil-als-formularis">Afegint estil als formularis</h3>
 <p>Els formularis que hem generat en aquesta sessió són molt funcionals,
@@ -917,9 +921,13 @@ crear els teus propis. Podeu consultar més informació en
 <h3 id="afegir-estils-per-a-les-validacions">Afegir estils per a les validacions</h3>
 <p>En el cas de les validacions de dades del formulari, també podem definir
 estils perquè els missatges que d'error que es mostren (paràmetre
-message o similars en les anotacions de l'entitat) tinguen un estil
+<code>message</code> o similars en les anotacions de l'entitat) tinguen un estil
 determinat. Açò s'aconsegueix fàcilment triant algun dels temes
 predefinits de Symfony.</p>
+<h3 id="personalitzacio-dels-formularis">Personalització dels formularis</h3>
+<p><strong>Twig</strong> permet controlar amb major detall la renderització dels formularis. En lloc d'usar
+la funció <code>form</code> podem emprar, per exemple, <code>form_row(entitat.atribut)</code> que permet renderitzar una propietat concreta.</p>
+<p>Per obtenir una informació més detallada és molt recomanable que reviseu: <a href="https://symfony.com/doc/current/form/form_customization.html">How to Customize Form Rendering</a>.</p>
 </article>
 </div>
 </div>
